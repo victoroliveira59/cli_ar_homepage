@@ -1,0 +1,85 @@
+.sobre-empresa-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px 20px;
+	max-width: 1200px;
+	margin: 0;
+  }
+
+  .sobre-empresa-item {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 40px;
+	gap: 20px;
+	width: 100%;
+	padding: 20px;
+  }
+
+  .sobre-empresa-item .imagem img {
+	width: 250px;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .sobre-empresa-item .imagem:hover img {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .sobre-empresa-item .descricao {
+	max-width: 600px;
+	text-align: center;
+  }
+
+  .card {
+	padding: 20px;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .card h2 {
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 10px;
+  }
+
+  .card p {
+	font-size: 16px;
+	color: #666;
+  }
+
+  .sobre-empresa-item .card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Alternar a ordem imagem e texto */
+  .sobre-empresa-item .imagem {
+	order: 1;
+  }
+
+  .sobre-empresa-item .descricao {
+	order: 2;
+  }
+
+  .sobre-empresa-item .reverso {
+	order: 2;
+  }
+
+  .sobre-empresa-item .reverso + .descricao {
+	order: 1;
+  }
+
+  @media (max-width: 768px) {
+	.sobre-empresa-item {
+	  flex-direction: column;
+	  text-align: center;
+	}
+  }

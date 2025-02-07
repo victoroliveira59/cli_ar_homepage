@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';  // Certifique-se de importar aqui
 
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-contato',
   templateUrl: './contato.component.html',
   styleUrls: ['./contato.component.css'],
   standalone: true,  // Isso define o componente como standalone
-  imports: [ReactiveFormsModule]  // Módulo necessário para formulários reativos
+  imports: [ReactiveFormsModule,CommonModule]  // Módulo necessário para formulários reativos
 })
 export class ContatoComponent implements OnInit {
   contatoForm!: FormGroup;
@@ -27,4 +29,6 @@ export class ContatoComponent implements OnInit {
       console.log(this.contatoForm.value);
     }
   }
+
+
 }

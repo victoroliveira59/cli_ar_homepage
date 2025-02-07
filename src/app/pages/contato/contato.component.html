@@ -3,23 +3,24 @@
   <label for="nome">Nome</label>
   <input type="text" id="nome" formControlName="nome" required>
 
-  <div *ngIf="contatoForm.get('nome').invalid && contatoForm.get('nome').touched" class="error-message">
+  <div *ngIf="contatoForm.get('nome')?.invalid && contatoForm.get('nome')?.touched" class="error-message">
     O nome é obrigatório.
   </div>
 
   <label for="email">Email</label>
   <input type="email" id="email" formControlName="email" required>
 
-  <div *ngIf="contatoForm.get('email').invalid && contatoForm.get('email').touched" class="error-message">
+  <div *ngIf="contatoForm.get('email')?.invalid && contatoForm.get('email')?.touched" class="error-message">
     Por favor, insira um email válido.
   </div>
 
   <label for="mensagem">Mensagem</label>
   <textarea id="mensagem" formControlName="mensagem" required></textarea>
 
-  <div *ngIf="contatoForm.get('mensagem').invalid && contatoForm.get('mensagem').touched" class="error-message">
+  <div *ngIf="contatoForm.get('mensagem')?.invalid && contatoForm.get('mensagem')?.touched" class="error-message">
     A mensagem é obrigatória.
   </div>
 
   <button type="submit" [disabled]="contatoForm.invalid">Enviar</button>
+
 </form>

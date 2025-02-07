@@ -1,0 +1,39 @@
+/* Reset Global */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+
+  body {
+	font-family: 'Arial', sans-serif;
+	background-color: #f9f9f9;
+	line-height: 1.6;
+	background-image: url('public/img/fundo.png');  /* Substitua pelo caminho da sua imagem */
+	background-size: cover;  /* Faz com que a imagem cubra todo o fundo */
+	background-position: center center;  /* Posiciona a imagem no centro */
+	background-attachment: fixed;  /* Faz com que a imagem de fundo não se mova quando o usuário rola a página */
+	background-repeat: no-repeat;  /* Evita a repetição da imagem */
+	min-height: 100vh;  /* Garante que o fundo cubra toda a altura da tela */
+  }
+
+  router-outlet + * {
+	padding-top: 70px;  /* Compensa o navbar fixo */
+  }
+
+  /* Garantir que o conteúdo não fique escondido atrás do navbar */
+  .section {
+	height: 100vh;  /* Cada seção ocupa a tela toda */
+	padding: 80px 20px;  /* Padding para compensar o navbar fixo */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	scroll-margin-top: 70px;  /* Compensa a altura do navbar fixo */
+  }
+
+  /* Diferenciar as seções com cores diferentes */
+  #home { background-color: rgba(221, 14, 14, 0.7); }
+  #servicos { background-color: rgba(224, 247, 250, 0.7); }
+  #sobre { background-color: rgba(255, 236, 179, 0.7); }
+  #contato { background-color: rgba(255, 204, 188, 0.7); }

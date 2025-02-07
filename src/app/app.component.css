@@ -1,0 +1,6 @@
+
+  router-outlet + * {
+	padding-top: 70px; /* Ajuste isso se o navbar for maior ou menor */
+  }
+
+

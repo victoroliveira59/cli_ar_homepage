@@ -1,1 +1,11 @@
-<p>servicos works!</p>
+<div class="servicos-container">
+	<h1>Nossos Serviços</h1>
+
+	<div class="cards-grid">
+	  <div class="card" *ngFor="let servico of servicos">
+		<img src="{{servico.imagem}}" [alt]="servico.nome">
+		<h2>{{ servico.nome }}</h2>
+		<p>{{ servico.descricao }}</p>
+	  </div>
+	</div>
+  </div>

@@ -1,34 +1,22 @@
-nav {
-	background-color: #007BFF;
-	padding: 10px;
-  }
 
-  nav ul {
-	list-style: none;
-	display: flex;
-	justify-content: space-around;
-	margin: 0;
-	padding: 0;
-  }
 
-  nav ul li a {
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-  }
 
-  nav ul li a:hover {
-	text-decoration: underline;
-  }
+
   .hero {
+	/*background-image: url('sua-imagem-de-fundo.jpg'); /* Substitua pelo caminho da sua imagem */
+	background-size: cover; /* Faz com que a imagem cubra toda a área */
+	background-position: center; /* Centraliza a imagem */
+	background-repeat: no-repeat; /* Evita repetição da imagem */
+	height: 100vh; /* Garante que a hero section ocupe toda a altura da tela */
 	text-align: center;
-	padding: 50px;
-	background-color: #f0f8ff;
+	color: #21558d; /* Cor do texto */
+	padding: 50px 20px; /* Ajusta o padding */
   }
+
 
   .hero h1 {
 	font-size: 3rem;
-	color: #007BFF;
+	color: #255383;
   }
 
   .hero p {
@@ -38,7 +26,7 @@ nav {
 
   .hero button {
 	padding: 10px 20px;
-	background-color: #007BFF;
+	background-color: #0d63c0;
 	color: white;
 	border: none;
 	cursor: pointer;
@@ -47,4 +35,53 @@ nav {
 
   .hero button:hover {
 	background-color: #0056b3;
+  }
+
+  /* Media Query para telas pequenas (smartphones) */
+  @media (max-width: 768px) {
+	/* Ajusta o menu para ficar em uma coluna em telas menores */
+	nav ul {
+	  flex-direction: column; /* Muda de linha para coluna */
+	  align-items: center; /* Centraliza os itens na coluna */
+	}
+
+	nav ul li a {
+	  font-size: 1rem; /* Ajusta o tamanho da fonte */
+	}
+
+	.hero {
+	  padding: 20px; /* Ajusta o padding da hero section */
+	}
+
+	.hero h1 {
+	  font-size: 2rem; /* Ajusta o tamanho do título */
+	}
+
+	.hero p {
+	  font-size: 1rem; /* Ajusta o tamanho do parágrafo */
+	}
+
+	.hero button {
+	  padding: 6px 12px; /* Ajusta o tamanho do botão */
+	}
+  }
+
+  /* Media Query para telas muito pequenas (mobile) */
+  @media (max-width: 480px) {
+	/* Ajustes adicionais para telas menores */
+	.hero h1 {
+	  font-size: 2rem; /* Ajusta ainda mais o título */
+	}
+
+	.hero p {
+	  font-size: 1rem; /* Ajusta o tamanho do parágrafo */
+	}
+
+	nav ul li a {
+	  font-size: 1rem; /* Ajusta o tamanho dos links no menu */
+	}
+
+	.hero button {
+	  padding: 6px 12px; /* Ajusta o tamanho do botão */
+	}
   }

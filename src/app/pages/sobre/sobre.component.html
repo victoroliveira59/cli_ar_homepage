@@ -1,1 +1,13 @@
-<p>sobre works!</p>
+<div class="sobre-empresa-container">
+	<div class="sobre-empresa-item" *ngFor="let item of sobreEmpresaItems; let i = index">
+	  <div class="imagem" [class.reverso]="i % 2 !== 0">
+		<img [src]="item.imgSrc" alt="Imagem ilustrativa" />
+	  </div>
+	  <div class="descricao">
+		<div class="card">
+		  <h2>{{ item.titulo }}</h2>
+		  <p>{{ item.descricao }}</p>
+		</div>
+	  </div>
+	</div>
+  </div>

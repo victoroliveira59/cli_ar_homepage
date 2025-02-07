@@ -1,15 +1,8 @@
-<nav>
-	<ul>
-	  <li><a routerLink="/">Home</a></li>
-	  <li><a routerLink="/servicos">Serviços</a></li>
-	  <li><a routerLink="/sobre">Sobre Nós</a></li>
-	  <li><a routerLink="/contato">Contato</a></li>
-	</ul>
-  </nav>
+
   <section class="hero">
 	<h1>Bem-vindo à Cli_Ar!</h1>
 	<p>Especialistas em instalação e manutenção de ar-condicionado</p>
-	<button routerLink="/contato">Solicite um Orçamento</button>
+	<button (click)="goToServicos()">Solicite um Orçamento</button>
   </section>
 
 
