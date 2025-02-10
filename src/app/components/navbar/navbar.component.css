@@ -20,7 +20,7 @@
   .logo img {
 	height: 150px;  /* Ajuste o tamanho da logo para caber no navbar */
 	width: auto;
-	margin-right: 20px;  /* Espaço entre a logo e o texto, se houver */
+	margin-left: -60px;  /* Espaço entre a logo e o texto, se houver */
   }
 
   .logo a {
@@ -66,24 +66,27 @@
 	}
 
 	.nav-links {
-	  position: absolute;
-	  top: 70px;  /* Alinhar o menu dropdown logo abaixo do navbar */
-	  right: 0;
-	  width: 200px;
-	  background-color: rgba(2, 2, 2, 0.9);  /* Fundo do menu dropdown com leve transparência */
-	  flex-direction: column;
-	  align-items: center;
-	  display: none;
-	  padding: 20px 0;
-	  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		position: absolute;
+		top: 60px;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.9);
+		width: 100%;
+		height: 100vh;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		display: none;
+		gap: 20px;
+		padding: 20px;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+	  }
+
+	  .nav-links.active {
+		display: flex;
+		opacity: 1;
+		visibility: visible;
+	  }
 	}
 
-	.nav-links li {
-	  margin: 10px 0;
-	}
-
-	/* Exibe o menu quando o ícone hambúrguer é clicado */
-	.nav-links.active {
-	  display: flex;
-	}
-  }

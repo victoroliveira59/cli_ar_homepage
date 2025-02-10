@@ -12,7 +12,6 @@ import { ScrollService } from '../../scroll.service';
 })
 export class NavbarComponent {
   title = 'cli_ar';
-  isHomePage = true; // Inicialmente assume que é a home
   menuAberto = false; // Inicialmente assume que o menu está fechado
 
   constructor(private scrollService: ScrollService) { } // Injete o serviço
