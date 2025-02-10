@@ -48,7 +48,7 @@
 }
 
 .nav-links li a {
-	color: white;  /* Texto opaco e visível */
+	color: rgb(255, 255, 255);  /* Texto opaco e visível */
 	text-decoration: none;
 	font-weight: bold;
 	transition: color 0.3s ease;
@@ -65,7 +65,7 @@
 	font-size: 2rem;
 	cursor: pointer;
 	padding-right: 10px;
-	color: white;  /* Ícone também permanece visível */
+	color: rgb(0, 0, 0);  /* Ícone também permanece visível */
 }
 
 /* Responsividade para telas menores */
@@ -89,7 +89,16 @@
 		transition: right 0.3s ease;  /* Suave transição ao abrir o menu */
 		box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);  /* Sombra suave à esquerda */
 		border-radius: 10px 0 0 10px;  /* Bordas arredondadas à esquerda e à direita */
+		color: black;
 	}
+
+	.nav-links li a {
+		color: rgb(3, 3, 3);  /* Texto opaco e visível */
+		text-decoration: none;
+		font-weight: bold;
+		transition: color 0.3s ease;
+	}
+
 
 	/* Menu visível, animado para aparecer à direita */
 	.nav-links.active {
