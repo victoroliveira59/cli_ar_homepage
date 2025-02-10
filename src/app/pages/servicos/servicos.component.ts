@@ -1,12 +1,13 @@
-import { Component } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-servicos',
-  standalone: true,  // Adicione isso se for um componente standalone
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, SlickCarouselModule],
   templateUrl: './servicos.component.html',
-  styleUrls: ['./servicos.component.css']  // Corrigido: era styleUrl, o correto é styleUrls
+  styleUrls: ['./servicos.component.css']
 })
 export class ServicosComponent {
   servicos = [
@@ -21,8 +22,8 @@ export class ServicosComponent {
       imagem: 'img/limpeza-de-ar-condicionado-de-janela.jpg'
     },
     {
-      nome: 'Sistema Életrico',
-      descricao: 'Troca de Componentes életricos',
+      nome: 'Sistema Elétrico',
+      descricao: 'Troca de Componentes Elétricos',
       imagem: 'img/reparo_componentes_eletricos.jpg'
     },
     {
@@ -30,5 +31,33 @@ export class ServicosComponent {
       descricao: 'Diagnóstico e reparo rápido de falhas em aparelhos de diversas marcas.',
       imagem: 'img/troca_compressor.jpg'
     }
-  ]
+  ];
+
+  slideConfig = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    infinite: true,
+    dots: true,
+    arrows: true,
+    cssEase: 'ease-in-out',
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
 }

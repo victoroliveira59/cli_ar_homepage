@@ -12,16 +12,15 @@ import { ContatoComponent } from './pages/contato/contato.component'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,
-            CommonModule,
-            RouterModule,
-            NavbarComponent,
-            FooterComponent,
-            HomeComponent,
-            ServicosComponent,
-            SobreComponent,
-            ContatoComponent],
-            
+  imports: [CommonModule,
+    RouterModule,
+    NavbarComponent,
+    FooterComponent,
+    HomeComponent,
+    ServicosComponent,
+    SobreComponent,
+    ContatoComponent],
+
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

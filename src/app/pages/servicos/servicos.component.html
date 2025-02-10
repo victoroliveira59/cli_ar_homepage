@@ -1,11 +1,15 @@
-<div class="servicos-container">
-	<h1>Nossos Serviços</h1>
+<section id="servicos">
+	<div class="servicos-container">
+	  <h1>Nossos Serviços</h1>
 
-	<div class="cards-grid">
-	  <div class="card" *ngFor="let servico of servicos">
-		<img src="{{servico.imagem}}" [alt]="servico.nome">
-		<h2>{{ servico.nome }}</h2>
-		<p>{{ servico.descricao }}</p>
+	  <div class="centralizador">
+		<ngx-slick-carousel class="carousel" [config]="slideConfig">
+		  <div ngxSlickItem *ngFor="let servico of servicos" class="slide">
+			<img [src]="servico.imagem" [alt]="servico.nome" class="img-style">
+			<h3>{{ servico.nome }}</h3>
+			<p>{{ servico.descricao }}</p>
+		  </div>
+		</ngx-slick-carousel>
 	  </div>
 	</div>
-  </div>
+  </section>
