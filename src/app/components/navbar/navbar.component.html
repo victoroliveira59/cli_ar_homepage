@@ -1,6 +1,5 @@
 <nav class="navbar">
 	<div class="logo">
-	  <!-- Correção: A tag <a> agora contém uma <img> corretamente configurada -->
 	  <a href="#home">
 		<img src="img/logo/Logo_AR_Branca.png" class="logo-img">
 	  </a>
@@ -11,11 +10,11 @@
 	  &#9776; <!-- Ícone hambúrguer (☰) -->
 	</div>
 
-	<!-- Links de navegação -->
-	<ul [class.active]="menuAberto" class="nav-links">
+	<!-- Links de navegação com controle de visibilidade -->
+	<ul [class.active]="menuAberto" [class.hidden]="!menuVisible" class="nav-links">
 	  <li><a href="#home" (click)="scrollToSection($event, 'home')">Home</a></li>
 	  <li><a href="#servicos" (click)="scrollToSection($event, 'servicos')">Serviços</a></li>
 	  <li><a href="#sobre" (click)="scrollToSection($event, 'sobre')">Sobre Nós</a></li>
 	  <li><a href="#contato" (click)="scrollToSection($event, 'contato')">Contato</a></li>
 	</ul>
-  </nav>
+</nav>
