@@ -18,17 +18,17 @@ export class ServicosComponent {
     {
       nome: 'Manutenção Preventiva',
       descricao: 'Evite problemas futuros com uma manutenção regular e eficiente.',
-      imagem: 'assets/img/manutencao.jpg'
+      imagem: 'img/limpeza-de-ar-condicionado-de-janela.jpg'
     },
     {
-      nome: 'Limpeza de Filtros',
-      descricao: 'Melhore a qualidade do ar com a limpeza adequada dos filtros do seu ar-condicionado.',
-      imagem: 'assets/img/limpeza.jpg'
+      nome: 'Sistema Életrico',
+      descricao: 'Troca de Componentes életricos',
+      imagem: 'img/reparo_componentes_eletricos.jpg'
     },
     {
       nome: 'Conserto de Equipamentos',
       descricao: 'Diagnóstico e reparo rápido de falhas em aparelhos de diversas marcas.',
-      imagem: 'assets/img/conserto.jpg'
+      imagem: 'img/troca_compressor.jpg'
     }
   ]
 }

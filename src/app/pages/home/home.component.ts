@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router'; // Importando o RouterModule
+import { Component, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common'; // Importando o CommonModule
 import { ScrollService } from '../../scroll.service';
 
 @Component({
@@ -7,14 +7,27 @@ import { ScrollService } from '../../scroll.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [RouterModule] // Adicionando RouterModule no campo imports
-  // Adicionando RouterModule no campo imports
+  imports: [CommonModule] // Adicionando CommonModule nas importações
 })
 export class HomeComponent {
-  constructor(private scrollService: ScrollService) { } // Injete o serviço
+  isImageVisible: boolean = false;  // Flag para controlar a visibilidade da imagem
+
+  constructor(private scrollService: ScrollService) { }
 
   // Método para rolar para a seção 'servicos'
   goToServicos(): void {
     this.scrollService.scrollToSection('contato'); // Chama o método do serviço
+  }
+
+  // Detecção de rolagem para mostrar a imagem
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event: Event): void {
+    const scrollPosition = window.scrollY; // Posição da rolagem da página
+    const heroSection = document.querySelector('.hero') as HTMLElement;
+
+    // Quando o topo da seção hero chegar perto do topo da tela, a imagem vai surgir
+    if (scrollPosition > heroSection.offsetTop - window.innerHeight) {
+      this.isImageVisible = true;
+    }
   }
 }

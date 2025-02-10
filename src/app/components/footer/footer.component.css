@@ -5,23 +5,29 @@
 	padding: 40px 20px;
 	font-family: Arial, sans-serif;
 	text-align: center;
-	margin-top: 40px;
-	
   }
 
+  /* Container do Footer */
   .footer-container {
 	display: flex;
 	justify-content: space-between;
 	gap: 20px;
 	flex-wrap: wrap;
+	width: 100%;
+	max-width: 1200px;  /* Limitar a largura máxima */
+	margin: 0 auto;
+	align-items: flex-start;
   }
 
+  /* Seção do Footer */
   .footer-section {
 	flex: 1;
-	min-width: 250px; /* Garante que cada seção tenha pelo menos 250px */
+	min-width: 250px;  /* Garante que cada seção tenha pelo menos 250px */
 	padding: 10px;
+	margin-bottom: 20px;
   }
 
+  /* Título da seção no Footer */
   .footer-title {
 	font-size: 18px;
 	font-weight: bold;
@@ -29,6 +35,7 @@
 	text-transform: uppercase;
   }
 
+  /* Estilo dos links do Footer */
   .footer-links,
   .footer-contact {
 	list-style-type: none;
@@ -52,6 +59,7 @@
 	color: #ff6600;
   }
 
+  /* Ícones sociais do Footer */
   .social-icons {
 	display: flex;
 	gap: 10px;
@@ -85,5 +93,10 @@
 
 	.footer-section {
 	  margin-bottom: 20px;
+	}
+
+	.social-icons {
+	  justify-content: center;
+	  gap: 15px;
 	}
   }

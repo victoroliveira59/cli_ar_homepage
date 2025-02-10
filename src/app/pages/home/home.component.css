@@ -1,87 +1,134 @@
-
-
-
-
-  .hero {
-	/*background-image: url('sua-imagem-de-fundo.jpg'); /* Substitua pelo caminho da sua imagem */
-	background-size: cover; /* Faz com que a imagem cubra toda a área */
-	background-position: center; /* Centraliza a imagem */
-	background-repeat: no-repeat; /* Evita repetição da imagem */
-	height: 100vh; /* Garante que a hero section ocupe toda a altura da tela */
-	text-align: center;
-	color: #21558d; /* Cor do texto */
-	padding: 50px 20px; /* Ajusta o padding */
-  }
-
-
-  .hero h1 {
-	font-size: 3rem;
-	color: #255383;
-  }
-
-  .hero p {
-	font-size: 1.5rem;
-	margin: 20px 0;
-  }
-
-  .hero button {
-	padding: 10px 20px;
-	background-color: #0d63c0;
+/* Estilo da seção hero */
+.hero {
+	position: relative;
+	height: 90vh;  /* O hero ocupará toda a altura da tela */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	color: white;
-	border: none;
-	cursor: pointer;
-	border-radius: 5px;
+	text-align: center;
   }
 
-  .hero button:hover {
+  .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
+	z-index: 1;
+  }
+
+  .hero-content {
+	position: relative;
+	z-index: 2;
+  }
+
+  /* Título principal */
+  .hero-content h1 {
+	font-size: 3rem;
+	margin-bottom: 20px;
+	line-height: 1.2;
+  }
+
+  .hero-content h1 span {
+	color: #0099ff;  /* Destaque para o nome da empresa */
+  }
+
+  /* Parágrafo descritivo */
+  .hero-content p {
+	font-size: 1.5rem;
+	margin-bottom: 30px;
+	color: #e0e0e0;
+  }
+
+  .balanco-imagem {
+	position: absolute;
+	bottom: -23%;  /* Ajuste para posicionar a imagem onde você deseja */
+	left: 65%;
+	transform: translateX(-80%);
+	animation: pulse 3s ease-in-out infinite;  /* Faz a animação repetir infinitamente */
+	z-index: 2;
+  }
+
+  /* A animação de balanço */
+  @keyframes pulse {
+	0% {
+	  transform: scale(1); /* Tamanho original */
+	}
+	50% {
+	  transform: scale(1.1); /* Aumenta levemente */
+	}
+	100% {
+	  transform: scale(1); /* Retorna ao tamanho original */
+	}
+  }
+
+
+  /* Estilo da imagem */
+  .balanco-imagem img {
+	max-width: 200%;
+	max-height: 500px; /* Ajuste a altura máxima da imagem */
+	transition: transform 0.4s ease;
+  }
+
+  /* Estilos do botão CTA */
+  .cta-button {
+	background-color: #007bff;
+	color: white;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 5px;
+	font-size: 18px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
 	background-color: #0056b3;
   }
 
-  /* Media Query para telas pequenas (smartphones) */
-  @media (max-width: 768px) {
-	/* Ajusta o menu para ficar em uma coluna em telas menores */
-	nav ul {
-	  flex-direction: column; /* Muda de linha para coluna */
-	  align-items: center; /* Centraliza os itens na coluna */
+  /* Animação de entrada */
+  @keyframes fadeIn {
+	from {
+	  opacity: 0;
+	  transform: translateY(20px);
 	}
-
-	nav ul li a {
-	  font-size: 1rem; /* Ajusta o tamanho da fonte */
-	}
-
-	.hero {
-	  padding: 20px; /* Ajusta o padding da hero section */
-	}
-
-	.hero h1 {
-	  font-size: 2rem; /* Ajusta o tamanho do título */
-	}
-
-	.hero p {
-	  font-size: 1rem; /* Ajusta o tamanho do parágrafo */
-	}
-
-	.hero button {
-	  padding: 6px 12px; /* Ajusta o tamanho do botão */
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
 	}
   }
 
-  /* Media Query para telas muito pequenas (mobile) */
-  @media (max-width: 480px) {
-	/* Ajustes adicionais para telas menores */
-	.hero h1 {
-	  font-size: 2rem; /* Ajusta ainda mais o título */
+  @keyframes brilho {
+	0% {
+	  filter: brightness(1) blur(0px);  /* Sem brilho, sem borrão */
+	}
+	50% {
+	  filter: brightness(1.5) blur(2px);  /* Brilho intenso e um leve borrão */
+	}
+	100% {
+	  filter: brightness(1) blur(0px);  /* Retorna ao normal */
+	}
+}
+
+
+
+  /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+	.hero-content h1 {
+	  font-size: 2.2rem;
+	}
+	.balanco-imagem {
+		display: none; /* Esconde a imagem em telas pequenas */
 	}
 
-	.hero p {
-	  font-size: 1rem; /* Ajusta o tamanho do parágrafo */
+	.hero-content p {
+	  font-size: 1.2rem;
 	}
 
-	nav ul li a {
-	  font-size: 1rem; /* Ajusta o tamanho dos links no menu */
-	}
-
-	.hero button {
-	  padding: 6px 12px; /* Ajusta o tamanho do botão */
+	.cta-button {
+	  padding: 12px 25px;
+	  font-size: 1rem;
 	}
   }
