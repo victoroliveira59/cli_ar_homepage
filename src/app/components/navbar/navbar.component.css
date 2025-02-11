@@ -1,10 +1,10 @@
 /* Estilo Geral da Navbar */
 .navbar {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: rgba(2, 2, 2, 0.9);  /* Deixando o fundo mais sólido */
+	background-color: rgba(2, 2, 2, 0.5);  /* Deixando o fundo mais sólido */
 	padding: 5px 35px;
 	display: flex;
 	justify-content: space-between;
@@ -71,8 +71,9 @@
 		top: 70px;
 		right: -90%;  /* Inicialmente oculto fora da tela */
 		width: 90%;  /* Sidebar ocupa 50% da tela */
-		height: 270px;
-		background-color: #111;  /* Fundo sólido para o sidebar */
+
+		height: 100vh;
+		background-color: rgba(2, 2, 2, 0.9);  /* Fundo sólido para o sidebar */
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
