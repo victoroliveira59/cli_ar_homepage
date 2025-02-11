@@ -16,7 +16,8 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022"
+    "module": "ES2022",
+    "lib": ["ES2022", "DOM"]  // Adicionado suporte explícito ao ES2022 e ao DOM
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

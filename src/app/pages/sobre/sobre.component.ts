@@ -35,7 +35,8 @@ export class SobreComponent implements AfterViewInit {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           const target = entry.target as HTMLElement;
-          const index = this.elements.toArray().findIndex(el => el.nativeElement === target);
+          const index = this.elements.toArray().findIndex((el: ElementRef) => el.nativeElement === target);
+
 
           if (index !== -1) {
             if (entry.isIntersecting) {
