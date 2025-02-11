@@ -1,42 +1,61 @@
-import { Component, HostListener } from '@angular/core';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { filter } from 'rxjs';
-import { ScrollService } from '../../scroll.service';
+import { Component, HostListener } from '@angular/core'
+import { ScrollService } from '../../scroll.service'
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  title = 'cli_ar';
-  isHomePage = true; // Inicialmente assume que é a home
-  menuAberto = false; // Inicialmente assume que o menu está fechado
-  menuVisible = true;  // Controla a visibilidade do menu
+  menuAberto = false  // Estado do menu (aberto/fechado)
+  menuVisible = true  // Controla visibilidade do menu com rolagem
 
-  constructor(private scrollService: ScrollService) { }
+  constructor(private scrollService: ScrollService) {}
 
-  // Função para alternar a abertura e fechamento do menu
+  // Alterna a abertura e fechamento do menu
   toggleMenu() {
-    this.menuAberto = !this.menuAberto;
+    this.menuAberto = !this.menuAberto
+    this.toggleOverlay(this.menuAberto)
   }
 
-  // Usando o serviço para rolar para a seção
+  // Fecha o menu e o overlay quando um link é clicado
   scrollToSection(event: Event, sectionId: string): void {
-    event.preventDefault(); // Impede o comportamento padrão de navegação
-    this.scrollService.scrollToSection(sectionId); // Chama o método do serviço
-    this.menuAberto = false; // Fecha o menu após o clique
+    event.preventDefault()
+    this.scrollService.scrollToSection(sectionId)
+    this.menuAberto = false
+    this.toggleOverlay(false)
   }
 
-  // Listener de rolagem para esconder o menu
+  // Exibe ou esconde o overlay
+  toggleOverlay(show: boolean) {
+    const overlay = document.querySelector('.overlay') as HTMLElement
+    if (overlay) {
+      if (show) {
+        overlay.classList.add('active')
+      } else {
+        overlay.classList.remove('active')
+      }
+    }
+  }
+
+  // Fecha o menu clicando fora do sidebar
+  closeMenuOnClickOutside(event: Event) {
+    const navLinks = document.querySelector('.nav-links') as HTMLElement
+    if (this.menuAberto && !navLinks.contains(event.target as Node)) {
+      this.menuAberto = false
+      this.toggleOverlay(false)
+    }
+  }
+
+  // Esconde o menu com a rolagem para baixo
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    if (window.scrollY > 50) {  // Quando a rolagem passar de 50px, esconder o menu
-      this.menuVisible = false;
-    } else {
-      this.menuVisible = true;  // Quando o usuário voltar para o topo, mostrar o menu novamente
-    }
+    this.menuVisible = window.scrollY <= 50
+  }
+
+  // Fecha o menu se clicar fora dele
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    this.closeMenuOnClickOutside(event)
   }
 }

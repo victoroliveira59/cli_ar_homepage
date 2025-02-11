@@ -1,110 +1,68 @@
-/* Container principal da página de serviços */
-.servicos-container {
-	position: relative;
-	padding: 80px 20px;  /* Padding maior para afastar o conteúdo das bordas */
-	text-align: center;
-	min-height: 100vh;  /* Garante que ocupe toda a altura da tela */
-	background-size: cover;
-	background-position: center;
+.centralizador {
 	display: flex;
+	justify-content: center;
+	width: 100%;
+  }
+
+  .carousel {
+	width: 100%;
+	max-width: 800px;
+	overflow: hidden;
+  }
+
+  .slide {
+	display: flex !important;  /* Garante que os slides fiquem lado a lado */
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	color: white;
-	overflow: hidden;
-}
-
-/* Overlay escurecido para destacar o conteúdo */
-.servicos-container::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
+	background-color: #ffffff;
+	border-radius: 15px;
+	padding: 20px;
 	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.5);  /* Escurece o fundo sem afetar os cards */
-	z-index: 1;
-}
+  }
 
-/* Garante que o conteúdo fique acima do overlay */
-.servicos-container h1,
-.cards-grid {
-	position: relative;
-	z-index: 2;
-}
-
-/* Título da página de serviços */
-.servicos-container h1 {
-	color: #FFD700;  /* Cor dourada para destacar o título */
-	margin-bottom: 40px;
-	font-size: 3rem;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);  /* Sombra para maior destaque */
-}
-
-/* Grid dos cards */
-.cards-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 20px;
+  .img-style {
 	width: 100%;
-	max-width: 1200px;  /* Limita a largura para melhor visualização */
-	padding: 0 20px;
-}
-
-/* Estilização dos cards */
-.card {
-	background: none;  /* Remover fundo do card */
-	border: none;  /* Remover borda */
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  /* Sombra leve para destacar */
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	overflow: hidden;
-	position: relative;
-}
-
-/* Imagem dentro dos cards */
-.card img {
-	width: 100%;
-	height: 180px;
+	max-width: 600px;
+	height: 300px;
 	object-fit: cover;
 	border-radius: 10px;
-	opacity: 0.6;  /* Tornar a imagem mais suave */
-}
+	margin-bottom: 20px;
+  }
 
-/* Título dos serviços nos cards */
-.card h2 {
-	font-size: 1.5rem;
-	color: #fff;  /* Cor do texto para maior contraste */
-	margin: 15px 10px 5px;
-	font-weight: bold;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);  /* Sombra para melhorar a legibilidade */
-}
-/* Descrição dos serviços nos cards */
-.card p {
+  h3 {
+	font-size: 1.8rem;
+	color: #333;
+	margin-bottom: 10px;
+	text-align: center;
+  }
+
+  p {
 	font-size: 1rem;
-	color: #fff;  /* Cor do texto para contraste */
-	margin: 0 10px 20px;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);  /* Sombra para destacar o texto */
-}
+	color: #666;
+	text-align: center;
+  }
 
-/* Efeito hover nos cards */
-.card:hover {
-	transform: translateY(-10px);
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
+  .slick-prev::before, .slick-next::before {
+	color: #65b029 !important;
+	font-size: 24px;
+  }
 
+  .slick-dots li button:before {
+	color: #65b029 !important;
+	font-size: 12px;
+  }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-	.servicos-container h1 {
-	  font-size: 2.2rem;
+  @media (max-width: 768px) {
+	.img-style {
+	  height: 200px;
 	}
 
-	.card h2 {
-	  font-size: 1.3rem;
+	h3 {
+	  font-size: 1.5rem;
 	}
 
-	.card p {
+	p {
 	  font-size: 0.9rem;
 	}
-}
+  }

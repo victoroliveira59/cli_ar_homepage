@@ -15,7 +15,6 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
 	z-index: 1;
   }
 
@@ -26,6 +25,7 @@
 
   /* Título principal */
   .hero-content h1 {
+	color: black;
 	font-size: 3rem;
 	margin-bottom: 20px;
 	line-height: 1.2;
@@ -39,7 +39,12 @@
   .hero-content p {
 	font-size: 1.5rem;
 	margin-bottom: 30px;
-	color: #e0e0e0;
+	color: #fffdfd;
+  }
+  .hero-content .text {
+	font-size: 1.5rem;
+	margin-bottom: 30px;
+	color: #0e0d0d;
   }
 
   .balanco-imagem {
@@ -82,6 +87,34 @@
 	font-size: 18px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
+  }
+
+  .urgency-message {
+	position: absolute;
+	top: 280px; /* Controla a distância do fundo */
+	left: -250px;  /* Controla a distância da esquerda */
+	font-size: 1rem;
+	background-color: rgba(0, 0, 0, 0.7);  /* Fundo mais escuro para destacar */
+	padding: 15px;
+	border-radius: 5px; /* Bordas arredondadas */
+	color: white;
+	text-align: left;  /* Alinha o texto à esquerda */
+
+  }
+
+  .urgency-message p {
+	font-size: 0.9rem;
+	margin: 0;
+	font-weight: bold;
+  }
+
+  .urgency-message a {
+	color: #FFD700;
+	text-decoration: none;
+  }
+
+  .urgency-message a:hover {
+	text-decoration: underline;
   }
 
   .cta-button:hover {

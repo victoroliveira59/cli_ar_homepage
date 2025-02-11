@@ -1,155 +1,95 @@
-/* Container principal da seção "Sobre a Empresa" */
+/* Container principal */
 .sobre-empresa-container {
 	position: relative;
-	padding: 80px 20px;  /* Padding maior para afastar o conteúdo das bordas */
+	padding: 80px 20px;
+	background-color: #f5f5f5;
 	text-align: center;
-	min-height: 100vh;  /* Garante que ocupe toda a altura da tela */
-	background-size: cover;
-	background-position: center;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: white;
-	overflow: hidden;
-}
+	min-height: 100vh;
+  }
 
-/* Overlay escurecido para destacar o conteúdo */
-.sobre-empresa-container::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.5);  /* Escurece o fundo sem afetar o conteúdo */
-	z-index: 1;
-}
-
-/* Garante que o conteúdo fique acima do overlay */
-.sobre-empresa-item,
-.sobre-empresa-container h1 {
-	position: relative;
-	z-index: 2;
-}
-
-/* Título da seção */
-.sobre-empresa-container h1 {
-	font-size: 3rem;
+  /* Título principal */
+  .sobre-empresa-container h1 {
+	color: #000;
 	margin-bottom: 40px;
-	color: #FFD700;  /* Cor dourada para manter o padrão visual */
-	/* Removido o text-shadow para tirar o destaque */
-}
-
-/* Itens da seção com imagem e descrição */
-.sobre-empresa-item {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 40px;
-	gap: 20px;
-	width: 100%;
-	padding: 20px;
-}
-
-/* Imagem com efeitos */
-.sobre-empresa-item .imagem img {
-	width: 300px;
-	height: auto;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.sobre-empresa-item .imagem:hover img {
-	transform: scale(1.05);
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Descrição com texto centralizado */
-.sobre-empresa-item .descricao {
-	max-width: 600px;
+	font-size: 2.5rem;
 	text-align: left;
-	color: #e0e0e0;  /* Cor do texto para manter legibilidade */
-	/* Removido o text-shadow para tirar o destaque */
-}
+	width: 100%;
+	padding-left: 20px;
+  }
 
-/* Estilo dos cards */
-/* Estilo dos cards */
-.card {
-	background: none;  /* Remover fundo do card */
-	border: none;  /* Remover borda */
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  /* Sombra leve para destacar */
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	overflow: hidden;
-	position: relative;
-}
+  /* Estilo dos itens */
+  .sobre-empresa-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 60px;
+	gap: 40px;
+  }
 
-  /* Títulos dentro dos cards */
-  .card h2 {
-	font-size: 1.5rem;
-	color: #fff;  /* Cor do texto para maior contraste */
-	margin: 15px 10px 5px;
-	font-weight: bold;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);  /* Sombra para melhorar a legibilidade */
-}
+  /* Alternar a ordem para layout intercalado */
+  .sobre-empresa-item.reverso {
+	flex-direction: row-reverse;
+  }
 
-  /* Descrição dos serviços nos cards */
-  .card p {
-	font-size: 1rem;
-	color: #fff;  /* Cor do texto para contraste */
-	margin: 0 10px 20px;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);  /* Sombra para destacar o texto */
-}
+  /* Estilo das imagens */
+  .imagem img {
+	width: 100%;
+	max-width: 400px;
+	border-radius: 15px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease-in-out;
+  }
 
+  /* Descrição */
+  .descricao {
+	flex: 1 1 50%;
+	text-align: left;
+  }
 
-/* Efeito hover nos cards */
-.card:hover {
-	transform: translateY(-10px);
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
+  /* Card */
+  .card {
+	background-color: #fff;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
 
-/* Efeito de hover nos cards */
-.sobre-empresa-item .card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+  /* Animações */
+  .animate-left {
+	opacity: 0;
+	transform: translateX(-50px);
+	animation: fadeInLeft 1s forwards;
+  }
 
-/* Alternar a ordem imagem e texto */
-.sobre-empresa-item .imagem {
-	order: 1;
-}
+  .animate-right {
+	opacity: 0;
+	transform: translateX(50px);
+	animation: fadeInRight 1s forwards;
+  }
 
-.sobre-empresa-item .descricao {
-	order: 2;
-}
+  @keyframes fadeInLeft {
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+  }
 
-.sobre-empresa-item .reverso {
-	order: 2;
-}
+  @keyframes fadeInRight {
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+  }
 
-.sobre-empresa-item .reverso + .descricao {
-	order: 1;
-}
-
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
+  /* Responsividade */
+  @media (max-width: 768px) {
 	.sobre-empresa-item {
 	  flex-direction: column;
+	}
+
+	.descricao {
 	  text-align: center;
 	}
-
-	.sobre-empresa-container h1 {
-	  font-size: 2.5rem;
-	}
-
-	.card h2 {
-	  font-size: 20px;
-	}
-
-	.card p {
-	  font-size: 14px;
-	}
-}
+  }
