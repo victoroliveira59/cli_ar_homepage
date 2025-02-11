@@ -6,7 +6,7 @@
 	text-align: center;
 	min-height: 100vh;
   }
-
+  
   /* Título principal */
   .sobre-empresa-container h1 {
 	color: #000;
@@ -16,7 +16,7 @@
 	width: 100%;
 	padding-left: 20px;
   }
-
+  
   /* Estilo dos itens */
   .sobre-empresa-item {
 	display: flex;
@@ -26,12 +26,12 @@
 	margin-bottom: 60px;
 	gap: 40px;
   }
-
+  
   /* Alternar a ordem para layout intercalado */
   .sobre-empresa-item.reverso {
 	flex-direction: row-reverse;
   }
-
+  
   /* Estilo das imagens */
   .imagem img {
 	width: 100%;
@@ -40,13 +40,13 @@
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 	transition: transform 0.3s ease-in-out;
   }
-
+  
   /* Descrição */
   .descricao {
 	flex: 1 1 50%;
 	text-align: left;
   }
-
+  
   /* Card */
   .card {
 	background-color: #fff;
@@ -55,40 +55,72 @@
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
-
-  /* Animações */
-  .animate-left {
+  
+ /* Animações de entrada */
+.animate-left {
 	opacity: 0;
 	transform: translateX(-50px);
 	animation: fadeInLeft 1s forwards;
   }
-
+  
   .animate-right {
 	opacity: 0;
 	transform: translateX(50px);
 	animation: fadeInRight 1s forwards;
   }
-
+  
+  /* Animações de saída */
+  .animate-left-out {
+	animation: fadeOutLeft 1s forwards;
+  }
+  
+  .animate-right-out {
+	animation: fadeOutRight 1s forwards;
+  }
+  
+  /* Keyframes para animações de entrada */
   @keyframes fadeInLeft {
 	to {
 	  opacity: 1;
 	  transform: translateX(0);
 	}
   }
-
+  
   @keyframes fadeInRight {
 	to {
 	  opacity: 1;
 	  transform: translateX(0);
 	}
   }
-
+  
+  /* Keyframes para animações de saída */
+  @keyframes fadeOutLeft {
+	from {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+	to {
+	  opacity: 0;
+	  transform: translateX(-50px);
+	}
+  }
+  
+  @keyframes fadeOutRight {
+	from {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+	to {
+	  opacity: 0;
+	  transform: translateX(50px);
+	}
+  }
   /* Responsividade */
   @media (max-width: 768px) {
 	.sobre-empresa-item {
 	  flex-direction: column;
 	}
-
+  
 	.descricao {
 	  text-align: center;
 	}
