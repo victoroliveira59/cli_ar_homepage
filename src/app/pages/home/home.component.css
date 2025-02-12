@@ -262,6 +262,85 @@
 	}
   }
 
+  /* Responsividade para celular de 6.1 polegadas em paisagem */
+@media (max-width: 1300px) and (orientation: landscape) {
+	/* Ajuste do Hero */
+	.hero-content {
+		max-width: 80%; /* Reduz a largura para tablets */
+		text-align: center;
+		margin-right: 0;
+		max-width: 450px;
+		padding: 60px;
+	  }
+
+	  .hero-content {
+		max-width: 90%;
+		text-align: center;
+		padding: 10px;
+	  }
+
+	.hero-content h1 {
+		font-size: 2rem; /* Reduz o tamanho da fonte para caber melhor */
+	}
+
+	.hero-content p, .hero-content .text {
+		font-size: 1.2rem;
+	}
+
+	.diferenciais li {
+		font-size: 0.9rem;
+	}
+
+	/* Botão de ação ajustado */
+	.cta-button {
+		padding: 12px 20px;
+		font-size: 1rem;
+	}
+
+	/* Ajuste da Imagem à Direita */
+	.right-image-container {
+		position: relative;
+		width: 45%;
+		top: auto;
+		right: auto;
+		transform: none;
+		opacity: 0.8;
+	}
+
+	.right-image-container img {
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+	}
+
+	/* Navbar ajustada */
+	.navbar {
+		padding: 5px 20px;
+	}
+
+	.logo img {
+		height: 50px; /* Reduz o tamanho da logo para caber melhor na navbar */
+		margin-top: 0;
+	}
+
+	.nav-links li a {
+		font-size: 1rem;
+	}
+
+	/* Mensagem de urgência */
+	.urgency-message {
+		bottom: 15px;
+		left: 20px;
+		font-size: 0.9rem;
+		padding: 10px 15px;
+	}
+
+	.urgency-message.expanded {
+		width: 80%;
+	}
+}
+
+
   /* Responsividade para Dispositivos Móveis */
   @media (max-width: 768px) {
 	.hero-content {
@@ -323,5 +402,17 @@
 	  font-size: 0.7rem;
 	  padding: 6px 10px;
 	}
+
+	.right-image-container {
+		width: 70%;
+		top: 5%;
+		right: 10px;
+	  }
+
+	  .right-image-container img {
+		width: 100%;
+		height: auto;
+		opacity: 0.1;
+	  }
 
   }
