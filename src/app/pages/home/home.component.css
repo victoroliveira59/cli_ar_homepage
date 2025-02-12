@@ -1,167 +1,356 @@
-/* Estilo da seção hero */
 .hero {
 	position: relative;
-	height: 90vh;  /* O hero ocupará toda a altura da tela */
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: white;
-	text-align: center;
-  }
+	overflow: hidden;
+	background: linear-gradient(to left, #ffffff, #4676aa);
+}
 
-  .overlay {
+.left-container {
+	position: absolute;
+	width: 180px;
+	height: 115%;
+	background-color: #0056b3;
+	top: -10%;
+	left: -70px;
+	border-radius: 0 20px 20px 0;
+	z-index: 1;
+	animation: slideDown 2.5s ease-out forwards;
+	box-shadow: #000000 0 4px 8px;
+	opacity: 0.6;
+}
+
+.overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
 	z-index: 1;
   }
 
-  .hero-content {
+.hero-content {
 	position: relative;
 	z-index: 2;
-  }
+	text-align: flex-start;
+	margin-right: 900px;
+	max-width: 450px;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0);
+	border-radius: 15px;
+	animation: slideInLeft 1s ease-out 0.5s forwards;
 
-  /* Título principal */
-  .hero-content h1 {
-	color: black;
-	font-size: 3rem;
+}
+
+.hero-content h1 {
+	font-size: 2.5rem;
+	color: #023163e5;
 	margin-bottom: 20px;
-	line-height: 1.2;
   }
 
-  .hero-content h1 span {
-	color: #0099ff;  /* Destaque para o nome da empresa */
-  }
+.hero-content h1 span {
+	color: #000000;
+}
 
-  /* Parágrafo descritivo */
-  .hero-content p {
+.hero-content p {
 	font-size: 1.5rem;
-	margin-bottom: 30px;
+	margin-bottom: 5px;
 	color: #fffdfd;
-  }
-  .hero-content .text {
-	font-size: 1.5rem;
+}
+
+.hero-content .text {
+	font-size: 1.2rem;
+	color: #222020;
 	margin-bottom: 30px;
-	color: #0e0d0d;
   }
 
-  .balanco-imagem {
-	position: absolute;
-	bottom: -23%;  /* Ajuste para posicionar a imagem onde você deseja */
-	left: 65%;
-	transform: translateX(-80%);
-	animation: pulse 3s ease-in-out infinite;  /* Faz a animação repetir infinitamente */
-	z-index: 2;
-  }
-
-  /* A animação de balanço */
-  @keyframes pulse {
-	0% {
-	  transform: scale(1); /* Tamanho original */
-	}
-	50% {
-	  transform: scale(1.1); /* Aumenta levemente */
-	}
-	100% {
-	  transform: scale(1); /* Retorna ao tamanho original */
-	}
+  .diferenciais {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 30px;
   }
 
 
-  /* Estilo da imagem */
-  .balanco-imagem img {
-	max-width: 200%;
-	max-height: 500px; /* Ajuste a altura máxima da imagem */
-	transition: transform 0.4s ease;
+  .diferenciais li {
+	font-size: 1rem;
+	color: #302e2e;
+	margin-bottom: 10px;
   }
 
-  /* Estilos do botão CTA */
-  .cta-button {
+  .diferenciais i {
+	margin-right: 10px;
+	color: #007bff;
+  }
+
+
+.hero-content.visible {
+	opacity: 1;
+}
+
+.cta-button {
 	background-color: #007bff;
 	color: white;
-	padding: 12px 24px;
+	padding: 15px 30px;
 	border: none;
-	border-radius: 5px;
-	font-size: 18px;
+	border-radius: 8px;
+	font-size: 1.1rem;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-  }
-
-  .urgency-message {
-	position: absolute;
-	top: 280px; /* Controla a distância do fundo */
-	left: -250px;  /* Controla a distância da esquerda */
-	font-size: 1rem;
-	background-color: rgba(0, 0, 0, 0.7);  /* Fundo mais escuro para destacar */
-	padding: 15px;
-	border-radius: 5px; /* Bordas arredondadas */
-	color: white;
-	text-align: left;  /* Alinha o texto à esquerda */
-
-  }
-
-  .urgency-message p {
-	font-size: 0.9rem;
-	margin: 0;
-	font-weight: bold;
-  }
-
-  .urgency-message a {
-	color: #FFD700;
-	text-decoration: none;
-  }
-
-  .urgency-message a:hover {
-	text-decoration: underline;
   }
 
   .cta-button:hover {
 	background-color: #0056b3;
   }
 
-  /* Animação de entrada */
-  @keyframes fadeIn {
-	from {
-	  opacity: 0;
-	  transform: translateY(20px);
-	}
-	to {
-	  opacity: 1;
-	  transform: translateY(0);
-	}
+  .cta-button i {
+	margin-right: 10px;
   }
 
-  @keyframes brilho {
+.urgency-message {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	padding: 10px 15px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease-in-out;
+	z-index: 1000;
+}
+
+.urgency-message.expanded {
+	width: 300px;
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+.urgency-message p {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.urgency-message a {
+	color: #FFD700;
+	text-decoration: none;
+}
+
+.urgency-message a:hover {
+	text-decoration: underline;
+}
+
+.urgency-message span {
+	font-size: 0.9rem;
+}
+
+.right-image-container {
+	position: absolute;
+	top: 5%;
+	right: 30px;
+	transform: translateY(-50%);
+	z-index: 0;
+	opacity: 0.5;
+}
+
+.right-image-container img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	opacity: 0.5;
+	box-shadow: #000000 0 4px 8px;
+}
+
+.right-image-container,
+.hero-content {
+	visibility: hidden;
+}
+
+.slide-in-right,
+.slide-in-left,
+.slide-in-down {
+	visibility: visible;
+	animation: none;
+}
+
+.right-image-container.visible,
+.hero-content.visible {
+	visibility: visible;
+	animation: slideInRight 1s ease-out forwards;
+}
+
+@keyframes slideInRight {
 	0% {
-	  filter: brightness(1) blur(0px);  /* Sem brilho, sem borrão */
-	}
-	50% {
-	  filter: brightness(1.5) blur(2px);  /* Brilho intenso e um leve borrão */
+		transform: translateX(100%);
+		opacity: 0;
 	}
 	100% {
-	  filter: brightness(1) blur(0px);  /* Retorna ao normal */
+		transform: translateX(0);
+		opacity: 1;
 	}
 }
 
+.slide-in-right {
+	animation: slideInRight 1s ease-out 0.5s forwards;
+}
 
-
-  /* Responsividade para telas menores */
-  @media (max-width: 768px) {
-	.hero-content h1 {
-	  font-size: 2.2rem;
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
 	}
-	.balanco-imagem {
-		display: none; /* Esconde a imagem em telas pequenas */
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideDown {
+	0% {
+		top: -80%;
+	}
+	100% {
+		top: -20%;
+	}
+}
+
+@keyframes slideInLeft {
+	0% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@media (max-width: 1024px) {
+	.hero-content {
+		width: 90%; /* Reduz a largura para tablets */
+		text-align: center;
+	}
+
+	.hero-content h1 {
+		font-size: 2.5rem;
 	}
 
 	.hero-content p {
-	  font-size: 1.2rem;
+		font-size: 1.4rem;
+	}
+
+	.urgency-message {
+		font-size: 0.9rem;
+		padding: 12px 18px;
+		max-width: 250px;
+	}
+
+	.right-image-container {
+		width: 70%;
+		top: 10%;
+		right: 20px;
+	}
+
+	.right-image-container img {
+		width: 100%;
 	}
 
 	.cta-button {
-	  padding: 12px 25px;
-	  font-size: 1rem;
+		padding: 12px 20px;
+		font-size: 1.1rem;
 	}
-  }
+
+	.urgency-message.expanded {
+		width: 90%;
+		left: 5%;
+		right: 5%;
+	}
+	.left-container {
+		width: 150px; /* Reduz a largura para telas menores */
+		left: -30px; /* Ajusta a posição para não sair da tela */
+		height: 100%; /* Ajusta a altura para dispositivos menores */
+		top: -20%; /* Ajusta o top para não ficar tão afastado */
+	}
+}
+
+@media (max-width: 768px) {
+	.hero-content {
+		max-width: 90%;
+		text-align: center;
+		color: white;
+	}
+
+	.hero-content h1 {
+		font-size: 2rem;
+	}
+
+	.hero-content p {
+		font-size: 1.2rem;
+	}
+
+	.cta-button {
+		padding: 12px 25px;
+		font-size: 1rem;
+	}
+
+	.urgency-message {
+		bottom: 15px;
+		left: 15px;
+		font-size: 0.9rem;
+	}
+
+	.urgency-message.expanded {
+		width: 90%;
+		left: 5%;
+		right: 5%;
+	}
+
+	.right-image-container img {
+		width: 70vw;
+	}
+
+	.left-container {
+		width: 120px; /* Largura reduzida em telas menores */
+		left: -20px; /* Ajusta a posição da esquerda */
+		top: -10%; /* Ajusta o top para dispositivos móveis */
+	}
+}
+
+@media (max-width: 480px) {
+	.hero-content {
+		padding: 0 20px; /* Adiciona padding para o conteúdo */
+	}
+
+	.hero-content h1 {
+		font-size: 1.5rem;
+	}
+
+	.hero-content p {
+		font-size: 1rem;
+	}
+
+	.urgency-message {
+		bottom: 10px;
+		left: 10px;
+		font-size: 0.8rem;
+		padding: 8px 12px;
+	}
+
+	.right-image-container {
+		width: 80%;
+		right: 10px;
+	}
+
+	.right-image-container img {
+		width: 100%;
+	}
+
+	.left-container {
+		width: 100px; /* Largura ainda menor para telas pequenas */
+		left: 0; /* Alinha o container à esquerda da tela */
+		top: -5%; /* Ajusta o top para telas muito pequenas */
+	}
+}
