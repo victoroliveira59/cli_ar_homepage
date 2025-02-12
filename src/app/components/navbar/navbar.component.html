@@ -1,15 +1,18 @@
 <nav class="navbar">
+
+	<div class="navbar-container">	</div>
+
 	<div class="logo">
 	  <a href="#home">
 		<img src="img/logo/Logo_AR_Branca.png" class="logo-img" alt="Logo">
 	  </a>
 	</div>
-  
+
 	<!-- Ícone do menu hambúrguer -->
 	<div class="menu-toggle" (click)="toggleMenu()">
 	  &#9776; <!-- Ícone hambúrguer (☰) -->
 	</div>
-  
+
 	<!-- Links de navegação com ícones -->
 	<ul [class.active]="menuAberto" [class.hidden]="!menuVisible" class="nav-links">
 	  <li><a href="#home" (click)="scrollToSection($event, 'home')"><i class="fas fa-home"></i> Home</a></li>
@@ -18,7 +21,6 @@
 	  <li><a href="#contato" (click)="scrollToSection($event, 'contato')"><i class="fas fa-phone-alt"></i> Contato</a></li>
 	</ul>
   </nav>
-  
+
   <!-- Overlay para fechar o menu clicando fora -->
   <div class="overlay" (click)="toggleMenu()"></div>
-  
