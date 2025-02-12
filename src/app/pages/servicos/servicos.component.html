@@ -1,15 +1,20 @@
-<section id="servicos">
-	<div class="servicos-container">
-	  <h1>Nossos Serviços</h1>
-
-	  <div class="centralizador">
-		<ngx-slick-carousel class="carousel" [config]="slideConfig">
+<div class="servicos-container">
+	<h1>Nossos Serviços</h1>
+	<div class="centralizador">
+	  <div class="carousel-wrapper">
+		<ngx-slick-carousel class="carousel" [config]="slideConfig" #slickModal="slick-carousel">
 		  <div ngxSlickItem *ngFor="let servico of servicos" class="slide">
-			<img [src]="servico.imagem" [alt]="servico.nome" class="img-style">
-			<h3>{{ servico.nome }}</h3>
-			<p>{{ servico.descricao }}</p>
+			<div class="slide-overlay"></div>
+			<img [src]="servico.imagem" alt="{{ servico.nome }}" class="img-style">
+			<div class="slide-content">
+			  <h3>{{ servico.nome }}</h3>
+			  <p>{{ servico.descricao }}</p>
+			  <button class="btn-saiba-mais">Saiba Mais</button>
+			</div>
 		  </div>
 		</ngx-slick-carousel>
+		<button class="custom-prev" (click)="slickModal.slickPrev()">❮</button>
+		<button class="custom-next" (click)="slickModal.slickNext()">❯</button>
 	  </div>
 	</div>
-  </section>
+  </div>

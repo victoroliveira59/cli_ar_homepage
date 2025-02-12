@@ -49,14 +49,16 @@ export class ServicosComponent {
         breakpoint: 992,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          arrows: true
         }
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          arrows: true
         }
       }
     ]

@@ -1,145 +1,181 @@
-/* Container principal */
+/* Estilo do container principal */
 .servicos-container {
-	padding: 80px 20px;
-	background-color: hsl(0, 0%, 98%);
-	text-align: center;
+	padding: 0;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #f9f9f9;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Poppins', sans-serif; /* Fonte moderna */
   }
 
   /* Título principal */
   .servicos-container h1 {
 	color: #000;
-	margin-bottom: 40px;
-	font-size: 2.5rem;
-	text-align: left;
-	width: 100%;
-	padding-left: 20px;
+	font-size: 3rem;
+	text-align: center;
+	padding-top: 40px;
   }
 
   /* Centralizador do carousel */
   .centralizador {
+	flex: 1;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
   }
 
   /* Estilo do carousel */
-  .carousel {
+.carousel {
 	width: 100%;
-	max-width: 1000px;
+	height: 100%;
 	overflow: hidden;
+	position: relative;
   }
 
   /* Estilo dos slides */
   .slide {
-	display: flex !important;
-	flex-direction: column;
+	position: relative;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #ffffff;
-	border-radius: 15px 15px 15px 0;
-	padding: 20px;
-	margin: 5px;
-
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border-radius: 15px;
+	overflow: hidden;
+	height: 500px; /* Altura fixa para os slides */
+  }
+  .carousel-wrapper {
+	position: relative; /* Permite posicionar as setas dentro deste container */
+	width: 100%;
+	max-width: 1200px; /* Ajuste conforme necessário */
+	margin: 0 auto;
   }
 
-  /* Efeito de hover nos slides */
-  .slide:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  /* Overlay escuro para melhorar a legibilidade do texto */
+  .slide-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5); /* Overlay escuro */
+	z-index: 1;
   }
 
-  /* Estilo das imagens */
+  /* Estilo da imagem */
   .img-style {
 	width: 100%;
-	max-width: 800px;
-	height: 350px;
+	height: 100%;
 	object-fit: cover;
-	border-radius: 10px;
-	margin-bottom: 20px;
-	transition: transform 0.3s ease;
+	position: absolute;
+	top: 0;
+	left: 0;
   }
 
-  /* Efeito de zoom nas imagens */
-  .img-style:hover {
-	transform: scale(1.05);
-  }
-
-  /* Estilo do título do serviço */
-  h3 {
-	font-size: 2rem;
-	color: #333;
-	margin-bottom: 15px;
+  /* Conteúdo do slide (texto e botão) */
+  .slide-content {
+	position: relative;
+	z-index: 2;
 	text-align: center;
+	color: #fff;
+	max-width: 80%;
   }
 
-  /* Estilo da descrição do serviço */
-  p {
-	font-size: 1.1rem;
-	color: #666;
-	text-align: center;
+  /* Título do serviço */
+  .slide-content h3 {
+	font-size: 2.5rem;
+	font-weight: 600;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+  }
+
+  /* Descrição do serviço */
+  .slide-content p {
+	font-size: 1.2rem;
 	line-height: 1.6;
 	margin-bottom: 20px;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra no texto */
   }
 
-  /* Estilo do botão "Saiba Mais" */
+  /* Botão "Saiba Mais" */
   .btn-saiba-mais {
 	background-color: #65b029;
 	color: #fff;
 	border: none;
-	padding: 10px 20px;
+	padding: 12px 24px;
 	border-radius: 5px;
 	font-size: 1rem;
 	cursor: pointer;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease, transform 0.3s ease;
   }
 
-  /* Efeito de hover no botão */
   .btn-saiba-mais:hover {
 	background-color: #4a8c1f;
+	transform: translateY(-3px); /* Efeito de levantar o botão */
   }
 
-  /* Estilo das setas de navegação */
-  .slick-prev::before, .slick-next::before {
-	color: #65b029 !important;
-	font-size: 30px;
-  }
+  /* Estilo das setas personalizadas */
+.custom-prev,
+.custom-next {
+  position: absolute; /* Posiciona as setas dentro do container */
+  top: 50%; /* Alinha verticalmente ao centro */
+  transform: translateY(-50%); /* Ajusta o posicionamento vertical */
+  z-index: 2; /* Garante que as setas fiquem acima do carousel */
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo das setas */
+  border: none;
+  border-radius: 50%; /* Deixa as setas redondas */
+  width: 40px; /* Largura das setas */
+  height: 40px; /* Altura das setas */
+  font-size: 20px; /* Tamanho do ícone */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  /* Estilo dos dots de navegação */
-  .slick-dots {
-	bottom: -40px;
-  }
+.custom-prev:hover,
+.custom-next:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fundo mais claro no hover */
+}
 
-  .slick-dots li button:before {
-	color: #65b029 !important;
-	font-size: 14px;
-	opacity: 0.5;
-  }
+.custom-prev {
+  left: 10px; /* Distância da borda esquerda */
+}
 
-  .slick-dots li.slick-active button:before {
-	opacity: 1;
-  }
+.custom-next {
+  right: 10px; /* Distância da borda direita */
+}
 
-  /* Responsividade para telas menores */
-  @media (max-width: 768px) {
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+	.servicos-container h1 {
+		font-size: 2rem;
+		text-align: center;
+		padding: 15px;
+	}
+
 	.slide {
-	  padding: 20px;
+		padding: 10px;
+		margin: 5px;
 	}
 
 	.img-style {
-	  height: 250px;
+		height: 200px;
 	}
 
 	h3 {
-	  font-size: 1.6rem;
+		font-size: 1.6rem;
 	}
 
 	p {
-	  font-size: 1rem;
+		font-size: 1rem;
 	}
 
 	.btn-saiba-mais {
-	  padding: 8px 16px;
-	  font-size: 0.9rem;
+		padding: 8px 16px;
+		font-size: 0.9rem;
 	}
-  }
+}
