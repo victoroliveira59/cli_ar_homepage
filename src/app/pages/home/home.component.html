@@ -1,26 +1,41 @@
 <section class="hero">
-	<!-- Camada de overlay para o efeito escurecido no fundo -->
 	<div class="overlay"></div>
 
-	<!-- Conteúdo principal da Hero Section -->
-	<div class="hero-content">
-	  <h1>Bem-vindo à <span>Alves Refrigeração!</span></h1>
-	  <p class="text">Especialistas em <strong>instalação</strong> e <strong>manutenção</strong> de ar-condicionado.</p>
+	<!-- Container esquerdo (opcional, se ainda for necessário) -->
+	<div class="left-container"></div>
 
-	  <!-- Botão de chamada para ação (CTA) -->
+	<!-- Conteúdo Principal -->
+	<div class="hero-content" [ngClass]="{ 'slide-in-left': isContentVisible, 'visible': isContentVisible }">
+	  <h1>Soluções Completas para Refrigeradores</h1>
+	  <p class="text">
+		Oferecemos <strong>manutenção preventiva e corretiva</strong> para sistemas de refrigeração, garantindo
+		<strong>eficiência, durabilidade e economia de energia</strong>.
+	  </p>
+
+	  <ul class="diferenciais">
+		<li><i class="fa fa-clock"></i> Atendimento 24 horas para emergências</li>
+		<li><i class="fa fa-shield"></i> Garantia de 90 dias em todos os serviços</li>
+		<li><i class="fa fa-certificate"></i> Técnicos certificados</li>
+	  </ul>
+
+
+	  <!-- Botão de Chamada para Ação (CTA) -->
 	  <button class="cta-button" (click)="goToServicos()">
-		<i class="fa fa-tools"></i> Solicite um Orçamento
+		<i class="fa fa-tools"></i>Agende uma Visita Técnica!
 	  </button>
-
-	  <!-- Frase de urgência -->
-	  <div class="urgency-message">
-	    <p><strong>Urgência?</strong> Ligue já e fale com um técnico!
-	     Ligar: <a href=""></a></p>
-	  </div>
 	</div>
 
-	<!-- Imagem que vai balançar -->
-	<div class="balanco-imagem" [ngClass]="{ 'show': isImageVisible }">
-	  <img src="img/refrigeracao.png" alt="Imagem Balançando" />
+	<!-- Imagem com animação -->
+	<div class="right-image-container" [ngClass]="{ 'slide-in-right': isImageVisible, 'visible': isImageVisible }">
+	  <img src="img/geladeira-aberta.webp" alt="Refrigeração Especializada">
 	</div>
-</section>
+
+	<!-- Mensagem de Urgência -->
+	<div class="urgency-message" [ngClass]="{ 'expanded': isUrgencyExpanded }" (click)="toggleUrgencyMessage()">
+	  <p *ngIf="isUrgencyExpanded">
+		<strong>Urgência?</strong> Ligue já e fale com um técnico!
+		<a href="tel:+11999999999">(11) 99999-9999</a>
+	  </p>
+	  <span *ngIf="!isUrgencyExpanded">🚨 Atendimento 24h</span>
+	</div>
+  </section>
