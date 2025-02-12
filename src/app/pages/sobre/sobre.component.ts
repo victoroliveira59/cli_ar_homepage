@@ -1,16 +1,15 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, QueryList, ViewChildren } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common'
+import { Component, ElementRef, Inject, PLATFORM_ID, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-sobre',
   imports: [CommonModule],
   templateUrl: './sobre.component.html',
-  styleUrl: './sobre.component.css'
+  styleUrls: ['./sobre.component.css']
 })
-export class SobreComponent {
+export class SobreComponent implements AfterViewInit {
 
   @ViewChildren('imageRef, descRef') elements!: QueryList<ElementRef>;
-  isVisible: boolean[] = [];
   sobreEmpresaItems = [
     {
       imgSrc: 'assets/img/historia.jpg',
@@ -28,16 +27,26 @@ export class SobreComponent {
       descricao: 'Contamos com uma equipe de profissionais altamente qualificados, equipamentos de ponta e um compromisso inabalável com a satisfação do cliente. Nosso diferencial é a combinação de tecnologia e atendimento humanizado.'
     }
   ];
+
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = this.elements.toArray().findIndex(el => el.nativeElement === entry.target);
-            if (index !== -1) {
-              this.isVisible[index] = true;
+          const target = entry.target as HTMLElement;
+          const index = this.elements.toArray().findIndex((el: ElementRef) => el.nativeElement === target);
+
+
+          if (index !== -1) {
+            if (entry.isIntersecting) {
+              // Entrou na viewport: animação de entrada
+              target.classList.remove('animate-left-out', 'animate-right-out');
+              target.classList.add(index % 2 === 0 ? 'animate-left' : 'animate-right');
+            } else {
+              // Saiu da viewport: animação de saída
+              target.classList.remove('animate-left', 'animate-right');
+              target.classList.add(index % 2 === 0 ? 'animate-left-out' : 'animate-right-out');
             }
           }
         });

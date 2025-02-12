@@ -37,12 +37,13 @@ export class ServicosComponent {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000, // Aumentei o tempo de autoplay
     pauseOnHover: true,
     infinite: true,
     dots: true,
     arrows: true,
     cssEase: 'ease-in-out',
+    fade: true, // Adicionar efeito de fade
     responsive: [
       {
         breakpoint: 992,
