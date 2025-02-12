@@ -7,9 +7,12 @@
   
   /* Título principal */
   .servicos-container h1 {
-	font-size: 2.5rem;
-	color: #333;
+	color: #000;
 	margin-bottom: 40px;
+	font-size: 2.5rem;
+	text-align: left;
+	width: 100%;
+	padding-left: 20px;
   }
   
   /* Centralizador do carousel */
@@ -33,10 +36,10 @@
 	align-items: center;
 	justify-content: center;
 	background-color: #ffffff;
-	border-radius: 15px;
-	padding: 30px;
-	margin: 10px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	border-radius: 15px 15px 15px 0;
+	padding: 20px;
+	margin: 5px;
+
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
