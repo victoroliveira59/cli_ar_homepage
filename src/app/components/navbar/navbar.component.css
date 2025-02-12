@@ -17,10 +17,12 @@
 
 /* Logo */
 .logo img {
-	transition: scale(1.05);
-	height: 400px;
-	margin-left: -470px;
-	margin-top: 100px;
+	transition: transform 0.3s ease;
+	height: 500px;          /* Tamanho padrão para telas grandes */
+	max-width: 125%;        /* Garante que a logo não ultrapasse a largura da tela */
+	margin-left: -300px;         /* Alinhado à esquerda sem margem negativa */
+	margin-top: 100px;      /* Espaçamento superior */
+	object-fit: contain;    /* Mantém a proporção correta da imagem */
 }
 
 .logo a {
@@ -71,8 +73,7 @@
 		position: fixed;
 		top: 70px;
 		right: -90%;  /* Inicialmente oculto fora da tela */
-		width: 90%;  /* Sidebar ocupa 50% da tela */
-
+		width: 90%;   /* Sidebar ocupa 90% da tela */
 		height: 100vh;
 		background-color: rgba(2, 2, 2, 0.9);  /* Fundo sólido para o sidebar */
 		flex-direction: column;
@@ -123,4 +124,16 @@
 .overlay.active {
 	opacity: 0.1;
 	visibility: visible;
+}
+
+/* --------- RESPONSIVIDADE PARA A LOGO --------- */
+
+/* Ajustes para Telas Pequenas (Celulares) */
+@media (max-width: 768px) {
+	.logo img {
+		height: 180px;      /* Reduz ainda mais a logo em telas pequenas */
+		max-width: 300%;        /* Garante que a logo não ultrapasse a largura da tela */
+		margin-left: -200px;         /* Alinhado à esquerda sem margem negativa */
+		margin-top: 30px;
+	}
 }
