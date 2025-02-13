@@ -3,8 +3,8 @@
 	padding: 0;
 	margin: 0;
 	width: 100vw;
-	height: 100vh;
-	background-color: #f9f9f9;
+	height: 120vh;
+	background-color: #ffffff;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -12,12 +12,18 @@
 	font-family: 'Poppins', sans-serif; /* Fonte moderna */
   }
 
-  /* Título principal */
   .servicos-container h1 {
 	color: #000;
 	font-size: 3rem;
+	padding-top: 20px;
 	text-align: center;
-	padding-top: 40px;
+	margin-left: 0;
+	padding-left: 20px;
+	display: block;
+	width: 100%;
+	opacity: 0; /* Inicialmente invisível */
+	transform: scale(0.8); /* Inicialmente menor */
+	transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
   }
 
   /* Centralizador do carousel */
@@ -33,7 +39,7 @@
   }
 
   /* Estilo do carousel */
-.carousel {
+  .carousel {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -50,6 +56,7 @@
 	overflow: hidden;
 	height: 500px; /* Altura fixa para os slides */
   }
+
   .carousel-wrapper {
 	position: relative; /* Permite posicionar as setas dentro deste container */
 	width: 100%;
@@ -120,62 +127,155 @@
   }
 
   /* Estilo das setas personalizadas */
-.custom-prev,
-.custom-next {
-  position: absolute; /* Posiciona as setas dentro do container */
-  top: 50%; /* Alinha verticalmente ao centro */
-  transform: translateY(-50%); /* Ajusta o posicionamento vertical */
-  z-index: 2; /* Garante que as setas fiquem acima do carousel */
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo das setas */
-  border: none;
-  border-radius: 50%; /* Deixa as setas redondas */
-  width: 40px; /* Largura das setas */
-  height: 40px; /* Altura das setas */
-  font-size: 20px; /* Tamanho do ícone */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+  .custom-prev,
+  .custom-next {
+	position: absolute; /* Posiciona as setas dentro do container */
+	top: 50%; /* Alinha verticalmente ao centro */
+	transform: translateY(-50%); /* Ajusta o posicionamento vertical */
+	z-index: 2; /* Garante que as setas fiquem acima do carousel */
+	background-color: rgba(255, 255, 255, 0.8); /* Fundo das setas */
+	border: none;
+	border-radius: 50%; /* Deixa as setas redondas */
+	width: 40px; /* Largura das setas */
+	height: 40px; /* Altura das setas */
+	font-size: 20px; /* Tamanho do ícone */
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
 
-.custom-prev:hover,
-.custom-next:hover {
-  background-color: rgba(255, 255, 255, 1); /* Fundo mais claro no hover */
-}
+  .custom-prev:hover,
+  .custom-next:hover {
+	background-color: rgba(255, 255, 255, 1); /* Fundo mais claro no hover */
+  }
 
-.custom-prev {
-  left: 10px; /* Distância da borda esquerda */
-}
+  .custom-prev {
+	left: 10px; /* Distância da borda esquerda */
+  }
 
-.custom-next {
-  right: 10px; /* Distância da borda direita */
-}
+  .custom-next {
+	right: 10px; /* Distância da borda direita */
+  }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
+  @keyframes growText {
+	0% {
+	  opacity: 0;
+	  transform: scale(0.8); /* Começa menor */
+	}
+	100% {
+	  opacity: 1;
+	  transform: scale(1); /* Cresce até o tamanho normal */
+	}
+  }
+
+  .servicos-container h1.animate-grow {
+	opacity: 1; /* Torna visível */
+	transform: scale(1); /* Retorna ao tamanho normal */
+  }
+
+  /* Responsividade para telas grandes (Desktop - >1200px) */
+  @media (min-width: 1200px) {
 	.servicos-container h1 {
-		font-size: 2rem;
-		text-align: center;
-		padding: 15px;
+	  font-size: 3rem;
 	}
 
 	.slide {
-		padding: 10px;
-		margin: 5px;
+	  height: 500px; /* Altura fixa para os slides */
 	}
 
-	.img-style {
-		height: 200px;
-	}
+	 /* Título do serviço */
+	 .slide-content h3 {
+		font-size: 2rem;
+		font-weight: 600;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+	  }
 
-	h3 {
-		font-size: 1.6rem;
-	}
-
-	p {
-		font-size: 1rem;
+	  .slide-content p {
+	  font-size: 0.9rem;
 	}
 
 	.btn-saiba-mais {
-		padding: 8px 16px;
-		font-size: 0.9rem;
+	  padding: 12px 24px;
+	  font-size: 1rem;
 	}
-}
+  }
+
+  /* Responsividade para tablets pequenos (Min. 768px - 992px) */
+  @media (min-width: 768px) and (max-width: 992px) {
+	.servicos-container h1 {
+	  font-size: 2.5rem;
+	}
+
+	.slide {
+	  height: 400px; /* Ajuste a altura para telas menores */
+	}
+
+		 /* Título do serviço */
+	.slide-content h3 {
+		font-size: 2rem;
+		font-weight: 600;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+	}
+
+	.slide-content p {
+	  font-size: 0.8rem;
+	}
+
+	.btn-saiba-mais {
+	  padding: 10px 20px;
+	  font-size: 0.95rem;
+	}
+  }
+
+  /* Responsividade para smartphones grandes (Min. 576px - 768px) */
+  @media (min-width: 576px) and (max-width: 768px) {
+	.servicos-container h1 {
+	  font-size: 2rem;
+	}
+
+	.slide {
+	  height: 350px; /* Ajuste a altura para telas menores */
+	}
+
+		 /* Título do serviço */
+	.slide-content h3 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+	}
+
+	.slide-content p {
+	  font-size: 0.9rem;
+	}
+
+	.btn-saiba-mais {
+	  padding: 8px 16px;
+	  font-size: 0.9rem;
+	}
+  }
+
+  /* Responsividade para smartphones pequenos (<576px) */
+  @media (max-width: 576px) {
+	.servicos-container h1 {
+	  font-size: 1.5rem;
+	}
+
+	.slide {
+	  height: 300px; /* Ajuste a altura para telas pequenas */
+	}
+
+	/* Título do serviço */
+	.slide-content h3 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+	}
+
+	.slide-content p {
+	  font-size: 0.6rem;
+	}
+
+	.btn-saiba-mais {
+	  padding: 6px 12px;
+	  font-size: 0.8rem;
+	}
+  }
