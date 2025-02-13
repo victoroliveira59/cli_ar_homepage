@@ -27,19 +27,12 @@ export class AppComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId) && 'IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.getAttribute('id');
-            if (sectionId) {
-              this.visibleSections[sectionId] = true;
-            }
-          }
-        });
-      }, { threshold: 0.2 }); // Ativa quando 20% da seção está visível
-
-      this.sections.forEach(section => observer.observe(section.nativeElement));
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.visibleSections['servicos'] = true;
+        this.visibleSections['sobre'] = true;
+        this.visibleSections['contato'] = true;
+      }, 1000); // 3 segundos após a página principal ser carregada
     }
   }
 }
