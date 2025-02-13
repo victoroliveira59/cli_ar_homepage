@@ -137,3 +137,12 @@
 		margin-top: 30px;
 	}
 }
+
+@media (max-width: 1400px) {
+	.logo img {
+		height: 280px;      /* Reduz ainda mais a logo em telas pequenas */
+		max-width: 300%;        /* Garante que a logo não ultrapasse a largura da tela */
+		margin-left: -240px;         /* Alinhado à esquerda sem margem negativa */
+		margin-top: 60px;
+	}
+}

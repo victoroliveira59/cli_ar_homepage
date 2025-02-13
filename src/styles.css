@@ -26,5 +26,15 @@ background-color: #31557c;
 	scroll-padding-top: 80px;  /* Ajusta o espaço para a altura da navbar */
   }
 
+  @font-face {
+	font-family: 'slick';
+	src: url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.eot');
+	src: url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.eot?#iefix') format('embedded-opentype'),
+		 url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.woff') format('woff'),
+		 url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.ttf') format('truetype'),
+		 url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.svg#slick') format('svg');
+	font-weight: normal;
+	font-style: normal;
+  }
 
   /* Aqui você pode adicionar qualquer outro estilo para seu conteúdo */
