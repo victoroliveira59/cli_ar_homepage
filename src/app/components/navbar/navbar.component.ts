@@ -1,7 +1,7 @@
-import { Component, HostListener } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { RouterModule } from '@angular/router'
-import { ScrollService } from '../../scroll.service'
+import { Component, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ScrollService } from '../../scroll.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,26 +11,25 @@ import { ScrollService } from '../../scroll.service'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  menuAberto = false
-  menuVisible = true
+  menuAberto: boolean = false;
+  menuVisible: boolean = false;
 
-  constructor(private scrollService: ScrollService) {}
-
-  // Alternar abertura/fechamento do sidebar
   toggleMenu() {
-    this.menuAberto = !this.menuAberto
+    this.menuAberto = !this.menuAberto;
+    this.menuVisible = !this.menuVisible;
   }
 
-  // Rolagem suave para a seção correspondente
-  scrollToSection(event: Event, sectionId: string): void {
-    event.preventDefault()
-    this.scrollService.scrollToSection(sectionId)
-    this.menuAberto = false // Fecha o sidebar após clicar em um link
+  scrollToSection(event: Event, sectionId: string) {
+    event.preventDefault();
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    this.toggleMenu(); // Fecha o menu após clicar em um link
   }
 
-  // Esconde o menu quando o usuário rolar para baixo
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.menuVisible = window.scrollY <= 50
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    if (window.innerWidth > 768) {
+      this.menuAberto = false;
+      this.menuVisible = false;
+    }
   }
 }
