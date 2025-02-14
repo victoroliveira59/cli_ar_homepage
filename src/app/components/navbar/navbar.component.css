@@ -18,9 +18,9 @@
 /* Logo */
 .logo img {
 	transition: transform 0.3s ease;
-	height: 500px;          /* Tamanho padrão para telas grandes */
+	height: 350px;          /* Tamanho padrão para telas grandes */
 	max-width: 125%;        /* Garante que a logo não ultrapasse a largura da tela */
-	margin-left: -300px;         /* Alinhado à esquerda sem margem negativa */
+	margin-left: -180px;         /* Alinhado à esquerda sem margem negativa */
 	margin-top: 100px;      /* Espaçamento superior */
 	object-fit: contain;    /* Mantém a proporção correta da imagem */
 }
@@ -71,20 +71,21 @@
 	/* Sidebar (Nav-links se transforma em um menu lateral) */
 	.nav-links {
 		position: fixed;
-		top: 70px;
-		right: -90%;  /* Inicialmente oculto fora da tela */
-		width: 90%;   /* Sidebar ocupa 90% da tela */
+		top: 60px;
+		right: -120%;  /* Inicialmente oculto fora da tela */
+		width: 100%;   /* Sidebar ocupa 90% da tela */
 		height: 100vh;
-		background-color: rgba(2, 2, 2, 0.9);  /* Fundo sólido para o sidebar */
+		background:  rgba(2, 2, 2, 0.74);  /* Fundo sólido para o sidebar */
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
 		padding-left: 10px;
-		box-shadow: -2px 0 5px rgba(0, 0, 0, 0.7);
+		box-shadow: -2px 0 5px rgba(0, 0, 0, 0);
 		transition: right 0.3s ease-in-out;
 		z-index: 1002;
 		gap: 2px;
 		font-size: 1.5rem;
+		text-align: center;
 	}
 
 	/* Quando o menu estiver aberto */
@@ -131,18 +132,10 @@
 /* Ajustes para Telas Pequenas (Celulares) */
 @media (max-width: 768px) {
 	.logo img {
-		height: 180px;      /* Reduz ainda mais a logo em telas pequenas */
-		max-width: 300%;        /* Garante que a logo não ultrapasse a largura da tela */
-		margin-left: -200px;         /* Alinhado à esquerda sem margem negativa */
-		margin-top: 30px;
-	}
+		height: 130px; /* Reduz ainda mais a logo em telas pequenas */
+		max-width: 300%; /* Garante que a logo não ultrapasse a largura da tela */
+		margin-left: -80px; /* Move a imagem 50px para a esquerda */
+		margin-top: 0;
+	  }
 }
 
-@media (max-width: 1400px) {
-	.logo img {
-		height: 280px;      /* Reduz ainda mais a logo em telas pequenas */
-		max-width: 300%;        /* Garante que a logo não ultrapasse a largura da tela */
-		margin-left: -240px;         /* Alinhado à esquerda sem margem negativa */
-		margin-top: 60px;
-	}
-}
