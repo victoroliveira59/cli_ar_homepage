@@ -1,21 +1,21 @@
+<!-- filepath: /c:/Projetos/cli_ar/cli_ar/src/app/app.component.html -->
 <app-navbar></app-navbar>  <!-- Navbar separado -->
 
 <!-- Seções que usam o conteúdo dos componentes -->
-<section id="home" class="section">
-  <app-home></app-home>  <!-- Conteúdo do HomeComponent -->
+<section id="home" class="section" #sectionRef>
+  <app-home></app-home>  <!-- Home carrega imediatamente -->
 </section>
 
-<section id="servicos" class="section">
-  <app-servicos></app-servicos>  <!-- Conteúdo do ServicosComponent -->
+<section id="servicos" class="section" #sectionRef>
+  <app-servicos *ngIf="visibleSections['servicos']"></app-servicos>
 </section>
 
-<section id="sobre" class="section">
-  <app-sobre></app-sobre>  <!-- Conteúdo do SobreComponent -->
+<section id="sobre" class="section" #sectionRef>
+  <app-sobre *ngIf="visibleSections['sobre']"></app-sobre>
 </section>
 
-<section id="contato" class="section">
-  <app-contato></app-contato>  <!-- Conteúdo do ContatoComponent -->
+<section id="contato" class="section" #sectionRef>
+  <app-contato *ngIf="visibleSections['contato']"></app-contato>
 </section>
-
 
 <app-footer></app-footer>

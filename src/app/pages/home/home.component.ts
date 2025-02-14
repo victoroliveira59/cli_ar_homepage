@@ -52,6 +52,6 @@ export class HomeComponent implements AfterViewInit {
 
       // Força a detecção de mudanças após a alteração do estado
       this.cdr.detectChanges();
-    }, 500); // Pequeno atraso para o conteúdo começar a aparecer
+    }, 1000); // Pequeno atraso para o conteúdo começar a aparecer
   }
 }
