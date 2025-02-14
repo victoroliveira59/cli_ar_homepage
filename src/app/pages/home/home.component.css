@@ -5,32 +5,26 @@
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-	background: linear-gradient(to left, #ffffff, #4676aa);
-}
-
-
-.overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.3);
-	z-index: 1;
+	background: url('/assets/img/geladeira-aberta.webp') center/cover no-repeat; /* Ajuste o tamanho da imagem */
+	background-attachment: fixed; /* Efeito de parallax */
+	z-index: 0; /* Certifica que o conteúdo fica acima */
   }
 
-.hero-content {
+  .parallax-bg {
+	display: none; /* Não precisamos mais deste elemento */
+  }
+
+
+  .hero-content {
 	position: relative;
-	z-index: 2;
-	text-align: flex-start;
-	margin-right: 900px;
+	z-index: 3; /* Mantém o texto visível acima do plano de fundo */
 	max-width: 450px;
-	padding: 20px;
-	background: rgba(255, 255, 255, 0);
+	top: 40px;
+	background: rgba(255, 255, 255, 0); /* Remover fundo visível */
 	border-radius: 15px;
 	animation: slideInLeft 1s ease-out 0.5s forwards;
-
-}
+	right: 250px;
+  }
 
 .hero-content h1 {
 	font-size: 2.5rem;
@@ -139,7 +133,7 @@
 	top: 5%;
 	right: 30px;
 	transform: translateY(-50%);
-	z-index: 0;
+	background-attachment: fixed;
 	opacity: 0.5;
 }
 
@@ -149,7 +143,21 @@
 	border-radius: 10px;
 	opacity: 0.5;
 	box-shadow: #000000 0 4px 8px;
+	z-index: 1;
 }
+
+.right-image-container {
+	opacity: 0;
+	transform: translateX(100px);
+	transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.right-image-container.visible {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+
 
 .right-image-container,
 .hero-content {
@@ -215,34 +223,6 @@
 	}
 }
 
-/* Responsividade para telas de até 1400px */
-@media (max-width: 1400px) {
-	.hero-content {
-	  margin-right: 600px; /* Reduz a margem direita para telas menores */
-	  max-width: 400px; /* Reduz a largura do conteúdo */
-	  right: 40px;
-	}
-
-	.hero-content h1 {
-	  font-size: 2.2rem; /* Reduz o tamanho do título */
-	}
-
-	.hero-content p {
-	  font-size: 1.3rem; /* Reduz o tamanho do parágrafo */
-	}
-
-	.right-image-container {
-	  right: 20px; /* Ajusta a posição da imagem */
-	  right: -180px;
-	}
-
-	.right-image-container img {
-	  width: 80%; /* Reduz o tamanho da imagem */
-	  opacity: 0.5; /* Mantém a opacidade */
-	  display: flex;
-
-	}
-  }
 
 /* Responsividade para Tablets */
 @media (max-width: 1024px) {
@@ -253,6 +233,7 @@
 	  max-width: 450px;
 	  padding: 20px;
 	}
+
 
 	.hero-content h1 {
 	  font-size: 2.2rem;
@@ -293,10 +274,25 @@
 
   /* Responsividade para Dispositivos Móveis */
   @media (max-width: 768px) {
+
+	.hero {
+		position: relative;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+	}
+
 	.hero-content {
-	  max-width: 90%;
+	  max-width: 100%;
 	  text-align: center;
-	  padding: 10px;
+	  height: 100%;
+	  left: 0;
+	  top: 20%;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
 	}
 
 	.hero-content h1 {

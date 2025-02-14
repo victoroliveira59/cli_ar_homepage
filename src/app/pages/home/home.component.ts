@@ -2,7 +2,6 @@ import { Component, HostListener, AfterViewInit, ChangeDetectorRef } from '@angu
 import { CommonModule } from '@angular/common'; // Importando o CommonModule
 import { ScrollService } from '../../scroll.service';
 
-
 @Component({
   standalone: true,
   selector: 'app-home',
@@ -22,13 +21,18 @@ export class HomeComponent implements AfterViewInit {
     this.scrollService.scrollToSection('contato'); // Chama o método do serviço
   }
 
-  // Detecção de rolagem para mostrar a imagem
   @HostListener('window:scroll', ['$event'])
-  onWindowScroll(event: Event): void {
-    const scrollPosition = window.scrollY; // Posição da rolagem da página
-    const heroSection = document.querySelector('.hero') as HTMLElement;
+  onScroll(event: Event): void {
+    const scrollPosition = window.scrollY;
 
-    // Quando o topo da seção hero chegar perto do topo da tela, a imagem vai surgir
+    // Efeito parallax
+    const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
+    if (parallaxBg) {
+      parallaxBg.style.transform = `translateY(${scrollPosition * 0.10}px)`; // Ajuste o fator para controlar o efeito
+    }
+
+    // Mostrar imagem ao rolar
+    const heroSection = document.querySelector('.hero') as HTMLElement;
     if (scrollPosition > heroSection.offsetTop - window.innerHeight) {
       this.isImageVisible = true;
     }
@@ -38,20 +42,21 @@ export class HomeComponent implements AfterViewInit {
     this.isUrgencyExpanded = !this.isUrgencyExpanded;
   }
 
-  ngOnInit() {
-    this.isImageVisible = true;
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.isImageVisible = true; // Exibe a imagem
+      this.isContentVisible = true; // Exibe o conteúdo com efeito de entrada
+      this.cdr.detectChanges(); // Garante a detecção de mudanças no Angular
+    }, 1000); // Pequeno atraso para a transição suave
   }
 
-  ngAfterViewInit() {
-    // Iniciar animação após a inicialização da view
-    this.isImageVisible = true;
-
+  onImageLoad(): void {
     // Atrasar o conteúdo com um pequeno intervalo, para dar tempo da imagem começar a transição
     setTimeout(() => {
       this.isContentVisible = true;
 
       // Força a detecção de mudanças após a alteração do estado
       this.cdr.detectChanges();
-    }, 1000); // Pequeno atraso para o conteúdo começar a aparecer
+    }, 500);
   }
 }
