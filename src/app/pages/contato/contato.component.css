@@ -6,9 +6,10 @@
 	position: relative;
 	background: linear-gradient(to right, #30547c, #b0b1b1);
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: end;
 	flex-wrap: wrap;
+	gap: 40px;
   }
 
   .hero h1{
@@ -129,7 +130,7 @@
 	cursor: not-allowed;
 	transform: none;
   }
-  .contato-card {
+  /* .contato-card {
     background-color: #ffffffb0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -139,7 +140,7 @@
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-}
+} */
 
 .contato-info h3 {
     font-size: 24px;
@@ -149,7 +150,7 @@
 
 .contato-info p {
     font-size: 16px;
-    color: #333;
+    color: #ffffff;
     margin: 0;
 }
 
