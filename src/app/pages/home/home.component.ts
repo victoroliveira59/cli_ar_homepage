@@ -1,13 +1,15 @@
 import { Component, HostListener, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importando o CommonModule
 import { ScrollService } from '../../scroll.service';
+import { NavbarComponent } from "../../components/navbar/navbar.component";
 
 @Component({
   standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [CommonModule] // Adicionando CommonModule nas importações
+  imports: [CommonModule, NavbarComponent] // Adicionando CommonModule nas importações
+ // Adicionando CommonModule nas importações
 })
 export class HomeComponent implements AfterViewInit {
   isImageVisible: boolean = false;  // Flag para controlar a visibilidade da imagem

@@ -8,6 +8,7 @@
 	background: url('/assets/img/geladeira-aberta.webp') center/cover no-repeat; /* Ajuste o tamanho da imagem */
 	background-attachment: fixed; /* Efeito de parallax */
 	z-index: 0; /* Certifica que o conteúdo fica acima */
+	
   }
 
   .parallax-bg {
