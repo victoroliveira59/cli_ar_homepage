@@ -9,7 +9,7 @@ import { NavbarComponent } from "../../components/navbar/navbar.component";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   imports: [CommonModule, NavbarComponent] // Adicionando CommonModule nas importações
- // Adicionando CommonModule nas importações
+  // Adicionando CommonModule nas importações
 })
 export class HomeComponent implements AfterViewInit {
   isImageVisible: boolean = false;  // Flag para controlar a visibilidade da imagem
@@ -59,6 +59,6 @@ export class HomeComponent implements AfterViewInit {
 
       // Força a detecção de mudanças após a alteração do estado
       this.cdr.detectChanges();
-    }, 500);
+    }, 1000);
   }
 }
