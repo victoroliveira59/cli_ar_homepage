@@ -15,25 +15,25 @@ export class ServicosComponent implements AfterViewInit {
     {
       nome: 'Instalação de Ar-Condicionado',
       descricao: 'Serviço profissional de instalação para garantir o melhor desempenho do seu aparelho.',
-      imagem: 'img/boas-praticas-refrigeracao.jpg',
+      imagem: 'assets/img/boas-praticas-refrigeracao.jpg',
       detalhes: 'Oferecemos a instalação de sistemas de ar-condicionado com a escolha adequada do modelo e a correta instalação do sistema de dutos, para garantir o máximo desempenho e eficiência energética do seu aparelho. Nossos técnicos são especializados e seguem rigorosamente as normas de segurança.'
     },
     {
       nome: 'Manutenção Preventiva',
       descricao: 'Evite problemas futuros com uma manutenção regular e eficiente.',
-      imagem: 'img/limpeza-de-ar-condicionado-de-janela.jpg',
+      imagem: 'assets/img/limpeza-de-ar-condicionado-de-janela.jpg',
       detalhes: 'Realizamos a manutenção preventiva dos aparelhos de ar-condicionado, incluindo a limpeza e verificação do sistema de refrigeração, troca de filtros, e inspeção dos componentes elétricos. Essa manutenção ajuda a evitar falhas inesperadas e prolonga a vida útil do equipamento.'
     },
     {
       nome: 'Sistema Elétrico',
       descricao: 'Troca de Componentes Elétricos',
-      imagem: 'img/reparo_componentes_eletricos.jpg',
+      imagem: 'assets/img/reparo_componentes_eletricos.jpg',
       detalhes: 'Realizamos a troca de componentes elétricos, como capacitores, relés, disjuntores, e outros itens essenciais, para garantir que o sistema elétrico de seu aparelho esteja funcionando corretamente. Nossos profissionais possuem experiência em diversos tipos de sistemas e marcas, garantindo um serviço rápido e seguro.'
     },
     {
       nome: 'Conserto de Equipamentos',
       descricao: 'Diagnóstico e reparo rápido de falhas em aparelhos de diversas marcas.',
-      imagem: 'img/troca_compressor.jpg',
+      imagem: 'assets/img/troca_compressor.jpg',
       detalhes: 'Oferecemos diagnóstico preciso e consertos rápidos para falhas em aparelhos de ar-condicionado e outros equipamentos, incluindo o reparo de falhas no compressor, vazamentos de gás refrigerante e problemas no circuito elétrico. Trabalhamos com peças originais e garantimos a qualidade do serviço.'
     }
   ];

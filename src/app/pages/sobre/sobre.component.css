@@ -2,9 +2,9 @@
 .sobre-empresa-container {
 	position: relative;
 	padding: 80px 20px;
-	background: linear-gradient(to right, #30547c, #b0b1b1);
 	text-align: center;
 	min-height: 100vh;
+	background: linear-gradient(to right, #30547c, #b0b1b1);
   }
 
   /* Título principal */
