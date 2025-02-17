@@ -3,16 +3,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
+    position: absolute; /* Mantém sobre a imagem */
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
     padding: 0 40px;
-    z-index: 3;
-    background: transparent;
+    z-index: 1000; /* Mantém acima de outros elementos */
+    background: transparent !important; /* Remove fundo */
     color: white;
+    
 }
+
+.navbar-scrolled {
+    background: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: background 0.3s ease-in-out;
+  }
+
 
 /* Estilos do logo */
 .logo img {
@@ -30,11 +41,12 @@
 }
 
 .nav-links li a {
-    color: white;
+    color: rgb(36, 146, 236);
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;
     transition: color 0.3s ease;
+    box-shadow: #333;
 }
 
 .nav-links li a:hover,
@@ -74,75 +86,75 @@
         right: -100%;
     }
     /* Estilo do overlay */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* Abaixo do nav-links e do ícone do menu */
-}
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000; /* Abaixo do nav-links e do ícone do menu */
+    }
 
-.overlay.active {
-    display: block;
-}
+    .overlay.active {
+        display: none;
+    }
 
-.logo {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin-top: 30px; /* Mova mais para a esquerda */
-    margin-left: -35%; /* Remova margens */
-    padding-left: 0; /* Remova qualquer padding aplicado */
-}
+    .logo {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-top: 30px; /* Mova mais para a esquerda */
+        margin-left: -35%; /* Remova margens */
+        padding-left: 0; /* Remova qualquer padding aplicado */
+    }
 
 
-.logo a {
-text-decoration: none;
-}
+    .logo a {
+    text-decoration: none;
+    }
 
-.logo img {
-height: 200px; /* Ajuste conforme necessário */
-object-fit: contain; /* Evita distorção */
-}
+    .logo img {
+    height: 200px; /* Ajuste conforme necessário */
+    object-fit: contain; /* Evita distorção */
+    }
 
-/* Estilo do ícone do menu (hambúrguer/"X") */
-.menu-toggle {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 24px;
-    width: 30px;
-    position: fixed; /* Fixo na tela */
-    top: 20px; /* Distância do topo */
-    right: 20px; /* Distância da direita */
-    z-index: 1002; /* Garante que fique acima de tudo */
-}
+    /* Estilo do ícone do menu (hambúrguer/"X") */
+    .menu-toggle {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 24px;
+        width: 30px;
+        position: fixed; /* Fixo na tela */
+        top: 20px; /* Distância do topo */
+        right: 20px; /* Distância da direita */
+        z-index: 1002; /* Garante que fique acima de tudo */
+    }
 
-.menu-toggle .bar {
-    width: 100%;
-    height: 3px;
-    background-color: rgb(10, 10, 10);
-    transition: all 0.3s ease;
-}
+    .menu-toggle .bar {
+        width: 100%;
+        height: 3px;
+        background-color: rgb(10, 10, 10);
+        transition: all 0.3s ease;
+    }
 
-/* Transformação em "X" quando o menu está aberto */
-.menu-toggle.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
-    background-color: red; /* Cor destacada para o "X" */
-}
+    /* Transformação em "X" quando o menu está aberto */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+        background-color: red; /* Cor destacada para o "X" */
+    }
 
-.menu-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-}
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
 
-.menu-toggle.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(4px, -5px);
-    background-color: red; /* Cor destacada para o "X" */
-}
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -5px);
+        background-color: red; /* Cor destacada para o "X" */
+    }
 
 }
 
