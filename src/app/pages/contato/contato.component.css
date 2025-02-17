@@ -179,9 +179,9 @@
 		position: relative;
 		background: linear-gradient(to right, #30547c, #b0b1b1);
 		display: flex;
-		flex-direction: column;
+
 		gap: 30px;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
 	  }
 
@@ -194,7 +194,7 @@
 		padding-left: 20px;
 	  }
 	.contato-container {
-	  margin-right: 20px;
+	  margin: 20px;
 	}
 
 	.form-wrapper {
