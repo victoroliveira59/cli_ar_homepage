@@ -1,7 +1,7 @@
-import { Component, HostListener } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { RouterModule } from '@angular/router'
-import { ScrollService } from '../../scroll.service'
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ScrollService } from '../../scroll.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,26 +11,37 @@ import { ScrollService } from '../../scroll.service'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  menuAberto = false
-  menuVisible = true
+  menuAberto: boolean = false;
+  menuVisible: boolean = false;
+  isScrolled: boolean = false;
 
-  constructor(private scrollService: ScrollService) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
-  // Alternar abertura/fechamento do sidebar
   toggleMenu() {
-    this.menuAberto = !this.menuAberto
+    this.menuAberto = !this.menuAberto;
+    this.menuVisible = !this.menuVisible;
   }
 
-  // Rolagem suave para a seção correspondente
-  scrollToSection(event: Event, sectionId: string): void {
-    event.preventDefault()
-    this.scrollService.scrollToSection(sectionId)
-    this.menuAberto = false // Fecha o sidebar após clicar em um link
+  scrollToSection(event: Event, sectionId: string) {
+    event.preventDefault();
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    this.toggleMenu(); // Fecha o menu após clicar em um link
   }
 
-  // Esconde o menu quando o usuário rolar para baixo
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    if (isPlatformBrowser(this.platformId) && window.innerWidth > 768) {
+      this.menuAberto = false;
+      this.menuVisible = false;
+    }
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.menuVisible = window.scrollY <= 50
+    if (isPlatformBrowser(this.platformId)) {
+      console.log('Scroll detectado! Posição:', window.scrollY);
+      this.isScrolled = window.scrollY > 50;
+    }
   }
 }

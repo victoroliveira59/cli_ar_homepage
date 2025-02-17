@@ -14,7 +14,9 @@
   body {
 	font-family: 'Arial', sans-serif;
 	line-height: 1.6;
-background-color: #31557c;
+    margin: 0;
+    padding: 0;
+	
 	background-size: cover;  /* A imagem vai cobrir todo o fundo */
 	background-position: center center;  /* Posiciona a imagem no centro da tela */
 	background-attachment: fixed;  /* Faz com que a imagem de fundo não se mova ao rolar a página */

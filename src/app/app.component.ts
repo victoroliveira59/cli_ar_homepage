@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [NavbarComponent, HomeComponent, ServicosComponent, SobreComponent, ContatoComponent, FooterComponent, CommonModule]
+  imports: [ HomeComponent, ServicosComponent, SobreComponent, ContatoComponent, FooterComponent, CommonModule]
 })
 export class AppComponent implements AfterViewInit {
   visibleSections: { [key: string]: boolean } = {

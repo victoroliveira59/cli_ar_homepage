@@ -1,10 +1,11 @@
 /* Estilos do Footer */
 .footer {
-	background-color: #051050;
+	position: relative;
 	color: #fff;
-	padding: 40px 20px;
 	font-family: Arial, sans-serif;
 	text-align: center;
+	background: linear-gradient(to right, #30547c, #b0b1b1);
+	padding: 40px 20px;
   }
 
   /* Container do Footer */
@@ -21,6 +22,7 @@
 
   /* Seção do Footer */
   .footer-section {
+	position: relative;
 	flex: 1;
 	min-width: 250px;  /* Garante que cada seção tenha pelo menos 250px */
 	padding: 10px;
@@ -86,10 +88,13 @@
 
   /* Media query para telas pequenas (mobile) */
   @media (max-width: 768px) {
-	.footer-container {
-	  flex-direction: column;
-	  text-align: center;
+
+	.footer{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
+
 
 	.footer-section {
 	  margin-bottom: 20px;

@@ -1,21 +1,23 @@
 /* Estilo do container principal */
 .servicos-container {
-	padding: 0;
+	padding-top: 10px;
 	margin: 0;
 	width: 100vw;
-	height: 120vh;
-	background-color: #ffffff;
+	background: linear-gradient(to right, #30547c, #b0b1b1);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Poppins', sans-serif; /* Fonte moderna */
+	position: relative;
+
   }
 
   .servicos-container h1 {
-	color: #000;
+	color: #fffefe;
 	font-size: 3rem;
-	padding-top: 20px;
+	padding-top: 30px;
+	padding-bottom: 15px;
 	text-align: center;
 	margin-left: 0;
 	padding-left: 20px;
@@ -28,7 +30,6 @@
 
   /* Centralizador do carousel */
   .centralizador {
-	flex: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -71,8 +72,9 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5); /* Overlay escuro */
+	background: rgba(0, 0, 0, 0.726); /* Overlay escuro */
 	z-index: 1;
+
   }
 
   /* Estilo da imagem */
@@ -133,7 +135,7 @@
 	top: 50%; /* Alinha verticalmente ao centro */
 	transform: translateY(-50%); /* Ajusta o posicionamento vertical */
 	z-index: 2; /* Garante que as setas fiquem acima do carousel */
-	background-color: rgba(255, 255, 255, 0.8); /* Fundo das setas */
+	background-color: rgba(255, 255, 255, 0.158); /* Fundo das setas */
 	border: none;
 	border-radius: 50%; /* Deixa as setas redondas */
 	width: 40px; /* Largura das setas */
@@ -200,9 +202,11 @@
   }
 
   /* Responsividade para tablets pequenos (Min. 768px - 992px) */
-  @media (min-width: 768px) and (max-width: 992px) {
+  @media (min-width: 768px)  {
 	.servicos-container h1 {
 	  font-size: 2.5rem;
+	  padding-top: 30px;
+	  padding-bottom: 10px;
 	}
 
 	.slide {

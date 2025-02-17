@@ -1,41 +1,37 @@
 <section class="hero">
-	<div class="overlay"></div>
+  <app-navbar></app-navbar>
+  <div class="parallax-bg"></div>
+  <div class="overlay"></div>
 
-	<!-- Container esquerdo (opcional, se ainda for necessário) -->
-	<div class="left-container"></div>
+  <!-- Container esquerdo (opcional, se ainda for necessário) -->
+  <div class="left-container"></div>
 
-	<!-- Conteúdo Principal -->
-	<div class="hero-content" [ngClass]="{ 'slide-in-left': isContentVisible, 'visible': isContentVisible }">
-	  <h1>Soluções Completas para Refrigeradores</h1>
-	  <p class="text">
-		Oferecemos <strong>manutenção preventiva e corretiva</strong> para sistemas de refrigeração, garantindo
-		<strong>eficiência, durabilidade e economia de energia</strong>.
-	  </p>
+  <!-- Conteúdo Principal -->
+  <div class="hero-content" [ngClass]="{ 'slide-in-left': isContentVisible, 'visible': isContentVisible }">
+    <h1>Soluções Completas para Refrigeradores</h1>
+    <p class="text">
+      Oferecemos <strong>manutenção preventiva e corretiva</strong> para sistemas de refrigeração, garantindo
+      <strong>eficiência, durabilidade e economia de energia</strong>.
+    </p>
 
-	  <ul class="diferenciais">
-		<li><i class="fa fa-clock"></i> Atendimento 24 horas para emergências</li>
-		<li><i class="fa fa-shield"></i> Garantia de 90 dias em todos os serviços</li>
-		<li><i class="fa fa-certificate"></i> Técnicos certificados</li>
-	  </ul>
+    <ul class="diferenciais">
+      <li><i class="fa fa-clock"></i> Atendimento 24 horas para emergências</li>
+      <li><i class="fa fa-shield"></i> Garantia de 90 dias em todos os serviços</li>
+      <li><i class="fa fa-certificate"></i> Técnicos certificados</li>
+    </ul>
 
+    <!-- Botão de Chamada para Ação (CTA) -->
+    <button class="cta-button" (click)="goToServicos()">
+      <i class="fa fa-tools"></i>Agende uma Visita Técnica!
+    </button>
+  </div>
 
-	  <!-- Botão de Chamada para Ação (CTA) -->
-	  <button class="cta-button" (click)="goToServicos()">
-		<i class="fa fa-tools"></i>Agende uma Visita Técnica!
-	  </button>
-	</div>
-
-	<!-- Imagem com animação -->
-	<div class="right-image-container" [ngClass]="{ 'slide-in-right': isImageVisible, 'visible': isImageVisible }">
-	  <img src="img/geladeira-aberta.webp" alt="Refrigeração Especializada">
-	</div>
-
-	<!-- Mensagem de Urgência -->
-	<div class="urgency-message" [ngClass]="{ 'expanded': isUrgencyExpanded }" (click)="toggleUrgencyMessage()">
-	  <p *ngIf="isUrgencyExpanded">
-		<strong>Urgência?</strong> Ligue já e fale com um técnico!
-		<a href="tel:+11999999999">(11) 99999-9999</a>
-	  </p>
-	  <span *ngIf="!isUrgencyExpanded">🚨 Atendimento 24h</span>
-	</div>
-  </section>
+  <!-- Mensagem de Urgência -->
+  <div class="urgency-message" [ngClass]="{ 'expanded': isUrgencyExpanded }" (click)="toggleUrgencyMessage()">
+    <p *ngIf="isUrgencyExpanded">
+      <strong>Urgência?</strong> Ligue já e fale com um técnico!
+      <a href="tel:+11999999999">(11) 99999-9999</a>
+    </p>
+    <span *ngIf="!isUrgencyExpanded">🚨 Atendimento 24h</span>
+  </div>
+</section>
