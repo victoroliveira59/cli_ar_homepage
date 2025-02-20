@@ -1,22 +1,24 @@
-<!-- Spinner de carregamento -->
-<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<!-- 🚀 Spinner de carregamento -->
+<ngx-spinner type="ball-scale-multiple" *ngIf="isLoading"></ngx-spinner>
 
-<!-- Navbar separado -->
-<section id="home" class="section" #sectionRef>
-  <app-home></app-home>
-</section>
+<!-- ✅ Exibe o conteúdo SOMENTE depois que o spinner for carregado -->
+<div *ngIf="!isLoading">
+  <section id="home" class="section" #sectionRef *ngIf="visibleSections['home']">
+    <app-home></app-home>
+  </section>
 
-<section id="servicos" class="section" #sectionRef>
-  <app-servicos *ngIf="visibleSections['servicos']"></app-servicos>
-</section>
+  <section id="servicos" class="section" #sectionRef *ngIf="visibleSections['servicos']">
+    <app-servicos></app-servicos>
+  </section>
 
-<section id="sobre" class="section" #sectionRef>
-  <app-sobre *ngIf="visibleSections['sobre']"></app-sobre>
-</section>
+  <section id="sobre" class="section" #sectionRef *ngIf="visibleSections['sobre']">
+    <app-sobre></app-sobre>
+  </section>
 
-<section id="contato" class="section" #sectionRef>
-  <app-contato *ngIf="visibleSections['contato']"></app-contato>
-</section>
+  <section id="contato" class="section" #sectionRef *ngIf="visibleSections['contato']">
+    <app-contato></app-contato>
+  </section>
 
-<app-footer></app-footer>
-<app-urgency-button></app-urgency-button>
+  <app-footer></app-footer>
+  <app-urgency-button></app-urgency-button>
+</div>

@@ -36,10 +36,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
   ]
 })
 export class AppComponent implements AfterViewInit {
-  isLoading: boolean = true; // 🔄 Flag que controla a exibição do spinner
+  isLoading: boolean = true; // 🔄 Controla o estado do carregamento
 
   visibleSections: { [key: string]: boolean } = {
-    home: false, // O "home" carrega imediatamente
+    home: false, // ❌ Não carrega imediatamente
     servicos: false,
     sobre: false,
     contato: false
@@ -50,20 +50,19 @@ export class AppComponent implements AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private spinner: NgxSpinnerService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.spinner.show(); // 🚀 Mostra o spinner ao iniciar
 
       setTimeout(() => {
-        this.visibleSections['home'] = true;
+        this.spinner.hide(); // ✅ Esconde o spinner
+        this.isLoading = false; // 🔄 Agora podemos exibir a `HomeComponent`
+        this.visibleSections['home'] = true; // ✅ Mostra a Home
         this.visibleSections['servicos'] = true;
         this.visibleSections['sobre'] = true;
         this.visibleSections['contato'] = true;
-
-        this.spinner.hide(); // ✅ Esconde o spinner
-        this.isLoading = false; // 🔄 Libera o restante do conteúdo
       }, 2000); // Ajuste conforme necessário
     }
   }
