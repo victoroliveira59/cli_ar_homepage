@@ -1,17 +1,16 @@
-/* Container principal da seção de contato */
-.hero{
+.hero {
 	width: 100%;
 	height: 100%;
-	z-index: 1; /* Mantém a imagem sempre atrás do conteúdo */
+	z-index: 1;
 	position: relative;
 	background: linear-gradient(to right, #30547c, #b0b1b1);
 	display: flex;
 	flex-direction: column;
-	justify-content: end;
-	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 20px;
 	gap: 40px;
   }
-
   .hero h1{
 	color: #f5f4f4;
 	margin-bottom: 40px;
@@ -21,33 +20,43 @@
 	padding-left: 20px;
   }
 
-.contato-container {
-	max-width: 500px;
-	height: 100%;
+  .contato-container {
+	width: 100%;
+	max-width: 1200px; /* Ajuste conforme necessário */
 	padding: 40px 20px;
 	background-color: rgba(255, 255, 255, 0.95);
 	border-radius: 15px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 	text-align: center;
-	margin-left: 120px;
+  }
 
+  /* Contêiner flexível para formulário e mapa */
+.contato-form-map {
+	display: flex;
+	gap: 60px; /* Espaço entre o formulário e o mapa */
+	justify-content: space-between;
+	align-items: flex-start; /* Alinha os itens ao topo */
+
+  }
+  .contato-header{
+	max-width: 500px;
   }
 
   .contato-header i {
 	font-size: 3rem;
 	color: #007BFF;
 	margin-bottom: 15px;
-	display: inline-block;
 	background-color: #ffffff;  /* Cor de fundo para o ícone */
 	padding: 10px;
 	border-radius: 50%;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave para destacar o ícone */
+	max-width: 400px;
   }
 
   .contato-header h2 {
 	font-size: 2rem;
 	color: #333;
 	margin: 10px 0;
+	max-width: 500px;
   }
 
   .contato-header p {
@@ -56,6 +65,7 @@
 	color: #666;
 	margin-bottom: 20px;
 	line-height: 1.5;
+	max-width: 500px;
   }
 
   #contato {
@@ -71,6 +81,8 @@
 	border-radius: 15px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	text-align: left;
+	width: 500px;
+	z-index: 1005;
   }
 
   /* Formulário */
@@ -130,44 +142,93 @@
 	cursor: not-allowed;
 	transform: none;
   }
-  /* .contato-card {
-    background-color: #ffffffb0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-	max-height: 600px;
-	width: 80vh;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-} */
+/* Melhorias no layout */
+.mapa-imagem {
+	width: 100%;
+	max-width: 500px;
+	border-radius: 10px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	transition: transform 0.3s ease;
+  }
 
-.contato-info h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+  .mapa-imagem:hover {
+	transform: scale(1.05);
+  }
 
-.contato-info p {
-    font-size: 16px;
-    color: #ffffff;
-    margin: 0;
-}
+  /* Botão "Abrir no Google Maps" */
+  .map-button-container {
+	text-align: center;
+	margin-top: 10px;
+  }
 
-.contato-map iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
+  .map-button {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #007BFF;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	font-weight: bold;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+  }
 
-.contato-info-item i {
-    font-size: 24px;
-    color: #007bff;
-    margin-right: 10px;
-    vertical-align: middle;
-}
+  .map-button:hover {
+	background-color: #0056b3;
+	transform: scale(1.05);
+  }
+
+  /* Informações de contato */
+  .contato-detalhes {
+	margin-top: 20px;
+	font-size: 1rem;
+	color: #333;
+  }
+
+  .contato-detalhes p {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 5px 0;
+  }
+
+  .contato-detalhes i {
+	color: #007BFF;
+	font-size: 1.2rem;
+  }
+
+  .contato-info-card {
+	position: absolute;
+	background: rgba(255, 255, 255, 0.95);
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	width: 250px;
+
+	/* 🔥 Inclinação */
+	transform: rotate(10deg);
+
+	/* 📌 Posição */
+	top: 25%;
+	left: 1000px; /* Ajuste conforme necessário */
+
+	/* Z-Index para ficar entre o mapa e o formulário */
+	z-index: 2;
+  }
+
+  .contato-info-card h3 {
+	font-size: 1.2rem;
+	color: #333;
+	margin-bottom: 10px;
+  }
+
+  .contato-info-card p {
+	font-size: 1rem;
+	color: #666;
+	margin: 5px 0;
+  }
+
+
 
 
   /* Responsividade */
