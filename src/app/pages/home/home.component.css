@@ -228,6 +228,16 @@
 
 /* Responsividade para Tablets */
 @media (max-width: 1024px) {
+	
+		.hero {
+		position: relative;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: background-attachment: scroll
+	}
+	
 	.hero-content {
 	  max-width: 80%; /* Reduz a largura para tablets */
 	  text-align: center;
