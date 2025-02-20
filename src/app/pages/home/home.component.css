@@ -274,9 +274,8 @@
 	}
   }
 
-  /* Responsividade para Dispositivos Móveis */
-  @media (max-width: 768px) {
-
+  /* /* 🌟 Ajustes na Responsividade */
+@media (max-width: 768px) {
 	.hero {
 		position: relative;
 		height: 100vh;
@@ -284,52 +283,63 @@
 		justify-content: center;
 		align-items: center;
 		overflow: hidden;
+		background-attachment: scroll; /* Remove o parallax fixo */
 	}
 
+	/* 🎯 Ajustando a posição do conteúdo */
 	.hero-content {
-	  max-width: 100%;
+	  max-width: 90%;
 	  text-align: center;
-	  height: 100%;
-	  left: 0;
-	  top: 20%;
+	  height: auto;
+	  top: auto;
+	  padding: 20px;
 	  display: flex;
 	  flex-direction: column;
 	  align-items: center;
+	  position: relative;
+	  z-index: 2; /* Mantém o conteúdo acima da imagem */
 	}
 
 	.hero-content h1 {
-	  font-size: 2rem;
+	  font-size: 1.8rem;
+	  margin-bottom: 10px;
 	}
 
 	.hero-content p {
-	  font-size: 1.1rem;
+	  font-size: 1rem;
+	  line-height: 1.5;
+	  padding: 0 10px;
 	}
 
 	.cta-button {
-	  padding: 10px 15px;
-	  font-size: 0.9rem;
+	  padding: 12px 20px;
+	  font-size: 1rem;
 	}
 
+	/* 🚨 Melhorando a posição do botão de urgência */
 	.urgency-message {
-	  bottom: 10px;
-	  left: 10px;
-	  font-size: 0.8rem;
-	  padding: 8px 12px;
+	  bottom: 15px;
+	  left: 15px;
+	  font-size: 0.9rem;
+	  padding: 10px 15px;
 	}
 
+	/* 📷 Ajustando a imagem da direita */
 	.right-image-container {
-	  width: 70%;
-	  top: 5%;
-	  right: 10px;
+	  position: absolute;
+	  width: 100%;
+	  height: 50vh; /* Reduzindo a altura da imagem */
+	  top: auto;
+	  bottom: 0;
+	  opacity: 0.3; /* Torna menos intrusiva */
 	}
 
 	.right-image-container img {
 	  width: 100%;
 	  height: auto;
-	  opacity: 0.1;
+	  object-fit: contain; /* Evita cortes na imagem */
 	}
-  }
-
+}
   /* Responsividade para Telas Muito Pequenas */
   @media (max-width: 480px) {
 	.hero-content {
