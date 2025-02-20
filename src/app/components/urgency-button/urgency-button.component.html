@@ -1,0 +1,7 @@
+<div class="urgency-message" [ngClass]="{ 'expanded': isExpanded }" (click)="toggleMessage()">
+	<p *ngIf="isExpanded">
+	  <strong>Urgência?</strong> Ligue já e fale com um técnico!
+	  <a href="tel:+11999999999">(11) 99999-9999</a>
+	</p>
+	<span *ngIf="!isExpanded">🚨 Atendimento 24h</span>
+  </div>

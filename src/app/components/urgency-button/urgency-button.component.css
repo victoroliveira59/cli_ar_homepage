@@ -1,0 +1,18 @@
+.urgency-message {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 99999;
+	background-color: rgba(0, 0, 0, 0.61);
+	color: white;
+	padding: 12px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease-in-out;
+  }
+
+  .urgency-message.expanded {
+	width: 300px;
+	background-color: rgba(0, 0, 0, 0.85);
+  }
