@@ -1,18 +1,42 @@
 .urgency-message {
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	z-index: 99999;
-	background-color: rgba(0, 0, 0, 0.61);
-	color: white;
-	padding: 12px 20px;
-	border-radius: 5px;
-	cursor: pointer;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-	transition: all 0.3s ease-in-out;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d333;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10px;
+  z-index: 9999;
+}
+
+.urgency-message p {
+  margin: 0;
+  padding-right: 10px;
+}
+
+.urgency-message i {
+	  font-size: 2rem;
   }
 
-  .urgency-message.expanded {
-	width: 300px;
-	background-color: rgba(0, 0, 0, 0.85);
-  }
+.urgency-message button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.urgency-message a {
+  color: white;
+  text-decoration: none;
+}
+
+.urgency-message a:hover {
+  text-decoration: underline;
+}

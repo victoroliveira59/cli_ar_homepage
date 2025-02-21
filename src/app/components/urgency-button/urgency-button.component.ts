@@ -14,4 +14,8 @@ export class UrgencyButtonComponent {
   toggleMessage() {
     this.isExpanded = !this.isExpanded;
   }
+
+  redirectToWhatsApp(): void {
+    window.open('https://wa.me/5531999799785');
+  }
 }
