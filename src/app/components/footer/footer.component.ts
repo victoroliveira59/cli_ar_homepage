@@ -8,4 +8,11 @@ import { CommonModule } from '@angular/common'
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent {}
+export class FooterComponent {
+
+  scrollToSection(event: Event, sectionId: string) {
+    event.preventDefault();
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+}

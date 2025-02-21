@@ -1,10 +1,11 @@
 <section class="hero">
   <app-navbar></app-navbar>
-  <div class="parallax-bg"></div>
-  <div class="overlay"></div>
 
-  <!-- Container esquerdo (opcional, se ainda for necessário) -->
-  <div class="left-container"></div>
+  <!-- Spinner só aparece se isLoading for true -->
+  <ngx-spinner *ngIf="isLoading" bdColor="rgba(0,0,0,0.5)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+
+  <div #parallaxBg class="parallax-bg"></div>
+  <div class="overlay"></div>
 
   <!-- Conteúdo Principal -->
   <div class="hero-content" [ngClass]="{ 'slide-in-left': isContentVisible, 'visible': isContentVisible }">
@@ -20,18 +21,8 @@
       <li><i class="fa fa-certificate"></i> Técnicos certificados</li>
     </ul>
 
-    <!-- Botão de Chamada para Ação (CTA) -->
     <button class="cta-button" (click)="goToServicos()">
       <i class="fa fa-tools"></i>Agende uma Visita Técnica!
     </button>
-  </div>
-
-  <!-- Mensagem de Urgência -->
-  <div class="urgency-message" [ngClass]="{ 'expanded': isUrgencyExpanded }" (click)="toggleUrgencyMessage()">
-    <p *ngIf="isUrgencyExpanded">
-      <strong>Urgência?</strong> Ligue já e fale com um técnico!
-      <a href="tel:+11999999999">(11) 99999-9999</a>
-    </p>
-    <span *ngIf="!isUrgencyExpanded">🚨 Atendimento 24h</span>
   </div>
 </section>

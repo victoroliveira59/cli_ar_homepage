@@ -1,64 +1,67 @@
-import { Component, HostListener, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importando o CommonModule
+import {
+  Component,
+  HostListener,
+  AfterViewInit,
+  ChangeDetectorRef,
+  OnInit,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ScrollService } from '../../scroll.service';
 import { NavbarComponent } from "../../components/navbar/navbar.component";
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @Component({
   standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [CommonModule, NavbarComponent] // Adicionando CommonModule nas importações
-  // Adicionando CommonModule nas importações
+  imports: [CommonModule, NavbarComponent, NgxSpinnerModule]
 })
-export class HomeComponent implements AfterViewInit {
-  isImageVisible: boolean = false;  // Flag para controlar a visibilidade da imagem
-  isUrgencyExpanded: boolean = false;
+export class HomeComponent implements OnInit, AfterViewInit {
+  isImageVisible = false;
+  isUrgencyExpanded = false;
   isContentVisible = false;
+  isLoading = true;
 
-  constructor(private scrollService: ScrollService, private cdr: ChangeDetectorRef) { }
+  @ViewChild('parallaxBg', { static: true }) parallaxBg!: ElementRef; // ✅ Usa static: true se o elemento já existir no DOM
 
-  // Método para rolar para a seção 'servicos'
-  goToServicos(): void {
-    this.scrollService.scrollToSection('contato'); // Chama o método do serviço
+  constructor(
+    private scrollService: ScrollService,
+    private cdr: ChangeDetectorRef,
+    private spinner: NgxSpinnerService
+  ) { }
+
+  ngOnInit(): void {
+    this.spinner.show(); // ✅ Mostra o spinner ao iniciar
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event): void {
+  ngAfterViewInit(): void {
+    requestAnimationFrame(() => {
+      this.isImageVisible = true;
+      this.isContentVisible = true;
+      this.isLoading = false;
+      this.spinner.hide(); // ✅ Esconde o spinner após carregar
+      this.cdr.detectChanges();
+    });
+  }
+
+  goToServicos(): void {
+    this.scrollService.scrollToSection('contato');
+  }
+
+  @HostListener('window:scroll')
+  onScroll(): void {
     const scrollPosition = window.scrollY;
 
-    // Efeito parallax
-    const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
-    if (parallaxBg) {
-      parallaxBg.style.transform = `translateY(${scrollPosition * 0.10}px)`; // Ajuste o fator para controlar o efeito
+    // ✅ Melhor forma de acessar o parallax
+    if (this.parallaxBg?.nativeElement) {
+      this.parallaxBg.nativeElement.style.transform = `translateY(${scrollPosition * 0.1}px)`;
     }
 
-    // Mostrar imagem ao rolar
-    const heroSection = document.querySelector('.hero') as HTMLElement;
-    if (scrollPosition > heroSection.offsetTop - window.innerHeight) {
-      this.isImageVisible = true;
-    }
-  }
-
-  toggleUrgencyMessage(): void {
-    this.isUrgencyExpanded = !this.isUrgencyExpanded;
-  }
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.isImageVisible = true; // Exibe a imagem
-      this.isContentVisible = true; // Exibe o conteúdo com efeito de entrada
-      this.cdr.detectChanges(); // Garante a detecção de mudanças no Angular
-    }, 1000); // Pequeno atraso para a transição suave
-  }
-
-  onImageLoad(): void {
-    // Atrasar o conteúdo com um pequeno intervalo, para dar tempo da imagem começar a transição
-    setTimeout(() => {
-      this.isContentVisible = true;
-
-      // Força a detecção de mudanças após a alteração do estado
-      this.cdr.detectChanges();
-    }, 1000);
+    // ✅ Melhor detecção para aparecer imagem
+    this.isImageVisible = scrollPosition > window.innerHeight * 0.5;
   }
 }

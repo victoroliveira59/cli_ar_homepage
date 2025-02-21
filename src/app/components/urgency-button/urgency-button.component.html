@@ -1,0 +1,9 @@
+<div class="urgency-message">
+  <p *ngIf="isExpanded">
+    <strong>Urgência?</strong> Ligue já e fale com um técnico!
+    <a href="https://wa.me/5531999799785">Clique aqui para WhatsApp</a>
+  </p>
+  <button>
+    <button (click)="redirectToWhatsApp()">
+      <i class="fa-brands fa-whatsapp"></i>
+  </button>

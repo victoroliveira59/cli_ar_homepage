@@ -16,11 +16,7 @@
 	line-height: 1.6;
     margin: 0;
     padding: 0;
-	
-	background-size: cover;  /* A imagem vai cobrir todo o fundo */
-	background-position: center center;  /* Posiciona a imagem no centro da tela */
-	background-attachment: fixed;  /* Faz com que a imagem de fundo não se mova ao rolar a página */
-	background-repeat: no-repeat;  /* Evita a repetição da imagem */
+	background: linear-gradient(to right, #30547c, #b0b1b1);
 	min-height: 100vh;  /* Garante que o fundo cubra toda a altura da tela */
   }
   html {

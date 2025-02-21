@@ -1,57 +1,65 @@
-<section id="contato">
-
-  <div class="hero">
+ <div class="hero">
     <h1>Contato</h1>
-  <div class="contato-container">
-    <!-- Cabeçalho da seção de contato -->
-    <div class="contato-header">
-      <i class="fas fa-envelope"></i>
-      <h2>Estamos prontos para ouvir você!</h2>
-      <p>Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.</p>
-    </div>
+    <div class="contato-container">
+      <!-- Cabeçalho da seção de contato -->
+      <div class="contato-header">
+        <i class="fas fa-envelope"></i>
+        <h2>Estamos prontos para ouvir você!</h2>
+        <p>Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.</p>
+      </div>
 
-    <!-- Novo wrapper para o formulário -->
-    <div class="contato-form">
-      <div class="form-wrapper">
-        <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" formControlName="nome" required>
-          <div *ngIf="contatoForm.get('nome')?.invalid && contatoForm.get('nome')?.touched" class="error-message">
-            O nome é obrigatório.
+      <!-- Contêiner flexível para formulário e mapa -->
+      <div class="contato-form-map">
+        <!-- Formulário -->
+        <div class="form-wrapper">
+          <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" formControlName="nome" required>
+            <div *ngIf="contatoForm.get('nome')?.invalid && contatoForm.get('nome')?.touched" class="error-message">
+              O nome é obrigatório.
+            </div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email" required>
+            <div *ngIf="contatoForm.get('email')?.invalid && contatoForm.get('email')?.touched" class="error-message">
+              Por favor, insira um email válido.
+            </div>
+
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" formControlName="mensagem" required></textarea>
+            <div *ngIf="contatoForm.get('mensagem')?.invalid && contatoForm.get('mensagem')?.touched" class="error-message">
+              A mensagem é obrigatória.
+            </div>
+
+            <button type="submit" [disabled]="contatoForm.invalid">Enviar</button>
+          </form>
+        </div>
+
+        <!-- Mapa atualizado -->
+        <div class="contato-card">
+          <div class="contato-info">
+            <div class="contato-map">
+              <!-- Substituindo o iframe por uma imagem estática -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3759.329327996229!2d-44.063232491879226!3d-19.570386727129712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6672b00d24fcb%3A0x3a95caf00a8dcba!2sR.%20Ouro%20Preto%2C%20611%20-%20Bom%20Jesus%2C%20Matozinhos%20-%20MG%2C%2035720-000!5e0!3m2!1spt-BR!2sbr!4v1739802533049!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <!-- Botão "Abrir no Google Maps" -->
+            <div class="map-button-container">
+              <a href="https://www.google.com/maps?q=R.+Ouro+Preto,+611+-+Bom+Jesus,+Matozinhos+-+MG,+35720-000" target="_blank" class="map-button">
+                📍 Abrir no Google Maps
+              </a>
+            </div>
+
+            <div class="contato-info-card">
+              <h3>📍 Endereço</h3>
+              <p>R. Ouro Preto, 611 - Bom Jesus</p>
+              <p>Matozinhos - MG</p>
+              <p>📞 (31) 99999-9999</p>
+              <p>✉ contato.com</p>
+            </div>
           </div>
-
-          <label for="email">Email</label>
-          <input type="email" id="email" formControlName="email" required>
-          <div *ngIf="contatoForm.get('email')?.invalid && contatoForm.get('email')?.touched" class="error-message">
-            Por favor, insira um email válido.
-          </div>
-
-          <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" formControlName="mensagem" required></textarea>
-          <div *ngIf="contatoForm.get('mensagem')?.invalid && contatoForm.get('mensagem')?.touched" class="error-message">
-            A mensagem é obrigatória.
-          </div>
-
-          <button type="submit" [disabled]="contatoForm.invalid">Enviar</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="contato-card">
-    <div class="contato-info">
-        <h3>Localização</h3>
-        <div class="contato-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3759.329327996229!2d-44.063232491879226!3d-19.570386727129712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6672b00d24fcb%3A0x3a95caf00a8dcba!2sR.%20Ouro%20Preto%2C%20611%20-%20Bom%20Jesus%2C%20Matozinhos%20-%20MG%2C%2035720-000!5e0!3m2!1spt-BR!2sbr!4v1739802533049!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="contato-info-item">
-            <!-- <div class="contato-endereco">
-                <p>Rua Ouro Preto, 611</p>
-                <p>Bairro Bom Jesus</p>
-                <p>Matozinhos - MG, 35720-000</p>
-            </div> -->
-        </div>
-    </div>
-  </div>
-</div>
-</section>
