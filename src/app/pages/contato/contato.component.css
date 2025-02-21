@@ -232,35 +232,35 @@
 
 
   /* Responsividade */
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+	.hero {
+	  width: 100%;
+	  height: 100%;
+	  z-index: 1;
+	  position: relative;
+	  background: linear-gradient(to right, #30547c, #b0b1b1);
+	  display: flex;
+	  gap: 30px;
+	  justify-content: center;
+	  align-items: center;
+	}
 
-	.hero{
-		width: 100%;
-		height: 100%;
-		z-index: 1; /* Mantém a imagem sempre atrás do conteúdo */
-		position: relative;
-		background: linear-gradient(to right, #30547c, #b0b1b1);
-		display: flex;
+	.hero h1 {
+	  margin-bottom: 20px;
+	  margin-top: 0;
+	  font-size: 1.5rem;
+	  text-align: left;
+	  width: 100%;
+	  padding-left: 20px;
+	}
 
-		gap: 30px;
-		justify-content: center;
-		align-items: center;
-	  }
-
-	  .hero h1{
-		margin-bottom: 20px;
-		margin-top: 0;
-		font-size: 1.5rem;
-		text-align: left;
-		width: 100%;
-		padding-left: 20px;
-	  }
 	.contato-container {
 	  margin: 20px;
 	}
 
 	.form-wrapper {
-	  padding: 20px;
+	  padding: 20px 20px;
+	  width: 310px;
 	}
 
 	.contato-header i {
@@ -279,27 +279,45 @@
 	  font-size: 1rem;
 	  padding: 12px;
 	}
+
+	.contato-info {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  flex-direction: column;
+	  gap: 20px;
+	  margin: 0 auto; /* Centraliza */
+	  width: 100%;
+	}
+
 	.contato-card {
-        width: 90vw; /* Ajuste a largura para ocupar quase toda a tela */
-        padding: 15px;
-    }
+	  width: 90vw; /* Ajuste a largura para ocupar quase toda a tela */
+	  padding: 15px;
+	}
 
-    .contato-info h3 {
-        font-size: 20px;
-    }
 
-    .contato-info p,
-    .contato-endereco p {
-        font-size: 14px;
-    }
+	.contato-map iframe {
+	  height: 250px;
+	  width: 80vw; /* Ajuste a largura para ocupar quase toda a tela */
+	}
 
-    .contato-map iframe {
-        height: 250px;
-    }
+	/* ✅ Modificação aqui */
+	.contato-form-map {
+	  display: flex;
+	  flex-direction: column; /* Alinha em coluna */
+	  align-items: center; /* Centraliza os itens */
+	  justify-content: flex-start;
+	  gap: 30px; /* Espaço entre os elementos */
+	}
 
-    .contato-info-item i {
-        font-size: 20px;
-    }
+	/* ✅ Garante que .contato-info fica antes do mapa */
+	.contato-info {
+	  order: -1;
+	}
+	.contato-info-card {
+		display: none;
+	  }
   }
+
 
 
