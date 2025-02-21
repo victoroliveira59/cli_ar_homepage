@@ -12,7 +12,7 @@
     z-index: 1000; /* Mantém acima de outros elementos */
     background: transparent !important; /* Remove fundo */
     color: white;
-    
+
 }
 
 .navbar-scrolled {
@@ -128,7 +128,7 @@
         justify-content: space-around;
         height: 24px;
         width: 30px;
-        position: fixed; /* Fixo na tela */
+        position: absolute; /* Fixo na tela */
         top: 20px; /* Distância do topo */
         right: 20px; /* Distância da direita */
         z-index: 1002; /* Garante que fique acima de tudo */
