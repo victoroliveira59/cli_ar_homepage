@@ -12,23 +12,24 @@ export class SobreComponent implements AfterViewInit {
   @ViewChildren('imageRef, descRef') elements!: QueryList<ElementRef>;
   sobreEmpresaItems = [
     {
-      imgSrc: 'assets/img/historia.jpg',
-      titulo: 'Nossa História',
-      descricao: 'Fundada há mais de 10 anos, a Alves Refrigeração começou com o objetivo de levar conforto térmico e soluções eficientes para lares e empresas. Desde o início, nossa missão foi oferecer serviços de qualidade com um atendimento próximo e personalizado.'
+      imgSrc: 'assets/img/logos 1.jpg',
+      titulo: 'Atendemos diversas marcas',
+      descricao: 'Trabalhamos com as principais marcas de ar-condicionado e refrigeração do mercado, garantindo a qualidade e a eficiência dos nossos serviços.'
+
     },
     {
-      imgSrc: 'assets/img/missao.jpg',
+      imgSrc: 'assets/img/missao_visao_valores.jpg',
       titulo: 'Missão, Visão e Valores',
       descricao: 'Nossa missão é proporcionar bem-estar e eficiência energética aos nossos clientes. Valorizamos a integridade, o compromisso com a qualidade e a inovação constante. Nossa visão é ser referência no setor de refrigeração, oferecendo sempre as melhores soluções.'
     },
     {
-      imgSrc: 'assets/img/diferenciais.jpg',
-      titulo: 'Nossos Diferenciais',
+      imgSrc: 'assets/img/manutenção_geladeiras.jpg',
+      titulo: 'Equipe especializada',
       descricao: 'Contamos com uma equipe de profissionais altamente qualificados, equipamentos de ponta e um compromisso inabalável com a satisfação do cliente. Nosso diferencial é a combinação de tecnologia e atendimento humanizado.'
     }
   ];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
