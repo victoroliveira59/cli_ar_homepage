@@ -1,9 +1,17 @@
-import { Component, HostListener, AfterViewInit, ChangeDetectorRef, OnInit, ViewChild, ElementRef } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { ScrollService } from '../../scroll.service'
-import { NavbarComponent } from "../../components/navbar/navbar.component"
-import { NgxSpinnerService } from 'ngx-spinner'
-import { NgxSpinnerModule } from 'ngx-spinner'
+import {
+  Component,
+  HostListener,
+  AfterViewInit,
+  ChangeDetectorRef,
+  OnInit,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ScrollService } from '../../scroll.service';
+import { NavbarComponent } from "../../components/navbar/navbar.component";
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @Component({
   standalone: true,
@@ -13,12 +21,12 @@ import { NgxSpinnerModule } from 'ngx-spinner'
   imports: [CommonModule, NavbarComponent, NgxSpinnerModule]
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  isImageVisible = false
-  isUrgencyExpanded = false
-  isContentVisible = false
-  isLoading = true  // ✅ Flag para mostrar o spinner
+  isImageVisible = false;
+  isUrgencyExpanded = false;
+  isContentVisible = false;
+  isLoading = true;
 
-  @ViewChild('parallaxBg', { static: false }) parallaxBg!: ElementRef // ✅ Evita manipulação direta do DOM
+  @ViewChild('parallaxBg', { static: true }) parallaxBg!: ElementRef; // ✅ Usa static: true se o elemento já existir no DOM
 
   constructor(
     private scrollService: ScrollService,
@@ -27,41 +35,33 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    this.spinner.show() // ✅ Mostra o spinner assim que o componente for inicializado
+    this.spinner.show(); // ✅ Mostra o spinner ao iniciar
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.isImageVisible = true
-      this.isContentVisible = true
-      this.isLoading = false
-      this.spinner.hide() // ✅ Esconde o spinner ao finalizar o carregamento
-      this.cdr.detectChanges() // ✅ Garante atualização do template
-    }, 1000)
+    requestAnimationFrame(() => {
+      this.isImageVisible = true;
+      this.isContentVisible = true;
+      this.isLoading = false;
+      this.spinner.hide(); // ✅ Esconde o spinner após carregar
+      this.cdr.detectChanges();
+    });
   }
 
   goToServicos(): void {
-    this.scrollService.scrollToSection('contato')
+    this.scrollService.scrollToSection('contato');
   }
 
   @HostListener('window:scroll')
   onScroll(): void {
-    const scrollPosition = window.scrollY
+    const scrollPosition = window.scrollY;
 
-    // ✅ Usa @ViewChild em vez de querySelector para melhor performance
-    if (this.parallaxBg) {
-      this.parallaxBg.nativeElement.style.transform = `translateY(${scrollPosition * 0.1}px)`
+    // ✅ Melhor forma de acessar o parallax
+    if (this.parallaxBg?.nativeElement) {
+      this.parallaxBg.nativeElement.style.transform = `translateY(${scrollPosition * 0.1}px)`;
     }
 
-    if (scrollPosition > window.innerHeight * 0.5) {
-      this.isImageVisible = true
-    }
-  }
-
-  onImageLoad(): void {
-    setTimeout(() => {
-      this.isContentVisible = true
-      this.cdr.detectChanges()
-    }, 1000)
+    // ✅ Melhor detecção para aparecer imagem
+    this.isImageVisible = scrollPosition > window.innerHeight * 0.5;
   }
 }

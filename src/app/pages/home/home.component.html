@@ -1,12 +1,12 @@
-
-
 <section class="hero">
   <app-navbar></app-navbar>
-  <ngx-spinner bdColor="rgba(0,0,0,0.5)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 
-  <div class="parallax-bg"></div>
+  <!-- Spinner só aparece se isLoading for true -->
+  <ngx-spinner *ngIf="isLoading" bdColor="rgba(0,0,0,0.5)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+
+  <div #parallaxBg class="parallax-bg"></div>
   <div class="overlay"></div>
-  
+
   <!-- Conteúdo Principal -->
   <div class="hero-content" [ngClass]="{ 'slide-in-left': isContentVisible, 'visible': isContentVisible }">
     <h1>Soluções Completas para Refrigeradores</h1>
@@ -21,7 +21,6 @@
       <li><i class="fa fa-certificate"></i> Técnicos certificados</li>
     </ul>
 
-    <!-- Botão de Chamada para Ação (CTA) -->
     <button class="cta-button" (click)="goToServicos()">
       <i class="fa fa-tools"></i>Agende uma Visita Técnica!
     </button>
