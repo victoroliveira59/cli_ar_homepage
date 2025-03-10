@@ -19,6 +19,7 @@ import { ContatoComponent } from "./pages/contato/contato.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { UrgencyButtonComponent } from "./components/urgency-button/urgency-button.component";
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NavbarComponent } from "./components/navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
@@ -32,8 +33,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
     FooterComponent,
     CommonModule,
     NgxSpinnerModule,
-    UrgencyButtonComponent
-  ]
+    UrgencyButtonComponent,
+    NavbarComponent
+]
 })
 export class AppComponent implements AfterViewInit {
   isLoading: boolean = true; // 🔄 Controla o estado do carregamento
