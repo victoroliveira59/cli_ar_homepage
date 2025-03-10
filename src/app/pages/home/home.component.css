@@ -288,7 +288,7 @@
 	}
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 1080px ){
 
 	.hero {
 		background-attachment: scroll; /* ✅ Remove efeito de parallax em mobile */
