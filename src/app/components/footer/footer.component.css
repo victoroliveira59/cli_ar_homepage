@@ -1,7 +1,7 @@
 /* Estilos do Footer */
 .footer {
 	position: relative;
-	color: #fff;
+	color: #000000;
 	font-family: Arial, sans-serif;
 	text-align: center;
 	background: white;
@@ -51,7 +51,7 @@
 
   .footer-links a,
   .footer-contact li {
-	color: #ccc;
+	color: #000000;
 	text-decoration: none;
 	font-size: 14px;
   }
@@ -69,7 +69,7 @@
   }
 
   .social-icon {
-	color: #fff;
+	color: #000000;
 	font-size: 24px;
 	text-decoration: none;
 	transition: color 0.3s ease;
@@ -83,7 +83,7 @@
   .footer-bottom {
 	margin-top: 20px;
 	font-size: 14px;
-	color: #ccc;
+	color: #000000;
   }
 
   /* Media query para telas pequenas (mobile) */
