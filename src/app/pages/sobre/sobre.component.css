@@ -4,12 +4,12 @@
 	padding: 80px 20px;
 	text-align: center;
 	min-height: 100vh;
-	background: linear-gradient(to right, #30547c, #b0b1b1);
+	background: white;
   }
 
   /* Título principal */
   .sobre-empresa-container h1 {
-	color: #f5f4f4;
+	color: #016086;
 	margin-bottom: 40px;
 	font-size: 2.5rem;
 	text-align: left;

@@ -3,18 +3,19 @@
 	padding-top: 10px;
 	margin: 0;
 	width: 100vw;
-	background: linear-gradient(to right, #30547c, #b0b1b1);
+	background: white;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Poppins', sans-serif; /* Fonte moderna */
 	position: relative;
+	z-index: 1;
 
   }
 
   .servicos-container h1 {
-	color: #fffefe;
+	color: #016086;
 	font-size: 3rem;
 	padding-top: 30px;
 	padding-bottom: 15px;
