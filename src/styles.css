@@ -5,19 +5,11 @@
 	box-sizing: border-box;
   }
 
-  html, body {
-	width: 100%;  /* Garante que o conteúdo ocupe 100% da largura da tela */
-	height: 100%;  /* Garante que o conteúdo ocupe 100% da altura da tela */
-	overflow-x: hidden;  /* Impede a rolagem horizontal indesejada */
-  }
-
   body {
 	font-family: 'Arial', sans-serif;
 	line-height: 1.6;
     margin: 0;
     padding: 0;
-	background: linear-gradient(to right, #30547c, #b0b1b1);
-	min-height: 100vh;  /* Garante que o fundo cubra toda a altura da tela */
   }
   html {
 	scroll-behavior: smooth;  /* Rolagem suave */
