@@ -3,7 +3,7 @@
 	height: 100%;
 	z-index: 1;
 	position: relative;
-	background: linear-gradient(to right, #30547c, #b0b1b1);
+	background:white;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -12,7 +12,7 @@
 	gap: 40px;
   }
   .hero h1{
-	color: #f5f4f4;
+	color: #016086;
 	margin-bottom: 40px;
 	font-size: 2.5rem;
 	text-align: left;
@@ -122,7 +122,7 @@
   /* Botão de envio */
   button {
 	padding: 15px;
-	background-color: #007BFF;
+	background-color:white;
 	color: white;
 	border: none;
 	border-radius: 5px;
@@ -238,7 +238,7 @@
 	  height: 100%;
 	  z-index: 1;
 	  position: relative;
-	  background: linear-gradient(to right, #30547c, #b0b1b1);
+	  background:white;
 	  display: flex;
 	  gap: 30px;
 	  justify-content: center;
