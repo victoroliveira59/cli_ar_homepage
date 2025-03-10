@@ -337,6 +337,20 @@
 	  opacity: 0.1;
 			object-fit: contain;
 	}
+
+	.logo-container .logo-img {
+		height: 400px;
+		padding: 40px 0 20px 20px ;
+	}
+  }
+
+  /* Responsividade para Telas Muito Pequenas */
+  @media (max-width: 480px) {
+
+	.logo-img{
+		height: 100px;
+		margin: 0 0 0 0;
+	}
   }
 
   /* Responsividade para Telas Muito Pequenas */
