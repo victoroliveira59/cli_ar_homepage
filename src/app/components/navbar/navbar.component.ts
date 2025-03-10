@@ -1,7 +1,6 @@
-import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ScrollService } from '../../scroll.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +13,9 @@ export class NavbarComponent {
   menuAberto: boolean = false;
   menuVisible: boolean = false;
   isScrolled: boolean = false;
+  scrolled: boolean = false;
+
+  @ViewChild('nav', { static: true }) myNav!: ElementRef;
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
@@ -28,7 +30,6 @@ export class NavbarComponent {
     this.toggleMenu(); // Fecha o menu após clicar em um link
   }
 
-
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     if (isPlatformBrowser(this.platformId) && window.innerWidth > 768) {
@@ -37,11 +38,14 @@ export class NavbarComponent {
     }
   }
 
-  @HostListener('window:scroll', [])
+  @HostListener('window:scroll')
   onWindowScroll() {
-    if (isPlatformBrowser(this.platformId)) {
-      console.log('Scroll detectado! Posição:', window.scrollY);
-      this.isScrolled = window.scrollY > 50;
+    if (window.scrollY > 500) {
+      this.scrolled = true;
+      this.myNav.nativeElement.classList.add('navbar-scrolled');
+    } else {
+      this.scrolled = false;
+      this.myNav.nativeElement.classList.remove('navbar-scrolled');
     }
   }
 }
