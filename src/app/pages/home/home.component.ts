@@ -12,13 +12,14 @@ import { ScrollService } from '../../scroll.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { Console } from 'console';
+import { NavbarComponent } from "../../components/navbar/navbar.component";
 
 @Component({
   standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [CommonModule, NgxSpinnerModule]
+  imports: [CommonModule, NgxSpinnerModule, NavbarComponent]
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   isImageVisible = false;
