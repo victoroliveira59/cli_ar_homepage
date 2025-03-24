@@ -1,5 +1,5 @@
 :root{
-	--bg-image: url('/assets/img/geladeira_home.png') center/cover no-repeat;
+	--bg-image: url('/assets/img/capa_site.jpg') center/cover no-repeat;
 	--bg-opacity: 0.5;
 }
 
@@ -11,7 +11,7 @@
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-	background: url('/assets/img/geladeira_home.png') center/cover no-repeat;
+	background: url('/assets/img/capa_site.jpg') center/cover no-repeat;
   }
 
   .hero::before {
@@ -21,7 +21,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(255, 255, 255, 0.685); /* Cor de sobreposição com opacidade */
+	background: rgba(255, 255, 255, 0.473); /* Cor de sobreposição com opacidade */
 	z-index: 1; /* Fica acima da imagem, mas abaixo do conteúdo */
   }
   .parallax-bg {
