@@ -16,6 +16,6 @@ export class UrgencyButtonComponent {
   }
 
   redirectToWhatsApp(): void {
-    window.open('https://wa.me/5531999799785');
+    window.open('https://wa.me/553192855049');
   }
 }
