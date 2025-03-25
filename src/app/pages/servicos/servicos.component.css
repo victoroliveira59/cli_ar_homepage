@@ -209,7 +209,7 @@
 }
 
 @media (max-width: 768px) {
-    
+
     .servicos-container h1 {
         font-size: 2rem;
         padding: 20px 0;
@@ -241,72 +241,69 @@
 }
 
 @media (max-width: 576px) {
-
     .slide-background {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 120%;
+        height: 120%; /* Evita corte na imagem */
         background-size: cover;
         object-fit: cover;
         background-position: center;
         z-index: 1;
-
     }
-    .overlay[_ngcontent-ng-c245938621] {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        height: 800px;
-        z-index: 2;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* Garante que a camada escura cubra tudo */
         background-color: rgba(0, 0, 0, 0.6);
+        z-index: 2;
     }
 
     .servicos-container h1 {
         font-size: 1.6rem;
         letter-spacing: 1px;
+        text-align: center;
     }
 
-    .slide-content[_ngcontent-ng-c245938621] p[_ngcontent-ng-c245938621] {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-        min-width: 100px;
-        width: 100%;
-
-    }
-
-    .slide-content[_ngcontent-ng-c245938621][_ngcontent-ng-c245938621] {
-        padding: 20px;
-        margin-top: 100%;
+    .slide-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Mantém o botão fixo */
+        align-items: center;
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        margin-top: 75%;
         min-height: 300px;
-        min-width: 100px;
         height: 100%;
-    }
-    .carousel-wrapper {
-        height: calc(100vh - 60px);
+        padding: 30px 20px 80px; /* Espaço extra para o botão */
+        position: relative;
+        z-index: 3;
     }
 
     .slide-content h3 {
-        font-size: 1.3rem;
-        letter-spacing: 1px;
+        font-size: 1.4rem;
         margin-bottom: 1rem;
     }
 
     .slide-content p {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
     }
 
     .btn-saiba-mais {
-        padding: 10px 25px;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 30px;
         font-size: 0.9rem;
-    }
-
-    .carousel-indicators li {
-        width: 10px;
-        height: 10px;
-        margin: 0 5px;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 
     .carousel-control-prev {
