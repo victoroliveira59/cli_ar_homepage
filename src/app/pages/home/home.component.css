@@ -21,7 +21,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(255, 255, 255, 0.473); /* Cor de sobreposição com opacidade */
+	background: rgba(3, 3, 3, 0.678); /* Cor de sobreposição com opacidade */
 	z-index: 1; /* Fica acima da imagem, mas abaixo do conteúdo */
   }
   .parallax-bg {
@@ -39,12 +39,13 @@
   .hero-content {
 	position: relative;
 	z-index: 500; /* Mantém o texto visível acima do plano de fundo */
-	max-width: 450px;
+	max-width: 600px;
 	top: 40px;
 	background: rgba(255, 255, 255, 0); /* Remover fundo visível */
 	border-radius: 15px;
 	animation: slideInLeft 1s ease-out 0.5s forwards;
 	right: 250px;
+	text-align: center;
   }
 
 
@@ -57,21 +58,23 @@
 
 .hero-content .text {
 	font-size: 1.2rem;
-	color: #000000;
+	color: #ffffff;
 	margin-bottom: 30px;
   }
 
   .diferenciais {
 	list-style: none;
 	padding: 0;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
+	color: #ffffff;
   }
+
 
 
   .diferenciais li {
     display: flex;
     align-items: center;
-    padding: 5px 0;
+    padding: 2px 0;
 }
 
 .diferenciais li i {
@@ -217,10 +220,11 @@
 }
 
 .logo-container .logo-img {
-    height: 400px; /* Tamanho da logo */
+    height: 600px; /* Tamanho da logo */
     object-fit: contain;
     transition: transform 0.3s ease, opacity 0.3s ease; /* Para efeitos suaves */
-	margin: -30% 0 -20% 0; /* Ajuste para centralizar */;
+	margin: -40% 0 -32% 0; /* Ajuste para centralizar */;
+
 }
 
 .hero-content .logo-container .logo-img.scrolled {

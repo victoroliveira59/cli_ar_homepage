@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { SlickCarouselModule, SlickCarouselComponent } from 'ngx-slick-carousel';
 import { ModalComponent } from "../../modal/modal.component";
 
 @Component({
@@ -11,6 +11,8 @@ import { ModalComponent } from "../../modal/modal.component";
   styleUrls: ['./servicos.component.css']
 })
 export class ServicosComponent implements AfterViewInit {
+  currentSlide = 0;
+
   servicos = [
     {
       nome: 'Instalação de Ar-Condicionado',
@@ -38,45 +40,42 @@ export class ServicosComponent implements AfterViewInit {
     }
   ];
 
-
   slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // Aumentei o tempo de autoplay
+    autoplaySpeed: 5000,
+    speed: 1000,
     pauseOnHover: true,
     infinite: true,
-    dots: true,
-    arrows: true,
+    dots: false, // Desativamos os dots padrão pois usamos os personalizados
+    arrows: false, // Desativamos as arrows padrão pois usamos as personalizadas
     cssEase: 'ease-in-out',
-    fade: true, // Adicionar efeito de fade
+    fade: true,
+    afterChange: (e: number) => this.currentSlide = e,
     responsive: [
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: true
+          arrows: false
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: true
+          arrows: false
         }
       }
     ]
   };
 
   @ViewChild('tituloServicos') titulo!: ElementRef;
+  @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
   // Estado do modal
   isModalOpen: boolean = false;
   modalTitle: string = '';
   modalDescription: string = '';
-
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
@@ -89,24 +88,23 @@ export class ServicosComponent implements AfterViewInit {
               if (entry.isIntersecting) {
                 entry.target.classList.add('animate-grow');
               } else {
-                entry.target.classList.remove('animate-grow'); // Remove a animação quando o elemento sair
+                entry.target.classList.remove('animate-grow');
               }
             });
-          }, { threshold: 0.5 }); // Dispara a animação quando 50% do elemento estiver visível
+          }, { threshold: 0.5 });
 
           observer.observe(this.titulo.nativeElement);
         }
-      }, 100); // Pequeno delay para garantir que o DOM esteja pronto
+      }, 100);
     }
-  };
-  // Função para abrir o modal com os dados do serviço
+  }
+
   openModal(servico: any) {
     this.modalTitle = servico.nome;
     this.modalDescription = servico.detalhes;
     this.isModalOpen = true;
   }
 
-  // Função para fechar o modal
   closeModal() {
     this.isModalOpen = false;
   }

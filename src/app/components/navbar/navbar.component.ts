@@ -40,7 +40,7 @@ export class NavbarComponent {
 
   @HostListener('window:scroll')
   onWindowScroll() {
-    if (window.scrollY > 500) {
+    if (window.scrollY > 450) {
       this.scrolled = true;
       this.myNav.nativeElement.classList.add('navbar-scrolled');
     } else {
