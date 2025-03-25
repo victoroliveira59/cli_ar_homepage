@@ -135,7 +135,7 @@
 
 	.sobre-empresa-container {
 		position: relative;
-		padding: 30px 20px;
+		padding: 0;
 		text-align: center;
 		min-height: 100vh;
 	  }
