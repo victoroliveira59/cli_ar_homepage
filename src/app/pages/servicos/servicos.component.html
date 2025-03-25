@@ -1,28 +1,36 @@
 <div class="servicos-container">
-	<h1 #tituloServicos> Nossos Serviços</h1>
+  <h1 #tituloServicos>Nossos Serviços</h1>
 
-	<div class="centralizador">
-	  <div class="carousel-wrapper">
-		<ngx-slick-carousel class="carousel" [config]="slideConfig" #slickModal="slick-carousel">
-		  <div ngxSlickItem *ngFor="let servico of servicos" class="slide">
-			<div class="slide-overlay"></div>
-			<img [src]="servico.imagem" alt="{{ servico.nome }}" class="img-style">
-			<div class="slide-content">
-			  <h3>{{ servico.nome }}</h3>
-			  <p>{{ servico.descricao }}</p>
-			  <button class="btn-saiba-mais" (click)="openModal(servico)">Saiba Mais</button>
-			</div>
-		  </div>
-		</ngx-slick-carousel>
-		<button class="custom-prev" (click)="slickModal.slickPrev()">❮</button>
-		<button class="custom-next" (click)="slickModal.slickNext()">❯</button>
-	  </div>
-	</div>
+  <div class="carousel-wrapper">
+    <ngx-slick-carousel class="carousel" [config]="slideConfig" #slickModal="slick-carousel">
+      <div ngxSlickItem *ngFor="let servico of servicos; let i = index" class="slide">
+        <div class="slide-background" [style.backgroundImage]="'url(' + servico.imagem + ')'">
+          <div class="overlay"></div>
+        </div>
+        <div class="slide-content">
+          <h3>{{ servico.nome }}</h3>
+          <p>{{ servico.descricao }}</p>
+          <button class="btn-saiba-mais" (click)="openModal(servico)">SAIBA MAIS</button>
+        </div>
+      </div>
+    </ngx-slick-carousel>
 
-	<app-modal
-		[isOpen]="isModalOpen"
-		[title]="modalTitle"
-		[description]="modalDescription"
-		(closeModal)="closeModal()">
-	</app-modal>
+    <!-- Indicadores -->
+    <ol class="carousel-indicators">
+      <li *ngFor="let servico of servicos; let i = index" [class.active]="currentSlide === i" (click)="slickModal.slickGoTo(i)"></li>
+    </ol>
+
+    <!-- Controles de navegação -->
+    <button class="carousel-control-prev" (click)="slickModal.slickPrev()">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" (click)="slickModal.slickNext()">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
 </div>
+
+<app-modal [isOpen]="isModalOpen" [title]="modalTitle" [description]="modalDescription" (closeModal)="closeModal()">
+</app-modal>
