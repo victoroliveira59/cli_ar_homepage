@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';  // Certifique-se de importar aqui
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ApiService } from '../../services/api.service'; // Adjusted the path
+
 
 @Component({
   selector: 'app-contato',
   templateUrl: './contato.component.html',
   styleUrls: ['./contato.component.css'],
-  standalone: true,  // Isso define o componente como standalone
-  imports: [ReactiveFormsModule,CommonModule]  // Módulo necessário para formulários reativos
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule]
 })
 export class ContatoComponent implements OnInit {
   contatoForm!: FormGroup;
+  enviado = false;
+  erro = '';
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.contatoForm = this.fb.group({
@@ -26,9 +29,16 @@ export class ContatoComponent implements OnInit {
 
   onSubmit() {
     if (this.contatoForm.valid) {
-      console.log(this.contatoForm.value);
+      this.apiService.enviarFormulario(this.contatoForm.value).subscribe({
+        next: (res) => {
+          this.enviado = true;
+          console.log('Formulário enviado com sucesso:', res);
+        },
+        error: (err) => {
+          this.erro = 'Erro ao enviar formulário. Tente novamente.';
+          console.error('Erro:', err);
+        }
+      });
     }
   }
-
-
 }

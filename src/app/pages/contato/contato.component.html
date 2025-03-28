@@ -35,6 +35,9 @@
           </form>
         </div>
 
+        <div *ngIf="enviado">✅ Formulário enviado com sucesso!</div>
+        <div *ngIf="erro">❌ {{ erro }}</div>
+
         <!-- Mapa atualizado -->
         <div class="contato-card">
           <div class="contato-info">
