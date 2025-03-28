@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../../services/api.service'; // Adjusted the path
-
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-contato',
@@ -14,8 +13,9 @@ import { ApiService } from '../../services/api.service'; // Adjusted the path
 })
 export class ContatoComponent implements OnInit {
   contatoForm!: FormGroup;
-  enviado = false;
-  erro = '';
+  mensagemRetorno: string = '';
+  sucesso: boolean = false;
+  carregando: boolean = false;
 
   constructor(private fb: FormBuilder, private apiService: ApiService) {}
 
@@ -29,14 +29,20 @@ export class ContatoComponent implements OnInit {
 
   onSubmit() {
     if (this.contatoForm.valid) {
+      this.carregando = true;
+      this.mensagemRetorno = '';
+
       this.apiService.enviarFormulario(this.contatoForm.value).subscribe({
         next: (res) => {
-          this.enviado = true;
-          console.log('Formulário enviado com sucesso:', res);
+          this.sucesso = true;
+          this.mensagemRetorno = 'E-mail enviado com sucesso!';
+          this.carregando = false;
+          this.contatoForm.reset();
         },
         error: (err) => {
-          this.erro = 'Erro ao enviar formulário. Tente novamente.';
-          console.error('Erro:', err);
+          this.sucesso = false;
+          this.mensagemRetorno = 'Erro ao enviar o e-mail. Tente novamente.';
+          this.carregando = false;
         }
       });
     }
