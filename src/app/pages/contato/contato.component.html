@@ -33,15 +33,14 @@
 
             <button type="submit" [disabled]="contatoForm.invalid">Enviar</button>
 
-
-            <p *ngIf="carregando">Enviando...</p>
+            <p *ngIf="carregando" class="text-primary">Enviando...</p>
             <p *ngIf="mensagemRetorno" [ngClass]="sucesso ? 'sucesso' : 'erro'">
               {{ mensagemRetorno }}
             </p>
           </form>
         </div>
 
-        <
+
 
         <!-- Mapa atualizado -->
         <div class="contato-card">
