@@ -4,12 +4,12 @@
 	padding: 80px 20px;
 	text-align: center;
 	min-height: 100vh;
-	background: linear-gradient(to right, #30547c, #b0b1b1);
+	background: white;
   }
 
   /* Título principal */
   .sobre-empresa-container h1 {
-	color: #f5f4f4;
+	color: #016086;
 	margin-bottom: 40px;
 	font-size: 2.5rem;
 	text-align: left;
@@ -36,7 +36,6 @@
   .imagem img {
 	width: 100%;
 	max-width: 400px;
-	border-radius: 15px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 	transition: transform 0.3s ease-in-out;
   }
@@ -51,7 +50,7 @@
   .card {
 	background-color: #fff;
 	padding: 30px;
-	border-radius: 15px;
+
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
@@ -128,7 +127,7 @@
 	.sobre-empresa-container h1 {
 		margin-bottom: 40px;
 		margin-top: 0;
-		font-size: 1.5rem;
+		font-size: 1.6rem;
 		text-align: left;
 		width: 100%;
 		padding-left: 20px;
@@ -136,7 +135,7 @@
 
 	.sobre-empresa-container {
 		position: relative;
-		padding: 30px 20px;
+		padding: 0;
 		text-align: center;
 		min-height: 100vh;
 	  }

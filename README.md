@@ -1,59 +1,48 @@
-# CliAr
+# Documentação do Projeto
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+## Objetivo
+O objetivo deste projeto é divulgar uma empresa de refrigeração, apresentando seus serviços e produtos de forma clara e atrativa.
 
-## Development server
+## Tecnologias Utilizadas
+Este projeto foi desenvolvido utilizando as seguintes tecnologias e bibliotecas:
 
-To start a local development server, run:
+- **Angular**: Framework principal utilizado para a construção da aplicação.
+- **TypeScript**: Linguagem de programação utilizada para desenvolver o código-fonte.
+- **Angular CLI**: Ferramenta de linha de comando para inicializar, desenvolver e manter aplicações Angular.
+- **RxJS**: Biblioteca para programação reativa, utilizada para gerenciar operações assíncronas.
+- **Angular Material**: Biblioteca de componentes UI para Angular, utilizada para criar uma interface de usuário moderna e responsiva.
+- **Bootstrap**: Framework CSS utilizado para estilização e layout responsivo.
+- **NgRx**: Biblioteca para gerenciamento de estado reativo em aplicações Angular.
+- **FontAwesome**: Biblioteca de ícones vetoriais.
+- **NgxSpinner**: Componente de loading para feedback visual.
+- **Slick Carousel**: Biblioteca para criação de carrosséis responsivos.
 
-```bash
-ng serve
-```
+## Estrutura do Projeto
+A estrutura do projeto segue as melhores práticas recomendadas pela comunidade Angular, com a separação de módulos, componentes, serviços e modelos.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Como Executar o Projeto
+Para executar o projeto localmente, siga os passos abaixo:
 
-## Code scaffolding
+1. Clone o repositório:
+	```bash
+	git clone https://github.com/victoroliveira59/cli_ar_homepage
+	```
+2. Navegue até o diretório do projeto:
+	```bash
+	cd cli_ar
+	```
+3. Instale as dependências:
+	```bash
+	npm install
+	```
+4. Inicie o servidor de desenvolvimento:
+	```bash
+	ng serve
+	```
+5. Abra o navegador e acesse `http://localhost:4200`.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Contribuição
+Se você deseja contribuir com este projeto, por favor, siga as diretrizes de contribuição disponíveis no repositório.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Licença
+Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.

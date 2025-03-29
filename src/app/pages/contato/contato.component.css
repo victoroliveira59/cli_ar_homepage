@@ -3,17 +3,16 @@
 	height: 100%;
 	z-index: 1;
 	position: relative;
-	background: linear-gradient(to right, #30547c, #b0b1b1);
+	background:white;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	padding: 40px 20px;
-	gap: 40px;
+	gap: 20px;
   }
   .hero h1{
-	color: #f5f4f4;
-	margin-bottom: 40px;
+	color: #016086;
 	font-size: 2.5rem;
 	text-align: left;
 	width: 100%;
@@ -25,7 +24,6 @@
 	max-width: 1200px; /* Ajuste conforme necessário */
 	padding: 40px 20px;
 	background-color: rgba(255, 255, 255, 0.95);
-	border-radius: 15px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 	text-align: center;
   }
@@ -48,7 +46,6 @@
 	margin-bottom: 15px;
 	background-color: #ffffff;  /* Cor de fundo para o ícone */
 	padding: 10px;
-	border-radius: 50%;
 	max-width: 400px;
   }
 
@@ -78,7 +75,6 @@
   .form-wrapper {
 	background-color: #ffffff;
 	padding: 30px;
-	border-radius: 15px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	text-align: left;
 	width: 500px;
@@ -100,7 +96,6 @@
   input, textarea {
 	padding: 15px;
 	border: 1px solid #ccc;
-	border-radius: 5px;
 	font-size: 1rem;
 	transition: border-color 0.3s ease, box-shadow 0.3s ease;
 	background-color: #f9f9f9;
@@ -122,10 +117,9 @@
   /* Botão de envio */
   button {
 	padding: 15px;
-	background-color: #007BFF;
+	background-color:white;
 	color: white;
 	border: none;
-	border-radius: 5px;
 	font-size: 1.1rem;
 	font-weight: bold;
 	cursor: pointer;
@@ -146,7 +140,6 @@
 .mapa-imagem {
 	width: 100%;
 	max-width: 500px;
-	border-radius: 10px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 	transition: transform 0.3s ease;
@@ -167,8 +160,8 @@
 	padding: 10px 20px;
 	background-color: #007BFF;
 	color: white;
-	text-decoration: none;
 	border-radius: 5px;
+	text-decoration: none;
 	font-weight: bold;
 	transition: background-color 0.3s ease, transform 0.2s ease;
   }
@@ -201,7 +194,6 @@
 	position: absolute;
 	background: rgba(255, 255, 255, 0.95);
 	padding: 20px;
-	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 	width: 250px;
 
@@ -228,6 +220,16 @@
 	margin: 5px 0;
   }
 
+  .sucesso {
+	color: green;
+	font-weight: bold;
+  }
+
+  .erro {
+	color: red;
+	font-weight: bold;
+  }
+
 
 
 
@@ -238,7 +240,7 @@
 	  height: 100%;
 	  z-index: 1;
 	  position: relative;
-	  background: linear-gradient(to right, #30547c, #b0b1b1);
+	  background:white;
 	  display: flex;
 	  gap: 30px;
 	  justify-content: center;
@@ -246,9 +248,7 @@
 	}
 
 	.hero h1 {
-	  margin-bottom: 20px;
-	  margin-top: 0;
-	  font-size: 1.5rem;
+	  font-size: 2rem;
 	  text-align: left;
 	  width: 100%;
 	  padding-left: 20px;

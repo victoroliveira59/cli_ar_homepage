@@ -32,29 +32,36 @@
             </div>
 
             <button type="submit" [disabled]="contatoForm.invalid">Enviar</button>
+
+            <p *ngIf="carregando" class="text-primary">Enviando...</p>
+            <p *ngIf="mensagemRetorno" [ngClass]="sucesso ? 'sucesso' : 'erro'">
+              {{ mensagemRetorno }}
+            </p>
           </form>
         </div>
+
+
 
         <!-- Mapa atualizado -->
         <div class="contato-card">
           <div class="contato-info">
             <div class="contato-map">
               <!-- Substituindo o iframe por uma imagem estática -->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3759.329327996229!2d-44.063232491879226!3d-19.570386727129712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6672b00d24fcb%3A0x3a95caf00a8dcba!2sR.%20Ouro%20Preto%2C%20611%20-%20Bom%20Jesus%2C%20Matozinhos%20-%20MG%2C%2035720-000!5e0!3m2!1spt-BR!2sbr!4v1739802533049!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3749.2337946896205!2d-43.8486!3d-19.9987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69f41f1cf4397%3A0x7bcdbbfa74bca870!2sR.%20Jos%C3%A9%20Moreira%2C%20691%20-%20Vale%20da%20Esperan%C3%A7a%2C%20Nova%20Lima%20-%20MG%2C%2034002-194!5e0!3m2!1spt-BR!2sbr!4v1741611329720!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <!-- Botão "Abrir no Google Maps" -->
             <div class="map-button-container">
-              <a href="https://www.google.com/maps?q=R.+Ouro+Preto,+611+-+Bom+Jesus,+Matozinhos+-+MG,+35720-000" target="_blank" class="map-button">
+              <a href="https://maps.app.goo.gl/hWwD55vgkwPKJ6NP6" target="_blank" class="map-button">
                 📍 Abrir no Google Maps
               </a>
             </div>
 
             <div class="contato-info-card">
               <h3>📍 Endereço</h3>
-              <p>R. Ouro Preto, 611 - Bom Jesus</p>
-              <p>Matozinhos - MG</p>
-              <p>📞 (31) 99999-9999</p>
+              <p>R. José Moreira, 691 - Vale da Esperança</p>
+              <p>Nova Lima - MG</p>
+              <p>📞 (31) 99285-5049</p>
               <p>✉ contato.com</p>
             </div>
           </div>

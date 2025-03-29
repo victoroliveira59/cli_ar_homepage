@@ -1,18 +1,27 @@
 <section class="hero">
-  <app-navbar></app-navbar>
-
   <!-- Spinner só aparece se isLoading for true -->
   <ngx-spinner *ngIf="isLoading" bdColor="rgba(0,0,0,0.5)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
-
+  <app-navbar></app-navbar>
   <div #parallaxBg class="parallax-bg"></div>
   <div class="overlay"></div>
 
   <!-- Conteúdo Principal -->
   <div class="hero-content" [ngClass]="{ 'slide-in-left': isContentVisible, 'visible': isContentVisible }">
-    <h1>Soluções Completas para Refrigeradores</h1>
+
+    <!-- Logo -->
+    <a href="#home" class="logo-container">
+      <img src="/assets/img/logo/Logo_AR_Branca.png" class="logo-img" alt="Logo">
+    </a>
+
+    <!-- <h1>Soluções Completas para Refrigeradores</h1> -->
     <p class="text">
       Oferecemos <strong>manutenção preventiva e corretiva</strong> para sistemas de refrigeração, garantindo
-      <strong>eficiência, durabilidade e economia de energia</strong>.
+      eficiência. Nossa expertise: <br>
+      <span class="equip"><i class="fas fa-snowflake"></i> Geladeiras</span>
+      <span class="equip"><i class="fas fa-thermometer-half"></i> Freezers</span>
+      <span class="equip"><i class="fas fa-tint"></i> Bebedouros</span>
+      <span class="equip"><i class="fas fa-beer"></i> Chopeiras</span>
+      <span class="equip"><i class="fas fa-wind"></i> Ar-condicionado</span>
     </p>
 
     <ul class="diferenciais">
@@ -22,7 +31,7 @@
     </ul>
 
     <button class="cta-button" (click)="goToServicos()">
-      <i class="fa fa-tools"></i>Agende uma Visita Técnica!
+      <i class="fa fa-tools"></i> Agende uma Visita Técnica!
     </button>
   </div>
 </section>

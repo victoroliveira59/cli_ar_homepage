@@ -50,7 +50,7 @@ export class AppComponent implements AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private spinner: NgxSpinnerService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {

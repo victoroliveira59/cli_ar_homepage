@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute; /* Mantém sobre a imagem */
+    position: fixed; /* Mantém sobre a imagem */
     top: 0;
     left: 0;
     width: 100%;
@@ -16,19 +16,51 @@
 }
 
 .navbar-scrolled {
-    background: rgba(0, 0, 0, 0.8); /* Fundo escuro */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    transition: background 0.3s ease-in-out;
-  }
+    background-color:#016086 !important;
+    transition: background-color 0.3s ease-in-out;
+    z-index: 1000;
 
+}
 
-/* Estilos do logo */
+.navbar .nav-links li a {
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-scrolled .nav-links li a {
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease-in-out;
+
+}
+  /* Efeito hover para mudança de cor */
+.navbar-scrolled .nav-links li a:hover {
+    transform: scale(1.05);
+    color: #FFA500; /* Altere para destacar no hover */
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar .logo {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.navbar-scrolled .logo {
+    opacity: 1; /* Aparece ao rolar */
+    transition: opacity 0.3s ease-in-out;
+}
+
 .logo img {
-    height: 250px;
+    margin: -80px;
+    height: 200px; /* Ajuste para quando estiver visível */
     object-fit: contain;
+}
+.logo img:hover{
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
 }
 
 /* Estilos dos links de navegação */
@@ -40,21 +72,20 @@
     padding: 0;
 }
 
+/* Estilos gerais dos links de navegação */
 .nav-links li a {
-    color: rgb(36, 146, 236);
+    color: #016086; /* Cor inicial */
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;
-    transition: color 0.3s ease;
-    box-shadow: #333;
-}
 
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: #FFD700;
-}
+  }
 
-/* Estilos do ícone do menu hambúrguer */
+  .navbar .nav-links li a:hover {
+    transform: scale(1.05);
+    color: #FFA500; /* Altere para destacar no hover */
+    transition: all 0.3s ease-in-out;
+}
 
 /* Estilo do nav-links (menu de navegação) */
 .nav-links {
@@ -63,7 +94,99 @@
     transition: transform 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
+@media screen and (min-width: 568px) and (max-width: 1024px) {
+    /* Ajuste geral da navbar */
+    .navbar {
+        height: 70px; /* Reduz a altura para tablets */
+        padding: 0 20px; /* Reduz o espaçamento lateral */
+        background-color: #016086; /* Adiciona um fundo fixo */
+        color: white;
+    }
+
+    /* Ajuste do logo */
+    .logo img {
+        height: 150px; /* Ajusta o tamanho do logo */
+        object-fit: contain;
+        display: flex;
+        padding-left: 30px;
+    }
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease-in-out;
+        z-index: 1001; /* Abaixo do ícone do menu */
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links.hidden {
+        right: -100%;
+    }
+
+    .menu-toggle {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 24px;
+        width: 30px;
+        position: absolute; /* Fixo na tela */
+        top: 25px; /* Distância do topo */
+        right: 20px; /* Distância da direita */
+        z-index: 1002; /* Garante que fique acima de tudo */
+
+    }
+
+
+
+      /* Estilo do ícone do menu (hambúrguer/"X") */
+      .menu-toggle {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 24px;
+        width: 30px;
+        position: absolute; /* Fixo na tela */
+        top: 25px; /* Distância do topo */
+        right: 20px; /* Distância da direita */
+        z-index: 1002; /* Garante que fique acima de tudo */
+
+    }
+
+    .menu-toggle[_ngcontent-ng-c807469250] .bar[_ngcontent-ng-c807469250] {
+        width: 100%;
+        height: 2px;
+        background-color: rgb(255, 253, 253);
+        transition: all 0.3s ease;
+    }
+
+    /* Transformação em "X" quando o menu está aberto */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+        background-color: red; /* Cor destacada para o "X" */
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -5px);
+        background-color: red; /* Cor destacada para o "X" */
+    }
+}
+
+@media screen and (max-width: 568px ) {
     .nav-links {
         position: fixed;
         top: 0;
@@ -116,7 +239,9 @@
     }
 
     .logo img {
-    height: 200px; /* Ajuste conforme necessário */
+    height: 150px; /* Ajuste conforme necessário */
+    margin: 0 0 25px 10px; /* Adicione margem à esquerda */
+
     object-fit: contain; /* Evita distorção */
     }
 
@@ -129,15 +254,16 @@
         height: 24px;
         width: 30px;
         position: absolute; /* Fixo na tela */
-        top: 20px; /* Distância do topo */
+        top: 25px; /* Distância do topo */
         right: 20px; /* Distância da direita */
         z-index: 1002; /* Garante que fique acima de tudo */
+
     }
 
-    .menu-toggle .bar {
+    .menu-toggle[_ngcontent-ng-c807469250] .bar[_ngcontent-ng-c807469250] {
         width: 100%;
-        height: 3px;
-        background-color: rgb(10, 10, 10);
+        height: 2px;
+        background-color: rgb(255, 253, 253);
         transition: all 0.3s ease;
     }
 
