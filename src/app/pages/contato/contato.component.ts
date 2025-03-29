@@ -17,12 +17,13 @@ export class ContatoComponent implements OnInit {
   sucesso: boolean = false;
   carregando: boolean = false;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {}
+  constructor(private fb: FormBuilder, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.contatoForm = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      telefone: ['', Validators.required],
       mensagem: ['', Validators.required]
     });
   }
