@@ -195,16 +195,72 @@
 
 /* Responsividade */
 @media (max-width: 1200px) {
+    .slide-background {
+        height: 300px; /* Altura fixa */
+        width: 100%; /* Largura total */
+        background-size: cover; /* Ajusta a imagem para cobrir o espaço */
+        background-position: center; /* Centraliza a imagem */
+        background-repeat: no-repeat; /* Evita repetição */
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* Garante que a camada escura cubra tudo */
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 2;
+    }
+
     .servicos-container h1 {
-        font-size: 2.2rem;
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+        text-align: center;
     }
 
-    .slide-content h3 {
-        font-size: 1.8rem;
+    .slide-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centraliza verticalmente */
+        align-items: center; /* Centraliza horizontalmente */
+        text-align: center;
+        width: 90%; /* Usa uma largura mais responsiva */
+        max-width: 400px; /* Limita a largura máxima */
+        padding: 20px; /* Adiciona espaçamento interno */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        min-height: 1000px; /* Altura mínima */
+        position: relative;
+        z-index: 3;
+        border-radius: 8px; /* Bordas arredondadas para um visual mais moderno */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
     }
 
-    .slide-content p {
-        font-size: 1.1rem;
+    .slide-content h3 p {
+       padding-bottom: 500px;
+    }
+
+
+
+    .btn-saiba-mais {
+        position: absolute;
+        top : 70%;
+        left: 26%;
+        transform: transform(1%);
+        padding: 12px 30px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+
+    }
+
+    .carousel-control-prev {
+        left: 15px;
+    }
+
+    .carousel-control-next {
+        right: 15px;
     }
 }
 
@@ -297,13 +353,14 @@
 
     .btn-saiba-mais {
         position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        top : 80%;
+        left: 26%;
+        transform: transform(1%);
         padding: 12px 30px;
         font-size: 0.9rem;
         font-weight: bold;
         text-transform: uppercase;
+        border: 2px 5px solid #65b029;
     }
 
     .carousel-control-prev {

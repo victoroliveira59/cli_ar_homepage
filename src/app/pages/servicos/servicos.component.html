@@ -4,9 +4,11 @@
   <div class="carousel-wrapper">
     <ngx-slick-carousel class="carousel" [config]="slideConfig" #slickModal="slick-carousel">
       <div ngxSlickItem *ngFor="let servico of servicos; let i = index" class="slide">
-        <div class="slide-background" [style.backgroundImage]="'url(' + servico.imagem + ')'">
-          <div class="overlay"></div>
-        </div>
+        <div class="slide-background d-flex align-items-center justify-content-center"
+          [style.backgroundImage]="'url(' + servico.imagem + ')'"
+          style="background-size: cover; background-position: center; height: 800px; width: 100%;">
+        <div class="overlay"></div>
+      </div>
         <div class="slide-content">
           <h3>{{ servico.nome }}</h3>
           <p>{{ servico.descricao }}</p>
