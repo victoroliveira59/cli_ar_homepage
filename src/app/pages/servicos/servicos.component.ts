@@ -15,28 +15,28 @@ export class ServicosComponent implements AfterViewInit {
 
   servicos = [
     {
-      nome: 'Instalação de Ar-Condicionado',
-      descricao: 'Serviço profissional de instalação para garantir o melhor desempenho do seu aparelho.',
-      imagem: 'assets/img/boas-praticas-refrigeracao.jpg',
-      detalhes: 'Oferecemos a instalação de sistemas de ar-condicionado com a escolha adequada do modelo e a correta instalação do sistema de dutos, para garantir o máximo desempenho e eficiência energética do seu aparelho. Nossos técnicos são especializados e seguem rigorosamente as normas de segurança.'
+      nome: 'Conserto de Refrigeradores Domésticos',
+      descricao: 'Serviço especializado em reparos para geladeiras residenciais de todas as marcas.',
+      imagem: 'assets/img/conserto_geladeiras.jpg',
+      detalhes: 'Resolvemos problemas como falta de refrigeração, vazamentos, portas que não vedam, gelo excessivo no freezer e defeitos no compressor. Utilizamos peças originais e garantimos um diagnóstico preciso.'
+    },
+    {
+      nome: 'Reparo Elétrico e Troca de Placas',
+      descricao: 'Soluções para falhas elétricas e substituição de placas de geladeiras.',
+      imagem: 'assets/img/troca-placa.png',
+      detalhes: 'Realizamos reparos em fiações, troca de placas eletrônicas (inversoras, controladoras), substituição de termostatos e sensores. Garantimos a segurança e eficiência do sistema elétrico do seu refrigerador.'
+    },
+    {
+      nome: 'Recarga de Gás Refrigerante',
+      descricao: 'Recarga profissional com os gases adequados para seu modelo.',
+      imagem: 'assets/img/recarga-fluido.jpg',
+      detalhes: 'Trabalhamos com gases como R-134a (frost-free), R-600a (ecológico) e R-12 (modelos antigos). Além da recarga, verificamos vazamentos e fazemos a manutenção do sistema de refrigeração.'
     },
     {
       nome: 'Manutenção Preventiva',
-      descricao: 'Evite problemas futuros com uma manutenção regular e eficiente.',
-      imagem: 'assets/img/limpeza-de-ar-condicionado-de-janela.jpg',
-      detalhes: 'Realizamos a manutenção preventiva dos aparelhos de ar-condicionado, incluindo a limpeza e verificação do sistema de refrigeração, troca de filtros, e inspeção dos componentes elétricos. Essa manutenção ajuda a evitar falhas inesperadas e prolonga a vida útil do equipamento.'
-    },
-    {
-      nome: 'Sistema Elétrico',
-      descricao: 'Troca de Componentes Elétricos',
-      imagem: 'assets/img/reparo_componentes_eletricos.jpg',
-      detalhes: 'Realizamos a troca de componentes elétricos, como capacitores, relés, disjuntores, e outros itens essenciais, para garantir que o sistema elétrico de seu aparelho esteja funcionando corretamente. Nossos profissionais possuem experiência em diversos tipos de sistemas e marcas, garantindo um serviço rápido e seguro.'
-    },
-    {
-      nome: 'Conserto de Equipamentos',
-      descricao: 'Diagnóstico e reparo rápido de falhas em aparelhos de diversas marcas.',
-      imagem: 'assets/img/troca_compressor.jpg',
-      detalhes: 'Oferecemos diagnóstico preciso e consertos rápidos para falhas em aparelhos de ar-condicionado e outros equipamentos, incluindo o reparo de falhas no compressor, vazamentos de gás refrigerante e problemas no circuito elétrico. Trabalhamos com peças originais e garantimos a qualidade do serviço.'
+      descricao: 'Cuidados periódicos para evitar problemas futuros.',
+      imagem: 'assets/img/limpeza-geladeiras.jpg',
+      detalhes: 'Inclui limpeza interna, verificação de borrachas de vedação, calibração de termostatos, inspeção de componentes elétricos e ajustes no sistema de refrigeração. Prolongue a vida útil do seu aparelho com nosso serviço.'
     }
   ];
 
