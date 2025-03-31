@@ -8,7 +8,6 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 40px 20px;
 	gap: 20px;
   }
   .hero h1{
@@ -21,7 +20,7 @@
 
   .contato-container {
 	width: 100%;
-	max-width: 1200px; /* Ajuste conforme necessário */
+	max-width: 100%; /* Ajuste conforme necessário */
 	padding: 40px 20px;
 	background-color: rgba(255, 255, 255, 0.95);
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -30,14 +29,17 @@
 
   /* Contêiner flexível para formulário e mapa */
 .contato-form-map {
-	display: flex;
+	display: grid;
 	gap: 60px; /* Espaço entre o formulário e o mapa */
 	justify-content: space-between;
 	align-items: flex-start; /* Alinha os itens ao topo */
+	grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
 
   }
   .contato-header{
 	max-width: 500px;
+	margin-left: 80px;
   }
 
   .contato-header i {
@@ -75,6 +77,7 @@
   .form-wrapper {
 	background-color: #ffffff;
 	padding: 30px;
+	margin-left: 80px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	text-align: left;
 	width: 500px;
@@ -193,15 +196,9 @@
 	padding: 20px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 	width: 250px;
-
-	/* 🔥 Inclinação */
 	transform: rotate(10deg);
-
-	/* 📌 Posição */
 	top: 25%;
-	left: 1000px; /* Ajuste conforme necessário */
-
-	/* Z-Index para ficar entre o mapa e o formulário */
+	left: 1200px;
 	z-index: 2;
   }
 
@@ -258,6 +255,11 @@
 	.form-wrapper {
 	  padding: 20px 20px;
 	  width: 310px;
+	  margin-right: 80px;
+	}
+
+	.contato-header{
+		margin: 0;
 	}
 
 	.contato-header i {
