@@ -16,7 +16,7 @@ export class ServicosComponent implements AfterViewInit {
   servicos = [
     {
       nome: 'Conserto de Refrigeradores Domésticos',
-      descricao: 'Serviço especializado em reparos para geladeiras residenciais de todas as marcas.',
+      descricao: 'Serviço especializado em reparos de refrigeradores todas as marcas.',
       imagem: 'assets/img/conserto_geladeiras.jpg',
       detalhes: 'Resolvemos problemas como falta de refrigeração, vazamentos, portas que não vedam, gelo excessivo no freezer e defeitos no compressor. Utilizamos peças originais e garantimos um diagnóstico preciso.'
     },

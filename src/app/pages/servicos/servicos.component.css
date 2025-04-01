@@ -278,9 +278,9 @@
         left: 0;
         width: 50%;
         height: 120%; /* Evita corte na imagem */
-        background-size: cover;
-        object-fit: cover;
-        background-position: center;
+        background-size: cover; /* Ajusta a imagem para cobrir o espaço */
+        background-position: center; /* Centraliza a imagem */
+        background-repeat: no-repeat; /* Evita repetição */
         z-index: 1;
     }
 
@@ -348,7 +348,8 @@
         width: 90%;
         max-width: 400px;
         margin-top: 75%;
-        min-height: 300px;
+        min-height: 320px;
+        max-height: 320px;
         height: 100%;
         padding: 30px 20px 80px; /* Espaço extra para o botão */
         position: relative;
