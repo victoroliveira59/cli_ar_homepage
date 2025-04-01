@@ -1,8 +1,9 @@
 /* Estilos gerais da navbar */
 .navbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     position: fixed; /* Mantém sobre a imagem */
     top: 0;
     left: 0;
@@ -183,9 +184,9 @@
         padding: 0 20px; /* Reduz o espaçamento lateral */
         background-color: #016086; /* Adiciona um fundo fixo */
         color: white;
-        width: 390px;
-
+        width: 420px;
     }
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -227,9 +228,9 @@
         display: flex;
         align-items: center;
         height: 100%;
-        margin-top: 30px; /* Mova mais para a esquerda */
+        margin-top: 15px; /* Mova mais para a esquerda */
         margin-left: -35%; /* Remova margens */
-        padding-left: 50px; /* Remova qualquer padding aplicado */
+        padding-left: 60px; /* Remova qualquer padding aplicado */
     }
 
 
