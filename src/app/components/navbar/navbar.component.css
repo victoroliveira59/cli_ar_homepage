@@ -184,7 +184,7 @@
         padding: 0 20px; /* Reduz o espaçamento lateral */
         background-color: #016086; /* Adiciona um fundo fixo */
         color: white;
-        width: 420px;
+        max-width: 100%;
     }
 
     .nav-links {
