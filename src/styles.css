@@ -11,11 +11,12 @@
     padding: 0;
 	width: 100vw;
 	font-family: Manrope, "Manrope-Fallback", Arial, sans-serif;
-	overflow: hidden;
+	overflow-x: hidden;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	letter-spacing: 0.1px;
+	overflow: none;
   }
   html {
 	scroll-behavior: smooth;  /* Rolagem suave */
