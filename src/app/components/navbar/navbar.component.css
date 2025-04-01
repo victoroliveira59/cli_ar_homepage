@@ -178,16 +178,23 @@
     }
 }
 
-@media screen and (max-width: 568px ) {
-
+@media screen and (max-width: 568px) {
     .navbar {
-        height: 70px; /* Reduz a altura para tablets */
-        padding: 0 20px; /* Reduz o espaçamento lateral */
-        background-color: #016086; /* Adiciona um fundo fixo */
-        color: white;
-        max-width: 430px;
+        height: 70px;
+        padding: 0 20px;
+        width: 100%; /* Ocupa toda a largura da tela */
+        max-width: none; /* Remove a restrição de 430px */
+        max-width: 100vw;
         position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
     }
+
+    body {
+        overflow-x: hidden; /* Impede rolagem lateral */
+    }
+
 
     .nav-links {
         position: fixed;
