@@ -185,7 +185,6 @@
         background-color: #016086; /* Adiciona um fundo fixo */
         color: white;
         max-width: 430px;
-        overflow-x: hidden;
     }
 
     .nav-links {
