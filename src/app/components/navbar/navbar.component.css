@@ -191,6 +191,12 @@
         z-index: 1000;
     }
 
+    .navbar, .container, .wrapper {
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+
     body {
         overflow-x: hidden; /* Impede rolagem lateral */
     }
