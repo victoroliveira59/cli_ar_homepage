@@ -61,11 +61,13 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 120%;
     background-size: cover;
     background-position: center;
     z-index: 1;
     background-color: slategray;
+    object-fit: cover;
+
 }
 
 .overlay {
@@ -86,7 +88,7 @@
     width: 100%;
     max-width: 2000px;
 	height: 100%;
-    padding: 170px;
+    padding: 300px;
 }
 
 .slide-content h3 {
@@ -270,6 +272,18 @@
         font-size: 2rem;
         padding: 20px 0;
     }
+    .slide-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 120%; /* Evita corte na imagem */
+        background-size: cover;
+        object-fit: cover;
+        background-position: center;
+        z-index: 1;
+    }
+
 
     .carousel-wrapper {
         height: calc(100vh - 70px);
@@ -301,7 +315,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 50%;
         height: 120%; /* Evita corte na imagem */
         background-size: cover;
         object-fit: cover;

@@ -101,6 +101,7 @@
         padding: 0 20px; /* Reduz o espaçamento lateral */
         background-color: #016086; /* Adiciona um fundo fixo */
         color: white;
+
     }
 
     /* Ajuste do logo */
@@ -108,6 +109,10 @@
         height: 150px; /* Ajusta o tamanho do logo */
         object-fit: contain;
         display: flex;
+        padding-left: 30px;
+    }
+
+    .logo{
         padding-left: 30px;
     }
     .nav-links {
@@ -141,27 +146,11 @@
         width: 30px;
         position: absolute; /* Fixo na tela */
         top: 25px; /* Distância do topo */
-        right: 20px; /* Distância da direita */
+        right: 40px; /* Distância da direita */
         z-index: 1002; /* Garante que fique acima de tudo */
 
     }
 
-
-
-      /* Estilo do ícone do menu (hambúrguer/"X") */
-      .menu-toggle {
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 24px;
-        width: 30px;
-        position: absolute; /* Fixo na tela */
-        top: 25px; /* Distância do topo */
-        right: 20px; /* Distância da direita */
-        z-index: 1002; /* Garante que fique acima de tudo */
-
-    }
 
     .menu-toggle[_ngcontent-ng-c807469250] .bar[_ngcontent-ng-c807469250] {
         width: 100%;
@@ -187,6 +176,7 @@
 }
 
 @media screen and (max-width: 568px ) {
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -230,7 +220,7 @@
         height: 100%;
         margin-top: 30px; /* Mova mais para a esquerda */
         margin-left: -35%; /* Remova margens */
-        padding-left: 0; /* Remova qualquer padding aplicado */
+        padding-left: 50px; /* Remova qualquer padding aplicado */
     }
 
 
@@ -255,7 +245,7 @@
         width: 30px;
         position: absolute; /* Fixo na tela */
         top: 25px; /* Distância do topo */
-        right: 20px; /* Distância da direita */
+        right: 40px; /* Distância da direita */
         z-index: 1002; /* Garante que fique acima de tudo */
 
     }
