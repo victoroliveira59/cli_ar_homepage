@@ -13,6 +13,7 @@
     z-index: 1000; /* Mantém acima de outros elementos */
     background: transparent !important; /* Remove fundo */
     color: white;
+    scrollbar-width: none;
 
 }
 
