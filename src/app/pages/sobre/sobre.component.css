@@ -173,7 +173,7 @@
 
   .imagem-responsive img {
     max-width: 300px;
-    margin: 40px auto 0;
+    margin: 40px auto ;
   }
 
   .text-center-mobile {
@@ -190,4 +190,7 @@
     max-width: 100%;
   }
 
+  .img-responsive {
+	margin-top: 40px;
+  }
 }
