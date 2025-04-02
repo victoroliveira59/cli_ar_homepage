@@ -1,84 +1,7 @@
-/* ========== CLASSES UTILITÁRIAS ========== */
-/* Layout */
-.flex { display: flex; }
-.flex-column { flex-direction: column; }
-.flex-row-reverse { flex-direction: row-reverse; }
-.flex-wrap { flex-wrap: wrap; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.gap-40 { gap: 40px; }
-
-/* Espaçamento */
-.w-full { width: 100%; }
-.p-30 { padding: 30px; }
-.py-25 { padding-top: 25px; padding-bottom: 25px; }
-.mt-40 { margin-top: 40px; }
-
-/* Texto */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-uppercase { text-transform: uppercase; }
-.font-bold { font-weight: bold; }
-.text-2-5 { font-size: 2.5rem; }
-
-/* Cores */
+/* CORES */
 .text-color { color: #016086; }
 
-/* Efeitos */
-.shadow-md { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-.shadow-lg { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
-.transition-all { transition: all 0.3s ease-in-out; }
-
-/* Imagens */
-.img-responsive {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-.max-w-400 { max-width: 400px; }
-.max-w-300 { max-width: 300px; }
-
-/* ========== COMPONENTES ESPECÍFICOS ========== */
-.sobre-empresa-container {
-  position: relative;
-  min-height: 100vh;
-  background: white;
-}
-
-.card {
-  background-color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Layout específico para os itens */
-.sobre-empresa-item {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	gap: 40px;
-  }
-
-  /* Alternar ordem */
-  .sobre-empresa-item.reverso {
-	flex-direction: row-reverse;
-  }
-
-  /* Imagens e cards lado a lado */
-  .imagem-container {
-	flex: 1;
-	min-width: 300px;
-	max-width: 400px;
-  }
-
-  .descricao-container {
-	flex: 1;
-	min-width: 300px;
-  }
-/* ========== ANIMAÇÕES (MANTIDAS ORIGINAIS) ========== */
-/* Animações de entrada */
+/* ANIMAÇÕES (mantidas as custom) */
 .animate-left {
   opacity: 0;
   transform: translateX(-50px);
@@ -91,106 +14,39 @@
   animation: fadeInRight 1s forwards;
 }
 
-/* Animações de saída */
-.animate-left-out {
-  animation: fadeOutLeft 1s forwards;
-}
-
-.animate-right-out {
-  animation: fadeOutRight 1s forwards;
-}
-
 .animate-center {
   opacity: 0;
   animation: fadeInCenter 1s forwards;
 }
 
-/* Keyframes para animações de entrada */
+/* KEYFRAMES */
 @keyframes fadeInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Keyframes para animações de saída */
-@keyframes fadeOutLeft {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-}
-
-@keyframes fadeOutRight {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInCenter {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ========== RESPONSIVIDADE ========== */
-@media screen and (max-width: 1024px) {
-  .sobre-empresa-item-responsive {
+/* TRANSITION */
+.transition-all { transition: all 0.3s ease-in-out; }
+
+/* AJUSTES ESPECÍFICOS PARA MOBILE */
+@media (max-width: 767.98px) {
+  .sobre-empresa-item {
     flex-direction: column !important;
-    align-items: center;
-    text-align: center;
   }
 
-  .text-2-5 { font-size: 2rem; }
-
-  .sobre-empresa-item,
-  .sobre-empresa-item.reverso {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .imagem-container img {
+	width: 100%;
   }
 
-  .imagem-responsive img {
-    max-width: 300px;
-    margin: 40px auto ;
-  }
-
-  .text-center-mobile {
-    text-align: center;
-  }
-
-  .text-2-mobile {
+  .display-4 {
     font-size: 2rem;
-  }
-
-  .imagem-container,
-  .descricao-container {
-    min-width: 100%;
-    max-width: 100%;
-  }
-
-  .img-responsive {
-	margin-top: 40px;
   }
 }

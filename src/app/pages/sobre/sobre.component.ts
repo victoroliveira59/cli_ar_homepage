@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Inject, PLATFORM_ID, QueryList, ViewChildren, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -8,16 +8,14 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
   styleUrls: ['./sobre.component.css']
 })
 export class SobreComponent implements AfterViewInit {
-
   isMobile = false;
-  
+
   @ViewChildren('imageRef, descRef') elements!: QueryList<ElementRef>;
   sobreEmpresaItems = [
     {
       imgSrc: 'assets/img/logos 1.jpg',
       titulo: 'Atendemos diversas marcas',
-      descricao: 'Trabalhamos com as principais marcas de ar-condicionado e refrigeração do mercado, garantindo a qualidade e a eficiência dos nossos serviços.'
-
+      descricao: 'Trabalhamos com as principais marcas...'
     },
     {
       imgSrc: 'assets/img/missao_visao_valores.jpg',
@@ -35,42 +33,35 @@ export class SobreComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const isMobile = window.innerWidth <= 768; // Detecta mobile
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           const target = entry.target as HTMLElement;
-          const index = this.elements.toArray().findIndex((el: ElementRef) => el.nativeElement === target);
+          const index = this.elements.toArray().findIndex(el => el.nativeElement === target);
 
           if (index !== -1) {
             if (entry.isIntersecting) {
               target.classList.remove('animate-left-out', 'animate-right-out');
-
-              // Se for mobile, centraliza tudo
-              if (isMobile) {
-                target.classList.add('animate-center');
-              } else {
-                target.classList.add(index % 2 === 0 ? 'animate-left' : 'animate-right');
-              }
+              target.classList.add(this.isMobile ? 'animate-center' :
+                (index % 2 === 0 ? 'animate-left' : 'animate-right'));
             } else {
               target.classList.remove('animate-left', 'animate-right', 'animate-center');
-              target.classList.add(index % 2 === 0 ? 'animate-left-out' : 'animate-right-out');
             }
           }
         });
       }, { threshold: 0.1 });
 
-      this.elements.forEach((el) => observer.observe(el.nativeElement));
+      this.elements.forEach(el => observer.observe(el.nativeElement));
     }
   }
-  // No seu componente.ts
 
-
-  ngOnInit() {
-    this.checkScreenSize();
-    window.addEventListener('resize', () => this.checkScreenSize());
+  @HostListener('window:resize', ['$event'])
+  checkScreenSize() {
+    this.isMobile = window.innerWidth < 768; // Bootstrap md breakpoint
   }
 
-  checkScreenSize() {
-    this.isMobile = window.innerWidth <= 1024;
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenSize();
+    }
   }
 }

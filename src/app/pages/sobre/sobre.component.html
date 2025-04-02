@@ -1,24 +1,30 @@
-<div class="sobre-empresa-container text-center">
-	<h1 class="text-color text-2-5 text-uppercase w-full py-25 font-bold">Sobre a Alves Refrigeração</h1>
+<div class="sobre-empresa-container d-flex flex-column align-items-center min-vh-100 bg-white text-center py-3 py-md-5">
+	<h1 class="text-color text-uppercase font-weight-bold w-100 py-3 py-md-4 display-4">
+	  Sobre a Alves Refrigeração
+	</h1>
 
-	<div class="sobre-empresa-item"
-		 *ngFor="let item of sobreEmpresaItems; let i = index"
-		 [ngClass]="{ 'reverso': i % 2 !== 0 }"
-		 [class.animate-left]="i % 2 === 0"
-		 [class.animate-right]="i % 2 !== 0">
+	<div class="container">
+	  <div *ngFor="let item of sobreEmpresaItems; let i = index"
+		   class="sobre-empresa-item d-flex flex-column flex-md-row align-items-center justify-content-between my-4 my-md-5"
+		   [ngClass]="{ 'flex-md-row-reverse': i % 2 !== 0 }"
+		   [class.animate-left]="i % 2 === 0 && !isMobile"
+		   [class.animate-right]="i % 2 !== 0 && !isMobile"
+		   [class.animate-center]="isMobile">
 
-	  <!-- Container da Imagem -->
-	  <div class="imagem-container" #imageRef>
-		<img class="img-responsive shadow-lg transition-all"
-			 [src]="item.imgSrc"
-			 [alt]="item.titulo" />
-	  </div>
+		<!-- Imagem -->
+		<div class="imagem-container col-md-6 px-3 mb-4 mb-md-0" #imageRef>
+		  <img class="img-fluid shadow-lg transition-all w-100 mx-auto"
+			   [src]="item.imgSrc"
+			   [alt]="item.titulo"
+			   style="max-width: 400px;">
+		</div>
 
-	  <!-- Container da Descrição -->
-	  <div class="descricao-container" #descRef>
-		<div class="card p-30">
-		  <h2 class="font-bold">{{ item.titulo }}</h2>
-		  <p class="font">{{ item.descricao }}</p>
+		<!-- Descrição -->
+		<div class="descricao-container col-md-6 px-3" #descRef>
+		  <div class="card shadow-sm p-3  h-100">
+			<h2 class="font-weight-bold mb-3">{{ item.titulo }}</h2>
+			<p class="text-left">{{ item.descricao }}</p>
+		  </div>
 		</div>
 	  </div>
 	</div>
