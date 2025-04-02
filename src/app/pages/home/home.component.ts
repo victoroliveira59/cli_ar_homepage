@@ -19,7 +19,7 @@ import { NavbarComponent } from "../../components/navbar/navbar.component";
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [CommonModule, NgxSpinnerModule, NavbarComponent]
+  imports: [CommonModule, NgxSpinnerModule]
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   isImageVisible = false;

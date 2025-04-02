@@ -1,8 +1,9 @@
 /* Estilos gerais da navbar */
 .navbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     position: fixed; /* Mantém sobre a imagem */
     top: 0;
     left: 0;
@@ -12,6 +13,7 @@
     z-index: 1000; /* Mantém acima de outros elementos */
     background: transparent !important; /* Remove fundo */
     color: white;
+    scrollbar-width: none;
 
 }
 
@@ -101,7 +103,7 @@
         padding: 0 20px; /* Reduz o espaçamento lateral */
         background-color: #016086; /* Adiciona um fundo fixo */
         color: white;
-
+        width: 100vw;
     }
 
     /* Ajuste do logo */
@@ -118,15 +120,15 @@
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
         height: 100vh;
-        width: 100%;
+        width: 100vw;
         background-color: #333;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         transition: right 0.3s ease-in-out;
         z-index: 1001; /* Abaixo do ícone do menu */
+        right: 0;
     }
 
     .nav-links.active {
@@ -175,7 +177,29 @@
     }
 }
 
-@media screen and (max-width: 568px ) {
+@media screen and (max-width: 568px) {
+    .navbar {
+        height: 70px;
+        padding: 0 20px;
+        width: 100%; /* Ocupa toda a largura da tela */
+        max-width: none; /* Remove a restrição de 430px */
+        max-width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .navbar, .container, .wrapper {
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+
+    body {
+        overflow-x: hidden; /* Impede rolagem lateral */
+    }
+
 
     .nav-links {
         position: fixed;
@@ -218,9 +242,9 @@
         display: flex;
         align-items: center;
         height: 100%;
-        margin-top: 30px; /* Mova mais para a esquerda */
+        margin-top: 15px; /* Mova mais para a esquerda */
         margin-left: -35%; /* Remova margens */
-        padding-left: 50px; /* Remova qualquer padding aplicado */
+        padding-left: 60px; /* Remova qualquer padding aplicado */
     }
 
 

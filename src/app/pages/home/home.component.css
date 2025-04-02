@@ -12,6 +12,7 @@
 	align-items: center;
 	overflow: hidden;
 	background: url('/assets/img/capa_site.jpg') center/cover no-repeat;
+	width: 100vw;
   }
 
   .hero::before {
@@ -19,7 +20,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 100vw;
 	height: 100%;
 	background: rgba(3, 3, 3, 0.678); /* Cor de sobreposição com opacidade */
 	z-index: 1; /* Fica acima da imagem, mas abaixo do conteúdo */
@@ -29,7 +30,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     object-fit: cover;
     z-index: 0;
@@ -167,7 +168,7 @@
 
 .right-image-container {
 	opacity: 0;
-	transform: translateX(100px);
+	transform: translateX(100vw);
 	transition: opacity 0.5s ease-out, transform 1s ease-out;
 }
 
@@ -198,7 +199,7 @@
 
 @keyframes slideInRight {
 	0% {
-		transform: translateX(100%);
+		transform: translateX(100vw);
 		opacity: 0;
 	}
 	100% {
@@ -360,7 +361,7 @@
 	}
 
 	.right-image-container img {
-	  width: 100%;
+	  width: 100vw;
 	  height: auto;
 	  opacity: 0.1;
 			object-fit: contain;
@@ -423,7 +424,7 @@
 	}
 
 	.right-image-container img {
-	  width: 100%;
+	  width: 100vw;
 	  height: auto;
 	  opacity: 0.1;
 			object-fit: contain;
