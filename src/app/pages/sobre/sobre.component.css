@@ -1,7 +1,6 @@
 /* Container principal */
 .sobre-empresa-container {
 	position: relative;
-	padding: 40px 20px;
 	text-align: center;
 	min-height: 100vh;
 	background: white;
@@ -10,11 +9,12 @@
   /* Título principal */
   .sobre-empresa-container h1 {
 	color: #016086;
-	margin-bottom: 40px;
 	font-size: 2.5rem;
-	text-align: left;
+	text-align: center;
 	width: 100%;
-	padding-left: 20px;
+	text-transform: uppercase;
+	padding: 25px 0;
+
   }
 
   /* Estilo dos itens */
@@ -23,7 +23,6 @@
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	margin-bottom: 60px;
 	gap: 40px;
   }
 
@@ -129,6 +128,7 @@
 		display: block;
 		margin: 0 auto;
 		object-fit: cover;
+		margin-top: 40px;
 	  }
 
 	  .descricao {
@@ -137,12 +137,9 @@
 
 	  /* Título principal */
 	.sobre-empresa-container h1 {
-		margin-bottom: 40px;
-		margin-top: 0;
-		font-size: 1.6rem;
-		text-align: left;
-		width: 100%;
-		padding-left: 20px;
+		font-size: 2rem;
+		width: 100%;;
+		padding: 25px 0;
 	}
 
 	.sobre-empresa-container {
@@ -150,23 +147,77 @@
 		padding: 0;
 		text-align: center;
 		min-height: 100vh;
-	  }
+	}
 
-	 /* Animações de entrada */
-	 @keyframes fadeInCenter {
-		from {
-		  opacity: 0;
-		  transform: translateY(50px);
-		}
-		to {
-		  opacity: 1;
-		  transform: translateY(0);
-		}
-	  }
-
-	  .animate-center {
+	/* Animações de entrada */
+	@keyframes fadeInCenter {
+	from {
 		opacity: 0;
-		animation: fadeInCenter 1s forwards;
-	  }
-  }
+		transform: translateY(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	}
 
+	.animate-center {
+	opacity: 0;
+	animation: fadeInCenter 1s forwards;
+	}
+
+}
+
+@media screen and (max-width: 568px){
+	.sobre-empresa-item {
+		flex-direction: column !important;
+		align-items: center;
+		text-align: center;
+	  }
+
+	  .imagem img {
+		width: 100%;
+		max-width: 300px;
+		height: auto;
+		display: block;
+		margin: 0 auto;
+		object-fit: cover;
+		margin-top: 40px;
+	  }
+
+	  .descricao {
+		text-align: center;
+	  }
+
+	  /* Título principal */
+	.sobre-empresa-container h1 {
+		font-size: 2rem;
+		width: 100%;;
+		padding: 25px 0;
+	}
+
+	.sobre-empresa-container {
+		position: relative;
+		padding: 0;
+		text-align: center;
+		min-height: 100vh;
+	}
+
+	/* Animações de entrada */
+	@keyframes fadeInCenter {
+	from {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	}
+
+	.animate-center {
+	opacity: 0;
+	animation: fadeInCenter 1s forwards;
+	}
+
+}
