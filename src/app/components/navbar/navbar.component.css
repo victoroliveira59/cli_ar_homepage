@@ -96,7 +96,7 @@
     transition: transform 0.3s ease-in-out;
 }
 
-@media screen and (min-width: 568px) and (max-width: 1024px) {
+@media screen and (min-width: 569px) and (max-width: 1024px) {
     /* Ajuste geral da navbar */
     .navbar {
         height: 70px; /* Reduz a altura para tablets */
@@ -204,9 +204,8 @@
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
         height: 100vh;
-        width: 100%;
+        width: 100vw;
         background-color: #333;
         flex-direction: column;
         justify-content: center;
@@ -216,7 +215,7 @@
     }
 
     .nav-links.active {
-        right: 0;
+        right: 20px;
     }
 
     .nav-links.hidden {
@@ -274,7 +273,7 @@
 
     }
 
-    .menu-toggle[_ngcontent-ng-c807469250] .bar[_ngcontent-ng-c807469250] {
+    .menu-toggle {
         width: 100%;
         height: 2px;
         background-color: rgb(255, 253, 253);

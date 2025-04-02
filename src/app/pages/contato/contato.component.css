@@ -224,11 +224,99 @@
 	font-weight: bold;
   }
 
+  @media screen and (min-width: 569px) and (max-width: 1200px) {
+	.hero {
+	  width: 100%;
+	  height: 100%;
+	  z-index: 1;
+	  position: relative;
+	  background:white;
+	  display: flex;
+	  gap: 30px;
+	  justify-content: center;
+	  align-items: center;
+	}
 
+	.hero h1 {
+	  font-size: 2rem;
+	  text-align: left;
+	  width: 100%;
+	  padding-left: 20px;
+	}
+
+	.contato-container {
+	  margin: 20px;
+	}
+
+	.form-wrapper {
+	  padding: 20px 20px;
+	  width: 550px;
+	  margin-right: 80px;
+	}
+
+	.contato-header{
+		margin-left: 120px;
+	}
+
+	.contato-header i {
+	  font-size: 2.5rem;
+	}
+
+	.contato-header h2 {
+	  font-size: 1.8rem;
+	}
+
+	.contato-header p {
+	  font-size: 1rem;
+	}
+
+	button {
+	  font-size: 1rem;
+	  padding: 12px;
+	}
+
+	.contato-info {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  flex-direction: column;
+	  gap: 20px;
+	  margin: 0 auto; /* Centraliza */
+	  width: 100%;
+	}
+
+	.contato-card {
+	  width: 90vw; /* Ajuste a largura para ocupar quase toda a tela */
+	  padding: 15px;
+	}
+
+
+	.contato-map iframe {
+	  height: 250px;
+	  width: 80vw; /* Ajuste a largura para ocupar quase toda a tela */
+	}
+
+	/* ✅ Modificação aqui */
+	.contato-form-map {
+	  display: flex;
+	  flex-direction: column; /* Alinha em coluna */
+	  align-items: center; /* Centraliza os itens */
+	  justify-content: flex-start;
+	  gap: 30px; /* Espaço entre os elementos */
+	}
+
+	/* ✅ Garante que .contato-info fica antes do mapa */
+	.contato-info {
+	  order: -1;
+	}
+	.contato-info-card {
+		display: none;
+	  }
+  }
 
 
   /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 568px) {
 	.hero {
 	  width: 100%;
 	  height: 100%;
@@ -259,7 +347,7 @@
 	}
 
 	.contato-header{
-		margin: 0;
+		margin-left: 5px;
 	}
 
 	.contato-header i {

@@ -249,8 +249,8 @@
 
 
 
-/* Responsividade para Tablets */
-@media (max-width: 1024px) {
+/* Responsividade para Desktop */
+@media (min-width: 1024px) {
 
 	.hero {
 		position: relative;
@@ -313,7 +313,7 @@
  	 }
 }
 
-@media screen and (min-width: 568px) and (max-width: 1080px){
+@media screen and (min-width: 568px) and (max-width: 1024px){
 
 	.hero {
 		background-attachment: scroll; /* ✅ Remove efeito de parallax em mobile */
