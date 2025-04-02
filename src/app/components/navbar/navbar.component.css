@@ -253,7 +253,7 @@
 
     .logo img {
     height: 150px; /* Ajuste conforme necessário */
-    margin: 0 0 25px 20px; /* Adicione margem à esquerda */
+    margin: 0 0 25px 35px; /* Adicione margem à esquerda */
 
     object-fit: contain; /* Evita distorção */
     }
