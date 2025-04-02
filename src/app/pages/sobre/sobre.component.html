@@ -1,21 +1,25 @@
-<div class="sobre-empresa-container">
-	<h1>Sobre a Alves Refrigeração</h1>
-  
-	<div class="sobre-empresa-item" *ngFor="let item of sobreEmpresaItems; let i = index" [ngClass]="{ 'reverso': i % 2 !== 0 }">
-  
-	  <!-- Imagem com animação -->
-	  <div class="imagem" #imageRef>
-		<img [src]="item.imgSrc" [alt]="item.titulo" />
+<div class="sobre-empresa-container text-center">
+	<h1 class="text-color text-2-5 text-uppercase w-full py-25 font-bold">Sobre a Alves Refrigeração</h1>
+
+	<div class="sobre-empresa-item"
+		 *ngFor="let item of sobreEmpresaItems; let i = index"
+		 [ngClass]="{ 'reverso': i % 2 !== 0 }"
+		 [class.animate-left]="i % 2 === 0"
+		 [class.animate-right]="i % 2 !== 0">
+
+	  <!-- Container da Imagem -->
+	  <div class="imagem-container" #imageRef>
+		<img class="img-responsive shadow-lg transition-all"
+			 [src]="item.imgSrc"
+			 [alt]="item.titulo" />
 	  </div>
-  
-	  <!-- Descrição com animação -->
-	  <div class="descricao" #descRef>
-		<div class="card">
-		  <h2>{{ item.titulo }}</h2>
-		  <p>{{ item.descricao }}</p>
+
+	  <!-- Container da Descrição -->
+	  <div class="descricao-container" #descRef>
+		<div class="card p-30">
+		  <h2 class="font-bold">{{ item.titulo }}</h2>
+		  <p class="font">{{ item.descricao }}</p>
 		</div>
 	  </div>
-  
 	</div>
   </div>
-  

@@ -9,6 +9,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 })
 export class SobreComponent implements AfterViewInit {
 
+  isMobile = false;
+  
   @ViewChildren('imageRef, descRef') elements!: QueryList<ElementRef>;
   sobreEmpresaItems = [
     {
@@ -59,5 +61,16 @@ export class SobreComponent implements AfterViewInit {
 
       this.elements.forEach((el) => observer.observe(el.nativeElement));
     }
+  }
+  // No seu componente.ts
+
+
+  ngOnInit() {
+    this.checkScreenSize();
+    window.addEventListener('resize', () => this.checkScreenSize());
+  }
+
+  checkScreenSize() {
+    this.isMobile = window.innerWidth <= 1024;
   }
 }
