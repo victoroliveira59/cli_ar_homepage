@@ -268,7 +268,7 @@
         width: 30px;
         position: absolute; /* Fixo na tela */
         top: 25px; /* Distância do topo */
-        right: 40px; /* Distância da direita */
+        right: 20px; /* Distância da direita */
         z-index: 1002; /* Garante que fique acima de tudo */
 
     }
