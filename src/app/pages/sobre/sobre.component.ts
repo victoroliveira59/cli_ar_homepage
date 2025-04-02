@@ -33,20 +33,24 @@ export class SobreComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
+      const isMobile = window.innerWidth <= 768; // Detecta mobile
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           const target = entry.target as HTMLElement;
           const index = this.elements.toArray().findIndex((el: ElementRef) => el.nativeElement === target);
 
-
           if (index !== -1) {
             if (entry.isIntersecting) {
-              // Entrou na viewport: animação de entrada
               target.classList.remove('animate-left-out', 'animate-right-out');
-              target.classList.add(index % 2 === 0 ? 'animate-left' : 'animate-right');
+
+              // Se for mobile, centraliza tudo
+              if (isMobile) {
+                target.classList.add('animate-center');
+              } else {
+                target.classList.add(index % 2 === 0 ? 'animate-left' : 'animate-right');
+              }
             } else {
-              // Saiu da viewport: animação de saída
-              target.classList.remove('animate-left', 'animate-right');
+              target.classList.remove('animate-left', 'animate-right', 'animate-center');
               target.classList.add(index % 2 === 0 ? 'animate-left-out' : 'animate-right-out');
             }
           }

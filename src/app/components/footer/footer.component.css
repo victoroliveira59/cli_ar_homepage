@@ -87,7 +87,7 @@
   }
 
   /* Media query para telas pequenas (mobile) */
-  @media (max-width: 768px) {
+  @media screen and (min-width: 568px) and (max-width: 1024px) {
 
 	.footer{
 		display: flex;
