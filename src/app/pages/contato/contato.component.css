@@ -3,6 +3,11 @@
 .text-primary-custom { color: #016086; }
 .bg-blue-light { background-color: rgba(0, 123, 255, 0.1); }
 
+
+.text-2-5 {
+    font-size: 3rem;
+  }
+
 /* Ajustes específicos */
 .contato-header i {
   font-size: 3rem;
