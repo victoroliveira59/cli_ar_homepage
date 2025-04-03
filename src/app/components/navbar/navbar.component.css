@@ -106,7 +106,7 @@
 
     .logo-img {
       height: 200px;
-      margin:  10px 0 0 -70px;
+      margin:  10px 0 0 -170px;
     }
 
     .container {
@@ -332,6 +332,7 @@
       border: none;
       outline: none;
       box-shadow: none;
+      margin-left: -130px;
     }
 
     @keyframes width-slide-in{
@@ -342,9 +343,9 @@
         display: none;
       }
       100% {
-        width: 765px;
+        width: 100vw;
         opacity: 1;
-        transform: translateX(5%); /* Posição final */
+        transform: translateX(0%); /* Posição final */
         display: block;
       }
     }
@@ -352,7 +353,6 @@
 
     @media (max-width: 567.98px) {
       .navbar-toggler {
-        left: 50px;
         top: 0;
         margin: 0;
         border: none;
@@ -405,7 +405,7 @@
       .navbar-brand {
         opacity: 0;
         position: absolute;
-        left: 20%;
+        left: 0;
         top: 12px;
         transform: translateX(-50vw) translateY(-180px) translateX(150%);
         height: 120%;
@@ -418,21 +418,22 @@
         height: 350%;
         transition: all 0.3s ease;
         object-fit: contain;
-        margin: 20px;
+        margin: 0 0 0 120px;
+
       }
 
       .navbar-nav .nav-item {
         opacity: 0;
         transform: translateY(-15px);
-        transition: all 4s ease-in-out;
-        animation: fadeInNavItem 2s ease-in-out forwards;
+        transition: all 2s ease-in-out;
+        animation: fadeInNavItem 1s ease-in-out forwards;
       }
 
       /* Quando o menu abre, os itens aparecem um por um */
       .navbar-collapse.show .nav-item {
         opacity: 1;
         transform: translateY(0);
-        transition-delay: calc(0.1s * var(--i));
+        transition-delay: calc(0.8s * var(--i));
       }
 
       @keyframes width-slide-in{
@@ -444,7 +445,7 @@
         }
 
         100% {
-          width: 420px;
+          width: 100vw;
           opacity: 1;
           transform: translateX(0%); /* Posição final */
           display: block;
