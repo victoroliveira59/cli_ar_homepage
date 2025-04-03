@@ -1,6 +1,10 @@
 /* CORES */
 .text-color { color: #016086; }
 
+.text-2-5 {
+  font-size: 3rem;
+}
+
 /* ANIMAÇÕES (mantidas as custom) */
 .animate-left {
   opacity: 0;
@@ -46,7 +50,7 @@
 	width: 100%;
   }
 
-  .display-4 {
+  .text-2 {
     font-size: 2rem;
   }
 }
