@@ -20,6 +20,14 @@ export class NavbarComponent {
   constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
 
+  menuItems = [
+    { label: 'Home', id: 'home', href: '#home', icon: 'fas fa-home' },
+    { label: 'Serviços', id: 'servicos', href: '#servicos', icon: 'fa-solid fa-snowflake' },
+    { label: 'Sobre Nós', id: 'sobre', href: '#sobre', icon: 'fas fa-users' },
+    { label: 'Contato', id: 'contato', href: '#contato', icon: 'fas fa-phone-alt' }
+  ];
+
+
   toggleMenu() {
     this.menuAberto = !this.menuAberto;
     document.body.style.overflow = this.menuAberto ? 'hidden' : '';
