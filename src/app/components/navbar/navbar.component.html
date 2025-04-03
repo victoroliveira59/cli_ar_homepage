@@ -29,28 +29,14 @@
     <!-- Links de Navegação -->
     <div class="collapse navbar-collapse" [class.show]="menuAberto" (click)="closeMenu()">
       <div class="menu-content" (click)="$event.stopPropagation()">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#home" (click)="scrollToSection($event, 'home')">
-              <i class="fas fa-home mr-1"></i> Home
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#servicos" (click)="scrollToSection($event, 'servicos')">
-              <i class="fa-solid fa-snowflake mr-1"></i> Serviços
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#sobre" (click)="scrollToSection($event, 'sobre')">
-              <i class="fas fa-users mr-1"></i> Sobre Nós
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contato" (click)="scrollToSection($event, 'contato')">
-              <i class="fas fa-phone-alt mr-1"></i> Contato
+        <ul class="navbar-nav item-description">
+          <li class="nav-item" *ngFor="let item of menuItems; let i = index" [ngStyle]="{'--i': i+1}">
+            <a class="nav-link item-description" [href]="item.href" (click)="scrollToSection($event, item.id)">
+              <i [class]="item.icon + ' mr-1'"></i> {{ item.label }}
             </a>
           </li>
         </ul>
+
       </div>
     </div>
 

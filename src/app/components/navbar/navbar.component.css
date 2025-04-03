@@ -105,7 +105,8 @@
     }
 
     .logo-img {
-      height: 50px; /* Evita que fique exageradamente grande */
+      height: 200px;
+      margin:  10px 0 0 -70px;
     }
 
     .container {
@@ -157,6 +158,89 @@
     transform-origin: 10% 90%;
     background-color: rgb(255, 38, 0);
   }
+
+  /* NAV COLLAPSE*/
+
+  .navbar-collapse {
+    position: absolute;
+    top: 0;
+    background-color: #016086;
+    padding: 0 1rem; /* Padding apenas nas laterais inicialmente */
+    border-radius: 0.25rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden; /* Impede rolagem lateral */
+    z-index: 1000;
+  }
+
+  /* Quando o menu está aberto */
+  .navbar-collapse.show {
+    max-height: 100vh;
+    opacity: 1;
+    height: 100vh;
+    visibility: visible;
+    padding: 1rem;
+    animation: width-slide-in 1s forwards;
+    transition: all 0.1s;
+    transform: translateX(150%);
+    left: 0;
+  }
+
+  /* ======================= */
+  /* Estilização dos links da Navbar */
+  /* ======================= */
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35%;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+
+  }
+
+  /* Efeito de fade nos itens do menu */
+  .navbar-nav .nav-item {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: all 4s ease-in-out;
+    animation: fadeInNavItem 2s ease-in-out forwards;
+  }
+
+  /* Quando o menu abre, os itens aparecem um por um */
+  .navbar-collapse.show .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(0.1s * var(--i));
+  }
+
+  @keyframes width-slide-in{
+    0% {
+      width: 0;
+      opacity: 0;
+      transform: translateX(0%); /* Começa totalmente à direita */
+      display: none;
+    }
+    100% {
+      width: 800px;
+      opacity: 1;
+      transform: translateX(0%); /* Posição final */
+      display: block;
+    }
+  }
+
+  @keyframes fadeInNavItem {
+    0% {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 }
 
   @media (max-width: 768px) {
@@ -239,6 +323,7 @@
       will-change: transform, opacity;
     }
 
+
     /* Imagem da Logo */
     .logo-img {
       height: 350%;
@@ -253,23 +338,18 @@
       0% {
         width: 0;
         opacity: 0;
-        transform: translateX(200%); /* Começa totalmente à direita */
+        transform: translateX(0%); /* Começa totalmente à direita */
         display: none;
-      }
-      35% {
-        width: 300px;
-        transform: translateX(300px); /* Desliza para a esquerda */
       }
       100% {
         width: 765px;
         opacity: 1;
-        transform: translateX(0.2%); /* Posição final */
+        transform: translateX(5%); /* Posição final */
         display: block;
       }
     }
   }
 
-  @media (max-width: 567.98px) {
     @media (max-width: 567.98px) {
       .navbar-toggler {
         left: 50px;
@@ -277,12 +357,12 @@
         margin: 0;
         border: none;
         outline: none;
+        z-index: 9999;
       }
 
       /* Container do menu */
       .navbar-collapse {
         position: fixed;
-        top: 80px; /* Ajuste conforme a altura da sua navbar */
         right: 0;
         width: 85%; /* Ocupa 85% da largura da tela */
         height: calc(100vh - 80px);
@@ -338,26 +418,47 @@
         height: 350%;
         transition: all 0.3s ease;
         object-fit: contain;
+        margin: 20px;
       }
-    }
+
+      .navbar-nav .nav-item {
+        opacity: 0;
+        transform: translateY(-15px);
+        transition: all 4s ease-in-out;
+        animation: fadeInNavItem 2s ease-in-out forwards;
+      }
+
+      /* Quando o menu abre, os itens aparecem um por um */
+      .navbar-collapse.show .nav-item {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: calc(0.1s * var(--i));
+      }
 
       @keyframes width-slide-in{
         0% {
           width: 0;
           opacity: 0;
-          transform: translateX(200%); /* Começa totalmente à direita */
+          transform: translateX(0%); /* Começa totalmente à direita */
           display: none;
         }
-        30% {
-          width: 300px;
-          transform: translateX(300px); /* Desliza para a esquerda */
 
+        100% {
+          width: 420px;
+          opacity: 1;
+          transform: translateX(0%); /* Posição final */
+          display: block;
+        }
+      }
+
+      @keyframes fadeInNavItem {
+        0% {
+          opacity: 0;
+          transform: translateY(-35px);
         }
         100% {
-          width: 445px;
           opacity: 1;
-          transform: translateX(0); /* Posição final */
-          display: block;
+          transform: translateY(0);
         }
       }
   }
