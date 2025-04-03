@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { SlickCarouselModule, SlickCarouselComponent } from 'ngx-slick-carousel';
 import { ModalComponent } from "../../modal/modal.component";
@@ -76,6 +76,7 @@ export class ServicosComponent implements AfterViewInit {
   isModalOpen: boolean = false;
   modalTitle: string = '';
   modalDescription: string = '';
+  isMobile = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
@@ -107,5 +108,16 @@ export class ServicosComponent implements AfterViewInit {
 
   closeModal() {
     this.isModalOpen = false;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  checkScreenSize() {
+    this.isMobile = window.innerWidth < 768;
+  }
+
+  // Método para tratar erros de imagem
+  handleImageError(event: any) {
+    console.error('Erro ao carregar imagem:', event);
+
   }
 }
