@@ -19,15 +19,31 @@ export class NavbarComponent {
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
+
+  menuItems = [
+    { label: 'Home', id: 'home', href: '#home', icon: 'fas fa-home' },
+    { label: 'Serviços', id: 'servicos', href: '#servicos', icon: 'fa-solid fa-snowflake' },
+    { label: 'Sobre Nós', id: 'sobre', href: '#sobre', icon: 'fas fa-users' },
+    { label: 'Contato', id: 'contato', href: '#contato', icon: 'fas fa-phone-alt' }
+  ];
+
+
   toggleMenu() {
     this.menuAberto = !this.menuAberto;
-    this.menuVisible = !this.menuVisible;
+    document.body.style.overflow = this.menuAberto ? 'hidden' : '';
+  }
+
+
+  closeMenu() {
+    this.menuAberto = false;
+    document.body.style.overflow = '';
   }
 
   scrollToSection(event: Event, sectionId: string) {
     event.preventDefault();
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    this.toggleMenu(); // Fecha o menu após clicar em um link
+    this.menuAberto = false;
+    document.body.style.overflow = '';
   }
 
   @HostListener('window:resize', ['$event'])
@@ -40,12 +56,12 @@ export class NavbarComponent {
 
   @HostListener('window:scroll')
   onWindowScroll() {
-    if (window.scrollY > 450) {
-      this.scrolled = true;
-      this.myNav.nativeElement.classList.add('navbar-scrolled');
-    } else {
-      this.scrolled = false;
-      this.myNav.nativeElement.classList.remove('navbar-scrolled');
-    }
+
+    this.scrolled = window.scrollY > 400;
+    // Opcional: controle mais granular da transição
+    const scrollPosition = window.scrollY;
+    const logo = document.querySelector('.logo-img') as HTMLElement;
+
   }
 }
+

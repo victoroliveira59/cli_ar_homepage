@@ -1,299 +1,472 @@
-/* Estilos gerais da navbar */
+/* ========================= */
+/*        NAVBAR GERAL       */
+/* ========================= */
 .navbar {
+    transition: all 0.4s ease-in-out;
+    padding: 0.5rem 1rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    position: fixed; /* Mantém sobre a imagem */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    padding: 0 40px;
-    z-index: 1000; /* Mantém acima de outros elementos */
-    background: transparent !important; /* Remove fundo */
-    color: white;
-    scrollbar-width: none;
-
-}
-
-.navbar-scrolled {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color:#016086 !important;
-    transition: background-color 0.3s ease-in-out;
-    z-index: 1000;
-
-}
-
-.navbar .nav-links li a {
-    color: #ffffff;
-    transition: color 0.3s ease-in-out;
-}
-
-.navbar-scrolled .nav-links li a {
-    color: rgb(255, 255, 255);
-    transition: background-color 0.3s ease-in-out;
-
-}
-  /* Efeito hover para mudança de cor */
-.navbar-scrolled .nav-links li a:hover {
-    transform: scale(1.05);
-    color: #FFA500; /* Altere para destacar no hover */
-    transition: all 0.3s ease-in-out;
-}
-
-.navbar .logo {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.navbar-scrolled .logo {
-    opacity: 1; /* Aparece ao rolar */
-    transition: opacity 0.3s ease-in-out;
-}
-
-.logo img {
-    margin: -80px;
-    height: 200px; /* Ajuste para quando estiver visível */
-    object-fit: contain;
-}
-.logo img:hover{
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
-}
-
-/* Estilos dos links de navegação */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-/* Estilos gerais dos links de navegação */
-.nav-links li a {
-    color: #016086; /* Cor inicial */
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
+    align-items: center; /* Centraliza os itens verticalmente */
+    min-height: 80px; /* Evita colapsos */
+    z-index: 1049;
 
   }
 
-  .navbar .nav-links li a:hover {
-    transform: scale(1.05);
-    color: #FFA500; /* Altere para destacar no hover */
-    transition: all 0.3s ease-in-out;
-}
-
-/* Estilo do nav-links (menu de navegação) */
-.nav-links {
+  .container {
     display: flex;
-    list-style: none;
-    transition: transform 0.3s ease-in-out;
-}
+    justify-content: space-between; /* Espaço entre os itens */
+    align-items: center; /* Centraliza os itens verticalmente */
+    width: 100%;
+    padding: 0 35px;
+    margin-left: 60vw; /* Ajuste para centralizar o conteúdo */
+    z-index: 1049;
+  }
 
-@media screen and (min-width: 568px) and (max-width: 1024px) {
-    /* Ajuste geral da navbar */
-    .navbar {
-        height: 70px; /* Reduz a altura para tablets */
-        padding: 0 20px; /* Reduz o espaçamento lateral */
-        background-color: #016086; /* Adiciona um fundo fixo */
-        color: white;
-        width: 100vw;
+  /* ========================= */
+  /*         LOGO              */
+  /* ========================= */
+  .navbar-brand {
+    opacity: 0;
+    position: absolute;
+    left: 10%;
+    top: 0;
+    transform: translateX(-50vw) translateY(-90px) translateX(90%); /* Ajustado */
+    height: 120%;
+    display: flex;
+    align-items: center;
+    transition: all 0.10s cubic-bezier(0.175, 0.885, 0.32, 1.100);
+    will-change: transform, opacity;
+    z-index: 1051;
+  }
+
+  /* Imagem da Logo */
+  .logo-img {
+    height: 400%;
+    transition: all 0.3s ease;
+    object-fit: cover;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+
+  /* ========================= */
+  /*        LINKS DO MENU      */
+  /* ========================= */
+  .nav-link {
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    color: white !important;
+    cursor : pointer; /* Adiciona o cursor de ponteiro */
+  }
+
+  .nav-link:hover {
+    color: #FFA500 !important;
+    transform: scale(1.05);
+  }
+
+  /* Navbar Responsiva */
+  .navbar-nav {
+    align-items: start; /* Alinha os links à direita */
+  }
+
+  /* ========================= */
+  /*   BOTÃO TOGGLER (MOBILE)  */
+  /* ========================= */
+  .navbar-toggler {
+    border: none;
+    outline: none;
+    padding: 0.25rem;
+  }
+
+  .navbar-toggler:focus {
+    outline: none;
+  }
+
+  /* ========================= */
+  /*  ESTILOS PARA O SCROLL    */
+  /* ========================= */
+  .navbar.minha-navbar .navbar-brand {
+    opacity: 0.9;
+    transform: translateX(-50%) translateY(10px); /* Posição final centralizada */
+    height: 50px;
+  }
+
+  /* ========================= */
+  /*      RESPONSIVIDADE       */
+  /* ========================= */
+  @media (max-width: 992px) {
+
+
+    /* Ajuste do Logo no Mobile */
+    .navbar-brand {
+      left: 25%;
+      transform: translateX(-50vw) translateY(-90px) translateX(90%); /* Ajustado */
     }
 
-    /* Ajuste do logo */
-    .logo img {
-        height: 150px; /* Ajusta o tamanho do logo */
+    .logo-img {
+      height: 200px;
+      margin:  10px 0 0 -170px;
+    }
+
+    .container {
+      right: 0;
+      width: 100%;
+      padding: 0 15px;
+      margin-left: 70vw;
+    }
+
+  /*  ANIMAÇÃO TOGGLER BAR  */
+
+  .navbar-toggler {
+    border: none;
+    background: transparent !important;
+    padding: 20px;
+    margin-left: 120px;
+    cursor: pointer;
+    z-index: 1050;
+  }
+
+  .navbar-toggler:focus {
+    outline: none;
+  }
+
+   .icon-bar {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: white;
+    transition: all 0.3s;
+    margin: 4px 0;
+    z-index: 1050;
+  }
+
+  /* Quando o menu estiver aberto (não collapsed) */
+  .navbar-toggler:not(.collapsed) .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+    background-color: rgb(255, 38, 0);
+
+  }
+
+  .navbar-toggler:not(.collapsed) .middle-bar {
+    opacity: 0;
+  }
+
+  .navbar-toggler:not(.collapsed) .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+    background-color: rgb(255, 38, 0);
+  }
+
+  /* NAV COLLAPSE*/
+
+  .navbar-collapse {
+    position: absolute;
+    top: 0;
+    background-color: #016086;
+    padding: 0 1rem; /* Padding apenas nas laterais inicialmente */
+    border-radius: 0.25rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden; /* Impede rolagem lateral */
+    z-index: 1000;
+  }
+
+  /* Quando o menu está aberto */
+  .navbar-collapse.show {
+    max-height: 100vh;
+    opacity: 1;
+    height: 100vh;
+    visibility: visible;
+    padding: 1rem;
+    animation: width-slide-in 1s forwards;
+    transition: all 0.1s;
+    transform: translateX(150%);
+    left: 0;
+  }
+
+  /* ======================= */
+  /* Estilização dos links da Navbar */
+  /* ======================= */
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35%;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+
+  }
+
+  /* Efeito de fade nos itens do menu */
+  .navbar-nav .nav-item {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: all 4s ease-in-out;
+    animation: fadeInNavItem 2s ease-in-out forwards;
+  }
+
+  /* Quando o menu abre, os itens aparecem um por um */
+  .navbar-collapse.show .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(0.1s * var(--i));
+  }
+
+  @keyframes width-slide-in{
+    0% {
+      width: 0;
+      opacity: 0;
+      transform: translateX(0%); /* Começa totalmente à direita */
+      display: none;
+    }
+    100% {
+      width: 800px;
+      opacity: 1;
+      transform: translateX(0%); /* Posição final */
+      display: block;
+    }
+  }
+
+  @keyframes fadeInNavItem {
+    0% {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+}
+
+  @media (max-width: 768px) {
+   /* ======================= */
+    /* Efeito de transição da Navbar Collapse */
+    /* ======================= */
+    .navbar-collapse {
+      position: absolute;
+      top: 0;
+      background-color: #016086;
+      padding: 0 1rem; /* Padding apenas nas laterais inicialmente */
+      border-radius: 0.25rem;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden; /* Impede rolagem lateral */
+      z-index: 1000;
+    }
+
+    /* Quando o menu está aberto */
+    .navbar-collapse.show {
+      max-height: 100vh;
+      opacity: 1;
+      height: 100vh;
+      visibility: visible;
+      padding: 1rem;
+      animation: width-slide-in 2s forwards;
+      transition: all 0.5s;
+      transform: translateX(100%);
+      left: 0;
+    }
+
+    /* ======================= */
+    /* Estilização dos links da Navbar */
+    /* ======================= */
+    .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 35%;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+
+    }
+
+    /* Efeito de fade nos itens do menu */
+    .navbar-nav .nav-item {
+      opacity: 0;
+      transform: translateY(-15px);
+      transition: all 4s ease-in-out;
+    }
+
+    /* Quando o menu abre, os itens aparecem um por um */
+    .navbar-collapse.show .nav-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    .nav-link {
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      color: white !important;
+    }
+
+    .nav-link:hover {
+      color: #FFA500 !important;
+      transform: scale(1.05);
+    }
+    .navbar-brand {
+      opacity: 0;
+      position: absolute;
+      left: 20%;
+      top: 0;
+      transform: translateX(-50vw) translateY(-180px) translateX(150%); /* Ajustado */
+      height: 120%;
+      display: flex;
+      align-items: center;
+      will-change: transform, opacity;
+    }
+
+
+    /* Imagem da Logo */
+    .logo-img {
+      height: 350%;
+      transition: all 0.3s ease;
+      object-fit: contain;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      margin-left: -130px;
+    }
+
+    @keyframes width-slide-in{
+      0% {
+        width: 0;
+        opacity: 0;
+        transform: translateX(0%); /* Começa totalmente à direita */
+        display: none;
+      }
+      100% {
+        width: 100vw;
+        opacity: 1;
+        transform: translateX(0%); /* Posição final */
+        display: block;
+      }
+    }
+  }
+
+    @media (max-width: 567.98px) {
+      .navbar-toggler {
+        top: 0;
+        margin: 0;
+        border: none;
+        outline: none;
+        z-index: 9999;
+      }
+
+      /* Container do menu */
+      .navbar-collapse {
+        position: fixed;
+        right: 0;
+        width: 85%; /* Ocupa 85% da largura da tela */
+        height: calc(100vh - 80px);
+        background-color: #016086;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 1050;
+        overflow-y: auto;
+        padding: 1rem;
+      }
+
+      /* Menu aberto */
+      .navbar-collapse.show {
+        transform: translateX(0);
+      }
+
+      /* Container dos links - escondido inicialmente */
+      .navbar-nav {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s; /* Delay de 0.2s */
+        margin-top: 220px;
+      }
+
+      /* Links visíveis quando menu aberto */
+      .navbar-collapse.show .navbar-nav {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Estilo dos links */
+      .nav-link {
+        display: block;
+        padding: 12px 0;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+      }
+
+      /* Logo - mantendo seu estilo atual */
+      .navbar-brand {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 12px;
+        transform: translateX(-50vw) translateY(-180px) translateX(150%);
+        height: 120%;
+        display: flex;
+        align-items: center;
+        will-change: transform, opacity;
+      }
+
+      .logo-img {
+        height: 350%;
+        transition: all 0.3s ease;
         object-fit: contain;
-        display: flex;
-        padding-left: 30px;
-    }
+        margin: 0 0 0 120px;
 
-    .logo{
-        padding-left: 30px;
-    }
-    .nav-links {
-        position: fixed;
-        top: 0;
-        height: 100vh;
-        width: 100vw;
-        background-color: #333;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.3s ease-in-out;
-        z-index: 1001; /* Abaixo do ícone do menu */
-        right: 0;
-    }
+      }
 
-    .nav-links.active {
-        right: 0;
-    }
-
-    .nav-links.hidden {
-        right: -100%;
-    }
-
-    .menu-toggle {
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 24px;
-        width: 30px;
-        position: absolute; /* Fixo na tela */
-        top: 25px; /* Distância do topo */
-        right: 40px; /* Distância da direita */
-        z-index: 1002; /* Garante que fique acima de tudo */
-
-    }
-
-
-    .menu-toggle[_ngcontent-ng-c807469250] .bar[_ngcontent-ng-c807469250] {
-        width: 100%;
-        height: 2px;
-        background-color: rgb(255, 253, 253);
-        transition: all 0.3s ease;
-    }
-
-    /* Transformação em "X" quando o menu está aberto */
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
-        background-color: red; /* Cor destacada para o "X" */
-    }
-
-    .menu-toggle.active .bar:nth-child(2) {
+      .navbar-nav .nav-item {
         opacity: 0;
-    }
+        transform: translateY(-15px);
+        transition: all 2s ease-in-out;
+        animation: fadeInNavItem 1s ease-in-out forwards;
+      }
 
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(4px, -5px);
-        background-color: red; /* Cor destacada para o "X" */
-    }
-}
+      /* Quando o menu abre, os itens aparecem um por um */
+      .navbar-collapse.show .nav-item {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: calc(0.8s * var(--i));
+      }
 
-@media screen and (max-width: 568px) {
-    .navbar {
-        height: 70px;
-        padding: 0 20px;
-        width: 100%; /* Ocupa toda a largura da tela */
-        max-width: none; /* Remove a restrição de 430px */
-        max-width: 100vw;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-    }
+      @keyframes width-slide-in{
+        0% {
+          width: 0;
+          opacity: 0;
+          transform: translateX(0%); /* Começa totalmente à direita */
+          display: none;
+        }
 
-    .navbar, .container, .wrapper {
-        width: 100%;
-        max-width: 100vw;
-        overflow: hidden;
-    }
+        100% {
+          width: 100vw;
+          opacity: 1;
+          transform: translateX(0%); /* Posição final */
+          display: block;
+        }
+      }
 
-    body {
-        overflow-x: hidden; /* Impede rolagem lateral */
-    }
+      @keyframes fadeInNavItem {
+        0% {
+          opacity: 0;
+          transform: translateY(-35px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  }
 
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        height: 100vh;
-        width: 100vw;
-        background-color: #333;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.3s ease-in-out;
-        z-index: 1001; /* Abaixo do ícone do menu */
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    .nav-links.hidden {
-        right: -100%;
-    }
-    /* Estilo do overlay */
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000; /* Abaixo do nav-links e do ícone do menu */
-    }
-
-    .overlay.active {
-        display: none;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        margin-top: 15px; /* Mova mais para a esquerda */
-        margin-left: -35%; /* Remova margens */
-        padding-left: 60px; /* Remova qualquer padding aplicado */
-    }
-
-
-    .logo a {
-    text-decoration: none;
-    }
-
-    .logo img {
-    height: 150px; /* Ajuste conforme necessário */
-    margin: 0 0 25px 35px; /* Adicione margem à esquerda */
-
-    object-fit: contain; /* Evita distorção */
-    }
-
-    /* Estilo do ícone do menu (hambúrguer/"X") */
-    .menu-toggle {
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 24px;
-        width: 30px;
-        position: absolute; /* Fixo na tela */
-        top: 25px; /* Distância do topo */
-        right: 20px; /* Distância da direita */
-        z-index: 1002; /* Garante que fique acima de tudo */
-
-    }
-
-    .menu-toggle[_ngcontent-ng-c807469250] .bar[_ngcontent-ng-c807469250] {
-        width: 100%;
-        height: 2px;
-        background-color: rgb(255, 253, 253);
-        transition: all 0.3s ease;
-    }
-
-    /* Transformação em "X" quando o menu está aberto */
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
-        background-color: red; /* Cor destacada para o "X" */
-    }
-
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(4px, -5px);
-        background-color: red; /* Cor destacada para o "X" */
-    }
-
-}
-
+  /* ========================= */
+  /*   COR GLOBAL DO NAVBAR    */
+  /* ========================= */
+  .minha-navbar {
+    background-color: #016086;
+  }

@@ -1,223 +1,97 @@
-/* Container principal */
-.sobre-empresa-container {
-	position: relative;
-	text-align: center;
-	min-height: 100vh;
-	background: white;
-  }
+/* ================================= */
+/*   ANIMAÇÕES SUAVES E OTIMIZADAS   */
+/* ================================= */
+.text-color { color: #016086; }
+.text-2-5 {
+  font-size: 3rem;
 
-  /* Título principal */
-  .sobre-empresa-container h1 {
-	color: #016086;
-	font-size: 2.5rem;
-	text-align: center;
-	width: 100%;
-	text-transform: uppercase;
-	padding: 25px 0;
+}
+.animate-left,
+.animate-right,
+.animate-center {
+  will-change: transform, opacity; /* Melhora o desempenho */
+  opacity: 0;
+}
 
-  }
+.card{
+  border: none;
+}
 
-  /* Estilo dos itens */
-  .sobre-empresa-item {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	gap: 40px;
-  }
-
-  /* Alternar a ordem para layout intercalado */
-  .sobre-empresa-item.reverso {
-	flex-direction: row-reverse;
-  }
-
-  /* Estilo das imagens */
-  .imagem img {
-	width: 100%;
-	max-width: 400px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-	transition: transform 0.3s ease-in-out;
-  }
-
-  /* Descrição */
-  .descricao {
-	flex: 1 1 50%;
-	text-align: left;
-  }
-
-  /* Card */
-  .card {
-	background-color: #fff;
-	padding: 30px;
-
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-
- /* Animações de entrada */
+/* Efeito de entrada da esquerda */
 .animate-left {
-	opacity: 0;
-	transform: translateX(-50px);
-	animation: fadeInLeft 1s forwards;
-  }
+  transform: translate3d(-50px, 0, 0);
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
 
-  .animate-right {
-	opacity: 0;
-	transform: translateX(50px);
-	animation: fadeInRight 1s forwards;
-  }
+/* Efeito de entrada da direita */
+.animate-right {
+  transform: translate3d(50px, 0, 0);
+  animation: fadeInRight 0.8s ease-out forwards;
+}
 
-  /* Animações de saída */
-  .animate-left-out {
-	animation: fadeOutLeft 1s forwards;
-  }
+/* Efeito de entrada do centro */
+.animate-center {
+  transform: translate3d(0, 50px, 0);
+  animation: fadeInCenter 0.8s ease-out forwards;
+}
 
-  .animate-right-out {
-	animation: fadeOutRight 1s forwards;
-  }
 
-  /* Keyframes para animações de entrada */
-  @keyframes fadeInLeft {
-	to {
-	  opacity: 1;
-	  transform: translateX(0);
-	}
-  }
+.animate-left, .animate-right, .animate-center {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
 
-  @keyframes fadeInRight {
-	to {
-	  opacity: 1;
-	  transform: translateX(0);
-	}
-  }
+/* Depois que a animação for aplicada, ela não será mais removida */
+.animated {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 
-  /* Keyframes para animações de saída */
-  @keyframes fadeOutLeft {
-	from {
-	  opacity: 1;
-	  transform: translateX(0);
-	}
-	to {
-	  opacity: 0;
-	  transform: translateX(50px);
-	}
-  }
+/* ===================== */
+/*        KEYFRAMES      */
+/* ===================== */
 
-  @keyframes fadeOutRight {
-	from {
-	  opacity: 1;
-	  transform: translateX(0);
-	}
-	to {
-	  opacity: 0;
-	  transform: translateX(-50px);
-	}
-  }
-  /* Responsividade */
-  @media screen and (min-width: 568px) and (max-width: 1024px)  {
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translate3d(-50px, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translate3d(50px, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fadeInCenter {
+  from { opacity: 0; transform: translate3d(0, 50px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* ===================== */
+/*  TRANSIÇÕES SUAVES    */
+/* ===================== */
+.transition-all { transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; }
+
+  @media (max-width: 767.98px) {
     .sobre-empresa-item {
-		flex-direction: column !important;
-		align-items: center;
-		text-align: center;
-	  }
+      flex-direction: column !important;
+    }
 
-	  .imagem img {
-		width: 100%;
-		max-width: 300px;
-		height: auto;
-		display: block;
-		margin: 0 auto;
-		object-fit: cover;
-		margin-top: 40px;
-	  }
+    .imagem-container img {
+    width: 100%;
+    }
 
-	  .descricao {
-		text-align: center;
-	  }
+    .text-2 {
+      font-size: 2rem;
+    }
+    .imagem-container img {
+      will-change: transform, opacity;
+      transform: scale(0.95);
+      animation: fadeInScale 0.8s ease-out forwards;
+      border: none;
+    }
+  }
 
-	  /* Título principal */
-	.sobre-empresa-container h1 {
-		font-size: 2rem;
-		width: 100%;;
-		padding: 25px 0;
-	}
 
-	.sobre-empresa-container {
-		position: relative;
-		padding: 0;
-		text-align: center;
-		min-height: 100vh;
-	}
 
-	/* Animações de entrada */
-	@keyframes fadeInCenter {
-	from {
-		opacity: 0;
-		transform: translateY(50px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-	}
-
-	.animate-center {
-	opacity: 0;
-	animation: fadeInCenter 1s forwards;
-	}
-
-}
-
-@media screen and (max-width: 568px){
-	.sobre-empresa-item {
-		flex-direction: column !important;
-		align-items: center;
-		text-align: center;
-	  }
-
-	  .imagem img {
-		width: 100%;
-		max-width: 300px;
-		height: auto;
-		display: block;
-		margin: 0 auto;
-		object-fit: cover;
-		margin-top: 40px;
-	  }
-
-	  .descricao {
-		text-align: center;
-	  }
-
-	  /* Título principal */
-	.sobre-empresa-container h1 {
-		font-size: 2rem;
-		width: 100%;;
-		padding: 25px 0;
-	}
-
-	.sobre-empresa-container {
-		position: relative;
-		padding: 0;
-		text-align: center;
-		min-height: 100vh;
-	}
-
-	/* Animações de entrada */
-	@keyframes fadeInCenter {
-	from {
-		opacity: 0;
-		transform: translateY(50px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-	}
-
-	.animate-center {
-	opacity: 0;
-	animation: fadeInCenter 1s forwards;
-	}
-
-}

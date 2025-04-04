@@ -1,78 +1,82 @@
- <div class="hero">
-    <h1>Contato</h1>
-    <div class="contato-container">
-      <!-- Cabeçalho da seção de contato -->
-      <div class="contato-header">
-        <i class="fas fa-envelope"></i>
-        <h2>Estamos prontos para ouvir você!</h2>
-        <p>Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.</p>
-      </div>
+<div class="hero d-flex flex-column align-items-center justify-content-center position-relative bg-white w-100 min-vh-100">
+  <h1 class="text-primary-custom text-uppercase font-weight-bold w-100 py-4 text-center text-2-5 fonte-2">Contato</h1>
 
-      <!-- Contêiner flexível para formulário e mapa -->
-      <div class="contato-form-map">
-        <!-- Formulário -->
-        <div class="form-wrapper">
-          <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" formControlName="nome" required>
-            <div *ngIf="contatoForm.get('nome')?.invalid && contatoForm.get('nome')?.touched" class="error-message">
+  <div class="contato-container w-100 p-5 bg-white shadow-lg">
+    <div class="contato-header mx-auto text-center text-md-left mb-5" style="max-width: 500px;">
+      <i class="fas fa-envelope d-block mb-3"></i>
+      <h2 class="h1 mb-3">Estamos prontos para ouvir você!</h2>
+      <p class="lead">Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.</p>
+    </div>
+
+    <div class="contato-form-map row justify-content-between align-items-start">
+      <!-- Formulário -->
+      <div class="form-wrapper col-lg-6 col-12 bg-white p-4 shadow-sm mb-5 mb-lg-0">
+        <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nome" class="font-weight-bold">Nome</label>
+            <input type="text" id="nome" class="form-control" formControlName="nome" required>
+            <div *ngIf="contatoForm.get('nome')?.invalid && contatoForm.get('nome')?.touched" class="text-danger small">
               O nome é obrigatório.
             </div>
+          </div>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" formControlName="email" required>
-            <div *ngIf="contatoForm.get('email')?.invalid && contatoForm.get('email')?.touched" class="error-message">
+          <div class="form-group">
+            <label for="email" class="font-weight-bold ">Email</label>
+            <input type="email" id="email" class="form-control" formControlName="email" required>
+            <div *ngIf="contatoForm.get('email')?.invalid && contatoForm.get('email')?.touched" class="text-danger small">
               Por favor, insira um email válido.
             </div>
+          </div>
 
-            <label for="telefone">Telefone</label>
-            <input type="text" id="telefone" formControlName="telefone" (input)="formatarTelefone($event)" maxlength="15" required>
-            <div *ngIf="contatoForm.get('telefone')?.invalid && contatoForm.get('telefone')?.touched" class="error-message">
+          <div class="form-group">
+            <label for="telefone" class="font-weight-bold">Telefone</label>
+            <input type="text" id="telefone" class="form-control" formControlName="telefone" (input)="formatarTelefone($event)" maxlength="15" required>
+            <div *ngIf="contatoForm.get('telefone')?.invalid && contatoForm.get('telefone')?.touched" class="text-danger small">
               O telefone é obrigatório.
             </div>
+          </div>
 
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" formControlName="mensagem" required></textarea>
-            <div *ngIf="contatoForm.get('mensagem')?.invalid && contatoForm.get('mensagem')?.touched" class="error-message">
+          <div class="form-group">
+            <label for="mensagem" class="font-weight-bold">Mensagem</label>
+            <textarea id="mensagem" class="form-control" formControlName="mensagem" rows="4" required></textarea>
+            <div *ngIf="contatoForm.get('mensagem')?.invalid && contatoForm.get('mensagem')?.touched" class="text-danger small">
               A mensagem é obrigatória.
             </div>
+          </div>
 
-            <button type="submit" [disabled]="contatoForm.invalid">Enviar</button>
+          <button type="submit" class="btn btn-primary btn-block py-3" [disabled]="contatoForm.invalid">Enviar</button>
 
+          <div class="mt-3">
             <p *ngIf="carregando" class="text-primary">Enviando...</p>
-            <p *ngIf="mensagemRetorno" [ngClass]="sucesso ? 'sucesso' : 'erro'">
+            <p *ngIf="mensagemRetorno" [ngClass]="sucesso ? 'text-success' : 'text-danger'">
               {{ mensagemRetorno }}
             </p>
-          </form>
-        </div>
+          </div>
+        </form>
+      </div>
 
+      <!-- Mapa -->
+      <div class="contato-card col-lg-6 col-12">
+        <div class="contato-info position-relative">
+          <div class="contato-map embed-responsive embed-responsive-16by9 hover-scale shadow">
+            <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3749.2337946896205!2d-43.8486!3d-19.9987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69f41f1cf4397%3A0x7bcdbbfa74bca870!2sR.%20Jos%C3%A9%20Moreira%2C%20691%20-%20Vale%20da%20Esperan%C3%A7a%2C%20Nova%20Lima%20-%20MG%2C%2034002-194!5e0!3m2!1spt-BR!2sbr!4v1741611329720!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
 
+          <div class="text-center mt-3">
+            <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+              <i class="fas fa-map-marker-alt mr-2"></i>Abrir no Google Maps
+            </a>
+          </div>
 
-        <!-- Mapa atualizado -->
-        <div class="contato-card">
-          <div class="contato-info">
-            <div class="contato-map">
-              <!-- Substituindo o iframe por uma imagem estática -->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3749.2337946896205!2d-43.8486!3d-19.9987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69f41f1cf4397%3A0x7bcdbbfa74bca870!2sR.%20Jos%C3%A9%20Moreira%2C%20691%20-%20Vale%20da%20Esperan%C3%A7a%2C%20Nova%20Lima%20-%20MG%2C%2034002-194!5e0!3m2!1spt-BR!2sbr!4v1741611329720!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <!-- Botão "Abrir no Google Maps" -->
-            <div class="map-button-container">
-              <a href="https://maps.app.goo.gl/hWwD55vgkwPKJ6NP6" target="_blank" class="map-button">
-                📍 Abrir no Google Maps
-              </a>
-            </div>
-
-            <div class="contato-info-card">
-              <h3>📍 Endereço</h3>
-              <p>R. José Moreira, 691 - Vale da Esperança</p>
-              <p>Nova Lima - MG</p>
-              <p>📞 (31) 99285-5049</p>
-              <p>✉ contato.com</p>
-            </div>
+          <div class="contato-info-card bg-white p-3 shadow position-absolute d-none d-xl-block">
+            <h3 class="h5"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Endereço</h3>
+            <p class="mb-1">R. José Moreira, 691 - Vale da Esperança</p>
+            <p class="mb-1">Nova Lima - MG</p>
+            <p class="mb-1"><i class="fas fa-phone text-primary mr-2"></i>(31) 99285-5049</p>
+            <p class="mb-0"><i class="fas fa-envelope text-primary mr-2"></i>contato.com</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-
+</div>

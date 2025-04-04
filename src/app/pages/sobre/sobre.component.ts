@@ -1,63 +1,71 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Inject, PLATFORM_ID, QueryList, ViewChildren, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-sobre',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './sobre.component.html',
   styleUrls: ['./sobre.component.css']
 })
 export class SobreComponent implements AfterViewInit {
+  isMobile = false;
+  private observer!: IntersectionObserver;
+  private elementMap = new Map<HTMLElement, string>(); // Armazena os elementos e suas animações
 
   @ViewChildren('imageRef, descRef') elements!: QueryList<ElementRef>;
+
   sobreEmpresaItems = [
     {
       imgSrc: 'assets/img/logos 1.jpg',
       titulo: 'Atendemos diversas marcas',
-      descricao: 'Trabalhamos com as principais marcas de ar-condicionado e refrigeração do mercado, garantindo a qualidade e a eficiência dos nossos serviços.'
-
+      descricao: 'Trabalhamos com as principais marcas...'
     },
     {
       imgSrc: 'assets/img/missao_visao_valores.jpg',
       titulo: 'Missão, Visão e Valores',
-      descricao: 'Nossa missão é proporcionar bem-estar e eficiência energética aos nossos clientes. Valorizamos a integridade, o compromisso com a qualidade e a inovação constante. Nossa visão é ser referência no setor de refrigeração, oferecendo sempre as melhores soluções.'
+      descricao: 'Nossa missão é proporcionar bem-estar e eficiência energética aos nossos clientes...'
     },
     {
       imgSrc: 'assets/img/manutenção_geladeiras.jpg',
       titulo: 'Equipe especializada',
-      descricao: 'Contamos com uma equipe de profissionais altamente qualificados, equipamentos de ponta e um compromisso inabalável com a satisfação do cliente. Nosso diferencial é a combinação de tecnologia e atendimento humanizado.'
+      descricao: 'Contamos com uma equipe de profissionais altamente qualificados...'
     }
   ];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const isMobile = window.innerWidth <= 768; // Detecta mobile
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const target = entry.target as HTMLElement;
-          const index = this.elements.toArray().findIndex((el: ElementRef) => el.nativeElement === target);
-
-          if (index !== -1) {
-            if (entry.isIntersecting) {
-              target.classList.remove('animate-left-out', 'animate-right-out');
-
-              // Se for mobile, centraliza tudo
-              if (isMobile) {
-                target.classList.add('animate-center');
-              } else {
-                target.classList.add(index % 2 === 0 ? 'animate-left' : 'animate-right');
-              }
-            } else {
-              target.classList.remove('animate-left', 'animate-right', 'animate-center');
-              target.classList.add(index % 2 === 0 ? 'animate-left-out' : 'animate-right-out');
-            }
-          }
-        });
-      }, { threshold: 0.1 });
-
-      this.elements.forEach((el) => observer.observe(el.nativeElement));
+      this.initObserver();
     }
+  }
+
+  private initObserver() {
+    this.checkScreenSize(); // Verifica se é mobile antes de atribuir animações
+
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const target = entry.target as HTMLElement;
+
+        if (entry.isIntersecting && !target.classList.contains('animated')) {
+          target.classList.add('animated', this.elementMap.get(target)!);
+          this.observer.unobserve(target); // Para não reativar a animação ao rolar para cima
+        }
+      });
+    }, { threshold: 0.2 });
+
+    this.elements.forEach((el, index) => {
+      const element = el.nativeElement;
+      const animationClass = this.isMobile ? 'animate-center' : (index % 2 === 0 ? 'animate-left' : 'animate-right');
+
+      this.elementMap.set(element, animationClass);
+      this.observer.observe(element);
+    });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  checkScreenSize() {
+    this.isMobile = window.innerWidth < 768;
   }
 }
