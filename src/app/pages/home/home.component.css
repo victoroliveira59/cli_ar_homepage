@@ -15,6 +15,7 @@
 	width: 100vw;
   }
 
+
   .hero::before {
 	content: '';
 	position: absolute;
@@ -38,18 +39,23 @@
 	text-align: center;
   }
 
+.hero-content h1 {
+	font-size: 1.8rem;
+	margin-top: 15px;
+
+}
 
 .hero-content p {
     color: #f5f5f5;
     line-height: 1.6;
     font-size: 1.2rem;
+	margin-left: 50px;
 }
 
 
 .hero-content .text {
 	font-size: 1.2rem;
 	color: #ffffff;
-	margin: 30px 0 30px 0;
   }
 
   .diferenciais {
@@ -87,6 +93,7 @@
 	font-size: 1.1rem;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
+	margin: 0 0 50px 0;
   }
 
   .cta-button:hover {
@@ -210,11 +217,10 @@
 }
 
 .logo-container .logo-img {
-    height: 600px; /* Tamanho da logo */
+    height: 150px; /* Tamanho da logo */
     object-fit: contain;
     transition: transform 0.3s ease, opacity 0.3s ease; /* Para efeitos suaves */
-	margin: -40% 0 -32% 0; /* Ajuste para centralizar */;
-
+	margin-top: -10px;
 }
 
 .hero-content .logo-container .logo-img.scrolled {
@@ -222,16 +228,16 @@
     opacity: 0.9;
 }
 
+
 .equip {
+
 	font-weight: bold;
 	color: #29b056;
-	display: inline-flex;
-	align-items: center;
-	margin-right: 10px;
+
   }
 
   .equip i {
-	margin-right: 5px;
+	margin-right: 8px;
 	color: #f8b400; /* Cor diferente para destacar */
 	font-size: 1.2rem;
   }
@@ -260,23 +266,13 @@
 		z-index: 1; /* Fica acima da imagem, mas abaixo do conteúdo */
 	  }
 
-	.hero-content[_ngcontent-ng-c4093688354] p[_ngcontent-ng-c4093688354] {
+	.hero-content p {
 	  max-width: 80%; /* Reduz a largura para tablets */
 	  text-align: center;
 	  margin-right: 0;
 	  max-width: 450px;
-	  padding: 20px;
 	  margin-top: 0;
-	}
-
-
-	.hero-content h1 {
-	  font-size: 2.2rem;
-	}
-
-	.hero-content p {
 	  font-size: 1.3rem;
-
 	}
 
 	.urgency-message {
@@ -296,10 +292,6 @@
 	  right: 5%;
 	}
 
-	.logo-container[_ngcontent-ng-c4093688354] .logo-img[_ngcontent-ng-c4093688354]{
-		width: 700px;
-		box-shadow: #000000 0 4px 8px;
- 	 }
 }
 
 @media screen and (min-width: 568px) and (max-width: 1024px){
@@ -309,12 +301,11 @@
 	  }
 
 	.hero-content {
-	  padding-top: 120px;
 	  max-width: 100%;
 	  text-align: center;
 	  height: 100%;
 	  left: 0;
-	  top: 20%;
+	  top: 10%;
 	  display: flex;
 	  flex-direction: column;
 	  align-items: center;
@@ -322,18 +313,20 @@
 	}
 
 	.hero-content h1 {
-	  font-size: 2rem;
-
+	  font-size: 2.2rem;
 	}
 
 	.hero-content .text {
-	  font-size: 1.1rem;
-		margin: 30px 100px;
+		font-size: 1.9rem;
+        margin: 40px 0 0 0;
+        padding: 10px;
+        height: 40%;
 	}
 
+
 	.cta-button {
-	  padding: 10px 15px;
-	  font-size: 0.9rem;
+	  padding: 15px 12px;
+	  font-size: 1.2rem;
 	}
 
 	.urgency-message {
@@ -343,26 +336,19 @@
 	  padding: 8px 12px;
 	}
 
-	.right-image-container {
-	  width: 70%;
-	  top: 5%;
-	  right: 10px;
-	}
+	.equip {
 
-	.right-image-container img {
-	  width: 100vw;
-	  height: auto;
-	  opacity: 0.1;
-			object-fit: contain;
-	}
+		font-weight: bold;
+		color: #29b056;
+		font-size: 1.6rem;
 
-	.logo-container .logo-img {
-		height: 600px; /* Tamanho da logo */
-		object-fit: contain;
-		transition: transform 0.3s ease, opacity 0.3s ease; /* Para efeitos suaves */
-		margin: -30% 0 -20% 0; /* Ajuste para centralizar */;
+	  }
 
-	}
+	  .equip i {
+		margin-right: 8px;
+		color: #f8b400; /* Cor diferente para destacar */
+		font-size: 1.2rem;
+	  }
 
   }
 
@@ -373,25 +359,21 @@
 	  }
 
 	.hero-content {
-	  max-width: 100%;
+	  max-width: 400px;
 	  text-align: center;
 	  height: 100%;
 	  left: 0;
-	  top: 20%;
-	  display: flex;
-	  flex-direction: column;
 	  align-items: center;
-	  margin: 30px 0 30px 0;
+	  margin: 10px 0 10px 0;
 	}
 
 	.hero-content h1 {
-	  font-size: 2rem;
-
+	  font-size: 1.5rem;
 	}
 
 	.hero-content p {
 	  font-size: 1.1rem;
-
+	  margin-left: 0;
 	}
 
 	.cta-button {
@@ -406,67 +388,15 @@
 	  padding: 8px 12px;
 	}
 
-	.right-image-container {
-	  width: 70%;
-	  top: 5%;
-	  right: 10px;
-	}
-
-	.right-image-container img {
-	  width: 100vw;
-	  height: auto;
-	  opacity: 0.1;
-			object-fit: contain;
-	}
-
 	.logo-container .logo-img {
-		height: 400px;
-		padding: 40px 0 20px 20px ;
+		height: 100px; /* Tamanho da logo */
+		object-fit: contain;
+		transition: transform 0.3s ease, opacity 0.3s ease; /* Para efeitos suaves */
+		margin-top: 50px;
 	}
+
+	.fonte-h1 {font-size: 1rem;}
+
   }
 
-  /* Responsividade para Telas Muito Pequenas */
-  @media (max-width: 480px) {
 
-	.logo-img{
-		height: 100px;
-		margin: 0 0 0 0;
-	}
-  }
-
-  /* Responsividade para Telas Muito Pequenas */
-  @media (max-width: 480px) {
-	.hero-content {
-	  padding: 0 10px;
-
-	}
-
-	.hero-content h1 {
-	  font-size: 1.5rem;
-	}
-
-	.hero-content p text{
-	  font-size: 1rem;
-
-	}
-
-	.urgency-message {
-	  bottom: 5px;
-	  left: 5px;
-	  font-size: 0.7rem;
-	  padding: 6px 10px;
-	}
-
-	.right-image-container {
-		width: 70%;
-		top: 5%;
-		right: 10px;
-	  }
-
-	  .right-image-container img {
-		width: 100%;
-		height: auto;
-		opacity: 0.1;
-	  }
-
-  }
