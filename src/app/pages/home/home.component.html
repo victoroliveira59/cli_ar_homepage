@@ -2,34 +2,48 @@
   <!-- Spinner só aparece se isLoading for true -->
   <ngx-spinner *ngIf="isLoading" bdColor="rgba(0,0,0,0.5)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 
-
   <!-- Conteúdo Principal -->
   <div class="hero-content" [ngClass]="{ 'slide-in-left': isContentVisible, 'visible': isContentVisible }">
 
     <!-- Logo -->
     <a href="#home" class="logo-container">
-      <img src="/assets/img/logo/Logo_AR_Branca.png" class="logo-img" alt="Logo">
+      <img src="/assets/img/logo/Alves_Refrigeracao_log.png" class="logo-img" alt="Alves Refrigeracao MG">
     </a>
 
-    <!-- <h1>Soluções Completas para Refrigeradores</h1> -->
-    <p class="text">
-      Oferecemos <strong>manutenção preventiva e corretiva</strong> para sistemas de refrigeração, garantindo
-      eficiência. Nossa expertise: <br>
-      <span class="equip"><i class="fas fa-snowflake"></i> Geladeiras</span>
-      <span class="equip"><i class="fas fa-thermometer-half"></i> Freezers</span>
-      <span class="equip"><i class="fas fa-tint"></i> Bebedouros</span>
-      <span class="equip"><i class="fas fa-beer"></i> Chopeiras</span>
-      <span class="equip"><i class="fas fa-wind"></i> Ar-condicionado</span>
-    </p>
+    <h1 class="hero-title text-white  text-center text-md-start ">
+      Assistência Técnica - Refrigeração <span class="d-block d-lg-inline">Residencial e Comercial</span>
+      <hr class="bg-white" />
+    </h1>
 
-    <ul class="diferenciais">
-      <li><i class="fa fa-clock"></i> Atendimento 24 horas para emergências</li>
-      <li><i class="fa fa-shield"></i> Garantia de 90 dias em todos os serviços</li>
-      <li><i class="fa fa-certificate"></i> Técnicos certificados</li>
-    </ul>
+    <div class="container">
+      <p class="text mb-4">
+        <strong>Conserto especializado</strong> para sistemas de refrigeração em <strong>Nova Lima e região</strong>.
+        Serviços com garantia de 90 dias para:
+      </p>
 
-    <button class="cta-button" (click)="goToServicos()">
-      <i class="fa fa-tools"></i> Agende uma Visita Técnica!
+      <ul class=" equip list-unstyled ps-0">
+        <li class="d-flex align-items-center mb-2">
+          <i class="fas fa-snowflake me-3 "></i>
+          <strong>Conserto de Geladeira</strong>
+        </li>
+        <li class="d-flex align-items-center mb-2">
+          <i class="fas fa-thermometer-half me-3 "></i>
+          <strong>Reparo de Freezer</strong>
+        </li>
+        <li class="d-flex align-items-center mb-2">
+          <i class="fas fa-tint me-3 "></i>
+          <strong>Manutenção de Bebedouros</strong>
+        </li>
+        <li class="d-flex align-items-center mb-2">
+          <i class="fas fa-beer me-3 "></i>
+          <strong>Chopeiras Industriais</strong>
+        </li>
+      </ul>
+    </div>
+
+    <button class="cta-button " (click)="goToServicos()" aria-label="Agende uma Visita Técnica para Conserto de Refrigeração">
+      <i class="fa fa-tools"></i> SOLICITE ORÇAMENTO GRÁTIS!
     </button>
   </div>
+
 </section>
