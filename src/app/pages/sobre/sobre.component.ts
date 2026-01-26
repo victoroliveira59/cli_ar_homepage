@@ -11,7 +11,6 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 export class SobreComponent implements AfterViewInit {
   isMobile = false;
   private observer!: IntersectionObserver;
-  private elementMap = new Map<HTMLElement, string>(); // Armazena os elementos e suas animações
 
   @ViewChildren('imageRef, descRef') elements!: QueryList<ElementRef>;
 
@@ -42,24 +41,22 @@ export class SobreComponent implements AfterViewInit {
   }
 
   private initObserver() {
-    this.checkScreenSize(); // Verifica se é mobile antes de atribuir animações
+    this.checkScreenSize(); // Verifica se e mobile antes de atribuir animacoes
 
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         const target = entry.target as HTMLElement;
 
         if (entry.isIntersecting && !target.classList.contains('animated')) {
-          target.classList.add('animated', this.elementMap.get(target)!);
-          this.observer.unobserve(target); // Para não reativar a animação ao rolar para cima
+          target.classList.add('animated');
+          this.observer.unobserve(target); // Para nao reativar a animacao ao rolar para cima
         }
       });
     }, { threshold: 0.2 });
 
     this.elements.forEach((el, index) => {
       const element = el.nativeElement;
-      const animationClass = this.isMobile ? 'animate-center' : (index % 2 === 0 ? 'animate-left' : 'animate-right');
-
-      this.elementMap.set(element, animationClass);
+      element.style.setProperty('--stagger', `${index * 120}ms`);
       this.observer.observe(element);
     });
   }

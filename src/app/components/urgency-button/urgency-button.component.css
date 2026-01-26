@@ -1,17 +1,20 @@
 .urgency-message {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d333;
+  bottom: 24px;
+  right: 24px;
+  background-color: #25d366;
   color: white;
-  padding: 10px;
-  border-radius: 52%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   cursor: pointer;
   margin-right: 10px;
   z-index: 9999;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  transform: translateZ(0);
+  animation: whatsapp-pulse 2.2s ease-in-out infinite;
 }
 
 .urgency-message p {
@@ -20,8 +23,8 @@
 }
 
 .urgency-message i {
-	  font-size: 2rem;
-  }
+  font-size: 2.6rem;
+}
 
 .urgency-message button {
   background: none;
@@ -30,6 +33,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  padding: 0;
 }
 
 .urgency-message a {
@@ -39,4 +43,16 @@
 
 .urgency-message a:hover {
   text-decoration: underline;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }

@@ -16,6 +16,8 @@ export class UrgencyButtonComponent {
   }
 
   redirectToWhatsApp(): void {
-    window.open('https://wa.me/553192855049');
+    const message = encodeURIComponent('Olá, vim pelo site e gostaria de um orçamento.');
+    const url = `https://wa.me/553192855049?text=${message}`;
+    window.open(url, '_blank');
   }
 }
