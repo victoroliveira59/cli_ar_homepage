@@ -1,68 +1,62 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, QueryList, ViewChildren, AfterViewInit, HostListener } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReviewsCarouselComponent } from '../../components/reviews-carousel/reviews-carousel.component';
 
 @Component({
   selector: 'app-sobre',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReviewsCarouselComponent],
   templateUrl: './sobre.component.html',
   styleUrls: ['./sobre.component.css']
 })
-export class SobreComponent implements AfterViewInit {
+export class SobreComponent {
   isMobile = false;
-  private observer!: IntersectionObserver;
 
-  @ViewChildren('imageRef, descRef') elements!: QueryList<ElementRef>;
+  stats = [
+    { icon: 'fa-calendar-check', number: '2+', label: 'Anos de experiência' },
+    { icon: 'fa-map-marker-alt', number: 'Nova Lima', label: 'e região' },
+    { icon: 'fa-smile',          number: '100%',     label: 'Satisfação garantida' },
+    { icon: 'fa-award',          number: '90 dias',  label: 'Garantia nos serviços' },
+  ];
 
-  sobreEmpresaItems = [
+  mvvItems = [
     {
-      imgSrc: 'assets/img/logos 1.jpg',
-      titulo: 'Atendemos diversas marcas',
-      descricao: 'Trabalhamos com as principais marcas...'
+      icon: 'fa-bullseye',
+      titulo: 'Nossa Missão',
+      descricao: 'Proporcionar conforto térmico e eficiência energética com atendimento rápido, preços justos e garantia de qualidade em Nova Lima e região.'
     },
     {
-      imgSrc: 'assets/img/missao_visao_valores.jpg',
-      titulo: 'Missão, Visão e Valores',
-      descricao: 'Nossa missão é proporcionar bem-estar e eficiência energética aos nossos clientes...'
+      icon: 'fa-eye',
+      titulo: 'Nossa Visão',
+      descricao: 'Ser a empresa de referência em assistência técnica de refrigeração em Nova Lima, reconhecida pela excelência, ética e comprometimento com cada cliente.'
     },
     {
-      imgSrc: 'assets/img/manutenção_geladeiras.jpg',
-      titulo: 'Equipe especializada',
-      descricao: 'Contamos com uma equipe de profissionais altamente qualificados...'
+      icon: 'fa-heart',
+      titulo: 'Nossos Valores',
+      descricao: 'Honestidade, pontualidade, respeito ao cliente, qualidade no serviço e transparência em cada atendimento — são os pilares da nossa empresa.'
     }
   ];
 
+  diferenciais = [
+    'Atendimento no mesmo dia — incluindo fins de semana',
+    'Técnicos certificados e experientes',
+    'Peças originais com procedência garantida',
+    'Garantia de 90 dias em todos os serviços',
+    'Diagnóstico gratuito na hora do atendimento',
+    'Orçamento sem compromisso e preço justo',
+    'Atendemos residências, comércios e indústrias'
+  ];
+
+  marcas = [
+    'Daikin', 'LG', 'Samsung', 'Midea', 'Springer', 'Carrier',
+    'Electrolux', 'Brastemp', 'Consul', 'Panasonic', 'Hitachi', 'Fujitsu'
+  ];
+
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.initObserver();
-    }
-  }
-
-  private initObserver() {
-    this.checkScreenSize(); // Verifica se e mobile antes de atribuir animacoes
-
-    this.observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const target = entry.target as HTMLElement;
-
-        if (entry.isIntersecting && !target.classList.contains('animated')) {
-          target.classList.add('animated');
-          this.observer.unobserve(target); // Para nao reativar a animacao ao rolar para cima
-        }
-      });
-    }, { threshold: 0.2 });
-
-    this.elements.forEach((el, index) => {
-      const element = el.nativeElement;
-      element.style.setProperty('--stagger', `${index * 120}ms`);
-      this.observer.observe(element);
-    });
-  }
 
   @HostListener('window:resize', ['$event'])
   checkScreenSize() {
     this.isMobile = window.innerWidth < 768;
   }
 }
+

@@ -1,0 +1,65 @@
+<section class="reviews-section" aria-label="Avaliações de clientes">
+  <div class="reviews-bg-decoration"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="reviews-header" data-aos="fade-up">
+      <span class="section-badge">
+        <i class="fas fa-star"></i> Avaliações
+      </span>
+      <h2 class="section-title">O que nossos clientes dizem</h2>
+      <p class="section-subtitle">
+        Mais de <strong>50 clientes satisfeitos</strong> em Nova Lima e região. Confira as avaliações reais no Google.
+      </p>
+      <div class="reviews-overall">
+        <span class="reviews-score">5.0</span>
+        <div class="reviews-stars">
+          <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5]"></i>
+        </div>
+        <span class="reviews-count">Avaliação no Google</span>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="reviews-track">
+      <div class="review-card" *ngFor="let r of visibleReviews">
+        <div class="rc-top">
+          <div class="rc-avatar" [style.background]="r.color">{{ r.initial }}</div>
+          <div class="rc-meta">
+            <span class="rc-name">{{ r.name }}</span>
+            <span class="rc-city"><i class="fas fa-map-marker-alt"></i> {{ r.city }}</span>
+          </div>
+          <div class="rc-google">
+            <i class="fab fa-google"></i>
+          </div>
+        </div>
+        <div class="rc-stars">
+          <i class="fas fa-star" *ngFor="let s of starsArray(r.stars)"></i>
+        </div>
+        <p class="rc-text">"{{ r.text }}"</p>
+        <span class="rc-date">{{ r.date }}</span>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="reviews-controls">
+      <button class="rc-btn rc-btn-prev" (click)="prev()" aria-label="Anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="rc-dots">
+        <button
+          *ngFor="let r of reviews; let i = index"
+          class="rc-dot"
+          [class.active]="i === currentIndex"
+          (click)="goTo(i)"
+          [attr.aria-label]="'Ir para avaliação ' + (i+1)">
+        </button>
+      </div>
+
+      <button class="rc-btn rc-btn-next" (click)="next()" aria-label="Próxima">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>

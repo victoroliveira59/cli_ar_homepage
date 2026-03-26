@@ -1,38 +1,269 @@
-/* Reset Global */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-  }
+/* ============================================
+   VARIÁVEIS GLOBAIS — PALETA ALVES REFRIGERAÇÃO
+   ============================================ */
+:root {
+  --primary:         #016086;
+  --primary-dark:    #013D54;
+  --primary-deep:    #012A3A;
+  --primary-light:   #0188B8;
+  --accent:          #00C4E8;
+  --accent-soft:     #80DDEF;
+  --gold:            #FFB800;
+  --gold-dark:       #CC9200;
+  --success:         #25D366;
+  --bg-light:        #EAF6FB;
+  --bg-pale:         #F5FDFF;
+  --bg-section:      #F0F8FF;
+  --text-dark:       #0D2233;
+  --text-mid:        #2A4A5E;
+  --text-muted:      #6A8A9A;
+  --white:           #FFFFFF;
+  --border-soft:     rgba(1, 96, 134, 0.15);
+  --shadow-sm:       0 4px 16px rgba(1, 96, 134, 0.10);
+  --shadow-md:       0 8px 32px rgba(1, 96, 134, 0.18);
+  --shadow-lg:       0 16px 48px rgba(1, 96, 134, 0.22);
+  --radius-sm:       8px;
+  --radius-md:       16px;
+  --radius-lg:       24px;
+  --transition:      all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  html body {
-	line-height: 1.6;
-    margin: 0;
-    padding: 0;
-	width: 100vw;
-	font-family: Manrope, "Manrope-Fallback", Arial, sans-serif;
-	overflow-x: hidden;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	letter-spacing: 0.1px;
-	overflow: none;
-	overflow-y: auto;
-  }
-  html {
-	scroll-behavior: smooth;  /* Rolagem suave */
-	scroll-padding-top: 80px;  /* Ajusta o espaço para a altura da navbar */
-  }
+/* ============================================
+   RESET GLOBAL
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  @font-face {
-	font-family: 'slick';
-	src: url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.eot');
-	src: url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.eot?#iefix') format('embedded-opentype'),
-		 url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.woff') format('woff'),
-		 url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.ttf') format('truetype'),
-		 url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.svg#slick') format('svg');
-	font-weight: normal;
-	font-style: normal;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
 
-  /* Aqui você pode adicionar qualquer outro estilo para seu conteúdo */
+html body {
+  line-height: 1.6;
+  width: 100vw;
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.1px;
+  overflow-y: auto;
+  color: var(--text-dark);
+  background: var(--white);
+}
+
+/* ============================================
+   TIPOGRAFIA UTILITÁRIA
+   ============================================ */
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-light);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   BOTÕES GLOBAIS
+   ============================================ */
+.btn-primary-custom {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 14px 28px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary-custom:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: var(--white);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--primary-deep);
+  padding: 14px 28px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+}
+
+.btn-gold:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 184, 0, 0.35);
+  color: var(--primary-deep);
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--white);
+  padding: 13px 26px;
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--white);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   ANIMAÇÕES GLOBAIS
+   ============================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(1, 136, 184, 0.5); }
+  70%  { box-shadow: 0 0 0 16px rgba(1, 136, 184, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(1, 136, 184, 0); }
+}
+
+@keyframes snowfall {
+  0%   { opacity: 0; transform: translateY(-10px) rotate(0deg); }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(60px) rotate(180deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+.animate-float {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+/* ============================================
+   SEÇÃO PADRÃO
+   ============================================ */
+.section-wrapper {
+  padding: 80px 0;
+}
+
+.section-wrapper-alt {
+  padding: 80px 0;
+  background: var(--bg-section);
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.card-glass:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(1, 96, 134, 0.3);
+}
+
+/* ============================================
+   SLICK CAROUSEL CUSTOMIZAÇÕES GLOBAIS
+   ============================================ */
+@font-face {
+  font-family: 'slick';
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.eot');
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.eot?#iefix') format('embedded-opentype'),
+       url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.woff') format('woff'),
+       url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.ttf') format('truetype'),
+       url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.svg#slick') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ============================================
+   SCROLLBAR CUSTOM
+   ============================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-light); }
+::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }

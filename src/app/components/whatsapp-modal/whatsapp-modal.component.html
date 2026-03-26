@@ -1,0 +1,56 @@
+<div class="wm-overlay" *ngIf="isOpen" (click)="close()">
+  <div class="wm-container" (click)="$event.stopPropagation()">
+
+    <!-- Header -->
+    <div class="wm-header">
+      <div class="wm-header-avatar">AR</div>
+      <div class="wm-header-info">
+        <span class="wm-header-name">Alves Refrigeração</span>
+        <span class="wm-header-status">
+          <span class="wm-status-dot"></span> Online agora
+        </span>
+      </div>
+      <button class="wm-close-btn" (click)="close()" aria-label="Fechar">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Chat body -->
+    <div class="wm-body">
+      <div class="wm-date-chip">Hoje</div>
+
+      <!-- Company bubble -->
+      <div class="wm-bubble wm-bubble-in">
+        <p>Olá! 👋 Seja bem-vindo à <strong>Alves Refrigeração</strong> em Nova Lima.</p>
+        <p>Como posso ajudar você hoje? Selecione uma opção abaixo ou escreva sua mensagem:</p>
+        <span class="wm-time">Agora</span>
+      </div>
+
+      <!-- Quick replies -->
+      <div class="wm-quick-replies">
+        <button
+          *ngFor="let reply of quickReplies"
+          class="wm-quick-btn"
+          (click)="sendQuickReply(reply)">
+          {{ reply }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer / Input -->
+    <div class="wm-footer">
+      <input
+        type="text"
+        class="wm-input"
+        [(ngModel)]="userMessage"
+        placeholder="Digite sua mensagem..."
+        (keyup.enter)="sendCustomMessage()"
+      />
+      <button class="wm-send-btn" (click)="sendCustomMessage()" aria-label="Enviar">
+        <i class="fab fa-whatsapp"></i>
+        <span>Enviar</span>
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -1,37 +1,48 @@
 <div class="servicos-container">
-  <h1 class="text-color text-uppercase font-weight-bold py-4 text-center text-2-5 text-2 ">
-    Nossos Serviços
-  </h1>
+  <div class="servicos-header">
+    <span class="section-badge">
+      <i class="fas fa-snowflake"></i> Assistência Técnica Especializada
+    </span>
+    <h2 class="section-title">Nossos Serviços</h2>
+    <p class="section-subtitle">
+      Ar-condicionado, geladeiras, freezers, chopeiras e bebedouros em
+      <strong>Nova Lima e região</strong> — com garantia de 90 dias.
+    </p>
+  </div>
 
   <div class="carousel-container">
     <ngx-slick-carousel [config]="slideConfig" #slickModal="slick-carousel">
       <div ngxSlickItem *ngFor="let servico of servicos">
-        <!-- Imagem -->
-        <img [src]="servico.imagem" alt="{{servico.nome}}" class="carousel-img">
-
-        <!-- Overlay -->
-        <div class="carousel-overlay"></div>
-
-        <!-- Conteúdo -->
-        <div class="carousel-content">
-          <h2>{{ servico.nome }}</h2>
-          <p>{{ servico.descricao }}</p>
-          <button class="btn-saiba-mais" (click)="openModal(servico)">
-            SAIBA MAIS
-          </button>
+        <div class="slide-wrapper">
+          <!-- Imagem de fundo -->
+          <img class="carousel-bg-img" [src]="servico.imagem" [alt]="servico.nome">
+          <!-- Overlay gradiente -->
+          <div class="carousel-overlay"></div>
+          <!-- Conteúdo -->
+          <div class="carousel-content">
+            <div class="service-icon-badge">
+              <i class="fas {{servico.icon}}"></i>
+            </div>
+            <h2>{{ servico.nome }}</h2>
+            <p>{{ servico.descricao }}</p>
+            <button class="btn-saiba-mais" (click)="openModal(servico)">
+              <i class="fas fa-plus-circle"></i> SAIBA MAIS
+            </button>
+          </div>
         </div>
       </div>
     </ngx-slick-carousel>
 
     <!-- Controles -->
-    <button class="carousel-control carousel-control-prev" (click)="slickModal.slickPrev()">
-      &lt;
+    <button class="carousel-control carousel-control-prev" (click)="slickModal.slickPrev()" aria-label="Anterior">
+      <i class="fas fa-chevron-left"></i>
     </button>
-    <button class="carousel-control carousel-control-next" (click)="slickModal.slickNext()">
-      &gt;
+    <button class="carousel-control carousel-control-next" (click)="slickModal.slickNext()" aria-label="Próximo">
+      <i class="fas fa-chevron-right"></i>
     </button>
   </div>
 </div>
 
 <app-modal [isOpen]="isModalOpen" [title]="modalTitle" [description]="modalDescription" (closeModal)="closeModal()">
 </app-modal>
+

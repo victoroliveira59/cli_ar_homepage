@@ -4,9 +4,13 @@
 <!-- ✅ Exibe o conteúdo SOMENTE depois que o spinner for carregado -->
 <div *ngIf="!isLoading">
   <app-navbar></app-navbar>
-  
+
   <section id="home" class="section" #sectionRef *ngIf="visibleSections['home']">
     <app-home></app-home>
+  </section>
+
+  <section id="arcondicionado" class="section" #sectionRef *ngIf="visibleSections['arcondicionado']">
+    <app-arcondicionado></app-arcondicionado>
   </section>
 
   <section id="servicos" class="section" #sectionRef *ngIf="visibleSections['servicos']">
@@ -23,4 +27,5 @@
 
   <app-footer></app-footer>
   <app-urgency-button></app-urgency-button>
+  <app-whatsapp-modal></app-whatsapp-modal>
 </div>

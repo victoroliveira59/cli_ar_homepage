@@ -15,28 +15,25 @@ export class ServicosComponent implements AfterViewInit {
 
   servicos = [
     {
-      nome: 'Conserto de Refrigeradores Domésticos',
-      descricao: 'Serviço especializado em reparos de refrigeradores todas as marcas.',
-      imagem: 'assets/img/conserto_geladeiras.jpg',
-      detalhes: 'Resolvemos problemas como falta de refrigeração, vazamentos, portas que não vedam, gelo excessivo no freezer e defeitos no compressor. Utilizamos peças originais e garantimos um diagnóstico preciso.'
+      nome: 'Ar-Condicionado: Instalação e Manutenção',
+      descricao: 'Serviço especializado em instalação, manutenção e recarga de gás para todas as marcas de ar-condicionado.',
+      icon: 'fa-wind',
+      imagem: 'assets/img/ConcertoArcond.png',
+      detalhes: 'Atendemos splits, multi-splits, cassetes e janelas. Realizamos instalação profissional, manutenção preventiva e corretiva, limpeza e higienização e recarga de gases R-22, R-410A e R-32. Garantia de 90 dias em todos os serviços. Atendemos Nova Lima e região.'
     },
     {
-      nome: 'Reparo Elétrico e Troca de Placas',
-      descricao: 'Soluções para falhas elétricas e substituição de placas de geladeiras.',
-      imagem: 'assets/img/troca-placa.png',
-      detalhes: 'Realizamos reparos em fiações, troca de placas eletrônicas (inversoras, controladoras), substituição de termostatos e sensores. Garantimos a segurança e eficiência do sistema elétrico do seu refrigerador.'
+      nome: 'Conserto de Geladeiras e Freezers',
+      descricao: 'Diagnóstico preciso e reparo de refrigeradores domésticos e industriais de todas as marcas.',
+      icon: 'fa-snowflake',
+      imagem: 'assets/img/ConcertoGeladeira.png',
+      detalhes: 'Resolvemos problemas como falta de refrigeração, vazamentos, portas que não vedam, gelo excessivo no freezer e defeitos no compressor. Utilizamos peças originais e garantimos um diagnóstico preciso com garantia de 90 dias.'
     },
     {
-      nome: 'Recarga de Gás Refrigerante',
-      descricao: 'Recarga profissional com os gases adequados para seu modelo.',
-      imagem: 'assets/img/recarga-fluido.jpg',
-      detalhes: 'Trabalhamos com gases como R-134a (frost-free), R-600a (ecológico) e R-12 (modelos antigos). Além da recarga, verificamos vazamentos e fazemos a manutenção do sistema de refrigeração.'
-    },
-    {
-      nome: 'Manutenção Preventiva',
-      descricao: 'Cuidados periódicos para evitar problemas futuros.',
-      imagem: 'assets/img/limpeza-geladeiras.jpg',
-      detalhes: 'Inclui limpeza interna, verificação de borrachas de vedação, calibração de termostatos, inspeção de componentes elétricos e ajustes no sistema de refrigeração. Prolongue a vida útil do seu aparelho com nosso serviço.'
+      nome: 'Chopeiras e Bebedouros',
+      descricao: 'Manutenção e conserto de chopeiras industriais e bebedouros para bares, restaurantes e escritórios.',
+      icon: 'fa-glass-cheers',
+      imagem: 'assets/img/ConcertoBebedouro.png',
+      detalhes: 'Realizamos manutenção preventiva e corretiva em chopeiras industriais e bebedouros de todas as marcas. Limpeza completa, troca de filtros, regulagem de temperatura e reparo de componentes. Atendimento rápido para bares, restaurantes e escritórios em Nova Lima e região.'
     }
   ];
 

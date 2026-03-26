@@ -1,38 +1,75 @@
-<div class="sobre-empresa-container d-flex flex-column align-items-center min-vh-100 bg-white text-center py-4 py-md-5">
-	<h1 class="text-color text-uppercase font-weight-bold w-100   text-2-5 text-2">
-	  Sobre a Alves Refrigeração
-	</h1>
+<section class="sobre-section">
 
-	<div class="container">
-	  <div *ngFor="let item of sobreEmpresaItems; let i = index"
-		   class="sobre-empresa-item d-flex flex-column flex-md-row align-items-center justify-content-between my-4 my-md-5"
-		   [ngClass]="{ 'flex-md-row-reverse': i % 2 !== 0 }">
-
-		<!-- Imagem -->
-		<div class="imagem-container col-md-6 px-3 mb-4 mb-md-0 puzzle-piece"
-         [attr.data-piece]="i % 2 === 0 ? 'left' : 'right'"
-         [class.animate-left]="!isMobile && i % 2 === 0"
-         [class.animate-right]="!isMobile && i % 2 !== 0"
-         [class.animate-center]="isMobile"
-         #imageRef>
-		  <img class="img-fluid shadow-lg transition-all w-100 mx-auto"
-			   [src]="item.imgSrc"
-			   [alt]="item.titulo"
-			   style="max-width: 400px;">
-		</div>
-
-		<!-- Descrição -->
-		<div class="descricao-container col-md-6 px-3 puzzle-piece"
-         [attr.data-piece]="i % 2 === 0 ? 'right' : 'left'"
-         [class.animate-left]="!isMobile && i % 2 !== 0"
-         [class.animate-right]="!isMobile && i % 2 === 0"
-         [class.animate-center]="isMobile"
-         #descRef>
-		  <div class="card shadow-sm p-3  h-100">
-			<h2 class="font-weight-bold mb-3">{{ item.titulo }}</h2>
-			<p class="text-left">{{ item.descricao }}</p>
-		  </div>
-		</div>
-	  </div>
-	</div>
+  <!-- HEADER -->
+  <div class="sobre-header">
+    <span class="section-badge">
+      <i class="fas fa-users"></i> Quem Somos
+    </span>
+    <h2 class="sobre-title">Sobre a Alves Refrigeração</h2>
+    <p class="sobre-subtitle">
+      Há mais de 10 anos garantindo conforto e refrigeração com qualidade,
+      honestidade e pontualidade em <strong>Nova Lima e região</strong>.
+    </p>
   </div>
+
+  <!-- STATS BAR -->
+  <div class="sobre-stats container">
+    <div class="stat-item" *ngFor="let stat of stats">
+      <div class="stat-icon"><i class="fas {{stat.icon}}"></i></div>
+      <div class="stat-number">{{ stat.number }}</div>
+      <div class="stat-label">{{ stat.label }}</div>
+    </div>
+  </div>
+
+  <!-- MISSÃO / VISÃO / VALORES -->
+  <div class="sobre-mvv container">
+    <div class="mvv-card" *ngFor="let item of mvvItems">
+      <div class="mvv-icon-wrap">
+        <i class="fas {{item.icon}}"></i>
+      </div>
+      <h3>{{ item.titulo }}</h3>
+      <p>{{ item.descricao }}</p>
+    </div>
+  </div>
+
+  <!-- DIFERENCIAIS -->
+  <div class="sobre-diferenciais container">
+    <div class="dif-content">
+      <h3>Por que escolher a Alves Refrigeração?</h3>
+      <ul class="dif-list">
+        <li *ngFor="let dif of diferenciais">
+          <i class="fas fa-check-circle"></i>
+          <span>{{ dif }}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="dif-brands">
+      <p class="brands-title"><i class="fas fa-tags"></i> Marcas que atendemos</p>
+      <div class="brands-grid">
+        <span class="brand-tag" *ngFor="let brand of marcas">{{ brand }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVALIAÇÕES -->
+  <div class="sobre-reviews">
+    <div class="reviews-header container">
+      <div class="reviews-badge">
+        <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
+             alt="Google" class="google-icon" width="22" height="22">
+        <span>Avaliações Google</span>
+      </div>
+      <h3 class="reviews-title">O que nossos clientes dizem</h3>
+      <div class="reviews-score">
+        <span class="score-number">5.0</span>
+        <div class="score-stars">
+          <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5]"></i>
+        </div>
+        <span class="score-count">+38 avaliações</span>
+      </div>
+    </div>
+    <app-reviews-carousel></app-reviews-carousel>
+  </div>
+
+</section>
+

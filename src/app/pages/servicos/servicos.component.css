@@ -1,164 +1,189 @@
 /* ESTRUTURA PRINCIPAL */
-
-.text-color{color: #016086 ;}
-
-.text-2-5 {
-    font-size: 3rem;
-  }
-
 .servicos-container {
-    position: relative;
-    overflow: hidden;
-    background: white;
-  }
+  position: relative;
+  overflow: hidden;
+  background: white;
+  padding-bottom: 40px;
+}
 
-  /* CONTAINER DO CARROSSEL */
+/* Header */
+.servicos-header {
+  text-align: center;
+  padding: 70px 24px 40px;
+}
+
+/* CONTAINER DO CARROSSEL */
+.carousel-container {
+  position: relative;
+  height: 55vh;
+  min-height: 520px;
+}
+
+/* SLIDE WRAPPER — posiciona filhos absolute */
+.slide-wrapper {
+  position: relative;
+  height: 55vh;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+/* IMAGEM DE FUNDO */
+.carousel-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Badge de ícone pequeno no conteúdo */
+.service-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.service-icon-badge i {
+  font-size: 1.4rem;
+  color: white;
+}
+
+/* OVERLAY GRADIENTE */
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(1, 42, 58, 0.92) 0%,
+    rgba(1, 42, 58, 0.5) 45%,
+    rgba(1, 42, 58, 0.1) 100%
+  );
+}
+
+/* CONTEÚDO CENTRALIZADO */
+.carousel-content {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+/* TÍTULO */
+.carousel-content h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.3px;
+}
+
+/* DESCRIÇÃO */
+.carousel-content p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 1.8rem;
+  color: rgba(255,255,255,0.88);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* BOTÃO */
+.btn-saiba-mais {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold, #FFB800);
+  color: #012A3A;
+  border: none;
+  padding: 12px 28px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-saiba-mais:hover {
+  background: #CC9200;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 184, 0, 0.35);
+}
+
+/* CONTROLES DE NAVEGAÇÃO */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(1, 96, 134, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  z-index: 20;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-control:hover {
+  background: rgba(1, 96, 134, 0.9);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.carousel-control-prev { left: 20px; }
+.carousel-control-next { right: 20px; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 767.98px) {
   .carousel-container {
-    position: relative;
-    height: 40vh;
-    min-height: 500px;
+    height: 60vh;
+    min-height: 480px;
   }
 
-  /* ESTILOS DAS IMAGENS */
-  .carousel-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: relative;
-    top: 0;
-    left: 0;
+  .slide-wrapper {
+    height: 60vh;
+    min-height: 480px;
   }
 
-  /* OVERLAY ESCURO */
-  .carousel-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+  .carousel-content h2 { font-size: 1.4rem; }
+  .carousel-content p  { font-size: 0.95rem; }
 
-  /* CONTEÚDO CENTRALIZADO */
-  .carousel-content {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 800px;
-    padding: 2rem;
-    text-align: center;
-    color: white;
-    z-index: 10;
-  }
+  .carousel-icon-main  { width: 80px; height: 80px; }
+  .carousel-icon-main i { font-size: 2rem; }
+  .ring-outer { width: 140px; height: 140px; }
+  .ring-inner { width: 100px; height: 100px; }
 
-  /* TÍTULO */
-  .carousel-content h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-  }
+  .btn-saiba-mais { padding: 10px 22px; font-size: 0.85rem; }
 
-  /* DESCRIÇÃO */
-  .carousel-content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  }
+  .carousel-control { width: 40px; height: 40px; font-size: 0.9rem; }
+}
 
-  /* BOTÃO */
-  .btn-saiba-mais {
-    background-color: #65b029;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
 
-  .btn-saiba-mais:hover {
-    background-color: #4a8c1f;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
 
-  /* CONTROLES DE NAVEGAÇÃO */
-  .carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-    z-index: 20;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .carousel-control:hover {
-    background-color: rgba(0, 0, 0, 0.795);
-  }
-
-  .carousel-control-prev {
-    left: 20px;
-  }
-
-  .carousel-control-next {
-    right: 20px;
-  }
-
-  /* RESPONSIVIDADE */
-  @media (max-width: 767.98px) {
-
-    .text-2{font-size: 2rem;}
-
-    .text-color{color: #016086 ;}
-
-    .carousel-container {
-      height: 60vh;
-      min-height: 500px;
-    }
-
-    .carousel-content h2 {
-      font-size: 1.8rem;
-      padding-top: 90px ;
-    }
-
-    .carousel-content p {
-      font-size: 1rem;
-    }
-
-    .btn-saiba-mais {
-      padding: 10px 25px;
-      font-size: 0.9rem;
-    }
-
-    .carousel-control {
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
-    }
-
-    .carousel-img {
-        width: 100%;
-        height: 150vw;
-        object-fit: cover;
-        position: relative;
-        top: 0;
-        left: 0;
-      }
-  }

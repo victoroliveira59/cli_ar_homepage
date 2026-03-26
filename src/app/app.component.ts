@@ -20,13 +20,17 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { UrgencyButtonComponent } from "./components/urgency-button/urgency-button.component";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NavbarComponent } from "./components/navbar/navbar.component";
+import { ArcondicionadoComponent } from "./pages/arcondicionado/arcondicionado.component";
+import { WhatsappModalComponent } from "./components/whatsapp-modal/whatsapp-modal.component";
 
 @Component({
+  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
     HomeComponent,
+    ArcondicionadoComponent,
     ServicosComponent,
     SobreComponent,
     ContatoComponent,
@@ -34,14 +38,16 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
     CommonModule,
     NgxSpinnerModule,
     UrgencyButtonComponent,
-    NavbarComponent
+    NavbarComponent,
+    WhatsappModalComponent
 ]
 })
 export class AppComponent implements AfterViewInit {
   isLoading: boolean = true; // 🔄 Controla o estado do carregamento
 
   visibleSections: { [key: string]: boolean } = {
-    home: false, // ❌ Não carrega imediatamente
+    home: false,
+    arcondicionado: false,
     servicos: false,
     sobre: false,
     contato: false
@@ -61,7 +67,8 @@ export class AppComponent implements AfterViewInit {
       setTimeout(() => {
         this.spinner.hide(); // ✅ Esconde o spinner
         this.isLoading = false; // 🔄 Agora podemos exibir a `HomeComponent`
-        this.visibleSections['home'] = true; // ✅ Mostra a Home
+        this.visibleSections['home'] = true;
+        this.visibleSections['arcondicionado'] = true;
         this.visibleSections['servicos'] = true;
         this.visibleSections['sobre'] = true;
         this.visibleSections['contato'] = true;

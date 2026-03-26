@@ -1,58 +1,43 @@
-.urgency-message {
+/* WhatsApp FAB Button */
+.whatsapp-fab {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background-color: #25d366;
-  color: white;
-  padding: 18px;
-  border-radius: 999px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  bottom: 28px;
+  right: 28px;
+  width: 62px;
+  height: 62px;
+  background: #25D366;
+  border-radius: 50%;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  margin-right: 10px;
-  z-index: 9999;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  transform: translateZ(0);
-  animation: whatsapp-pulse 2.2s ease-in-out infinite;
+  z-index: 9998;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.urgency-message p {
-  margin: 0;
-  padding-right: 10px;
+.whatsapp-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.55);
 }
 
-.urgency-message i {
-  font-size: 2.6rem;
-}
-
-.urgency-message button {
-  background: none;
-  border: none;
+.whatsapp-fab i {
+  font-size: 2rem;
   color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 0;
+  position: relative;
+  z-index: 2;
 }
 
-.urgency-message a {
-  color: white;
-  text-decoration: none;
-}
-
-.urgency-message a:hover {
-  text-decoration: underline;
+.fab-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  animation: whatsapp-pulse 2.4s ease-in-out infinite;
 }
 
 @keyframes whatsapp-pulse {
-  0% {
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(37, 211, 102, 0.6);
-  }
-  70% {
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), 0 0 0 14px rgba(37, 211, 102, 0);
-  }
-  100% {
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(37, 211, 102, 0);
-  }
+  0%   { transform: scale(1);    opacity: 0.8; }
+  70%  { transform: scale(1.65); opacity: 0; }
+  100% { transform: scale(1);    opacity: 0; }
 }
