@@ -42,7 +42,6 @@ export class SobreComponent {
     'Técnicos certificados e experientes',
     'Peças originais com procedência garantida',
     'Garantia de 90 dias em todos os serviços',
-    'Diagnóstico gratuito na hora do atendimento',
     'Orçamento sem compromisso e preço justo',
     'Atendemos residências, comércios e indústrias'
   ];

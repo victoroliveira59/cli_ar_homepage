@@ -288,3 +288,98 @@
   .stat-number  { font-size: 1.5rem; }
 }
 
+/* ============================================
+   MOBILE PEQUENO ≤430px (até 6.7 polegadas)
+   ============================================ */
+@media (max-width: 430px) {
+  .sobre-header {
+    padding: 50px 16px 28px;
+  }
+
+  .sobre-title {
+    font-size: 1.6rem;
+  }
+
+  .sobre-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .sobre-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 12px 32px;
+  }
+
+  .stat-item {
+    padding: 16px 10px;
+  }
+
+  .stat-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .stat-icon i {
+    font-size: 1.1rem;
+  }
+
+  .stat-number {
+    font-size: 1.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+  }
+
+  .sobre-mvv {
+    padding: 0 12px 32px;
+    gap: 16px;
+  }
+
+  .mvv-card {
+    padding: 24px 18px;
+  }
+
+  .mvv-icon-wrap {
+    width: 52px;
+    height: 52px;
+  }
+
+  .mvv-icon-wrap i {
+    font-size: 1.3rem;
+  }
+
+  .mvv-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .mvv-card p {
+    font-size: 0.88rem;
+  }
+
+  .sobre-diferenciais {
+    padding: 0 12px 32px;
+    gap: 24px;
+  }
+
+  .dif-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .dif-list li {
+    font-size: 0.88rem;
+  }
+
+  .reviews-header {
+    padding: 0 16px 24px;
+  }
+
+  .reviews-title {
+    font-size: 1.4rem;
+  }
+
+  .score-number {
+    font-size: 2rem;
+  }
+}
+

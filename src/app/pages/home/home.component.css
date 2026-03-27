@@ -432,7 +432,7 @@
   align-items: center;
   gap: 40px;
   max-width: 1200px;
-  padding: 100px 40px 80px !important;
+  padding: 20px 40px 80px !important;
 }
 
 /* LEFT: conteúdo de texto */
@@ -543,6 +543,66 @@
 }
 
 /* ============================================
+   MOBILE PEQUENO ≤430px (até 6.7 polegadas)
+   ============================================ */
+@media (max-width: 430px) {
+  .hero-inner {
+    padding: 80px 14px 40px !important;
+    gap: 20px;
+  }
+
+  .hero-mascote-area {
+    width: 180px;
+  }
+
+  .mascote-img {
+    max-width: 180px;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+    letter-spacing: -0.3px;
+  }
+
+  .hero-desc {
+    font-size: 0.92rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-services {
+    gap: 7px 12px;
+  }
+
+  .hero-services li {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .hero-badge {
+    font-size: 0.72rem;
+    padding: 6px 12px;
+  }
+
+  .trust-item {
+    font-size: 0.75rem;
+  }
+
+  .hero-trust {
+    gap: 10px;
+  }
+
+  .hero-logo {
+    height: 55px;
+  }
+
+  .btn-gold,
+  .btn-outline-white {
+    padding: 11px 20px;
+    font-size: 0.88rem;
+  }
+}
+
+/* ============================================
    CRITICAL OVERRIDES — Corrige CSS antigo
    ============================================ */
 @media (min-width: 1024px) {
@@ -563,356 +623,3 @@
   }
 }
 
-
-.hero-content p {
-    color: #f5f5f5;
-    line-height: 1.6;
-    font-size: 1.2rem;
-	margin-left: 50px;
-}
-
-
-.hero-content .text {
-	font-size: 1.2rem;
-	color: #ffffff;
-  }
-
-  .diferenciais {
-	list-style: none;
-	padding: 0;
-	margin-bottom: 20px;
-	color: #ffffff;
-  }
-
-
-
-  .diferenciais li {
-    display: flex;
-    align-items: center;
-    padding: 2px 0;
-}
-
-.diferenciais li i {
-    font-size: 1.5rem;
-    color: #FFD700;
-    margin-right: 10px;
-}
-
-
-.hero-content.visible {
-	opacity: 1;
-}
-
-.cta-button {
-	background-color:#016086;
-	color: white;
-	padding: 15px 30px;
-	border: none;
-	border-radius: 8px;
-	font-size: 1.1rem;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-	margin: 0 0 50px 0;
-  }
-
-  .cta-button:hover {
-    transform: scale(1.05);
-    background-color: #FFA500; /* Altere para destacar no hover */
-    transition: all 0.3s ease-in-out;
-}
-
-  .cta-button i {
-	margin-right: 10px;
-  }
-
-  .urgency-message {
-	position: fixed;  /* ✅ Mantém o botão sempre visível */
-	bottom: 20px;
-	right: 20px;
-	z-index: 99999;  /* ✅ Coloca acima de tudo */
-	background-color: rgba(255, 0, 0, 0.8); /* Teste com uma cor chamativa */
-	color: white;
-	padding: 12px 20px;
-	border-radius: 5px;
-	cursor: pointer;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  }
-
-
-.urgency-message.expanded {
-	width: 300px;
-	background-color: rgba(0, 0, 0, 0.85);
-	z-index: 99999;
-}
-
-.urgency-message p {
-	margin: 0;
-	font-size: 1rem;
-}
-
-.urgency-message a {
-	color: #FFD700;
-	text-decoration: none;
-}
-
-.urgency-message a:hover {
-	text-decoration: underline;
-}
-
-.urgency-message span {
-	font-size: 0.9rem;
-}
-
-.right-image-container {
-	position: absolute;
-	top: 5%;
-	right: 30px;
-	transform: translateY(-50%);
-	background-attachment: fixed;
-	opacity: 0.5;
-}
-
-.right-image-container img {
-	width: 100%;
-	height: auto;
-	border-radius: 10px;
-	opacity: 0.5;
-	box-shadow: #000000 0 4px 8px;
-	z-index: 1;
-}
-
-.right-image-container {
-	opacity: 0;
-	transform: translateX(100vw);
-	transition: opacity 0.5s ease-out, transform 1s ease-out;
-}
-
-.right-image-container.visible {
-	opacity: 1;
-	transform: translateX(0);
-}
-
-
-
-.right-image-container,
-.hero-content {
-	visibility: visible;
-}
-
-.slide-in-right,
-.slide-in-left,
-.slide-in-down {
-	visibility: visible;
-	animation: none;
-}
-
-.right-image-container.visible,
-.hero-content.visible {
-	visibility: visible;
-	animation: slideInRight 1s ease-out forwards;
-}
-
-@keyframes slideInRight {
-	0% {
-		transform: translateX(100vw);
-		opacity: 0;
-	}
-	100% {
-		transform: translateX(0);
-		opacity: 1;
-	}
-}
-
-.slide-in-right {
-	animation: slideInRight 1s ease-out 0.5s forwards;
-}
-
-
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0; /* Ajuste o espaço abaixo da logo */
-
-}
-
-.logo-container .logo-img {
-    height: 150px; /* Tamanho da logo */
-    object-fit: contain;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Para efeitos suaves */
-	margin-top: -10px;
-}
-
-.hero-content .logo-container .logo-img.scrolled {
-    transform: scale(0.8); /* Reduz o tamanho após scroll */
-    opacity: 0.9;
-}
-
-
-.equip {
-
-	font-weight: bold;
-	color: #29b056;
-
-  }
-
-  .equip i {
-	margin-right: 8px;
-	color: #f8b400; /* Cor diferente para destacar */
-	font-size: 1.2rem;
-  }
-
-
-
-/* Responsividade para Desktop */
-@media (min-width: 1024px) {
-
-	.hero {
-		position: relative;
-		height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.hero::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(3, 3, 3, 0.808); /* Cor de sobreposição com opacidade */
-		z-index: 1; /* Fica acima da imagem, mas abaixo do conteúdo */
-	  }
-
-	.hero-content p {
-	  max-width: 80%; /* Reduz a largura para tablets */
-	  text-align: center;
-	  margin-right: 0;
-	  max-width: 450px;
-	  margin-top: 0;
-	  font-size: 1.3rem;
-	}
-
-	.urgency-message {
-	  font-size: 0.9rem;
-	  padding: 12px 18px;
-	  max-width: 250px;
-	}
-
-	.cta-button {
-	  padding: 12px 20px;
-	  font-size: 1rem;
-	}
-
-	.urgency-message.expanded {
-	  width: 90%;
-	  left: 5%;
-	  right: 5%;
-	}
-
-}
-
-@media screen and (min-width: 568px) and (max-width: 1024px){
-
-	.hero {
-		background-attachment: scroll; /* ✅ Remove efeito de parallax em mobile */
-	  }
-
-	.hero-content {
-	  max-width: 100%;
-	  text-align: center;
-	  height: 100%;
-	  left: 0;
-	  top: 10%;
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  margin: 30px 0 30px 0;
-	}
-
-	.hero-content h1 {
-	  font-size: 2.2rem;
-	}
-
-	.hero-content .text {
-		font-size: 1.9rem;
-        margin: 40px 0 0 0;
-        padding: 10px;
-        height: 40%;
-	}
-
-
-	.cta-button {
-	  padding: 15px 12px;
-	  font-size: 1.2rem;
-	}
-
-	.urgency-message {
-	  bottom: 10px;
-	  left: 10px;
-	  font-size: 0.8rem;
-	  padding: 8px 12px;
-	}
-
-	.equip {
-
-		font-weight: bold;
-		color: #29b056;
-		font-size: 1.6rem;
-
-	  }
-
-	  .equip i {
-		margin-right: 8px;
-		color: #f8b400; /* Cor diferente para destacar */
-		font-size: 1.2rem;
-	  }
-
-  }
-
-  @media (max-width: 568px ){
-
-	.hero {
-		background-attachment: scroll; /* ✅ Remove efeito de parallax em mobile */
-	  }
-
-	.hero-content {
-	  max-width: 400px;
-	  text-align: center;
-	  height: 100%;
-	  left: 0;
-	  align-items: center;
-	  margin: 10px 0 10px 0;
-	}
-
-	.hero-content h1 {
-	  font-size: 1.5rem;
-	}
-
-	.hero-content p {
-	  font-size: 1.1rem;
-	  margin-left: 0;
-	}
-
-	.cta-button {
-	  padding: 10px 15px;
-	  font-size: 0.9rem;
-	}
-
-	.urgency-message {
-	  bottom: 10px;
-	  left: 10px;
-	  font-size: 0.8rem;
-	  padding: 8px 12px;
-	}
-
-	.logo-container .logo-img {
-		height: 100px; /* Tamanho da logo */
-		object-fit: contain;
-		transition: transform 0.3s ease, opacity 0.3s ease; /* Para efeitos suaves */
-		margin-top: 50px;
-	}
-
-
-  }

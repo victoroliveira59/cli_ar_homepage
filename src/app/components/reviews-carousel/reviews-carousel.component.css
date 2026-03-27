@@ -247,3 +247,53 @@
     display: none;
   }
 }
+
+/* ============================================
+   MOBILE PEQUENO ≤430px (até 6.7 polegadas)
+   ============================================ */
+@media (max-width: 430px) {
+  .reviews-section {
+    padding: 60px 0 50px;
+  }
+
+  .reviews-header {
+    margin-bottom: 28px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .reviews-overall {
+    padding: 6px 14px;
+    gap: 8px;
+  }
+
+  .reviews-score {
+    font-size: 1.3rem;
+  }
+
+  .reviews-stars i {
+    font-size: 0.95rem;
+  }
+
+  .reviews-count {
+    font-size: 0.78rem;
+  }
+
+  .review-card {
+    padding: 20px 16px;
+  }
+
+  .rc-text {
+    font-size: 0.82rem;
+  }
+
+  .rc-name {
+    font-size: 0.88rem;
+  }
+}

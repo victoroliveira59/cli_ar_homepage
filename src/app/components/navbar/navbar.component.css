@@ -96,6 +96,7 @@
   /* ========================= */
   .navbar.minha-navbar .navbar-brand {
     opacity: 0.9;
+    left: calc(10% + 25px);
     transform: translateX(-50%) translateY(10px); /* Posição final centralizada */
     height: 50px;
   }
@@ -115,6 +116,19 @@
     .logo-img {
       height: 200px;
       margin:  10px 0 0 -170px;
+    }
+
+    /* Logo visível ao rolar — posição simples e limpa */
+    .navbar.minha-navbar .navbar-brand {
+      left: 20px;
+      transform: translateY(8px);
+      height: 44px;
+    }
+
+    .navbar.minha-navbar .logo-img {
+      height: 100%;
+      margin: 0;
+      object-fit: contain;
     }
 
     .container {
@@ -172,7 +186,7 @@
   .navbar-collapse {
     position: absolute;
     top: 0;
-    background-color: #016086;
+    background-color: var(--primary, #016086);
     padding: 0 1rem; /* Padding apenas nas laterais inicialmente */
     border-radius: 0.25rem;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -258,7 +272,7 @@
     .navbar-collapse {
       position: absolute;
       top: 0;
-      background-color: #016086;
+      background-color: var(--primary, #016086);
       padding: 0 1rem; /* Padding apenas nas laterais inicialmente */
       border-radius: 0.25rem;
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -346,6 +360,19 @@
       margin-left: -130px;
     }
 
+    /* Logo visível ao rolar */
+    .navbar.minha-navbar .navbar-brand {
+      left: 16px;
+      transform: translateY(6px);
+      height: 40px;
+    }
+
+    .navbar.minha-navbar .logo-img {
+      height: 100%;
+      margin: 0;
+      object-fit: contain;
+    }
+
     @keyframes width-slide-in{
       0% {
         width: 0;
@@ -377,7 +404,7 @@
         right: 0;
         width: 85%; /* Ocupa 85% da largura da tela */
         height: calc(100vh - 80px);
-        background-color: #016086;
+        background-color: var(--primary, #016086);
         transform: translateX(100%);
         transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         z-index: 1050;
@@ -395,7 +422,7 @@
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s; /* Delay de 0.2s */
-        margin-top: 220px;
+        margin-top: 160px;
       }
 
       /* Links visíveis quando menu aberto */
@@ -433,6 +460,19 @@
         object-fit: contain;
         margin: 0 0 0 120px;
 
+      }
+
+      /* Logo visível ao rolar */
+      .navbar.minha-navbar .navbar-brand {
+        left: 14px;
+        transform: translateY(4px);
+        height: 38px;
+      }
+
+      .navbar.minha-navbar .logo-img {
+        height: 100%;
+        margin: 0;
+        object-fit: contain;
       }
 
       .navbar-nav .nav-item {
@@ -478,9 +518,60 @@
   }
 
   .minha-navbar {
-    background: rgba(1, 61, 84, 0.92);
+    background: var(--primary, #016086);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 196, 232, 0.15);
+    border-bottom: 1px solid rgba(0, 196, 232, 0.25);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ========================= */
+  /*  MOBILE PEQUENO ≤430px    */
+  /* ========================= */
+  @media (max-width: 430px) {
+    .navbar {
+      min-height: 64px;
+      padding: 0.25rem 0.5rem;
+    }
+
+    .container {
+      padding: 0 8px;
+      margin-left: 55vw;
+    }
+
+    .navbar-toggler {
+      padding: 10px;
+    }
+
+    .navbar-collapse {
+      width: 90%;
+    }
+
+    .navbar-nav {
+      margin-top: 120px;
+      font-size: 1rem;
+    }
+
+    .nav-link {
+      font-size: 1rem;
+      padding: 10px 0;
+    }
+
+    .logo-img {
+      height: 300%;
+      margin: 0 0 0 90px;
+    }
+
+    /* Logo visível ao rolar */
+    .navbar.minha-navbar .navbar-brand {
+      left: 12px;
+      transform: translateY(4px);
+      height: 34px;
+    }
+
+    .navbar.minha-navbar .logo-img {
+      height: 100%;
+      margin: 0;
+      object-fit: contain;
+    }
   }

@@ -1,6 +1,6 @@
 /* Cores customizadas */
-.bg-primary-custom { background-color: #016086; }
-.text-primary-custom { color: #016086; }
+.bg-primary-custom { background-color: var(--primary, #016086); }
+.text-primary-custom { color: var(--primary, #016086); }
 .bg-blue-light { background-color: rgba(0, 123, 255, 0.1); }
 
 
@@ -48,4 +48,57 @@
   }
 
   .fonte-2 {font-size: 2rem;}
+}
+
+/* ============================================
+   MOBILE PEQUENO ≤430px (até 6.7 polegadas)
+   ============================================ */
+@media (max-width: 430px) {
+  .text-2-5 {
+    font-size: 1.8rem !important;
+  }
+
+  .fonte-2 {
+    font-size: 1.5rem !important;
+  }
+
+  .contato-header {
+    padding: 16px !important;
+    text-align: center;
+  }
+
+  .contato-header i {
+    font-size: 2rem;
+  }
+
+  .form-wrapper {
+    padding: 16px !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .contato-form-map {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 12px !important;
+  }
+
+  /* Mapa responsivo */
+  iframe {
+    width: 100% !important;
+    height: 220px !important;
+  }
+
+  /* Inputs do formulário */
+  .form-control {
+    font-size: 0.9rem;
+  }
+
+  /* Botão de enviar */
+  .btn-primary-custom,
+  button[type="submit"] {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 12px;
+  }
 }
