@@ -1,24 +1,24 @@
 # Workflow State — Homepage Alves Refrigeração & Climatização
 
 - **Project:** cli_ar_homepage
-- **Current Phase:** 01 - Discovery SEO e Requisitos
-- **Current Task:** T01.01 - Auditoria SEO baseline, keyword map, arquitetura de informação, requisitos e critérios de aceite
-- **Workflow Status:** READY
-- **Active Agent:** ANALISTA
+- **Current Phase:** 02 - Fundação Técnica e Qualidade
+- **Current Task:** T02.01 - Fontes self-hosted (@fontsource), corrigir specs quebrados, script `test:ci` (ChromeHeadless)
+- **Workflow Status:** IN_PROGRESS
+- **Active Agent:** ENGENHEIRO
 - **Correction Iteration:** 0/3
-- **Last Completed Task:** T00.03 - Registrar baseline de build/testes e ambiente
+- **Last Completed Task:** T01.01 - Auditoria SEO baseline, keyword map, arquitetura de informação, requisitos e critérios de aceite
 - **Blockers:** none
-- **Last Updated:** 2026-11-06 20:26 BRT
+- **Last Updated:** 2026-11-06 20:34 BRT
 
 ---
 
 ## Current Objective
-Produzir o diagnóstico de baseline e toda a especificação de produto/SEO que guiará as fases 02–07.
+Estabilizar build de produção offline (fontes locais) e suíte de testes unitários automatizada com ChromeHeadless.
 
 ---
 
 ## Next Action
-Delegar T01.01 ao Analista.
+Engenheiro implementa T02.01.
 
 ---
 
