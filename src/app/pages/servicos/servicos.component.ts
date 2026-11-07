@@ -109,7 +109,9 @@ export class ServicosComponent implements AfterViewInit {
 
   @HostListener('window:resize', ['$event'])
   checkScreenSize() {
-    this.isMobile = window.innerWidth < 768;
+    if (isPlatformBrowser(this.platformId)) {
+      this.isMobile = window.innerWidth < 768;
+    }
   }
 
   // Método para tratar erros de imagem

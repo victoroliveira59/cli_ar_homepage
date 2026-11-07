@@ -14,6 +14,14 @@
 - **Ação:** Leitura do repositório de referência OradorPro (`.agents/`, `.ai/`, `docs/`) via GitHub e clone de `cli_ar_homepage`. Criação de `AGENTS.md`, `SPEC.md`, `.agents/` (5 agentes, 6 regras, 4 skills), `.ai/` (HARNESS, contrato, tasks, state, log, prompts) e `docs/` (templates, ADR-0000, ADR-0001).
 - **Resultado:** `DONE`.
 
+### 2026-11-06 21:26 BRT — Conclusão de T03.01 e Início de T03.02
+- **Agente:** Maestro
+- **Fase:** 03 - SEO Técnico e Indexabilidade
+- **Task:** T03.01 - Remover gate de spinner/`isLoading` que esconde conteúdo do prerender; corrigir acessos SSR-unsafe
+- **Ação:** Engenheiro removeu o bloqueio condicional de `isLoading` e `visibleSections` em `AppComponent` e `HomeComponent`. Tester comprovou que todo o conteúdo textual e títulos `h1` são renderizados nos arquivos físicos do prerender com 100% dos testes verdes. Revisor aprovou sem ressalvas. Tarefa concluída.
+- **Resultado:** `DONE`.
+- **Transição:** Task T03.02 transicionada para `IN_PROGRESS` e delegada ao Engenheiro.
+
 ### 2026-11-06 21:15 BRT — Conclusão da Fase 02 (T02.02) e Início da Fase 03
 - **Agente:** Maestro
 - **Fase:** 02 - Fundação Técnica e Qualidade

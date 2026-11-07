@@ -1,31 +1,27 @@
-<!-- 🚀 Spinner de carregamento -->
-<ngx-spinner type="ball-scale-multiple" *ngIf="isLoading"></ngx-spinner>
+<app-navbar></app-navbar>
 
-<!-- ✅ Exibe o conteúdo SOMENTE depois que o spinner for carregado -->
-<div *ngIf="!isLoading">
-  <app-navbar></app-navbar>
-
-  <section id="home" class="section" #sectionRef *ngIf="visibleSections['home']">
+<main>
+  <section id="home" class="section">
     <app-home></app-home>
   </section>
 
-  <section id="arcondicionado" class="section" #sectionRef *ngIf="visibleSections['arcondicionado']">
+  <section id="arcondicionado" class="section">
     <app-arcondicionado></app-arcondicionado>
   </section>
 
-  <section id="servicos" class="section" #sectionRef *ngIf="visibleSections['servicos']">
+  <section id="servicos" class="section">
     <app-servicos></app-servicos>
   </section>
 
-  <section id="sobre" class="section" #sectionRef *ngIf="visibleSections['sobre']">
+  <section id="sobre" class="section">
     <app-sobre></app-sobre>
   </section>
 
-  <section id="contato" class="section" #sectionRef *ngIf="visibleSections['contato']">
+  <section id="contato" class="section">
     <app-contato></app-contato>
   </section>
+</main>
 
-  <app-footer></app-footer>
-  <app-urgency-button></app-urgency-button>
-  <app-whatsapp-modal></app-whatsapp-modal>
-</div>
+<app-footer></app-footer>
+<app-urgency-button></app-urgency-button>
+<app-whatsapp-modal></app-whatsapp-modal>

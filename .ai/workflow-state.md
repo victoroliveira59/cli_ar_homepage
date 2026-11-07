@@ -2,23 +2,23 @@
 
 - **Project:** cli_ar_homepage
 - **Current Phase:** 03 - SEO Técnico e Indexabilidade
-- **Current Task:** T03.01 - Remover gate de spinner/`isLoading` que esconde conteúdo do prerender; corrigir acessos SSR-unsafe
+- **Current Task:** T03.02 - Roteamento real (shell + `router-outlet`), `SeoService` (title/meta/canonical/OG) e `business-info.ts` (NAP único)
 - **Workflow Status:** IN_PROGRESS
 - **Active Agent:** ENGENHEIRO
 - **Correction Iteration:** 0/3
-- **Last Completed Task:** T02.02 - Script `seo:audit` (HTML pré-renderizado) + workflow GitHub Actions (build, test, audit)
+- **Last Completed Task:** T03.01 - Remover gate de spinner/`isLoading` que esconde conteúdo do prerender; corrigir acessos SSR-unsafe
 - **Blockers:** none
-- **Last Updated:** 2026-11-06 21:15 BRT
+- **Last Updated:** 2026-11-06 21:26 BRT
 
 ---
 
 ## Current Objective
-Eliminar o gate de spinner e timers em AppComponent/HomeComponent para garantir que todo o conteúdo indexável seja renderizado nativamente no HTML pré-renderizado pelo motor de SSR.
+Implementar roteamento real com shell persistente (Navbar e Footer), serviço singleton de SEO (`SeoService`) para injeção de metadata dinâmica e fonte única de verdade para os dados da empresa (`business-info.ts`).
 
 ---
 
 ## Next Action
-Engenheiro implementa T03.01.
+Engenheiro implementa T03.02.
 
 ---
 

@@ -19,7 +19,6 @@ export class NavbarComponent {
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
-
   menuItems = [
     { label: 'Home', id: 'home', href: '#home', icon: 'fas fa-home' },
     { label: 'Ar-Condicionado', id: 'arcondicionado', href: '#arcondicionado', icon: 'fas fa-wind' },
@@ -28,23 +27,27 @@ export class NavbarComponent {
     { label: 'Contato', id: 'contato', href: '#contato', icon: 'fas fa-phone-alt' }
   ];
 
-
   toggleMenu() {
     this.menuAberto = !this.menuAberto;
-    document.body.style.overflow = this.menuAberto ? 'hidden' : '';
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = this.menuAberto ? 'hidden' : '';
+    }
   }
-
 
   closeMenu() {
     this.menuAberto = false;
-    document.body.style.overflow = '';
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
   }
 
   scrollToSection(event: Event, sectionId: string) {
     event.preventDefault();
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    if (isPlatformBrowser(this.platformId)) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      document.body.style.overflow = '';
+    }
     this.menuAberto = false;
-    document.body.style.overflow = '';
   }
 
   @HostListener('window:resize', ['$event'])
@@ -57,12 +60,8 @@ export class NavbarComponent {
 
   @HostListener('window:scroll')
   onWindowScroll() {
-
-    this.scrolled = window.scrollY > 400;
-    // Opcional: controle mais granular da transição
-    const scrollPosition = window.scrollY;
-    const logo = document.querySelector('.logo-img') as HTMLElement;
-
+    if (isPlatformBrowser(this.platformId)) {
+      this.scrolled = window.scrollY > 400;
+    }
   }
 }
-

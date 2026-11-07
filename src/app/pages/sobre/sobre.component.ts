@@ -1,5 +1,5 @@
 import { Component, Inject, PLATFORM_ID, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ReviewsCarouselComponent } from '../../components/reviews-carousel/reviews-carousel.component';
 
 @Component({
@@ -55,7 +55,8 @@ export class SobreComponent {
 
   @HostListener('window:resize', ['$event'])
   checkScreenSize() {
-    this.isMobile = window.innerWidth < 768;
+    if (isPlatformBrowser(this.platformId)) {
+      this.isMobile = window.innerWidth < 768;
+    }
   }
 }
-
