@@ -60,8 +60,8 @@ A página inicial (`HomeComponent`) foi totalmente refinada para atingir o mais 
 2. `npx tsc -p tsconfig.spec.json --noEmit`
    - Resultado: Código 0 (sem erros de compilação nos specs).
 3. `npm run test:ci`
-   - Comando real: `ng test --watch=false --browsers=ChromeHeadless`
-   - Resultado: `Chrome Headless 133.0.0.0 (Windows 10): Executed 15 of 15 SUCCESS (0.244 secs / 0.177 secs) TOTAL: 15 SUCCESS` (Código 0).
+   - Comando real: `ng test --watch=false --browsers=ChromeHeadlessCI`
+   - Resultado: `Chrome Headless 133.0.0.0 (Windows 10): Executed 15 of 15 SUCCESS (0.231 secs / 0.174 secs) TOTAL: 15 SUCCESS` (Código 0).
 4. `npm run build`
    - Resultado: Código 0, 11 rotas estáticas pré-renderizadas geradas na pasta `dist/cli_ar/browser`. Zero warnings de budget de estilos de componentes.
 5. `npm run seo:audit`

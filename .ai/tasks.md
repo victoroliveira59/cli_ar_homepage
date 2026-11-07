@@ -85,4 +85,4 @@
 | ID | Título da Task | Responsável | Dependência | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **T07.01** | Guia SEO off-page (Perfil da Empresa no Google, Search Console, citações NAP, avaliações, plano de conteúdo) + README | Analista | T06.01 | `DONE` |
-| **T07.02** | Validação final de release, push da branch e Pull Request (merge exige aprovação humana) | Maestro | T07.01 | `IN_PROGRESS` |
+| **T07.02** | Validação final de release, push da branch e Pull Request (merge exige aprovação humana) | Maestro | T07.01 | `DONE` |

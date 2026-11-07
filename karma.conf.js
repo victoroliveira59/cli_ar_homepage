@@ -33,16 +33,15 @@ module.exports = function (config) {
       ]
     },
     reporters: ['progress', 'kjhtml'],
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessCI'],
     customLaunchers: {
-      ChromeHeadless: {
-        base: 'Chrome',
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
         flags: [
-          '--headless',
           '--no-sandbox',
           '--disable-gpu',
           '--disable-dev-shm-usage',
-          '--remote-debugging-port=0'
+          '--disable-software-rasterizer'
         ]
       }
     },
