@@ -14,16 +14,19 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'cli_ar' title`, () => {
+  it('should initialize with isLoading set to true', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('cli_ar');
+    expect(app.isLoading).toBeTrue();
   });
 
-  it('should render title', () => {
+  it('should initialize visibleSections correctly', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, cli_ar');
+    const app = fixture.componentInstance;
+    expect(app.visibleSections['home']).toBeFalse();
+    expect(app.visibleSections['arcondicionado']).toBeFalse();
+    expect(app.visibleSections['servicos']).toBeFalse();
+    expect(app.visibleSections['sobre']).toBeFalse();
+    expect(app.visibleSections['contato']).toBeFalse();
   });
 });

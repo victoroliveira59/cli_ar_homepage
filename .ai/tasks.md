@@ -35,8 +35,8 @@
 
 | ID | Título da Task | Responsável | Dependência | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T02.01** | Fontes self-hosted (@fontsource), corrigir specs quebrados, script `test:ci` (ChromeHeadless) | Engenheiro | T01.01 | `IN_PROGRESS` |
-| **T02.02** | Script `seo:audit` (HTML pré-renderizado) + workflow GitHub Actions (build, test, audit) | Engenheiro | T02.01 | `BACKLOG` |
+| **T02.01** | Fontes self-hosted (@fontsource), corrigir specs quebrados, script `test:ci` (ChromeHeadless) | Engenheiro | T01.01 | `DONE` |
+| **T02.02** | Script `seo:audit` (HTML pré-renderizado) + workflow GitHub Actions (build, test, audit) | Engenheiro | T02.01 | `IN_PROGRESS` |
 
 ---
 

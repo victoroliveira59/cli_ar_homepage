@@ -1,10 +1,29 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ServicosComponent } from './servicos.component';
 
 describe('ServicosComponent', () => {
   let component: ServicosComponent;
   let fixture: ComponentFixture<ServicosComponent>;
+
+  beforeAll(() => {
+    // Garante que $ e $.fn.slick estejam definidos no ambiente de teste do Karma
+    const win = window as any;
+    if (typeof win.$ === 'undefined') {
+      const mockJQuery: any = () => ({
+        slick: () => {},
+        on: () => {},
+        off: () => {}
+      });
+      mockJQuery.fn = { slick: () => {} };
+      win.$ = mockJQuery;
+      win.jQuery = mockJQuery;
+    } else {
+      win.$.fn = win.$.fn || {};
+      if (!win.$.fn.slick) {
+        win.$.fn.slick = () => {};
+      }
+    }
+  });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

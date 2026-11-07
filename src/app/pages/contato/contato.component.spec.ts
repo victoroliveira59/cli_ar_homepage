@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ContatoComponent } from './contato.component';
-
-
 
 describe('ContatoComponent', () => {
   let component: ContatoComponent;
@@ -10,7 +9,11 @@ describe('ContatoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContatoComponent]
+      imports: [ContatoComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     })
     .compileComponents();
 

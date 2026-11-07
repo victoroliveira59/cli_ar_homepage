@@ -2,23 +2,23 @@
 
 - **Project:** cli_ar_homepage
 - **Current Phase:** 02 - Fundação Técnica e Qualidade
-- **Current Task:** T02.01 - Fontes self-hosted (@fontsource), corrigir specs quebrados, script `test:ci` (ChromeHeadless)
+- **Current Task:** T02.02 - Script `seo:audit` (HTML pré-renderizado) + workflow GitHub Actions (build, test, audit)
 - **Workflow Status:** IN_PROGRESS
 - **Active Agent:** ENGENHEIRO
 - **Correction Iteration:** 0/3
-- **Last Completed Task:** T01.01 - Auditoria SEO baseline, keyword map, arquitetura de informação, requisitos e critérios de aceite
+- **Last Completed Task:** T02.01 - Fontes self-hosted (@fontsource), corrigir specs quebrados, script `test:ci` (ChromeHeadless)
 - **Blockers:** none
-- **Last Updated:** 2026-11-06 20:34 BRT
+- **Last Updated:** 2026-11-06 21:10 BRT
 
 ---
 
 ## Current Objective
-Estabilizar build de produção offline (fontes locais) e suíte de testes unitários automatizada com ChromeHeadless.
+Criar script automatizado de auditoria de SEO no HTML pré-renderizado e pipeline de CI no GitHub Actions.
 
 ---
 
 ## Next Action
-Engenheiro implementa T02.01.
+Engenheiro implementa T02.02.
 
 ---
 

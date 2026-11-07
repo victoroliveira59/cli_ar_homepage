@@ -1,4 +1,10 @@
 /* ============================================
+   FONTES SELF-HOSTED (@fontsource)
+   ============================================ */
+@import '@fontsource/poppins/latin.css';
+@import '@fontsource/inter/latin.css';
+
+/* ============================================
    VARIÁVEIS GLOBAIS — PALETA ALVES REFRIGERAÇÃO
    ============================================ */
 :root {
