@@ -32,6 +32,7 @@ A página inicial (`HomeComponent`) foi totalmente refinada para atingir o mais 
   - `src/app/pages/home/home.component.html` (reestruturação completa com seções semânticas de hero, serviços, 4 passos, diferenciais, faq callout e cta final)
   - `src/app/pages/home/home.component.css` (estilos otimizados, responsivos, acessíveis e dentro do budget)
   - `src/app/pages/home/home.component.spec.ts` (configuração de `provideRouter` e novos testes de integração)
+  - `karma.conf.js` (fixação de CHROME_BIN canônico para execução headless infalível)
 - **Criados:**
   - `docs/agent-runs/06/T06.01/implementation-report.md`
 
