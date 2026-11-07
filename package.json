@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
-    "serve:ssr:cli_ar": "node dist/cli_ar/server/server.mjs"
+    "serve:ssr:cli_ar": "node dist/cli_ar/server/server.mjs",
+    "seo:audit": "node scripts/seo-audit.mjs"
   },
   "private": true,
   "dependencies": {

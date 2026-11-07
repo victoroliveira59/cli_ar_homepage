@@ -1,24 +1,24 @@
 # Workflow State — Homepage Alves Refrigeração & Climatização
 
 - **Project:** cli_ar_homepage
-- **Current Phase:** 02 - Fundação Técnica e Qualidade
-- **Current Task:** T02.02 - Script `seo:audit` (HTML pré-renderizado) + workflow GitHub Actions (build, test, audit)
+- **Current Phase:** 03 - SEO Técnico e Indexabilidade
+- **Current Task:** T03.01 - Remover gate de spinner/`isLoading` que esconde conteúdo do prerender; corrigir acessos SSR-unsafe
 - **Workflow Status:** IN_PROGRESS
 - **Active Agent:** ENGENHEIRO
 - **Correction Iteration:** 0/3
-- **Last Completed Task:** T02.01 - Fontes self-hosted (@fontsource), corrigir specs quebrados, script `test:ci` (ChromeHeadless)
+- **Last Completed Task:** T02.02 - Script `seo:audit` (HTML pré-renderizado) + workflow GitHub Actions (build, test, audit)
 - **Blockers:** none
-- **Last Updated:** 2026-11-06 21:10 BRT
+- **Last Updated:** 2026-11-06 21:15 BRT
 
 ---
 
 ## Current Objective
-Criar script automatizado de auditoria de SEO no HTML pré-renderizado e pipeline de CI no GitHub Actions.
+Eliminar o gate de spinner e timers em AppComponent/HomeComponent para garantir que todo o conteúdo indexável seja renderizado nativamente no HTML pré-renderizado pelo motor de SSR.
 
 ---
 
 ## Next Action
-Engenheiro implementa T02.02.
+Engenheiro implementa T03.01.
 
 ---
 

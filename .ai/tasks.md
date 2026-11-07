@@ -36,7 +36,7 @@
 | ID | Título da Task | Responsável | Dependência | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **T02.01** | Fontes self-hosted (@fontsource), corrigir specs quebrados, script `test:ci` (ChromeHeadless) | Engenheiro | T01.01 | `DONE` |
-| **T02.02** | Script `seo:audit` (HTML pré-renderizado) + workflow GitHub Actions (build, test, audit) | Engenheiro | T02.01 | `IN_PROGRESS` |
+| **T02.02** | Script `seo:audit` (HTML pré-renderizado) + workflow GitHub Actions (build, test, audit) | Engenheiro | T02.01 | `DONE` |
 
 ---
 
@@ -45,7 +45,7 @@
 
 | ID | Título da Task | Responsável | Dependência | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T03.01** | Remover gate de spinner/`isLoading` que esconde conteúdo do prerender; corrigir acessos SSR-unsafe | Engenheiro | T02.02 | `BACKLOG` |
+| **T03.01** | Remover gate de spinner/`isLoading` que esconde conteúdo do prerender; corrigir acessos SSR-unsafe | Engenheiro | T02.02 | `IN_PROGRESS` |
 | **T03.02** | Roteamento real (shell + `router-outlet`), `SeoService` (title/meta/canonical/OG) e `business-info.ts` (NAP único) | Engenheiro | T03.01 | `BACKLOG` |
 | **T03.03** | `robots.txt`, `sitemap.xml`, JSON-LD `HVACBusiness`/`WebSite`/`BreadcrumbList` sem avaliações autodeclaradas, página 404 `noindex` | Engenheiro | T03.02 | `BACKLOG` |
 
