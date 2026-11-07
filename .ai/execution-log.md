@@ -14,6 +14,14 @@
 - **Ação:** Leitura do repositório de referência OradorPro (`.agents/`, `.ai/`, `docs/`) via GitHub e clone de `cli_ar_homepage`. Criação de `AGENTS.md`, `SPEC.md`, `.agents/` (5 agentes, 6 regras, 4 skills), `.ai/` (HARNESS, contrato, tasks, state, log, prompts) e `docs/` (templates, ADR-0000, ADR-0001).
 - **Resultado:** `DONE`.
 
+### 2026-11-06 22:00 BRT — Conclusão da Fase 04 (T04.02) e Início da Fase 05
+- **Agente:** Maestro
+- **Fase:** 04 - SEO Local e Conteúdo
+- **Task:** T04.02 - Página de áreas atendidas e FAQ (`FAQPage`) com links internos
+- **Ação:** Engenheiro implementou a página `/perguntas-frequentes` com schema `FAQPage` espelhando 100% das 6 perguntas visíveis no HTML, grid com links internos entre as regiões atendidas e os serviços de climatização. Tester validou saída do SSG e conformidade com o SEO audit. Revisor aprovou sem ressalvas. Fase 04 concluída.
+- **Resultado:** `DONE`.
+- **Transição:** Fase 05 iniciada automaticamente (ADR-0001). Task T05.01 transicionada para `IN_PROGRESS` e delegada ao Engenheiro.
+
 ### 2026-11-06 21:51 BRT — Conclusão de T04.01 e Início de T04.02
 - **Agente:** Maestro
 - **Fase:** 04 - SEO Local e Conteúdo

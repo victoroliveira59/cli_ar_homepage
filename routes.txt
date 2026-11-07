@@ -6,3 +6,4 @@
 /servicos/chopeiras-bebedouros
 /sobre
 /contato
+/perguntas-frequentes

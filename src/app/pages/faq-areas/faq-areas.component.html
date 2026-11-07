@@ -1,0 +1,118 @@
+<section class="faq-areas-section">
+  <div class="container">
+    <!-- Breadcrumb Semântico -->
+    <nav aria-label="breadcrumb" class="page-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Início</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Perguntas Frequentes</li>
+      </ol>
+    </nav>
+
+    <!-- Header com H1 único -->
+    <header class="section-header">
+      <span class="section-badge">Atendimento Regional & Transparência Técnica</span>
+      <h1 class="main-title">Perguntas Frequentes e Regiões Atendidas em Nova Lima</h1>
+      <p class="section-subtitle">
+        Confira respostas claras sobre garantia de 90 dias, marcas suportadas, prazos de atendimento emergencial
+        e a cobertura geográfica completa em Nova Lima, Raposos, Rio Acima e Grande BH.
+      </p>
+    </header>
+
+    <div class="row layout-row">
+      <!-- Coluna Principal (FAQ Accordion) -->
+      <div class="col-lg-7">
+        <div class="faq-container">
+          <div class="section-heading-box">
+            <i class="fas fa-question-circle" aria-hidden="true"></i>
+            <h2>Perguntas Mais Comuns</h2>
+          </div>
+
+          <div class="faq-accordion" role="region" aria-label="Perguntas Frequentes">
+            <article class="faq-item" *ngFor="let faq of faqs; let i = index" [class.is-open]="isFaqOpen(i)">
+              <button 
+                type="button"
+                class="faq-question-btn" 
+                (click)="toggleFaq(i)"
+                [attr.aria-expanded]="isFaqOpen(i)"
+                [attr.aria-controls]="'faq-answer-' + i">
+                <span class="faq-question-text">{{ faq.question }}</span>
+                <i class="fas" [ngClass]="isFaqOpen(i) ? 'fa-chevron-up' : 'fa-chevron-down'" aria-hidden="true"></i>
+              </button>
+              <div 
+                [id]="'faq-answer-' + i" 
+                class="faq-answer-panel"
+                [class.show]="isFaqOpen(i)">
+                <p>{{ faq.answer }}</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Banner de Segurança e Garantia -->
+        <div class="guarantee-banner">
+          <div class="guarantee-icon">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+          </div>
+          <div class="guarantee-content">
+            <h3>Compromisso com Garantia Formal</h3>
+            <p>
+              Todos os reparos contam com 90 dias de garantia técnica documentada. Caso seu aparelho apresente qualquer
+              recorrência no período, nossa equipe realiza a revisão com prioridade máxima.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna Secundária (Áreas Atendidas e Contato) -->
+      <aside class="col-lg-5">
+        <div class="regions-card">
+          <div class="section-heading-box">
+            <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+            <h2>Regiões Atendidas</h2>
+          </div>
+          <p class="regions-intro">
+            Prestamos atendimento no local com equipe móvel equipada para diagnósticos e reparos imediatos:
+          </p>
+
+          <div class="regions-list">
+            <div class="region-block" *ngFor="let region of regions">
+              <h3 class="region-name">
+                <i class="fas fa-check" aria-hidden="true"></i>
+                {{ region.name }}
+              </h3>
+              <p class="region-highlight">{{ region.highlight }}</p>
+              
+              <div class="neighborhoods-tags">
+                <span class="neighborhood-tag" *ngFor="let hood of region.neighborhoods">{{ hood }}</span>
+              </div>
+
+              <!-- Links Internos Semânticos -->
+              <div class="region-service-links">
+                <span class="links-label">Serviços na região:</span>
+                <div class="links-group">
+                  <a *ngFor="let link of region.serviceLinks" [routerLink]="link.url" class="region-link">
+                    {{ link.label }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card de Contato Direto -->
+        <div class="quick-contact-card">
+          <h3>Ficou com alguma dúvida específica?</h3>
+          <p>Nossos técnicos estão disponíveis no WhatsApp para tirar dúvidas e agendar sua visita.</p>
+          <a [href]="businessInfo.whatsappUrl" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Falar com Técnico no WhatsApp
+          </a>
+          <a [href]="'tel:' + businessInfo.telephone" class="btn-phone">
+            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+            Ligar para {{ businessInfo.formattedPhone }}
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

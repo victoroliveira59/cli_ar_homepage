@@ -1,24 +1,24 @@
 # Workflow State — Homepage Alves Refrigeração & Climatização
 
 - **Project:** cli_ar_homepage
-- **Current Phase:** 04 - SEO Local e Conteúdo
-- **Current Task:** T04.02 - Página de áreas atendidas e FAQ (`FAQPage`) com links internos
+- **Current Phase:** 05 - Performance e Core Web Vitals
+- **Current Task:** T05.01 - Otimização de imagens (WebP, redimensionamento, `NgOptimizedImage`, `priority` no LCP) e remoção de artefatos mortos
 - **Workflow Status:** IN_PROGRESS
 - **Active Agent:** ENGENHEIRO
 - **Correction Iteration:** 0/3
-- **Last Completed Task:** T04.01 - Páginas dedicadas por serviço (`/servicos/<slug>`) com conteúdo único e schema `Service`
+- **Last Completed Task:** T04.02 - Página de áreas atendidas e FAQ (`FAQPage`) com links internos
 - **Blockers:** none
-- **Last Updated:** 2026-11-06 21:51 BRT
+- **Last Updated:** 2026-11-06 22:00 BRT
 
 ---
 
 ## Current Objective
-Criar a página dedicada de Áreas Atendidas e Perguntas Frequentes (`/faq` ou `/areas-atendidas`), com dados estruturados `FAQPage` em conformidade com o Google, links internos para as páginas de serviços e reforço do SEO local em Nova Lima e Grande BH.
+Otimizar o acervo de imagens pesadas (converter PNGs de 7-9 MB para WebP comprimido de alta qualidade < 200 kB), implementar `NgOptimizedImage` com dimensões explícitas e `priority` no LCP do Hero, e remover scripts/arquivos mortos na raiz (`fix_css.py`, scripts truncate soltos).
 
 ---
 
 ## Next Action
-Engenheiro implementa T04.02.
+Engenheiro implementa T05.01.
 
 ---
 

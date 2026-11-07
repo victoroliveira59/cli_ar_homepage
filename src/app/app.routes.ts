@@ -23,6 +23,20 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contato/contato.component').then(m => m.ContatoComponent)
   },
   {
+    path: 'perguntas-frequentes',
+    loadComponent: () => import('./pages/faq-areas/faq-areas.component').then(m => m.FaqAreasComponent)
+  },
+  {
+    path: 'faq',
+    redirectTo: 'perguntas-frequentes',
+    pathMatch: 'full'
+  },
+  {
+    path: 'areas-atendidas',
+    redirectTo: 'perguntas-frequentes',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent)
   }
