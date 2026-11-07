@@ -42,6 +42,41 @@ console.log(`Encontradas ${htmlFiles.length} páginas pré-renderizadas para aud
 let totalErrors = 0;
 let totalWarnings = 0;
 
+// Validação de robots.txt
+console.log('🤖 Auditando robots.txt');
+const robotsPath = path.join(DIST_DIR, 'robots.txt');
+if (!fs.existsSync(robotsPath)) {
+  console.error(`  ❌ [ERRO] robots.txt ausente em ${DIST_DIR}`);
+  totalErrors++;
+} else {
+  const robotsContent = fs.readFileSync(robotsPath, 'utf8');
+  if (!robotsContent.includes('User-agent:') || !robotsContent.includes('Sitemap:')) {
+    console.error(`  ❌ [ERRO] robots.txt inválido ou sem declaração de Sitemap/User-agent.`);
+    totalErrors++;
+  } else {
+    console.log(`  ✅ robots.txt presente e válido com apontamento de Sitemap.`);
+  }
+}
+console.log('');
+
+// Validação de sitemap.xml
+console.log('🗺️  Auditando sitemap.xml');
+const sitemapPath = path.join(DIST_DIR, 'sitemap.xml');
+if (!fs.existsSync(sitemapPath)) {
+  console.error(`  ❌ [ERRO] sitemap.xml ausente em ${DIST_DIR}`);
+  totalErrors++;
+} else {
+  const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
+  if (!sitemapContent.includes('<urlset') || !sitemapContent.includes('<loc>')) {
+    console.error(`  ❌ [ERRO] sitemap.xml malformado ou sem tags <urlset>/<loc>.`);
+    totalErrors++;
+  } else {
+    const locMatches = sitemapContent.match(/<loc>/g) || [];
+    console.log(`  ✅ sitemap.xml presente e válido com ${locMatches.length} URLs mapeadas.`);
+  }
+}
+console.log('');
+
 for (const filePath of htmlFiles) {
   const relativePath = path.relative(process.cwd(), filePath).replace(/\\/g, '/');
   console.log(`📄 Auditando: ${relativePath}`);

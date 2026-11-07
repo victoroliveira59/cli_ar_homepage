@@ -33,6 +33,25 @@ export class ContatoComponent implements OnInit {
       canonicalUrl: `${BUSINESS_INFO.domain}/contato`
     });
 
+    this.seoService.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Início',
+          item: `${BUSINESS_INFO.domain}/`
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Contato',
+          item: `${BUSINESS_INFO.domain}/contato`
+        }
+      ]
+    });
+
     this.contatoForm = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

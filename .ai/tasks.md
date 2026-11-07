@@ -47,7 +47,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **T03.01** | Remover gate de spinner/`isLoading` que esconde conteúdo do prerender; corrigir acessos SSR-unsafe | Engenheiro | T02.02 | `DONE` |
 | **T03.02** | Roteamento real (shell + `router-outlet`), `SeoService` (title/meta/canonical/OG) e `business-info.ts` (NAP único) | Engenheiro | T03.01 | `DONE` |
-| **T03.03** | `robots.txt`, `sitemap.xml`, JSON-LD `HVACBusiness`/`WebSite`/`BreadcrumbList` sem avaliações autodeclaradas, página 404 `noindex` | Engenheiro | T03.02 | `IN_PROGRESS` |
+| **T03.03** | `robots.txt`, `sitemap.xml`, JSON-LD `HVACBusiness`/`WebSite`/`BreadcrumbList` sem avaliações autodeclaradas, página 404 `noindex` | Engenheiro | T03.02 | `DONE` |
 
 ---
 
@@ -56,7 +56,7 @@
 
 | ID | Título da Task | Responsável | Dependência | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T04.01** | Páginas dedicadas por serviço (`/servicos/<slug>`) com conteúdo único e schema `Service` | Engenheiro | T03.03 | `BACKLOG` |
+| **T04.01** | Páginas dedicadas por serviço (`/servicos/<slug>`) com conteúdo único e schema `Service` | Engenheiro | T03.03 | `IN_PROGRESS` |
 | **T04.02** | Página de áreas atendidas e FAQ (`FAQPage`) com links internos | Engenheiro | T04.01 | `BACKLOG` |
 
 ---

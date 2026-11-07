@@ -57,4 +57,17 @@ describe('SeoService', () => {
     const robotsTag = metaService.getTag('name="robots"');
     expect(robotsTag?.content).toBe('noindex, nofollow');
   });
+
+  it('should inject JSON-LD script into head', () => {
+    service.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Alves Refrigeração'
+    }, 'test-jsonld');
+
+    const script = document.getElementById('test-jsonld') as HTMLScriptElement;
+    expect(script).toBeTruthy();
+    expect(script.type).toBe('application/ld+json');
+    expect(script.textContent).toContain('Alves Refrigeração');
+  });
 });

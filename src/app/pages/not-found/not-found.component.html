@@ -1,0 +1,22 @@
+<section class="not-found-section">
+  <div class="container text-center">
+    <div class="not-found-badge">
+      <i class="fas fa-exclamation-triangle"></i> Erro 404
+    </div>
+    <h1 class="not-found-title">Página Não Encontrada</h1>
+    <p class="not-found-subtitle">
+      A página que você está procurando não existe, foi removida ou teve seu endereço alterado.
+    </p>
+
+    <div class="not-found-actions">
+      <a routerLink="/" class="btn-primary-custom">
+        <i class="fas fa-home"></i> Voltar para a Página Inicial
+      </a>
+      <a [href]="businessInfo.whatsappUrl + '?text=Ol%C3%A1%2C%20estava%20no%20site%20da%20Alves%20Refrigera%C3%A7%C3%A3o%20e%20preciso%20de%20ajuda.'"
+         target="_blank" rel="noopener"
+         class="btn-gold">
+        <i class="fab fa-whatsapp"></i> Falar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>

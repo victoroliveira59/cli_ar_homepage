@@ -88,6 +88,25 @@ export class ServicosComponent implements OnInit, AfterViewInit {
       description: 'Assistência técnica em refrigeração doméstica e comercial em Nova Lima. Geladeiras, freezers, chopeiras e bebedouros. Garantia de 90 dias e peças originais.',
       canonicalUrl: `${BUSINESS_INFO.domain}/servicos`
     });
+
+    this.seoService.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Início',
+          item: `${BUSINESS_INFO.domain}/`
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Serviços',
+          item: `${BUSINESS_INFO.domain}/servicos`
+        }
+      ]
+    });
   }
 
   ngAfterViewInit() {

@@ -1,24 +1,24 @@
 # Workflow State — Homepage Alves Refrigeração & Climatização
 
 - **Project:** cli_ar_homepage
-- **Current Phase:** 03 - SEO Técnico e Indexabilidade
-- **Current Task:** T03.03 - `robots.txt`, `sitemap.xml`, JSON-LD `HVACBusiness`/`WebSite`/`BreadcrumbList` sem avaliações autodeclaradas, página 404 `noindex`
+- **Current Phase:** 04 - SEO Local e Conteúdo
+- **Current Task:** T04.01 - Páginas dedicadas por serviço (`/servicos/<slug>`) com conteúdo único e schema `Service`
 - **Workflow Status:** IN_PROGRESS
 - **Active Agent:** ENGENHEIRO
 - **Correction Iteration:** 0/3
-- **Last Completed Task:** T03.02 - Roteamento real (shell + `router-outlet`), `SeoService` (title/meta/canonical/OG) e `business-info.ts` (NAP único)
+- **Last Completed Task:** T03.03 - `robots.txt`, `sitemap.xml`, JSON-LD `HVACBusiness`/`WebSite`/`BreadcrumbList` sem avaliações autodeclaradas, página 404 `noindex`
 - **Blockers:** none
-- **Last Updated:** 2026-11-06 21:40 BRT
+- **Last Updated:** 2026-11-06 21:45 BRT
 
 ---
 
 ## Current Objective
-Criar arquivos estáticos indexáveis (`robots.txt`, `sitemap.xml`), página 404 dedicada com `noindex`, e estruturar dados JSON-LD ricos (`HVACBusiness`, `WebSite`, `BreadcrumbList`) em conformidade com as diretrizes do Google.
+Criar rotas dedicadas para os serviços principais de climatização e refrigeração (`/servicos/instalacao-ar-condicionado`, `/servicos/manutencao-ar-condicionado`, `/servicos/conserto-geladeira`, etc.) com conteúdo único focado em intenção de busca local e schema `Service`.
 
 ---
 
 ## Next Action
-Engenheiro implementa T03.03.
+Engenheiro implementa T04.01.
 
 ---
 

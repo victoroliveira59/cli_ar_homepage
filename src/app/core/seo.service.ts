@@ -54,6 +54,21 @@ export class SeoService {
     }
   }
 
+  setJsonLd(schema: object, id: string = 'page-jsonld'): void {
+    try {
+      let script: HTMLScriptElement | null = this.doc.getElementById(id) as HTMLScriptElement;
+      if (!script) {
+        script = this.doc.createElement('script');
+        script.id = id;
+        script.type = 'application/ld+json';
+        this.doc.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify(schema, null, 2);
+    } catch (e) {
+      // Fallback gracioso para ambientes sem head
+    }
+  }
+
   private setCanonicalUrl(url: string): void {
     try {
       let link: HTMLLinkElement | null = this.doc.querySelector('link[rel="canonical"]');
@@ -64,7 +79,7 @@ export class SeoService {
       }
       link.setAttribute('href', url);
     } catch (e) {
-      // Fallback gracioso em ambientes onde head não esteja disponível
+      // Fallback gracioso
     }
   }
 

@@ -64,6 +64,25 @@ export class SobreComponent implements OnInit {
       description: 'Conheça a Alves Refrigeração: excelência em climatização e refrigeração em Nova Lima. Equipe técnica capacitada, peças originais e garantia formal.',
       canonicalUrl: `${BUSINESS_INFO.domain}/sobre`
     });
+
+    this.seoService.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Início',
+          item: `${BUSINESS_INFO.domain}/`
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Sobre',
+          item: `${BUSINESS_INFO.domain}/sobre`
+        }
+      ]
+    });
   }
 
   @HostListener('window:resize', ['$event'])

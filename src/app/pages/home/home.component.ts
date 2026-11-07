@@ -36,6 +36,57 @@ export class HomeComponent implements OnInit {
       description: 'Assistência técnica em ar-condicionado, geladeiras, freezers e chopeiras em Nova Lima e região. Peças originais e garantia de 90 dias. Ligue já!',
       canonicalUrl: `${BUSINESS_INFO.domain}/`
     });
+
+    this.seoService.setJsonLd({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'HVACBusiness',
+          '@id': `${BUSINESS_INFO.domain}/#organization`,
+          name: BUSINESS_INFO.tradeName,
+          legalName: BUSINESS_INFO.legalName,
+          url: BUSINESS_INFO.domain,
+          telephone: BUSINESS_INFO.telephone,
+          email: BUSINESS_INFO.email,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: BUSINESS_INFO.address.streetAddress,
+            addressLocality: BUSINESS_INFO.address.addressLocality,
+            addressRegion: BUSINESS_INFO.address.addressRegion,
+            postalCode: BUSINESS_INFO.address.postalCode,
+            addressCountry: BUSINESS_INFO.address.addressCountry
+          },
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: BUSINESS_INFO.geo.latitude,
+            longitude: BUSINESS_INFO.geo.longitude
+          },
+          areaServed: BUSINESS_INFO.servedAreas.map(area => ({
+            '@type': 'City',
+            name: area
+          })),
+          openingHoursSpecification: [
+            {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+              opens: '08:00',
+              closes: '18:00'
+            }
+          ],
+          priceRange: '$$'
+        },
+        {
+          '@type': 'WebSite',
+          '@id': `${BUSINESS_INFO.domain}/#website`,
+          url: BUSINESS_INFO.domain,
+          name: BUSINESS_INFO.tradeName,
+          publisher: {
+            '@id': `${BUSINESS_INFO.domain}/#organization`
+          },
+          inLanguage: 'pt-BR'
+        }
+      ]
+    });
   }
 
   openWhatsApp(): void {
