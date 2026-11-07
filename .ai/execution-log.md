@@ -14,6 +14,14 @@
 - **Ação:** Leitura do repositório de referência OradorPro (`.agents/`, `.ai/`, `docs/`) via GitHub e clone de `cli_ar_homepage`. Criação de `AGENTS.md`, `SPEC.md`, `.agents/` (5 agentes, 6 regras, 4 skills), `.ai/` (HARNESS, contrato, tasks, state, log, prompts) e `docs/` (templates, ADR-0000, ADR-0001).
 - **Resultado:** `DONE`.
 
+### 2026-11-06 21:51 BRT — Conclusão de T04.01 e Início de T04.02
+- **Agente:** Maestro
+- **Fase:** 04 - SEO Local e Conteúdo
+- **Task:** T04.01 - Páginas dedicadas por serviço (`/servicos/<slug>`) com conteúdo único e schema `Service`
+- **Ação:** Engenheiro criou 4 páginas dedicadas por serviço com conteúdo técnico detalhado, `h1` único por página, schema `Service` e `BreadcrumbList`, integradas ao SSG (8 rotas pré-renderizadas no total) e ao `sitemap.xml`. Tester validou saída dos arquivos estáticos e 0 erros no audit. Revisor aprovou sem ressalvas. Tarefa concluída.
+- **Resultado:** `DONE`.
+- **Transição:** Task T04.02 transicionada para `IN_PROGRESS` e delegada ao Engenheiro.
+
 ### 2026-11-06 21:45 BRT — Conclusão da Fase 03 (T03.03) e Início da Fase 04
 - **Agente:** Maestro
 - **Fase:** 03 - SEO Técnico e Indexabilidade

@@ -25,9 +25,14 @@
             </div>
             <h3>{{ servico.nome }}</h3>
             <p>{{ servico.descricao }}</p>
-            <button class="btn-saiba-mais" (click)="openModal(servico)">
-              <i class="fas fa-plus-circle"></i> SAIBA MAIS
-            </button>
+            <div class="carousel-actions">
+              <button class="btn-saiba-mais" (click)="openModal(servico)">
+                <i class="fas fa-plus-circle"></i> Resumo
+              </button>
+              <a class="btn-detalhes" [routerLink]="['/servicos', servico.slug]">
+                <i class="fas fa-arrow-right"></i> Ver Página Completa
+              </a>
+            </div>
           </div>
         </div>
       </div>

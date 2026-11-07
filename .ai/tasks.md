@@ -56,8 +56,8 @@
 
 | ID | Título da Task | Responsável | Dependência | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T04.01** | Páginas dedicadas por serviço (`/servicos/<slug>`) com conteúdo único e schema `Service` | Engenheiro | T03.03 | `IN_PROGRESS` |
-| **T04.02** | Página de áreas atendidas e FAQ (`FAQPage`) com links internos | Engenheiro | T04.01 | `BACKLOG` |
+| **T04.01** | Páginas dedicadas por serviço (`/servicos/<slug>`) com conteúdo único e schema `Service` | Engenheiro | T03.03 | `DONE` |
+| **T04.02** | Página de áreas atendidas e FAQ (`FAQPage`) com links internos | Engenheiro | T04.01 | `IN_PROGRESS` |
 
 ---
 

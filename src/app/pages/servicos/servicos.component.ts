@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SlickCarouselModule, SlickCarouselComponent } from 'ngx-slick-carousel';
 import { ModalComponent } from "../../modal/modal.component";
 import { SeoService } from '../../core/seo.service';
@@ -8,7 +9,7 @@ import { BUSINESS_INFO } from '../../core/business-info';
 @Component({
   selector: 'app-servicos',
   standalone: true,
-  imports: [CommonModule, SlickCarouselModule, ModalComponent],
+  imports: [CommonModule, RouterModule, SlickCarouselModule, ModalComponent],
   templateUrl: './servicos.component.html',
   styleUrls: ['./servicos.component.css']
 })
@@ -17,14 +18,24 @@ export class ServicosComponent implements OnInit, AfterViewInit {
 
   servicos = [
     {
-      nome: 'Ar-Condicionado: Instalação e Manutenção',
-      descricao: 'Serviço especializado em instalação, manutenção e recarga de gás para todas as marcas de ar-condicionado.',
+      nome: 'Instalação de Ar-Condicionado',
+      slug: 'instalacao-ar-condicionado',
+      descricao: 'Instalação técnica de splits, multi-splits e inversores com processo a vácuo e 90 dias de garantia.',
       icon: 'fa-wind',
       imagem: 'assets/img/ConcertoArcond.png',
-      detalhes: 'Atendemos splits, multi-splits, cassetes e janelas. Realizamos instalação profissional, manutenção preventiva e corretiva, limpeza e higienização e recarga de gases R-22, R-410A e R-32. Garantia de 90 dias em todos os serviços. Atendemos Nova Lima e região.'
+      detalhes: 'Realizamos instalação profissional conforme as normas dos fabricantes. Tubulação de cobre, suporte antivibratório e vácuo digital no sistema. Garantia de 90 dias em Nova Lima e região.'
+    },
+    {
+      nome: 'Manutenção e Higienização de Ar-Condicionado',
+      slug: 'manutencao-ar-condicionado',
+      descricao: 'Manutenção preventiva, conserto de placas, recarga de gás refrigerante e higienização bactericida.',
+      icon: 'fa-tools',
+      imagem: 'assets/img/ConcertoArcond.png',
+      detalhes: 'Atendemos splits, multi-splits e cassetes de todas as marcas. Limpeza bactericida profunda, eliminação de vazamentos e recarga de gases R-410A, R-32 e R-22 com balança digital.'
     },
     {
       nome: 'Conserto de Geladeiras e Freezers',
+      slug: 'conserto-geladeira-freezer',
       descricao: 'Diagnóstico preciso e reparo de refrigeradores domésticos e industriais de todas as marcas.',
       icon: 'fa-snowflake',
       imagem: 'assets/img/ConcertoGeladeira.png',
@@ -32,6 +43,7 @@ export class ServicosComponent implements OnInit, AfterViewInit {
     },
     {
       nome: 'Chopeiras e Bebedouros',
+      slug: 'chopeiras-bebedouros',
       descricao: 'Manutenção e conserto de chopeiras industriais e bebedouros para bares, restaurantes e escritórios.',
       icon: 'fa-glass-cheers',
       imagem: 'assets/img/ConcertoBebedouro.png',

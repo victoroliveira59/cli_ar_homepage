@@ -1,0 +1,8 @@
+/
+/servicos
+/servicos/instalacao-ar-condicionado
+/servicos/manutencao-ar-condicionado
+/servicos/conserto-geladeira-freezer
+/servicos/chopeiras-bebedouros
+/sobre
+/contato

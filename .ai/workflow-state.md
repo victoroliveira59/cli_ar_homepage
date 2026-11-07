@@ -2,23 +2,23 @@
 
 - **Project:** cli_ar_homepage
 - **Current Phase:** 04 - SEO Local e Conteúdo
-- **Current Task:** T04.01 - Páginas dedicadas por serviço (`/servicos/<slug>`) com conteúdo único e schema `Service`
+- **Current Task:** T04.02 - Página de áreas atendidas e FAQ (`FAQPage`) com links internos
 - **Workflow Status:** IN_PROGRESS
 - **Active Agent:** ENGENHEIRO
 - **Correction Iteration:** 0/3
-- **Last Completed Task:** T03.03 - `robots.txt`, `sitemap.xml`, JSON-LD `HVACBusiness`/`WebSite`/`BreadcrumbList` sem avaliações autodeclaradas, página 404 `noindex`
+- **Last Completed Task:** T04.01 - Páginas dedicadas por serviço (`/servicos/<slug>`) com conteúdo único e schema `Service`
 - **Blockers:** none
-- **Last Updated:** 2026-11-06 21:45 BRT
+- **Last Updated:** 2026-11-06 21:51 BRT
 
 ---
 
 ## Current Objective
-Criar rotas dedicadas para os serviços principais de climatização e refrigeração (`/servicos/instalacao-ar-condicionado`, `/servicos/manutencao-ar-condicionado`, `/servicos/conserto-geladeira`, etc.) com conteúdo único focado em intenção de busca local e schema `Service`.
+Criar a página dedicada de Áreas Atendidas e Perguntas Frequentes (`/faq` ou `/areas-atendidas`), com dados estruturados `FAQPage` em conformidade com o Google, links internos para as páginas de serviços e reforço do SEO local em Nova Lima e Grande BH.
 
 ---
 
 ## Next Action
-Engenheiro implementa T04.01.
+Engenheiro implementa T04.02.
 
 ---
 
