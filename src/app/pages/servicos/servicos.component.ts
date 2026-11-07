@@ -1,98 +1,113 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SlickCarouselModule, SlickCarouselComponent } from 'ngx-slick-carousel';
-import { ModalComponent } from "../../modal/modal.component";
 import { SeoService } from '../../core/seo.service';
 import { BUSINESS_INFO } from '../../core/business-info';
+import { WhatsappModalService } from '../../services/whatsapp-modal.service';
+
+export interface ServicoCard {
+  nome: string;
+  slug: string;
+  resumo: string;
+  imagem: string;
+  icone: string;
+  destaques: string[];
+}
 
 @Component({
   selector: 'app-servicos',
   standalone: true,
-  imports: [CommonModule, RouterModule, SlickCarouselModule, ModalComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './servicos.component.html',
   styleUrls: ['./servicos.component.css']
 })
-export class ServicosComponent implements OnInit, AfterViewInit {
-  currentSlide = 0;
+export class ServicosComponent implements OnInit {
+  businessInfo = BUSINESS_INFO;
 
-  servicos = [
+  // Catálogo com 6 Especialidades Técnicas e Fotos Reais
+  servicos: ServicoCard[] = [
     {
       nome: 'Instalação de Ar-Condicionado',
       slug: 'instalacao-ar-condicionado',
-      descricao: 'Instalação técnica de splits, multi-splits e inversores com processo a vácuo e 90 dias de garantia.',
-      icon: 'fa-wind',
-      imagem: 'assets/img/ConcertoArcond.webp',
-      detalhes: 'Realizamos instalação profissional conforme as normas dos fabricantes. Tubulação de cobre, suporte antivibratório e vácuo digital no sistema. Garantia de 90 dias em Nova Lima e região.'
+      resumo: 'Instalação técnica padrão de splits, multi-splits e inverter seguindo rigorosamente as normas dos fabricantes.',
+      imagem: '/assets/img/ConcertoArcond.webp',
+      icone: 'fas fa-wind',
+      destaques: ['Vácuo profundo digital', 'Suportes reforçados', 'Garantia de 90 dias']
     },
     {
-      nome: 'Manutenção e Higienização de Ar-Condicionado',
+      nome: 'Manutenção Preventiva & Higienização',
       slug: 'manutencao-ar-condicionado',
-      descricao: 'Manutenção preventiva, conserto de placas, recarga de gás refrigerante e higienização bactericida.',
-      icon: 'fa-tools',
-      imagem: 'assets/img/ConcertoArcond.webp',
-      detalhes: 'Atendemos splits, multi-splits e cassetes de todas as marcas. Limpeza bactericida profunda, eliminação de vazamentos e recarga de gases R-410A, R-32 e R-22 com balança digital.'
+      resumo: 'Higienização bactericida profunda, eliminação de maus odores, limpeza de turbinas e aplicação de bactericida.',
+      imagem: '/assets/img/manutencao-preventiva.webp',
+      icone: 'fas fa-shield-virus',
+      destaques: ['Padrão PMOC', 'Economia na conta de luz', 'Ar puro e saudável']
     },
     {
-      nome: 'Conserto de Geladeiras e Freezers',
+      nome: 'Recarga de Gás & Teste de Vazamentos',
+      slug: 'manutencao-ar-condicionado',
+      resumo: 'Recarga com fluido refrigerante ecológico (R-410A, R-32, R-22) utilizando balança digital de precisão.',
+      imagem: '/assets/img/recarga-fluido.webp',
+      icone: 'fas fa-tachometer-alt',
+      destaques: ['Teste de estanqueidade', 'Fluido homologado', 'Eliminação de microvazamentos']
+    },
+    {
+      nome: 'Reparo de Placas & Compressores',
       slug: 'conserto-geladeira-freezer',
-      descricao: 'Diagnóstico preciso e reparo de refrigeradores domésticos e industriais de todas as marcas.',
-      icon: 'fa-snowflake',
-      imagem: 'assets/img/ConcertoGeladeira.webp',
-      detalhes: 'Resolvemos problemas como falta de refrigeração, vazamentos, portas que não vedam, gelo excessivo no freezer e defeitos no compressor. Utilizamos peças originais e garantimos um diagnóstico preciso com garantia de 90 dias.'
+      resumo: 'Diagnóstico eletrônico avançado em placas inversoras, sensores térmicos e substituição de compressores.',
+      imagem: '/assets/img/troca-placa.webp',
+      icone: 'fas fa-microchip',
+      destaques: ['Ferramental calibrado', 'Peças originais', 'Reparo no mesmo dia']
     },
     {
-      nome: 'Chopeiras e Bebedouros',
+      nome: 'Conserto de Geladeiras & Freezers',
+      slug: 'conserto-geladeira-freezer',
+      resumo: 'Reparo de refrigeradores frost-free, side-by-side e freezers residenciais e comerciais de todas as marcas.',
+      imagem: '/assets/img/ConcertoGeladeira.webp',
+      icone: 'fas fa-snowflake',
+      destaques: ['Troca de termostatos e sensores', 'Atendimento domiciliar', 'Peças com procedência']
+    },
+    {
+      nome: 'Chopeiras Comerciais & Bebedouros',
       slug: 'chopeiras-bebedouros',
-      descricao: 'Manutenção e conserto de chopeiras industriais e bebedouros para bares, restaurantes e escritórios.',
-      icon: 'fa-glass-cheers',
-      imagem: 'assets/img/ConcertoBebedouro.webp',
-      detalhes: 'Realizamos manutenção preventiva e corretiva em chopeiras industriais e bebedouros de todas as marcas. Limpeza completa, troca de filtros, regulagem de temperatura e reparo de componentes. Atendimento rápido para bares, restaurantes e escritórios em Nova Lima e região.'
+      resumo: 'Assistência técnica para bares, restaurantes e empresas. Manutenção em chopeiras elétricas e bebedouros industriais.',
+      imagem: '/assets/img/ConcertoBebedouro.webp',
+      icone: 'fas fa-beer',
+      destaques: ['Sanitização de serpentinas', 'Troca de refis e filtros', 'Atendimento ágil para comércio']
     }
   ];
 
-  slideConfig = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    speed: 1000,
-    pauseOnHover: true,
-    infinite: true,
-    dots: false,
-    arrows: false,
-    cssEase: 'ease-in-out',
-    fade: true,
-    afterChange: (e: number) => this.currentSlide = e,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          arrows: false
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false
-        }
-      }
-    ]
-  };
-
-  @ViewChild('tituloServicos') titulo!: ElementRef;
-  @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
-
-  // Estado do modal
-  isModalOpen: boolean = false;
-  modalTitle: string = '';
-  modalDescription: string = '';
-  isMobile = false;
+  // 4 Passos Exclusivos desta página
+  passosAtendimento = [
+    {
+      numero: '1',
+      titulo: 'Contato via WhatsApp',
+      descricao: 'Você nos informa o sintoma do equipamento e seu endereço em Nova Lima ou BH.',
+      icone: 'fab fa-whatsapp'
+    },
+    {
+      numero: '2',
+      titulo: 'Agendamento Rápido',
+      descricao: 'Marcamos a visita técnica no seu domicílio com pontualidade e técnico identificado.',
+      icone: 'fas fa-calendar-check'
+    },
+    {
+      numero: '3',
+      titulo: 'Diagnóstico e Reparo',
+      descricao: 'Apresentamos o orçamento claro e realizamos o conserto com peças originais e ferramental moderno.',
+      icone: 'fas fa-tools'
+    },
+    {
+      numero: '4',
+      titulo: 'Entrega com Garantia',
+      descricao: 'Testamos tudo na sua presença e emitimos o recibo e termo formal de garantia de 90 dias.',
+      icone: 'fas fa-award'
+    }
+  ];
 
   constructor(
     private seoService: SeoService,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) { }
+    private modalService: WhatsappModalService
+  ) {}
 
   ngOnInit(): void {
     this.seoService.setMetadata({
@@ -121,44 +136,7 @@ export class ServicosComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => {
-        if (this.titulo) {
-          const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('animate-grow');
-              } else {
-                entry.target.classList.remove('animate-grow');
-              }
-            });
-          }, { threshold: 0.5 });
-
-          observer.observe(this.titulo.nativeElement);
-        }
-      }, 100);
-    }
-  }
-
-  openModal(servico: any) {
-    this.modalTitle = servico.nome;
-    this.modalDescription = servico.detalhes;
-    this.isModalOpen = true;
-  }
-
-  closeModal() {
-    this.isModalOpen = false;
-  }
-
-  @HostListener('window:resize', ['$event'])
-  checkScreenSize() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.isMobile = window.innerWidth < 768;
-    }
-  }
-
-  handleImageError(event: any) {
-    console.error('Erro ao carregar imagem:', event);
+  openWhatsApp(): void {
+    this.modalService.open();
   }
 }

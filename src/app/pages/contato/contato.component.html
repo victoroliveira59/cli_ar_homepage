@@ -1,84 +1,181 @@
-<div class="hero d-flex flex-column align-items-center justify-content-center position-relative bg-white w-100 min-vh-100">
-  <h1 class="text-primary-custom text-uppercase font-weight-bold w-100 py-4 text-center text-2-5 fonte-2">Fale com a Alves Refrigeração em Nova Lima</h1>
-
-  <div class="contato-container w-100 p-5 bg-white shadow-lg">
-    <div class="contato-header mx-auto text-center text-md-left mb-5" style="max-width: 500px;">
-      <i class="fas fa-envelope d-block mb-3"></i>
-      <h2 class="h3 mb-3">Estamos prontos para ouvir você!</h2>
-      <p class="lead">Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.</p>
+<!-- HERO ESCURO UNIFICADO (Compatibilidade Total com Navbar Transparente) -->
+<section class="contato-hero" aria-label="Canais de Contato">
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fas fa-headset" aria-hidden="true"></i>
+      <span>Atendimento Rápido em Nova Lima</span>
     </div>
+    <h1 class="hero-title">Fale com a Alves Refrigeração</h1>
+    <p class="hero-subtitle">
+      Atendimento ágil em domicílio em Nova Lima, Alphaville, Vila da Serra e Grande BH. Escolha seu canal de preferência.
+    </p>
 
-    <div class="contato-form-map row justify-content-between align-items-start">
-      <!-- Formulário -->
-      <div class="form-wrapper col-lg-6 col-12 bg-white p-4 shadow-sm mb-5 mb-lg-0">
-        <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
+    <!-- 3 CARDS RÁPIDOS DE CONTATO IMEDIATO -->
+    <div class="quick-cards-row">
+      <!-- Card WhatsApp -->
+      <a [href]="businessInfo.whatsappUrl"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="quick-card zap"
+         aria-label="Abrir conversa no WhatsApp oficial">
+        <div class="card-ico" aria-hidden="true">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="card-info">
+          <span class="card-label">WhatsApp Oficial</span>
+          <strong class="card-val">{{ businessInfo.formattedPhone }}</strong>
+          <span class="card-sub">Resposta em poucos minutos</span>
+        </div>
+      </a>
+
+      <!-- Card Telefone -->
+      <a [href]="'tel:' + businessInfo.telephone"
+         class="quick-card phone"
+         aria-label="Ligar agora para a Alves Refrigeração">
+        <div class="card-ico" aria-hidden="true">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="card-info">
+          <span class="card-label">Ligação Direta</span>
+          <strong class="card-val">{{ businessInfo.formattedPhone }}</strong>
+          <span class="card-sub">Seg a Sex: 08h às 18h</span>
+        </div>
+      </a>
+
+      <!-- Card Endereço -->
+      <div class="quick-card address">
+        <div class="card-ico" aria-hidden="true">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="card-info">
+          <span class="card-label">Sede em Nova Lima</span>
+          <strong class="card-val">Vila Padre Valeriano</strong>
+          <span class="card-sub">{{ businessInfo.address.streetAddress }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: FORMULÁRIO MODERNO & GOOGLE MAPS -->
+<section class="contato-body-section" aria-labelledby="form-title">
+  <div class="container">
+    <div class="contato-grid">
+      <!-- Formulário Moderno -->
+      <div class="form-container">
+        <div class="form-header">
+          <span class="section-tag">Orçamento Online</span>
+          <h2 id="form-title">Envie Sua Mensagem</h2>
+          <p>Preencha os campos abaixo e nosso suporte técnico retornará rapidamente.</p>
+        </div>
+
+        <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="modern-form">
           <div class="form-group">
-            <label for="nome" class="font-weight-bold">Nome</label>
-            <input type="text" id="nome" class="form-control" formControlName="nome" required>
-            <div *ngIf="contatoForm.get('nome')?.invalid && contatoForm.get('nome')?.touched" class="text-danger small">
+            <label for="nome">Seu Nome Completo *</label>
+            <input type="text"
+                   id="nome"
+                   class="form-control"
+                   formControlName="nome"
+                   placeholder="Ex: Carlos Silva"
+                   required>
+            <div *ngIf="contatoForm.get('nome')?.invalid && contatoForm.get('nome')?.touched" class="field-error">
               O nome é obrigatório.
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="email" class="font-weight-bold ">Email</label>
-            <input type="email" id="email" class="form-control" formControlName="email" required>
-            <div *ngIf="contatoForm.get('email')?.invalid && contatoForm.get('email')?.touched" class="text-danger small">
-              Por favor, insira um email válido.
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-mail *</label>
+              <input type="email"
+                     id="email"
+                     class="form-control"
+                     formControlName="email"
+                     placeholder="seuemail@exemplo.com"
+                     required>
+              <div *ngIf="contatoForm.get('email')?.invalid && contatoForm.get('email')?.touched" class="field-error">
+                Insira um e-mail válido.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="telefone">WhatsApp / Telefone *</label>
+              <input type="text"
+                     id="telefone"
+                     class="form-control"
+                     formControlName="telefone"
+                     (input)="formatarTelefone($event)"
+                     maxlength="15"
+                     placeholder="(31) 90000-0000"
+                     required>
+              <div *ngIf="contatoForm.get('telefone')?.invalid && contatoForm.get('telefone')?.touched" class="field-error">
+                O telefone é obrigatório.
+              </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="telefone" class="font-weight-bold">Telefone</label>
-            <input type="text" id="telefone" class="form-control" formControlName="telefone" (input)="formatarTelefone($event)" maxlength="15" required>
-            <div *ngIf="contatoForm.get('telefone')?.invalid && contatoForm.get('telefone')?.touched" class="text-danger small">
-              O telefone é obrigatório.
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="mensagem" class="font-weight-bold">Mensagem</label>
-            <textarea id="mensagem" class="form-control" formControlName="mensagem" rows="4" required></textarea>
-            <div *ngIf="contatoForm.get('mensagem')?.invalid && contatoForm.get('mensagem')?.touched" class="text-danger small">
+            <label for="mensagem">Como Podemos Ajudar? *</label>
+            <textarea id="mensagem"
+                      class="form-control"
+                      formControlName="mensagem"
+                      rows="4"
+                      placeholder="Descreva o aparelho (marca, modelo) e o problema ou serviço desejado..."
+                      required></textarea>
+            <div *ngIf="contatoForm.get('mensagem')?.invalid && contatoForm.get('mensagem')?.touched" class="field-error">
               A mensagem é obrigatória.
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-block py-3" [disabled]="contatoForm.invalid">Enviar</button>
+          <button type="submit"
+                  class="btn-submit"
+                  [disabled]="contatoForm.invalid || carregando"
+                  aria-label="Enviar formulário de contato">
+            <i class="fas fa-paper-plane" aria-hidden="true" *ngIf="!carregando"></i>
+            <span *ngIf="!carregando">Enviar Mensagem</span>
+            <span *ngIf="carregando">Enviando...</span>
+          </button>
 
-          <div class="mt-3">
-            <p *ngIf="carregando" class="text-primary">Enviando...</p>
-            <p *ngIf="mensagemRetorno" [ngClass]="sucesso ? 'text-success' : 'text-danger'">
+          <div class="form-status" *ngIf="mensagemRetorno">
+            <p [ngClass]="sucesso ? 'status-success' : 'status-error'">
               {{ mensagemRetorno }}
             </p>
           </div>
         </form>
       </div>
 
-      <!-- Mapa -->
-      <div class="contato-card col-lg-6 col-12">
-        <div class="contato-info position-relative">
-          <div class="contato-map embed-responsive embed-responsive-16by9 hover-scale shadow">
-            <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.2976227758018!2d-43.854111620774525!3d-19.996019692405643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69f403edc0c4b%3A0xe7d1b0c3f9d35119!2sR.%20Profa.%20An%C3%A9sia%20de%20Matos%20Guimar%C3%A3es%2C%2080%20-%20Vila%20Padre%20Valeriano%2C%20Nova%20Lima%20-%20MG%2C%2034002-184!5e0!3m2!1spt-BR!2sbr!4v1757522153498!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <!-- Mapa do Google Maps & Dados Fiscais -->
+      <div class="map-container">
+        <div class="map-card">
+          <div class="map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.2976227758018!2d-43.854111620774525!3d-19.996019692405643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69f403edc0c4b%3A0xe7d1b0c3f9d35119!2sR.%20Profa.%20An%C3%A9sia%20de%20Matos%20Guimar%C3%A3es%2C%2080%20-%20Vila%20Padre%20Valeriano%2C%20Nova%20Lima%20-%20MG%2C%2034002-184!5e0!3m2!1spt-BR!2sbr!4v1757522153498!5m2!1spt-BR!2sbr"
+                    width="100%"
+                    height="320"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Localização da Alves Refrigeração no Google Maps"></iframe>
           </div>
 
-          <div class="text-center mt-3">
-            <a href="https://maps.app.goo.gl/UADJTLrkyTNvfMT28" target="_blank" class="btn btn-primary">
-              <i class="fas fa-map-marker-alt mr-2"></i>Abrir no Google Maps
-            </a>
-          </div>
-
-          <div class="contato-info-card bg-white p-3 shadow position-absolute d-none d-xl-block">
-            <h3 class="h5"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Endereço</h3>
-            <p class="mb-1"><strong>{{ businessInfo.legalName }}</strong></p>
-            <p class="mb-1">CNPJ: {{ businessInfo.cnpj }}</p>
-            <p class="mb-1">{{ businessInfo.address.streetAddress }}</p>
-            <p class="mb-1">{{ businessInfo.address.addressLocality }} - {{ businessInfo.address.addressRegion }} / CEP {{ businessInfo.address.postalCode }}</p>
-            <p class="mb-1"><i class="fas fa-phone text-primary mr-2"></i>{{ businessInfo.formattedPhone }}</p>
-            <p class="mb-0"><i class="fas fa-envelope text-primary mr-2"></i>{{ businessInfo.email }}</p>
+          <div class="map-details">
+            <h3><i class="fas fa-building" aria-hidden="true"></i> {{ businessInfo.legalName }}</h3>
+            <p class="company-doc"><strong>CNPJ:</strong> {{ businessInfo.cnpj }}</p>
+            <p class="company-address">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              {{ businessInfo.address.streetAddress }} - {{ businessInfo.address.addressLocality }}/{{ businessInfo.address.addressRegion }} (CEP {{ businessInfo.address.postalCode }})
+            </p>
+            <div class="map-actions">
+              <a href="https://maps.app.goo.gl/UADJTLrkyTNvfMT28"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn-map"
+                 aria-label="Abrir rota no Google Maps">
+                <i class="fas fa-directions" aria-hidden="true"></i> Abrir no Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>

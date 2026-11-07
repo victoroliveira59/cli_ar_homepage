@@ -1,120 +1,126 @@
-<section class="service-detail-section" *ngIf="service">
-  <div class="container">
-    <!-- Breadcrumb Semântico -->
-    <nav aria-label="breadcrumb" class="service-breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/">Início</a></li>
-        <li class="breadcrumb-item"><a routerLink="/servicos">Serviços</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ service.shortName }}</li>
-      </ol>
-    </nav>
+<div class="service-detail-page" *ngIf="service">
+  <!-- HERO ESCURO DO TOPO (Compatibilidade Total com Navbar Transparente) -->
+  <header class="service-detail-hero">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="service-breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Início</a></li>
+          <li class="breadcrumb-item"><a routerLink="/servicos">Serviços</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ service.shortName }}</li>
+        </ol>
+      </nav>
 
-    <!-- Header com H1 único -->
-    <header class="service-header">
-      <span class="badge-service">Assistência Técnica Especializada em Nova Lima</span>
-      <h1 class="service-title">{{ service.h1 }}</h1>
-      <p class="service-subtitle">{{ service.subtitle }}</p>
-    </header>
+      <div class="service-header">
+        <span class="badge-service">Assistência Técnica Especializada em Nova Lima</span>
+        <h1 class="service-title">{{ service.h1 }}</h1>
+        <p class="service-subtitle">{{ service.subtitle }}</p>
+      </div>
+    </div>
+  </header>
 
-    <div class="row service-content-row">
-      <!-- Coluna Principal -->
-      <div class="col-lg-8">
-        <!-- Descrição Técnica -->
-        <article class="service-card technical-description-card">
-          <h2>Sobre o Serviço em Nova Lima</h2>
-          <div class="description-text">
-            <p *ngFor="let paragraph of service.technicalDescription">{{ paragraph }}</p>
-          </div>
-        </article>
+  <!-- CORPO COM AS INFORMAÇÕES DETALHADAS -->
+  <div class="service-detail-body">
+    <div class="container">
+      <div class="row service-content-row">
+        <!-- Coluna Principal -->
+        <div class="col-lg-8">
+          <!-- Descrição Técnica -->
+          <article class="service-card technical-description-card">
+            <h2>Sobre o Serviço em Nova Lima</h2>
+            <div class="description-text">
+              <p *ngFor="let paragraph of service.technicalDescription">{{ paragraph }}</p>
+            </div>
+          </article>
 
-        <!-- Processo Passo a Passo -->
-        <section class="service-card process-card">
-          <h2>Como Funciona Nosso Atendimento</h2>
-          <div class="process-steps-grid">
-            <div class="process-step-item" *ngFor="let step of service.processSteps">
-              <div class="step-badge">{{ step.number }}</div>
-              <div class="step-content">
-                <h3>{{ step.title }}</h3>
-                <p>{{ step.description }}</p>
+          <!-- Processo Passo a Passo -->
+          <section class="service-card process-card">
+            <h2>Como Funciona Nosso Atendimento</h2>
+            <div class="process-steps-grid">
+              <div class="process-step-item" *ngFor="let step of service.processSteps">
+                <div class="step-badge">{{ step.number }}</div>
+                <div class="step-content">
+                  <h3>{{ step.title }}</h3>
+                  <p>{{ step.description }}</p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Diferenciais e Garantia -->
-        <section class="service-card differentials-card">
-          <h2>Diferenciais do Atendimento Alves Refrigeração</h2>
-          <ul class="differentials-list">
-            <li *ngFor="let diff of service.differentials">
-              <i class="fas fa-check-circle differential-icon" aria-hidden="true"></i>
-              <span>{{ diff }}</span>
-            </li>
-          </ul>
-        </section>
+          <!-- Diferenciais e Garantia -->
+          <section class="service-card differentials-card">
+            <h2>Diferenciais do Atendimento Alves Refrigeração</h2>
+            <ul class="differentials-list">
+              <li *ngFor="let diff of service.differentials">
+                <i class="fas fa-check-circle differential-icon" aria-hidden="true"></i>
+                <span>{{ diff }}</span>
+              </li>
+            </ul>
+          </section>
 
-        <!-- Marcas Atendidas -->
-        <section class="service-card brands-card">
-          <h2>Marcas e Equipamentos Atendidos</h2>
-          <p class="brands-intro">Trabalhamos com os principais fabricantes do mercado, utilizando peças com procedência:</p>
-          <div class="brands-tags">
-            <span class="brand-tag" *ngFor="let brand of service.brands">{{ brand }}</span>
+          <!-- Marcas Atendidas -->
+          <section class="service-card brands-card">
+            <h2>Marcas e Equipamentos Atendidos</h2>
+            <p class="brands-intro">Trabalhamos com os principais fabricantes do mercado, utilizando peças com procedência:</p>
+            <div class="brands-tags">
+              <span class="brand-tag" *ngFor="let brand of service.brands">{{ brand }}</span>
+            </div>
+          </section>
+        </div>
+
+        <!-- Coluna Lateral (CTA e Contato) -->
+        <aside class="col-lg-4 service-sidebar">
+          <!-- Card de Conversão Imediata -->
+          <div class="cta-sidebar-card">
+            <div class="cta-header">
+              <i class="fab fa-whatsapp cta-icon" aria-hidden="true"></i>
+              <h3>Atendimento Rápido</h3>
+              <p>Precisa deste serviço hoje? Fale diretamente com nosso técnico especializado.</p>
+            </div>
+
+            <div class="cta-contact-info">
+              <div class="info-row">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <span>Atendimento em toda Nova Lima e região</span>
+              </div>
+              <div class="info-row">
+                <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                <span>Garantia de 90 dias com nota e recibo</span>
+              </div>
+              <div class="info-row">
+                <i class="fas fa-tools" aria-hidden="true"></i>
+                <span>Peças originais e diagnóstico preciso</span>
+              </div>
+            </div>
+
+            <a [href]="getWhatsAppLink()" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-cta">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Solicitar Orçamento no WhatsApp
+            </a>
+
+            <a [href]="'tel:' + businessInfo.telephone" class="btn-phone-call">
+              <i class="fas fa-phone-alt" aria-hidden="true"></i>
+              Ligar para {{ businessInfo.formattedPhone }}
+            </a>
           </div>
-        </section>
+
+          <!-- Card de Garantia 90 Dias -->
+          <div class="warranty-card">
+            <div class="warranty-badge">
+              <i class="fas fa-award" aria-hidden="true"></i>
+            </div>
+            <h4>Garantia Formal de 90 Dias</h4>
+            <p>Todos os serviços executados pela Alves Refrigeração acompanham garantia legal de 3 meses para sua total tranquilidade.</p>
+          </div>
+
+          <!-- Retorno aos outros serviços -->
+          <div class="back-services-card">
+            <a routerLink="/servicos" class="back-link">
+              <i class="fas fa-arrow-left" aria-hidden="true"></i>
+              Ver todos os serviços
+            </a>
+          </div>
+        </aside>
       </div>
-
-      <!-- Coluna Lateral (CTA e Contato) -->
-      <aside class="col-lg-4 service-sidebar">
-        <!-- Card de Conversão Imediata -->
-        <div class="cta-sidebar-card">
-          <div class="cta-header">
-            <i class="fab fa-whatsapp cta-icon" aria-hidden="true"></i>
-            <h3>Atendimento Rápido</h3>
-            <p>Precisa deste serviço hoje? Fale diretamente com nosso técnico especializado.</p>
-          </div>
-
-          <div class="cta-contact-info">
-            <div class="info-row">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-              <span>Atendimento em toda Nova Lima e região</span>
-            </div>
-            <div class="info-row">
-              <i class="fas fa-shield-alt" aria-hidden="true"></i>
-              <span>Garantia de 90 dias com nota e recibo</span>
-            </div>
-            <div class="info-row">
-              <i class="fas fa-tools" aria-hidden="true"></i>
-              <span>Peças originais e diagnóstico preciso</span>
-            </div>
-          </div>
-
-          <a [href]="getWhatsAppLink()" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-cta">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i>
-            Solicitar Orçamento no WhatsApp
-          </a>
-
-          <a [href]="'tel:' + businessInfo.telephone" class="btn-phone-call">
-            <i class="fas fa-phone-alt" aria-hidden="true"></i>
-            Ligar para {{ businessInfo.formattedPhone }}
-          </a>
-        </div>
-
-        <!-- Card de Garantia 90 Dias -->
-        <div class="warranty-card">
-          <div class="warranty-badge">
-            <i class="fas fa-award" aria-hidden="true"></i>
-          </div>
-          <h4>Garantia Formal de 90 Dias</h4>
-          <p>Todos os serviços executados pela Alves Refrigeração acompanham garantia legal de 3 meses para sua total tranquilidade.</p>
-        </div>
-
-        <!-- Retorno aos outros serviços -->
-        <div class="back-services-card">
-          <a routerLink="/servicos" class="back-link">
-            <i class="fas fa-arrow-left" aria-hidden="true"></i>
-            Ver todos os serviços
-          </a>
-        </div>
-      </aside>
     </div>
   </div>
-</section>
+</div>

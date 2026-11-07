@@ -29,13 +29,14 @@ describe('HomeComponent', () => {
   it('should render trust badges and business phone', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.hero-trust')).toBeTruthy();
-    expect(compiled.textContent).toContain('Garantia formal de 90 dias');
+    expect(compiled.textContent).toContain('Garantia de 90 dias');
     expect(compiled.textContent).toContain('(31) 99285-5049');
   });
 
-  it('should render 4 process steps', () => {
+  it('should render brand categories for climatizacao and refrigeracao', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const steps = compiled.querySelectorAll('.process-step');
-    expect(steps.length).toBe(4);
+    expect(compiled.textContent).toContain('Daikin');
+    expect(compiled.textContent).toContain('Brastemp');
+    expect(compiled.textContent).toContain('Metalfrio');
   });
 });

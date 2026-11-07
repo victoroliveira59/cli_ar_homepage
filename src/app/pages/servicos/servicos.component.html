@@ -1,52 +1,131 @@
-<div class="servicos-container">
-  <div class="servicos-header">
-    <span class="section-badge">
-      <i class="fas fa-snowflake"></i> Assistência Técnica Especializada
-    </span>
-    <h1 class="section-title">Conserto e Assistência Técnica em Refrigeração em Nova Lima</h1>
-    <p class="section-subtitle">
-      Ar-condicionado, geladeiras, freezers, chopeiras e bebedouros em
-      <strong>Nova Lima e região</strong> — com garantia de 90 dias.
+<!-- HERO ESCURO UNIFICADO (Compatibilidade Total com Navbar Transparente) -->
+<section class="servicos-hero" aria-label="Apresentação de Serviços">
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fas fa-tools" aria-hidden="true"></i>
+      <span>Catálogo Técnico Multimarcas</span>
+    </div>
+    <h1 class="hero-title">Nossos Serviços de Climatização e Refrigeração</h1>
+    <p class="hero-subtitle">
+      Assistência técnica especializada multimarcas em Nova Lima, Alphaville, Vila da Serra e Grande BH com garantia de 90 dias.
     </p>
-  </div>
 
-  <div class="carousel-container">
-    <ngx-slick-carousel [config]="slideConfig" #slickModal="slick-carousel">
-      <div ngxSlickItem *ngFor="let servico of servicos">
-        <div class="slide-wrapper">
-          <!-- Imagem de fundo -->
-          <img class="carousel-bg-img" [src]="servico.imagem" [alt]="servico.nome" width="1200" height="520" loading="lazy">
-          <!-- Overlay gradiente -->
-          <div class="carousel-overlay"></div>
-          <!-- Conteúdo -->
-          <div class="carousel-content">
-            <div class="service-icon-badge">
-              <i class="fas {{servico.icon}}"></i>
-            </div>
-            <h3>{{ servico.nome }}</h3>
-            <p>{{ servico.descricao }}</p>
-            <div class="carousel-actions">
-              <button class="btn-saiba-mais" (click)="openModal(servico)">
-                <i class="fas fa-plus-circle"></i> Resumo
-              </button>
-              <a class="btn-detalhes" [routerLink]="['/servicos', servico.slug]">
-                <i class="fas fa-arrow-right"></i> Ver Página Completa
-              </a>
-            </div>
+    <div class="hero-highlights">
+      <div class="highlight-item"><i class="fas fa-check-circle" aria-hidden="true"></i> Garantia formal por escrito</div>
+      <div class="highlight-item"><i class="fas fa-check-circle" aria-hidden="true"></i> Peças originais de fábrica</div>
+      <div class="highlight-item"><i class="fas fa-check-circle" aria-hidden="true"></i> Atendimento domiciliar no mesmo dia</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA VISUAL DE 6 SERVIÇOS TÉCNICOS (FOTOS REAIS + CARDS RICOS) -->
+<section class="servicos-grid-section" aria-labelledby="catalog-title">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Soluções Completas</span>
+      <h2 id="catalog-title">Especialidades Técnicas em Destaque</h2>
+      <p class="section-subtitle">
+        Clique no serviço para conhecer os procedimentos detalhados, marcas atendidas e diferenciais.
+      </p>
+    </div>
+
+    <div class="services-gallery">
+      <article class="service-tech-card" *ngFor="let s of servicos">
+        <div class="tech-card-img-wrap">
+          <img [src]="s.imagem"
+               [alt]="s.nome"
+               class="tech-card-img"
+               width="600"
+               height="350"
+               loading="lazy">
+          <span class="tech-card-icon-badge" aria-hidden="true">
+            <i [class]="s.icone"></i>
+          </span>
+        </div>
+
+        <div class="tech-card-body">
+          <h3>{{ s.nome }}</h3>
+          <p class="tech-card-desc">{{ s.resumo }}</p>
+
+          <ul class="tech-features">
+            <li *ngFor="let feat of s.destaques">
+              <i class="fas fa-check" aria-hidden="true"></i>
+              <span>{{ feat }}</span>
+            </li>
+          </ul>
+
+          <div class="tech-card-actions">
+            <a [routerLink]="['/servicos', s.slug]"
+               class="btn-tech-detail"
+               [attr.aria-label]="'Acessar detalhes completos sobre ' + s.nome">
+              <span>Página do Serviço</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+
+            <button type="button"
+                    class="btn-tech-zap"
+                    (click)="openWhatsApp()"
+                    [attr.aria-label]="'Pedir orçamento via WhatsApp para ' + s.nome">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
-      </div>
-    </ngx-slick-carousel>
-
-    <!-- Controles -->
-    <button class="carousel-control carousel-control-prev" (click)="slickModal.slickPrev()" aria-label="Anterior">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-    <button class="carousel-control carousel-control-next" (click)="slickModal.slickNext()" aria-label="Próximo">
-      <i class="fas fa-chevron-right"></i>
-    </button>
+      </article>
+    </div>
   </div>
-</div>
+</section>
 
-<app-modal [isOpen]="isModalOpen" [title]="modalTitle" [description]="modalDescription" (closeModal)="closeModal()">
-</app-modal>
+<!-- FLUXO DO ATENDIMENTO EM 4 PASSOS (EXCLUSIVO DA PÁGINA SERVIÇOS!) -->
+<section class="process-flow-section" aria-labelledby="flow-title">
+  <div class="container">
+    <div class="section-header light">
+      <span class="section-tag light">Transparência Total</span>
+      <h2 id="flow-title">Como Funciona o Nosso Atendimento</h2>
+      <p class="section-subtitle light">
+        Processo simples, ágil e seguro para resolver seu problema sem surpresas no orçamento.
+      </p>
+    </div>
+
+    <div class="steps-flow-grid">
+      <div class="flow-card" *ngFor="let passo of passosAtendimento">
+        <div class="step-num">{{ passo.numero }}</div>
+        <div class="step-ico" aria-hidden="true">
+          <i [class]="passo.icone"></i>
+        </div>
+        <h3>{{ passo.titulo }}</h3>
+        <p>{{ passo.descricao }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER DE FECHAMENTO (CTA DE CONVERSÃO RÁPIDA) -->
+<section class="servicos-cta-section" aria-labelledby="cta-call-title">
+  <div class="container">
+    <div class="cta-callout-card">
+      <div class="cta-callout-content">
+        <h2 id="cta-call-title">Seu equipamento parou ou precisa de manutenção preventiva?</h2>
+        <p>
+          Atendemos chamados de emergência residencial e comercial em Nova Lima e toda a Grande BH. Fale com um técnico credenciado agora mesmo.
+        </p>
+      </div>
+
+      <div class="cta-callout-buttons">
+        <button class="btn-gold"
+                type="button"
+                (click)="openWhatsApp()"
+                aria-label="Falar agora com técnico no WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          <span>Chamar no WhatsApp</span>
+        </button>
+
+        <a class="btn-outline-white"
+           [href]="'tel:' + businessInfo.telephone"
+           aria-label="Ligar diretamente para a Alves Refrigeração">
+          <i class="fas fa-phone-alt" aria-hidden="true"></i>
+          <span>{{ businessInfo.formattedPhone }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,61 +1,48 @@
-import { Component, Inject, PLATFORM_ID, HostListener, OnInit } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ReviewsCarouselComponent } from '../../components/reviews-carousel/reviews-carousel.component';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SeoService } from '../../core/seo.service';
 import { BUSINESS_INFO } from '../../core/business-info';
+import { WhatsappModalService } from '../../services/whatsapp-modal.service';
 
 @Component({
   selector: 'app-sobre',
   standalone: true,
-  imports: [CommonModule, ReviewsCarouselComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './sobre.component.html',
   styleUrls: ['./sobre.component.css']
 })
 export class SobreComponent implements OnInit {
-  isMobile = false;
+  businessInfo = BUSINESS_INFO;
 
   stats = [
-    { icon: 'fa-calendar-check', number: '2+', label: 'Anos de experiência' },
-    { icon: 'fa-map-marker-alt', number: 'Nova Lima', label: 'e região' },
-    { icon: 'fa-smile',          number: '100%',     label: 'Satisfação garantida' },
-    { icon: 'fa-award',          number: '90 dias',  label: 'Garantia nos serviços' },
+    { icon: 'fas fa-shield-alt', number: '90 Dias', label: 'Garantia legal formal' },
+    { icon: 'fas fa-tools', number: 'Multimarcas', label: 'Ar e refrigeração' },
+    { icon: 'fas fa-map-marker-alt', number: 'Nova Lima & BH', label: 'Sede própria' },
+    { icon: 'fas fa-clipboard-check', number: '100%', label: 'Orçamento prévio' }
   ];
 
   mvvItems = [
     {
-      icon: 'fa-bullseye',
+      icon: 'fas fa-bullseye',
       titulo: 'Nossa Missão',
-      descricao: 'Proporcionar conforto térmico e eficiência energética com atendimento rápido, preços justos e garantia de qualidade em Nova Lima e região.'
+      descricao: 'Restabelecer o conforto térmico e a conservação com agilidade, preço honesto e peças originais em Nova Lima e região.'
     },
     {
-      icon: 'fa-eye',
+      icon: 'fas fa-eye',
       titulo: 'Nossa Visão',
-      descricao: 'Ser a empresa de referência em assistência técnica de refrigeração em Nova Lima, reconhecida pela excelência, ética e comprometimento com cada cliente.'
+      descricao: 'Ser a assistência técnica de referência e primeira escolha em climatização e refrigeração em Minas Gerais.'
     },
     {
-      icon: 'fa-heart',
+      icon: 'fas fa-balance-scale',
       titulo: 'Nossos Valores',
-      descricao: 'Honestidade, pontualidade, respeito ao cliente, qualidade no serviço e transparência em cada atendimento — são os pilares da nossa empresa.'
+      descricao: 'Transparência no diagnóstico, pontualidade britânica, respeito ao patrimônio do cliente e sustentabilidade no manejo de fluidos.'
     }
-  ];
-
-  diferenciais = [
-    'Atendimento no mesmo dia — incluindo fins de semana',
-    'Técnicos certificados e experientes',
-    'Peças originais com procedência garantida',
-    'Garantia de 90 dias em todos os serviços',
-    'Orçamento sem compromisso e preço justo',
-    'Atendemos residências, comércios e indústrias'
-  ];
-
-  marcas = [
-    'Daikin', 'LG', 'Samsung', 'Midea', 'Springer', 'Carrier',
-    'Electrolux', 'Brastemp', 'Consul', 'Panasonic', 'Hitachi', 'Fujitsu'
   ];
 
   constructor(
     private seoService: SeoService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    private modalService: WhatsappModalService
   ) {}
 
   ngOnInit(): void {
@@ -85,10 +72,7 @@ export class SobreComponent implements OnInit {
     });
   }
 
-  @HostListener('window:resize', ['$event'])
-  checkScreenSize() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.isMobile = window.innerWidth < 768;
-    }
+  openWhatsApp(): void {
+    this.modalService.open();
   }
 }

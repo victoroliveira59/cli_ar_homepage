@@ -1,104 +1,427 @@
-/* Cores customizadas */
-.bg-primary-custom { background-color: var(--primary, #016086); }
-.text-primary-custom { color: var(--primary, #016086); }
-.bg-blue-light { background-color: rgba(0, 123, 255, 0.1); }
+/* ============================================
+   HERO ESCURO UNIFICADO (PÁGINA CONTATO)
+   ============================================ */
 
-
-.text-2-5 {
-    font-size: 3rem;
-  }
-
-/* Ajustes específicos */
-.contato-header i {
-  font-size: 3rem;
-  padding: 10px;
+.contato-hero {
+  position: relative;
+  background: linear-gradient(150deg, #071527 0%, #0a2540 40%, #014E6E 80%, #016086 100%);
+  padding: 130px 24px 60px;
+  text-align: center;
+  color: #FFFFFF;
 }
 
-.contato-info-card {
-  width: 250px;
-  transform: rotate(10deg);
-  top: 25%;
-  left: 1050px;
+.contato-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(0, 196, 232, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
   z-index: 2;
 }
 
-/* Transições */
-.hover-scale { transition: transform 0.3s ease; }
-.hover-scale:hover { transform: scale(1.05); }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #00E5FF;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
 
-/* Responsividade específica */
-@media (max-width: 1200px) {
-  .contato-info-card {
-    display: none;
+.hero-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #CBD5E1;
+  max-width: 760px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+/* 3 Cards Rápidos de Ação */
+.quick-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.quick-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 20px 22px;
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  text-align: left;
+}
+
+.quick-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.quick-card.zap:hover {
+  border-color: #25D366;
+}
+
+.quick-card.phone:hover {
+  border-color: #00E5FF;
+}
+
+.card-ico {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.quick-card.zap .card-ico {
+  background: rgba(37, 211, 102, 0.15);
+  color: #25D366;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.quick-card.phone .card-ico {
+  background: rgba(0, 229, 255, 0.15);
+  color: #00E5FF;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.quick-card.address .card-ico {
+  background: rgba(255, 184, 0, 0.15);
+  color: #FFB800;
+  border: 1px solid rgba(255, 184, 0, 0.3);
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label {
+  font-size: 0.8rem;
+  color: #94A3B8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 2px 0;
+}
+
+.card-sub {
+  font-size: 0.82rem;
+  color: #CBD5E1;
+}
+
+/* ============================================
+   CORPO DE CONTATO: FORM + MAPA
+   ============================================ */
+
+.contato-body-section {
+  padding: 80px 0;
+  background: #F8FAFC;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* Formulário Moderno */
+.form-container {
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 36px 32px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 8px 24px rgba(7, 21, 39, 0.06);
+}
+
+.form-header {
+  margin-bottom: 24px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: rgba(1, 96, 134, 0.1);
+  color: #016086;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.form-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  font-size: 0.95rem;
+  color: #64748B;
+  margin: 0;
+}
+
+.modern-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #CBD5E1;
+  background: #FFFFFF;
+  color: #0F172A;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #016086;
+  box-shadow: 0 0 0 3px rgba(1, 96, 134, 0.15);
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: #DC2626;
+  font-weight: 500;
+}
+
+.btn-submit {
+  background: #FFB800;
+  color: #071527;
+  border: 2px solid #FFB800;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #FFA000;
+  border-color: #FFA000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 184, 0, 0.35);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status-success {
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  color: #065F46;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-error {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #991B1B;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Mapa e Detalhes */
+.map-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 8px 24px rgba(7, 21, 39, 0.06);
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 320px;
+  background: #E2E8F0;
+}
+
+.map-details {
+  padding: 24px;
+}
+
+.map-details h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-details h3 i {
+  color: #016086;
+}
+
+.company-doc {
+  font-size: 0.88rem;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.company-address {
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 18px;
+  display: flex;
+  gap: 8px;
+}
+
+.company-address i {
+  color: #DC2626;
+  margin-top: 3px;
+}
+
+.btn-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-map:hover {
+  background: #0284C7;
+  color: #FFFFFF;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #00E5FF !important;
+  outline-offset: 3px !important;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+@media (max-width: 992px) {
+  .contato-hero {
+    padding: 110px 20px 50px;
   }
 
-  .contato-form-map {
+  .contato-grid {
+    grid-template-columns: 1fr;
     gap: 30px;
   }
 }
 
-@media (max-width: 767.98px) {
-  .form-wrapper {
-    margin-left: 0 !important;
-    width: 100% !important;
+@media (max-width: 640px) {
+  .contato-hero {
+    padding: 95px 16px 40px;
   }
 
-  .contato-header {
-    margin-left: 0 !important;
+  .hero-title {
+    font-size: 1.75rem;
   }
 
-  .fonte-2 {font-size: 2rem;}
-}
-
-/* ============================================
-   MOBILE PEQUENO ≤430px (até 6.7 polegadas)
-   ============================================ */
-@media (max-width: 430px) {
-  .text-2-5 {
-    font-size: 1.8rem !important;
+  .quick-cards-row {
+    grid-template-columns: 1fr;
   }
 
-  .fonte-2 {
-    font-size: 1.5rem !important;
+  .form-row {
+    grid-template-columns: 1fr;
   }
 
-  .contato-header {
-    padding: 16px !important;
-    text-align: center;
-  }
-
-  .contato-header i {
-    font-size: 2rem;
-  }
-
-  .form-wrapper {
-    padding: 16px !important;
-    margin: 0 !important;
-    width: 100% !important;
-  }
-
-  .contato-form-map {
-    flex-direction: column;
-    gap: 20px;
-    padding: 0 12px !important;
-  }
-
-  /* Mapa responsivo */
-  iframe {
-    width: 100% !important;
-    height: 220px !important;
-  }
-
-  /* Inputs do formulário */
-  .form-control {
-    font-size: 0.9rem;
-  }
-
-  /* Botão de enviar */
-  .btn-primary-custom,
-  button[type="submit"] {
-    width: 100%;
-    font-size: 0.9rem;
-    padding: 12px;
+  .form-container {
+    padding: 24px 18px;
   }
 }

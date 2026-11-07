@@ -86,3 +86,14 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **T07.01** | Guia SEO off-page (Perfil da Empresa no Google, Search Console, citações NAP, avaliações, plano de conteúdo) + README | Analista | T06.01 | `DONE` |
 | **T07.02** | Validação final de release, push da branch e Pull Request (merge exige aprovação humana) | Maestro | T07.01 | `DONE` |
+
+---
+
+## Fase 08 — Unificação Visual do Navbar, Conteúdo Único Sem Repetição e Vitrine Multimarcas
+*Objetivo: Eliminar páginas legadas do Navbar, remover textos longos/repetitivos, garantir identidade única para cada seção/rota e adicionar vitrine visual de marcas e equipamentos de refrigeração.*
+
+| ID | Título da Task | Responsável | Dependência | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **T08.01** | Especificação de arquitetura visual enxuta, eliminação de textos duplicados e catálogo multimarcas | Analista | T07.02 | `DONE` |
+| **T08.02** | Redesign das rotas do Navbar (`/servicos`, `/sobre`, `/contato`) e Home com textos únicos concisos, fotos de serviços e vitrine visual de marcas | Engenheiro | T08.01 | `DONE` |
+

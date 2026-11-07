@@ -1,9 +1,9 @@
-<nav #nav class="navbar navbar-expand-lg fixed-top navbar-dark "
-     [ngClass]="{'minha-navbar ': scrolled, 'bg-transparent': !scrolled}">
+<nav #nav class="navbar navbar-expand-lg fixed-top navbar-dark"
+     [ngClass]="{'minha-navbar': scrolled, 'bg-transparent': !scrolled}">
 
   <!-- Logo posicionada absolutamente fora do container -->
   <div class="logo-absolute-wrapper" [class.scrolled]="scrolled">
-    <a class="navbar-brand" routerLink="/">
+    <a class="navbar-brand" routerLink="/" aria-label="Alves Refrigeração - Página Inicial">
       <img src="/assets/img/logo/Logo_AR_Branca.webp"
            class="logo-img"
            [alt]="businessInfo.tradeName"
@@ -20,7 +20,7 @@
         (click)="toggleMenu()"
         [class.collapsed]="!menuAberto"
         aria-expanded="menuAberto"
-        aria-label="Toggle navigation">
+        aria-label="Abrir menu de navegação">
         <span class="navbar-icon">
           <span class="icon-bar top-bar"></span>
           <span class="icon-bar middle-bar"></span>
@@ -33,7 +33,11 @@
       <div class="menu-content" (click)="$event.stopPropagation()">
         <ul class="navbar-nav item-description">
           <li class="nav-item" *ngFor="let item of menuItems; let i = index" [ngStyle]="{'--i': i+1}">
-            <a class="nav-link item-description" [routerLink]="item.routerLink" (click)="closeMenu()">
+            <a class="nav-link item-description"
+               [routerLink]="item.routerLink"
+               routerLinkActive="active-nav"
+               [routerLinkActiveOptions]="{exact: item.routerLink === '/'}"
+               (click)="closeMenu()">
               <i [class]="item.icon + ' mr-1'"></i> {{ item.label }}
             </a>
           </li>

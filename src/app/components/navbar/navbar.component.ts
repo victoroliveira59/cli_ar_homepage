@@ -14,7 +14,6 @@ export class NavbarComponent {
   businessInfo = BUSINESS_INFO;
   menuAberto: boolean = false;
   menuVisible: boolean = false;
-  isScrolled: boolean = false;
   scrolled: boolean = false;
 
   @ViewChild('nav', { static: true }) myNav!: ElementRef;
@@ -25,6 +24,7 @@ export class NavbarComponent {
     { label: 'Home', routerLink: '/', icon: 'fas fa-home' },
     { label: 'Serviços', routerLink: '/servicos', icon: 'fa-solid fa-snowflake' },
     { label: 'Sobre Nós', routerLink: '/sobre', icon: 'fas fa-users' },
+    { label: 'Dúvidas & Áreas', routerLink: '/perguntas-frequentes', icon: 'fas fa-question-circle' },
     { label: 'Contato', routerLink: '/contato', icon: 'fas fa-phone-alt' }
   ];
 
@@ -43,7 +43,7 @@ export class NavbarComponent {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
+  onResize() {
     if (isPlatformBrowser(this.platformId) && window.innerWidth > 768) {
       this.menuAberto = false;
       this.menuVisible = false;
@@ -53,7 +53,7 @@ export class NavbarComponent {
   @HostListener('window:scroll')
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
-      this.scrolled = window.scrollY > 400;
+      this.scrolled = window.scrollY > 50;
     }
   }
 }

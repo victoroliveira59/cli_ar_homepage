@@ -9,18 +9,33 @@ import { RouterModule } from '@angular/router';
 import { WhatsappModalService } from '../../services/whatsapp-modal.service';
 import { SeoService } from '../../core/seo.service';
 import { BUSINESS_INFO } from '../../core/business-info';
+import { ReviewsCarouselComponent } from '../../components/reviews-carousel/reviews-carousel.component';
 
 @Component({
   standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [CommonModule, RouterModule]
+  imports: [CommonModule, RouterModule, ReviewsCarouselComponent]
 })
 export class HomeComponent implements OnInit {
   isContentVisible = true;
   isLoading = false;
   business = BUSINESS_INFO;
+
+  // Categorias Multimarcas
+  marcasClimatizacao = [
+    'Daikin', 'Fujitsu', 'LG', 'Samsung', 'Midea',
+    'Carrier', 'Springer', 'Hitachi', 'Elgin', 'Gree'
+  ];
+
+  marcasLinhaBranca = [
+    'Brastemp', 'Consul', 'Electrolux', 'Panasonic', 'Continental', 'Bosch'
+  ];
+
+  marcasComercial = [
+    'Metalfrio', 'Gelopar', 'Everest', 'Venâncio', 'Fricon', 'IBBL', 'Libell'
+  ];
 
   constructor(
     private modalService: WhatsappModalService,

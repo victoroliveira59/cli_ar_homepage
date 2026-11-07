@@ -1,74 +1,125 @@
-<section class="sobre-section">
-
-  <!-- HEADER -->
-  <div class="sobre-header">
-    <span class="section-badge">
-      <i class="fas fa-users"></i> Quem Somos
-    </span>
-    <h1 class="sobre-title">Sobre a Alves Refrigeração: Tradição e Excelência Técnica</h1>
-    <p class="sobre-subtitle">
-      Há mais de 2 anos garantindo conforto e refrigeração com qualidade,
-      honestidade e pontualidade em <strong>Nova Lima e região</strong>.
+<!-- HERO ESCURO UNIFICADO (Compatibilidade Total com Navbar Transparente) -->
+<section class="sobre-hero" aria-label="Apresentação Institucional">
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fas fa-certificate" aria-hidden="true"></i>
+      <span>Quem Somos & Nossa História</span>
+    </div>
+    <h1 class="hero-title">Sobre a Alves Refrigeração em Nova Lima</h1>
+    <p class="hero-subtitle">
+      Compromisso inegociável com honestidade técnica, pontualidade britânica e excelência em cada reparo executado.
     </p>
-  </div>
 
-  <!-- STATS BAR -->
-  <div class="sobre-stats container">
-    <div class="stat-item" *ngFor="let stat of stats">
-      <div class="stat-icon"><i class="fas {{stat.icon}}"></i></div>
-      <div class="stat-number">{{ stat.number }}</div>
-      <div class="stat-label">{{ stat.label }}</div>
-    </div>
-  </div>
-
-  <!-- MISSÃO / VISÃO / VALORES -->
-  <div class="sobre-mvv container">
-    <div class="mvv-card" *ngFor="let item of mvvItems">
-      <div class="mvv-icon-wrap">
-        <i class="fas {{item.icon}}"></i>
-      </div>
-      <h3>{{ item.titulo }}</h3>
-      <p>{{ item.descricao }}</p>
-    </div>
-  </div>
-
-  <!-- DIFERENCIAIS -->
-  <div class="sobre-diferenciais container">
-    <div class="dif-content">
-      <h3>Por que escolher a Alves Refrigeração?</h3>
-      <ul class="dif-list">
-        <li *ngFor="let dif of diferenciais">
-          <i class="fas fa-check-circle"></i>
-          <span>{{ dif }}</span>
-        </li>
-      </ul>
-    </div>
-    <div class="dif-brands">
-      <p class="brands-title"><i class="fas fa-tags"></i> Marcas que atendemos</p>
-      <div class="brands-grid">
-        <span class="brand-tag" *ngFor="let brand of marcas">{{ brand }}</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- AVALIAÇÕES -->
-  <div class="sobre-reviews">
-    <div class="reviews-header container">
-      <div class="reviews-badge">
-        <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
-             alt="Google" class="google-icon" width="22" height="22">
-        <span>Avaliações Google</span>
-      </div>
-      <h3 class="reviews-title">O que nossos clientes dizem</h3>
-      <div class="reviews-score">
-        <span class="score-number">5.0</span>
-        <div class="score-stars">
-          <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5]"></i>
+    <!-- 4 Métricas Objetivas -->
+    <div class="stats-row">
+      <div class="stat-card" *ngFor="let s of stats">
+        <div class="stat-ico" aria-hidden="true">
+          <i [class]="s.icon"></i>
         </div>
-        <span class="score-count">+38 avaliações</span>
+        <div class="stat-num">{{ s.number }}</div>
+        <div class="stat-lbl">{{ s.label }}</div>
       </div>
     </div>
-    <app-reviews-carousel></app-reviews-carousel>
   </div>
+</section>
 
+<!-- BLOCO INSTITUCIONAL COM FOTOS REAIS (BOAS PRÁTICAS & MVV) -->
+<section class="sobre-content-section" aria-labelledby="empresa-title">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Nossa Trajetória</span>
+      <h2 id="empresa-title">Qualificação Técnica e Respeito ao Cliente</h2>
+      <p class="section-subtitle">
+        Conheça a estrutura e os padrões rigorosos de segurança e qualidade técnica da Alves Refrigeração.
+      </p>
+    </div>
+
+    <!-- Foto 1 + Texto de Apresentação -->
+    <div class="corp-split">
+      <div class="corp-img-wrap">
+        <img src="/assets/img/boas-praticas-refrigeracao.webp"
+             alt="Técnico da Alves Refrigeração aplicando boas práticas de refrigeração e segurança"
+             class="corp-img"
+             width="600"
+             height="400"
+             loading="lazy">
+        <span class="corp-badge">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i> Boas Práticas & Segurança
+        </span>
+      </div>
+
+      <div class="corp-text">
+        <h3>Assistência Técnica Especializada em Nova Lima</h3>
+        <p>
+          Fundada com o propósito de oferecer um serviço verdadeiramente diferenciado no setor de refrigeração e climatização, a
+          <strong>Alves Refrigeração</strong> combina conhecimento técnico certificado com atendimento humanizado.
+        </p>
+        <p>
+          Nossa equipe utiliza instrumental eletrônico de ponta — incluindo bombas de vácuo de duplo estágio, vacuômetros digitais e recolhedoras ecológicas —, assegurando que cada intervenção preserve a garantia e a eficiência do seu equipamento.
+        </p>
+        <ul class="corp-bullets">
+          <li><i class="fas fa-check" aria-hidden="true"></i> Sede física própria em Nova Lima na Rua Professora Anésia de Matos Guimarães</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i> Manejo ambiental correto de gases ecológicos (R-32, R-410A)</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i> Atendimento residencial em condomínios e estabelecimentos comerciais</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Foto 2 + Missão, Visão e Valores -->
+    <div class="corp-split reverse">
+      <div class="corp-img-wrap">
+        <img src="/assets/img/missao_visao_valores.webp"
+             alt="Missão, Visão e Valores da Alves Refrigeração"
+             class="corp-img"
+             width="600"
+             height="400"
+             loading="lazy">
+        <span class="corp-badge">
+          <i class="fas fa-star" aria-hidden="true"></i> Pilares Institucionais
+        </span>
+      </div>
+
+      <div class="corp-text">
+        <div class="mvv-list">
+          <div class="mvv-item" *ngFor="let item of mvvItems">
+            <div class="mvv-icon-box" aria-hidden="true">
+              <i [class]="item.icon"></i>
+            </div>
+            <div class="mvv-item-text">
+              <h4>{{ item.titulo }}</h4>
+              <p>{{ item.descricao }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER FINAL DE ATENDIMENTO -->
+<section class="sobre-cta-section" aria-labelledby="cta-sobre-title">
+  <div class="container">
+    <div class="sobre-cta-card">
+      <div class="cta-text">
+        <h2 id="cta-sobre-title">Quer falar diretamente com nossos especialistas?</h2>
+        <p>Estamos prontos para atender você em Nova Lima, Alphaville, Vila da Serra e Grande BH.</p>
+      </div>
+      <div class="cta-actions">
+        <button class="btn-gold"
+                type="button"
+                (click)="openWhatsApp()"
+                aria-label="Abrir conversa no WhatsApp com a Alves Refrigeração">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          <span>Falar no WhatsApp</span>
+        </button>
+
+        <a class="btn-outline-white"
+           [href]="'tel:' + businessInfo.telephone"
+           aria-label="Ligar para (31) 99285-5049">
+          <i class="fas fa-phone-alt" aria-hidden="true"></i>
+          <span>Ligar: {{ businessInfo.formattedPhone }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
