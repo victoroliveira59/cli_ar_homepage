@@ -19,9 +19,13 @@
     <div class="hero-content">
       <!-- Logo no topo -->
       <div class="hero-logo-wrap">
-        <img src="/assets/img/logo/Alves_Refrigeracao_log.png"
+        <img src="/assets/img/logo/Alves_Refrigeracao_log.webp"
              class="hero-logo"
-             alt="Alves Refrigeração">
+             alt="Alves Refrigeração"
+             width="180"
+             height="50"
+             loading="eager"
+             fetchpriority="high">
       </div>
 
       <div class="hero-badge">
@@ -51,9 +55,6 @@
         <button class="btn-gold" (click)="openWhatsApp()">
           <i class="fab fa-whatsapp"></i> Solicitar Orçamento 
         </button>
-        <!-- <a href="tel:+5531992855049" class="btn-outline-white">
-          <i class="fas fa-phone"></i> (31) 99285-5049
-        </a> -->
       </div>
 
       <div class="hero-trust">
@@ -65,12 +66,16 @@
       </div>
     </div>
 
-    <!-- RIGHT: mascote animado -->
+    <!-- RIGHT: mascote animado (LCP com loading="eager" e fetchpriority="high") -->
     <div class="hero-mascote-area">
       <div class="mascote-glow"></div>
-      <img src="/assets/img/mascote.png"
+      <img src="/assets/img/mascote.webp"
            class="mascote-img"
-           alt="Técnico Alves Refrigeração">
+           alt="Técnico Alves Refrigeração"
+           width="400"
+           height="400"
+           loading="eager"
+           fetchpriority="high">
     </div>
 
   </div>
@@ -82,4 +87,3 @@
   </div>
 
 </section>
-

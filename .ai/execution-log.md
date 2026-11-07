@@ -14,6 +14,14 @@
 - **Ação:** Leitura do repositório de referência OradorPro (`.agents/`, `.ai/`, `docs/`) via GitHub e clone de `cli_ar_homepage`. Criação de `AGENTS.md`, `SPEC.md`, `.agents/` (5 agentes, 6 regras, 4 skills), `.ai/` (HARNESS, contrato, tasks, state, log, prompts) e `docs/` (templates, ADR-0000, ADR-0001).
 - **Resultado:** `DONE`.
 
+### 2026-11-06 22:15 BRT — Conclusão da Fase 05 (T05.01) e Início da Fase 06
+- **Agente:** Maestro
+- **Fase:** 05 - Performance e Core Web Vitals
+- **Task:** T05.01 - Otimização de imagens (WebP, redimensionamento, `NgOptimizedImage`, `priority` no LCP) e remoção de artefatos mortos
+- **Ação:** Engenheiro converteu 21 imagens para WebP comprimido de alta qualidade, reduzindo o acervo de 29.7 MB para 0.88 MB (97% de economia). Adicionou dimensões explícitas e lazy loading nos templates e removeu scripts mortos da raiz. Tester comprovou que nenhuma imagem excede 112 kB e o SEO audit segue verde. Revisor aprovou sem ressalvas. Fase 05 concluída.
+- **Resultado:** `DONE`.
+- **Transição:** Fase 06 iniciada automaticamente (ADR-0001). Task T06.01 transicionada para `IN_PROGRESS` e delegada ao Engenheiro.
+
 ### 2026-11-06 22:00 BRT — Conclusão da Fase 04 (T04.02) e Início da Fase 05
 - **Agente:** Maestro
 - **Fase:** 04 - SEO Local e Conteúdo

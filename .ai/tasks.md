@@ -66,7 +66,7 @@
 
 | ID | Título da Task | Responsável | Dependência | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T05.01** | Otimização de imagens (WebP, redimensionamento, `NgOptimizedImage`, `priority` no LCP) e remoção de artefatos mortos | Engenheiro | T04.02 | `IN_PROGRESS` |
+| **T05.01** | Otimização de imagens (WebP, redimensionamento, `NgOptimizedImage`, `priority` no LCP) e remoção de artefatos mortos | Engenheiro | T04.02 | `DONE` |
 
 ---
 
@@ -75,7 +75,7 @@
 
 | ID | Título da Task | Responsável | Dependência | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T06.01** | Refinamento visual da home (hero, diferenciais, processo, CTA final), consistência de marca e acessibilidade | Engenheiro | T05.01 | `BACKLOG` |
+| **T06.01** | Refinamento visual da home (hero, diferenciais, processo, CTA final), consistência de marca e acessibilidade | Engenheiro | T05.01 | `IN_PROGRESS` |
 
 ---
 
