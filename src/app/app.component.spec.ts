@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
       providers: [
+        provideRouter([]),
         provideHttpClient(),
         provideHttpClientTesting()
       ]
@@ -20,14 +22,12 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render main sections directly in the DOM without loading gate', () => {
+  it('should render shell with router-outlet between navbar and footer', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('main')).toBeTruthy();
-    expect(compiled.querySelector('#home')).toBeTruthy();
-    expect(compiled.querySelector('#servicos')).toBeTruthy();
-    expect(compiled.querySelector('#sobre')).toBeTruthy();
-    expect(compiled.querySelector('#contato')).toBeTruthy();
+    expect(compiled.querySelector('app-navbar')).toBeTruthy();
+    expect(compiled.querySelector('main router-outlet')).toBeTruthy();
+    expect(compiled.querySelector('app-footer')).toBeTruthy();
   });
 });

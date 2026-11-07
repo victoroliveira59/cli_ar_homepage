@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { NavbarComponent } from './navbar.component';
 
 describe('NavbarComponent', () => {
@@ -8,7 +8,8 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarComponent]
+      imports: [NavbarComponent],
+      providers: [provideRouter([])]
     })
     .compileComponents();
 
@@ -19,5 +20,10 @@ describe('NavbarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain navigation items', () => {
+    expect(component.menuItems.length).toBeGreaterThan(0);
+    expect(component.menuItems.some(i => i.routerLink === '/')).toBeTrue();
   });
 });

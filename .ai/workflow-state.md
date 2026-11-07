@@ -2,23 +2,23 @@
 
 - **Project:** cli_ar_homepage
 - **Current Phase:** 03 - SEO Técnico e Indexabilidade
-- **Current Task:** T03.02 - Roteamento real (shell + `router-outlet`), `SeoService` (title/meta/canonical/OG) e `business-info.ts` (NAP único)
+- **Current Task:** T03.03 - `robots.txt`, `sitemap.xml`, JSON-LD `HVACBusiness`/`WebSite`/`BreadcrumbList` sem avaliações autodeclaradas, página 404 `noindex`
 - **Workflow Status:** IN_PROGRESS
 - **Active Agent:** ENGENHEIRO
 - **Correction Iteration:** 0/3
-- **Last Completed Task:** T03.01 - Remover gate de spinner/`isLoading` que esconde conteúdo do prerender; corrigir acessos SSR-unsafe
+- **Last Completed Task:** T03.02 - Roteamento real (shell + `router-outlet`), `SeoService` (title/meta/canonical/OG) e `business-info.ts` (NAP único)
 - **Blockers:** none
-- **Last Updated:** 2026-11-06 21:26 BRT
+- **Last Updated:** 2026-11-06 21:40 BRT
 
 ---
 
 ## Current Objective
-Implementar roteamento real com shell persistente (Navbar e Footer), serviço singleton de SEO (`SeoService`) para injeção de metadata dinâmica e fonte única de verdade para os dados da empresa (`business-info.ts`).
+Criar arquivos estáticos indexáveis (`robots.txt`, `sitemap.xml`), página 404 dedicada com `noindex`, e estruturar dados JSON-LD ricos (`HVACBusiness`, `WebSite`, `BreadcrumbList`) em conformidade com as diretrizes do Google.
 
 ---
 
 ## Next Action
-Engenheiro implementa T03.02.
+Engenheiro implementa T03.03.
 
 ---
 

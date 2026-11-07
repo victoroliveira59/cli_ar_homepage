@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-
+import { SeoService } from '../../core/seo.service';
+import { BUSINESS_INFO } from '../../core/business-info';
 
 @Component({
   selector: 'app-contato',
@@ -13,14 +14,25 @@ import { ApiService } from '../../services/api.service';
   imports: [ReactiveFormsModule, CommonModule]
 })
 export class ContatoComponent implements OnInit {
+  businessInfo = BUSINESS_INFO;
   contatoForm!: FormGroup;
   mensagemRetorno: string = '';
   sucesso: boolean = false;
   carregando: boolean = false;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) { }
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private seoService: SeoService
+  ) { }
 
   ngOnInit(): void {
+    this.seoService.setMetadata({
+      title: 'Contato e Orçamento | Alves Refrigeração Nova Lima',
+      description: 'Entre em contato com a Alves Refrigeração em Nova Lima. Atendimento via WhatsApp no (31) 99285-5049, ligação direta ou visita técnica no seu endereço.',
+      canonicalUrl: `${BUSINESS_INFO.domain}/contato`
+    });
+
     this.contatoForm = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -46,8 +58,6 @@ export class ContatoComponent implements OnInit {
     input.value = valor;
     this.contatoForm.get('telefone')?.setValue(valor, { emitEvent: false });
   }
-
-
 
   onSubmit() {
     if (this.contatoForm.valid) {

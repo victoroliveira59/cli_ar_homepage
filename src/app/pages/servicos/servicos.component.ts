@@ -1,7 +1,9 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { SlickCarouselModule, SlickCarouselComponent } from 'ngx-slick-carousel';
 import { ModalComponent } from "../../modal/modal.component";
+import { SeoService } from '../../core/seo.service';
+import { BUSINESS_INFO } from '../../core/business-info';
 
 @Component({
   selector: 'app-servicos',
@@ -10,7 +12,7 @@ import { ModalComponent } from "../../modal/modal.component";
   templateUrl: './servicos.component.html',
   styleUrls: ['./servicos.component.css']
 })
-export class ServicosComponent implements AfterViewInit {
+export class ServicosComponent implements OnInit, AfterViewInit {
   currentSlide = 0;
 
   servicos = [
@@ -45,8 +47,8 @@ export class ServicosComponent implements AfterViewInit {
     speed: 1000,
     pauseOnHover: true,
     infinite: true,
-    dots: false, // Desativamos os dots padrão pois usamos os personalizados
-    arrows: false, // Desativamos as arrows padrão pois usamos as personalizadas
+    dots: false,
+    arrows: false,
     cssEase: 'ease-in-out',
     fade: true,
     afterChange: (e: number) => this.currentSlide = e,
@@ -75,7 +77,18 @@ export class ServicosComponent implements AfterViewInit {
   modalDescription: string = '';
   isMobile = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(
+    private seoService: SeoService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
+
+  ngOnInit(): void {
+    this.seoService.setMetadata({
+      title: 'Conserto de Refrigeração em Nova Lima | Alves Refrigeração',
+      description: 'Assistência técnica em refrigeração doméstica e comercial em Nova Lima. Geladeiras, freezers, chopeiras e bebedouros. Garantia de 90 dias e peças originais.',
+      canonicalUrl: `${BUSINESS_INFO.domain}/servicos`
+    });
+  }
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -114,9 +127,7 @@ export class ServicosComponent implements AfterViewInit {
     }
   }
 
-  // Método para tratar erros de imagem
   handleImageError(event: any) {
     console.error('Erro ao carregar imagem:', event);
-
   }
 }

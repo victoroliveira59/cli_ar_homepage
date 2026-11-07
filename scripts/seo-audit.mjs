@@ -69,16 +69,30 @@ for (const filePath of htmlFiles) {
     console.log(`  ✅ <meta description>: "${descText.substring(0, 60)}..." (${descText.length} carac.)`);
   }
 
-  // 3. Validação de <h1>
-  const h1Matches = html.match(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi);
-  if (!h1Matches || h1Matches.length === 0) {
-    console.warn(`  ⚠️  [ALERTA] Nenhuma tag <h1> encontrada (recomendado ao menos uma por página; pendente Fase 03).`);
+  // 3. Validação de <link rel="canonical">
+  const canonicalMatch = html.match(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["'][^>]*>/i)
+    || html.match(/<link\s+[^>]*href=["']([^"']*)["'][^>]*rel=["']canonical["'][^>]*>/i);
+
+  if (!canonicalMatch || !canonicalMatch[1].trim()) {
+    console.warn(`  ⚠️  [ALERTA] Link canônico <link rel="canonical"> não encontrado.`);
     totalWarnings++;
   } else {
-    console.log(`  ✅ <h1> encontrado (${h1Matches.length} ocorrência(s))`);
+    console.log(`  ✅ <link canonical>: "${canonicalMatch[1].trim()}"`);
   }
 
-  // 4. Validação de blocos JSON-LD
+  // 4. Validação de <h1>
+  const h1Matches = html.match(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi);
+  if (!h1Matches || h1Matches.length === 0) {
+    console.warn(`  ⚠️  [ALERTA] Nenhuma tag <h1> encontrada.`);
+    totalWarnings++;
+  } else if (h1Matches.length > 1) {
+    console.warn(`  ⚠️  [ALERTA] Múltiplas tags <h1> encontradas (${h1Matches.length} ocorrências).`);
+    totalWarnings++;
+  } else {
+    console.log(`  ✅ <h1> único encontrado`);
+  }
+
+  // 5. Validação de blocos JSON-LD
   const jsonLdRegex = /<script\s+[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let jsonLdMatch;
   let jsonLdCount = 0;

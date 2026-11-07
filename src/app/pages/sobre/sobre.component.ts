@@ -1,6 +1,8 @@
-import { Component, Inject, PLATFORM_ID, HostListener } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, HostListener, OnInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ReviewsCarouselComponent } from '../../components/reviews-carousel/reviews-carousel.component';
+import { SeoService } from '../../core/seo.service';
+import { BUSINESS_INFO } from '../../core/business-info';
 
 @Component({
   selector: 'app-sobre',
@@ -9,7 +11,7 @@ import { ReviewsCarouselComponent } from '../../components/reviews-carousel/revi
   templateUrl: './sobre.component.html',
   styleUrls: ['./sobre.component.css']
 })
-export class SobreComponent {
+export class SobreComponent implements OnInit {
   isMobile = false;
 
   stats = [
@@ -51,7 +53,18 @@ export class SobreComponent {
     'Electrolux', 'Brastemp', 'Consul', 'Panasonic', 'Hitachi', 'Fujitsu'
   ];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    private seoService: SeoService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit(): void {
+    this.seoService.setMetadata({
+      title: 'Sobre a Alves Refrigeração | Assistência em Nova Lima',
+      description: 'Conheça a Alves Refrigeração: excelência em climatização e refrigeração em Nova Lima. Equipe técnica capacitada, peças originais e garantia formal.',
+      canonicalUrl: `${BUSINESS_INFO.domain}/sobre`
+    });
+  }
 
   @HostListener('window:resize', ['$event'])
   checkScreenSize() {

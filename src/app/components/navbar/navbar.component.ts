@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BUSINESS_INFO } from '../../core/business-info';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  businessInfo = BUSINESS_INFO;
   menuAberto: boolean = false;
   menuVisible: boolean = false;
   isScrolled: boolean = false;
@@ -20,11 +22,10 @@ export class NavbarComponent {
   constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
   menuItems = [
-    { label: 'Home', id: 'home', href: '#home', icon: 'fas fa-home' },
-    { label: 'Ar-Condicionado', id: 'arcondicionado', href: '#arcondicionado', icon: 'fas fa-wind' },
-    { label: 'Serviços', id: 'servicos', href: '#servicos', icon: 'fa-solid fa-snowflake' },
-    { label: 'Sobre Nós', id: 'sobre', href: '#sobre', icon: 'fas fa-users' },
-    { label: 'Contato', id: 'contato', href: '#contato', icon: 'fas fa-phone-alt' }
+    { label: 'Home', routerLink: '/', icon: 'fas fa-home' },
+    { label: 'Serviços', routerLink: '/servicos', icon: 'fa-solid fa-snowflake' },
+    { label: 'Sobre Nós', routerLink: '/sobre', icon: 'fas fa-users' },
+    { label: 'Contato', routerLink: '/contato', icon: 'fas fa-phone-alt' }
   ];
 
   toggleMenu() {
@@ -39,15 +40,6 @@ export class NavbarComponent {
     if (isPlatformBrowser(this.platformId)) {
       document.body.style.overflow = '';
     }
-  }
-
-  scrollToSection(event: Event, sectionId: string) {
-    event.preventDefault();
-    if (isPlatformBrowser(this.platformId)) {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      document.body.style.overflow = '';
-    }
-    this.menuAberto = false;
   }
 
   @HostListener('window:resize', ['$event'])

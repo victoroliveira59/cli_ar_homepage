@@ -3,10 +3,10 @@
 
   <!-- Logo posicionada absolutamente fora do container -->
   <div class="logo-absolute-wrapper" [class.scrolled]="scrolled">
-    <a class="navbar-brand" href="#home">
+    <a class="navbar-brand" routerLink="/">
       <img src="/assets/img/logo/Logo_AR_Branca.png"
            class="logo-img"
-           alt="Logo">
+           [alt]="businessInfo.tradeName">
     </a>
   </div>
 
@@ -31,12 +31,11 @@
       <div class="menu-content" (click)="$event.stopPropagation()">
         <ul class="navbar-nav item-description">
           <li class="nav-item" *ngFor="let item of menuItems; let i = index" [ngStyle]="{'--i': i+1}">
-            <a class="nav-link item-description" [href]="item.href" (click)="scrollToSection($event, item.id)">
+            <a class="nav-link item-description" [routerLink]="item.routerLink" (click)="closeMenu()">
               <i [class]="item.icon + ' mr-1'"></i> {{ item.label }}
             </a>
           </li>
         </ul>
-
       </div>
     </div>
 
