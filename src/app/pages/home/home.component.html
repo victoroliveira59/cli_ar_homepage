@@ -1,6 +1,6 @@
-<section class="hero">
+<section class="hero" aria-label="Apresentação Alves Refrigeração">
   <!-- Animated background particles -->
-  <div class="hero-particles">
+  <div class="hero-particles" aria-hidden="true">
     <span class="particle p1">❄</span>
     <span class="particle p2">❄</span>
     <span class="particle p3">❄</span>
@@ -17,11 +17,10 @@
 
     <!-- LEFT: conteúdo de texto -->
     <div class="hero-content">
-      <!-- Logo no topo -->
       <div class="hero-logo-wrap">
         <img src="/assets/img/logo/Alves_Refrigeracao_log.webp"
              class="hero-logo"
-             alt="Alves Refrigeração"
+             alt="Alves Refrigeração - Climatização e Refrigeração em Nova Lima"
              width="180"
              height="50"
              loading="eager"
@@ -29,49 +28,70 @@
       </div>
 
       <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Assistência Técnica Especializada · Nova Lima - MG
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span>Assistência Especializada · Nova Lima & Região</span>
       </div>
 
       <h1 class="hero-title">
         Especialistas em
         <span class="hero-highlight">Ar-Condicionado</span>
-        e Refrigeração
+        e Refrigeração em Nova Lima
       </h1>
 
       <p class="hero-desc">
-        <strong>Conserto especializado</strong> com garantia de 90 dias para
-        residências e comércios em <strong>Nova Lima e região</strong>.
+        Manutenção preventiva, conserto rápido e instalação qualificada com
+        <strong>garantia formal de 90 dias</strong> e atendimento em domicílio para residências e empresas.
       </p>
 
-      <ul class="hero-services">
-        <li><i class="fas fa-wind"></i> Ar-Condicionado</li>
-        <li><i class="fas fa-snowflake"></i> Geladeiras e Freezers</li>
-        <li><i class="fas fa-beer"></i> Chopeiras</li>
-        <li><i class="fas fa-tint"></i> Bebedouros</li>
+      <ul class="hero-services" aria-label="Serviços atendidos com urgência">
+        <li><i class="fas fa-wind" aria-hidden="true"></i> Ar-Condicionado</li>
+        <li><i class="fas fa-snowflake" aria-hidden="true"></i> Geladeiras e Freezers</li>
+        <li><i class="fas fa-beer" aria-hidden="true"></i> Chopeiras Comerciais</li>
+        <li><i class="fas fa-tint" aria-hidden="true"></i> Bebedouros Industriais</li>
       </ul>
 
       <div class="hero-ctas">
-        <button class="btn-gold" (click)="openWhatsApp()">
-          <i class="fab fa-whatsapp"></i> Solicitar Orçamento 
+        <button class="btn-gold"
+                type="button"
+                (click)="openWhatsApp()"
+                aria-label="Solicitar orçamento pelo WhatsApp com a equipe da Alves Refrigeração">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          <span>Solicitar Orçamento Grátis</span>
         </button>
+
+        <a class="btn-outline-white"
+           [href]="'tel:' + business.telephone"
+           aria-label="Ligar agora para a Alves Refrigeração no telefone (31) 99285-5049">
+          <i class="fas fa-phone-alt" aria-hidden="true"></i>
+          <span>Ligar: {{ business.formattedPhone }}</span>
+        </a>
       </div>
 
-      <div class="hero-trust">
-        <div class="trust-item"><i class="fas fa-shield-alt"></i> Garantia 90 dias</div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><i class="fas fa-star"></i> 5.0 Google</div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><i class="fas fa-bolt"></i> Atend. no dia</div>
+      <!-- Selos de Confiança Objetivos -->
+      <div class="hero-trust" aria-label="Garantias e credenciais">
+        <div class="trust-item">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
+          <span>Garantia formal de 90 dias</span>
+        </div>
+        <div class="trust-divider" aria-hidden="true"></div>
+        <div class="trust-item">
+          <i class="fas fa-user-check" aria-hidden="true"></i>
+          <span>Técnicos certificados</span>
+        </div>
+        <div class="trust-divider" aria-hidden="true"></div>
+        <div class="trust-item">
+          <i class="fas fa-bolt" aria-hidden="true"></i>
+          <span>Atendimento ágil em Nova Lima e BH</span>
+        </div>
       </div>
     </div>
 
-    <!-- RIGHT: mascote animado (LCP com loading="eager" e fetchpriority="high") -->
+    <!-- RIGHT: mascote animado (LCP) -->
     <div class="hero-mascote-area">
-      <div class="mascote-glow"></div>
+      <div class="mascote-glow" aria-hidden="true"></div>
       <img src="/assets/img/mascote.webp"
            class="mascote-img"
-           alt="Técnico Alves Refrigeração"
+           alt="Mascote Técnico da Alves Refrigeração uniformizado e com ferramentas"
            width="400"
            height="400"
            loading="eager"
@@ -81,9 +101,246 @@
   </div>
 
   <!-- Scroll indicator -->
-  <div class="hero-scroll-hint" [class.hero-visible]="isContentVisible">
-    <span>Role para ver mais</span>
+  <div class="hero-scroll-hint" [class.hero-visible]="isContentVisible" aria-hidden="true">
+    <span>Conheça nossos serviços</span>
     <div class="scroll-line"></div>
   </div>
+</section>
 
+<!-- SEÇÃO: SERVIÇOS EM DESTAQUE COM LINKS INTERNOS -->
+<section class="services-overview" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Nossas Especialidades</span>
+      <h2 id="services-title">Soluções Completas em Refrigeração e Climatização</h2>
+      <p class="section-subtitle">
+        Atendemos chamados residenciais, comerciais e industriais em Nova Lima, Alphaville, Vila da Serra e Grande BH.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="card-icon" aria-hidden="true">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3>Instalação de Ar-Condicionado</h3>
+        <p>Instalação de Split, Multi-Split e Inverter seguindo normas dos fabricantes para manter sua garantia original.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check" aria-hidden="true"></i> Vácuo profundo e teste de estanqueidade</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i> Suportes reforçados e acabamento limpo</li>
+        </ul>
+        <a routerLink="/servicos/instalacao-ar-condicionado"
+           class="card-link"
+           aria-label="Ver detalhes sobre instalação de ar-condicionado em Nova Lima">
+          Ver detalhes do serviço <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </article>
+
+      <article class="service-card">
+        <div class="card-icon" aria-hidden="true">
+          <i class="fas fa-snowflake"></i>
+        </div>
+        <h3>Manutenção e Limpeza de Ar</h3>
+        <p>Higienização bactericida profunda, eliminação de odores e vazamentos, recarga de gás refrigerante e reparos em placas.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check" aria-hidden="true"></i> Limpeza química conforme normas PMOC</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i> Economia na conta de energia</li>
+        </ul>
+        <a routerLink="/servicos/manutencao-ar-condicionado"
+           class="card-link"
+           aria-label="Ver detalhes sobre manutenção de ar-condicionado em Nova Lima">
+          Ver detalhes do serviço <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </article>
+
+      <article class="service-card">
+        <div class="card-icon" aria-hidden="true">
+          <i class="fas fa-temperature-low"></i>
+        </div>
+        <h3>Geladeiras e Freezers</h3>
+        <p>Conserto rápido em geladeiras Frost-Free, side-by-side e freezers. Troca de motor compressor, sensores e placas.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check" aria-hidden="true"></i> Peças novas e de procedência original</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i> Atendimento domiciliar no mesmo dia</li>
+        </ul>
+        <a routerLink="/servicos/conserto-geladeira-freezer"
+           class="card-link"
+           aria-label="Ver detalhes sobre conserto de geladeira e freezer em Nova Lima">
+          Ver detalhes do serviço <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </article>
+
+      <article class="service-card">
+        <div class="card-icon" aria-hidden="true">
+          <i class="fas fa-beer"></i>
+        </div>
+        <h3>Chopeiras e Bebedouros</h3>
+        <p>Assistência comercial e preventiva em chopeiras a gelo ou elétricas, além de bebedouros de pressão industriais.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check" aria-hidden="true"></i> Sanitização de serpentinas e linhas</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i> Manutenção de termostatos e compressores</li>
+        </ul>
+        <a routerLink="/servicos/chopeiras-bebedouros"
+           class="card-link"
+           aria-label="Ver detalhes sobre manutenção de chopeiras e bebedouros em Nova Lima">
+          Ver detalhes do serviço <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: COMO FUNCIONA O ATENDIMENTO EM 4 PASSOS -->
+<section class="process-section" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-header light">
+      <span class="section-tag light">Fluxo Transparente</span>
+      <h2 id="process-title">Como Funciona o Nosso Atendimento</h2>
+      <p class="section-subtitle light">
+        Da primeira mensagem à conclusão do conserto com segurança, rapidez e sem burocracia.
+      </p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-badge">1</div>
+        <div class="step-icon" aria-hidden="true">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <h3>Contato Imediato</h3>
+        <p>Você envia mensagem pelo WhatsApp ou liga informando o modelo do aparelho e o sintoma do defeito.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-badge">2</div>
+        <div class="step-icon" aria-hidden="true">
+          <i class="fas fa-clipboard-check"></i>
+        </div>
+        <h3>Diagnóstico Claro</h3>
+        <p>Agendamos a visita técnica no seu endereço e passamos o orçamento prévio detalhado, sem taxas surpresa.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-badge">3</div>
+        <div class="step-icon" aria-hidden="true">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3>Reparo com Peças Originais</h3>
+        <p>Após sua aprovação, o técnico realiza o reparo com ferramentas de alta precisão e componentes originais.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-badge">4</div>
+        <div class="step-icon" aria-hidden="true">
+          <i class="fas fa-award"></i>
+        </div>
+        <h3>Garantia de 90 Dias</h3>
+        <p>Testamos o equipamento em sua presença e entregamos o termo formal de garantia legal de 90 dias.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: DIFERENCIAIS DA ALVES REFRIGERAÇÃO -->
+<section class="features-section" aria-labelledby="features-title">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Nossos Diferenciais</span>
+      <h2 id="features-title">Por Que Confiar na Alves Refrigeração?</h2>
+      <p class="section-subtitle">
+        Compromisso sério com pontualidade, honestidade no diagnóstico e durabilidade dos reparos.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="feature-text">
+          <h3>Garantia Formal de 90 Dias</h3>
+          <p>Todos os serviços executados e peças trocadas contam com garantia legal por escrito, trazendo segurança absoluta ao seu investimento.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <div class="feature-text">
+          <h3>Técnicos Treinados e Qualificados</h3>
+          <p>Equipe atualizada com cursos técnicos nos principais fabricantes (LG, Samsung, Midea, Brastemp, Consul, Electrolux).</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="feature-text">
+          <h3>Atendimento Local Rápido</h3>
+          <p>Sede em Nova Lima, permitindo deslocamento rápido para condomínios residenciais, Vila da Serra, Alphaville e bairros de BH.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="feature-text">
+          <h3>Peças Novas e Originais</h3>
+          <p>Trabalhamos exclusivamente com peças novas e homologadas, aumentando significativamente a vida útil do seu eletrodoméstico.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner rápido de dúvidas com link para FAQ -->
+    <div class="faq-callout">
+      <div class="callout-content">
+        <h3>Ficou com alguma dúvida sobre valores, marcas ou prazos?</h3>
+        <p>Consulte nossa página completa de dúvidas frequentes e regiões atendidas.</p>
+      </div>
+      <a routerLink="/perguntas-frequentes"
+         class="btn-callout"
+         aria-label="Acessar página de perguntas frequentes e regiões atendidas">
+        Ver Perguntas Frequentes <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: CTA FINAL DE CONVERSÃO -->
+<section class="cta-final" aria-labelledby="cta-final-title">
+  <div class="container">
+    <div class="cta-box">
+      <div class="cta-badge">Atendimento Rápido</div>
+      <h2 id="cta-final-title">Precisa de Reparo ou Instalação Hoje?</h2>
+      <p class="cta-desc">
+        Não fique sem refrigeração. Fale diretamente com nossos especialistas por WhatsApp e receba um atendimento atencioso e sem burocracia.
+      </p>
+
+      <div class="cta-buttons">
+        <button class="btn-gold large"
+                type="button"
+                (click)="openWhatsApp()"
+                aria-label="Chamar equipe da Alves Refrigeração no WhatsApp agora">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          <span>Chamar no WhatsApp</span>
+        </button>
+
+        <a class="btn-outline-white large"
+           [href]="'tel:' + business.telephone"
+           aria-label="Ligar diretamente para (31) 99285-5049">
+          <i class="fas fa-phone-alt" aria-hidden="true"></i>
+          <span>Ligar: {{ business.formattedPhone }}</span>
+        </a>
+      </div>
+
+      <div class="cta-meta" aria-label="Informações úteis de atendimento">
+        <span><i class="fas fa-clock" aria-hidden="true"></i> Seg a Sex: 08h às 18h</span>
+        <span>•</span>
+        <span><i class="fas fa-map-pin" aria-hidden="true"></i> Atendimento em Nova Lima, BH e Região</span>
+      </div>
+    </div>
+  </div>
 </section>

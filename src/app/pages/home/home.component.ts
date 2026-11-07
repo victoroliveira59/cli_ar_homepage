@@ -20,6 +20,7 @@ import { BUSINESS_INFO } from '../../core/business-info';
 export class HomeComponent implements OnInit {
   isContentVisible = true;
   isLoading = false;
+  business = BUSINESS_INFO;
 
   constructor(
     private modalService: WhatsappModalService,
